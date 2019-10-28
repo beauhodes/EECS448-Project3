@@ -1,32 +1,60 @@
-#main.py
+# ALL IMPORTS AND ALL GLOBAL VARIABLES
+#import math # NOT USED YET
+#import random # NOT USED YET
+import pygame
+#import pygame.gfxdraw  # NOT USED YET
+#from pygame.locals import * # NOT USED YET
+from pikachu import Pikachu
 
-if __name__ == "__main__":
-    import pygame
-    import pygame.gfxdraw
-    import math
-    from pygame.locals import *
-    import random
-    from pikachu import Pikachu
-    pygame.init()
+# INITIALIZE PYGAME AND GLOBAL DISPLAY VARIABLES
+pygame.init()
+global displayWidth
+displayWidth = 1080
+global displayHeight
+displayHeight = 720
+global display
+display = pygame.display.set_mode((displayWidth, displayHeight))
+pygame.display.set_caption('EECS448 Project 3: Pokemon Battle Simulator')
 
-    disp_width = 1080
-    disp_height = 720
+# GLOBAL TEXT OBJECT VARIABLES
+global font
+font = pygame.font.Font('freesansbold.ttf', 32)
+global smallText
+smallText = pygame.font.Font('freesansbold.ttf', 36)
+global mediumText
+mediumText = pygame.font.Font('freesansbold.ttf', 48)
+global largeText
+largeText = pygame.font.Font('freesansbold.ttf', 65)
 
-    #globals
-    disp = pygame.display.set_mode((disp_width, disp_height))
-    disp.fill((192, 192, 192))
-    pygame.display.set_caption('Pokemon')
-    clock = pygame.time.Clock()
-    #call startScreen to load start screen
+# CREATES A TEXT OBJECT
+def createTextObject(textToDisplay, fontToUse):
+    textSurface = font.render(textToDisplay, True, (255, 255, 255))
+    return textSurface, textSurface.get_rect()
 
-    #testing:::::::
-    playerTest = Pikachu()
-
+# DISPLAYS THE START SCREEN
 def startScreen():
-    #choose Pokemon
-    player1 = Pikachu()
+    textPlay, textPlay_RECT = createTextObject("PLAY!", largeText)
+    textPlay_RECT.center = (displayWidth / 2, displayHeight / 1.2)
 
-#def initializeFightScreen(playerTurn):
+    playGame = True # MAIN GAME LOOP BOOLEAN VARIABLE
+    while playGame == True: # MAIN GAME LOOP
+        display.fill((192, 192, 192))
+        display.blit(textPlay, textPlay_RECT)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            pygame.display.update()
+
+# MAIN
+if __name__ == "__main__":
+    startScreen() # Call startScreen to load the start screen
+
+    #playerTest = Pikachu() # TESTER CODE
+    #player1 = Pikachu() # Choose player1's Pokemon
+
+
+#def fightScreen(playerTurn):
 
 #def playerTurn():
     #will contain everything done in one turn, will call other functions such as attack, AI attack, checkForWin, etc.
