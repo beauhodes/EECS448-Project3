@@ -6,8 +6,7 @@ if __name__ == "__main__":
     import math
     from pygame.locals import *
     import random
-    from boats import Boat
-    from player import Player
+    from pikachu import Pikachu
     pygame.init()
 
     disp_width = 1080
@@ -20,9 +19,14 @@ if __name__ == "__main__":
     clock = pygame.time.Clock()
     #call startScreen to load start screen
 
+    #testing:::::::
+    playerTest = Pikachu()
+
 def startScreen():
+    #choose Pokemon
+    player1 = Pikachu()
 
-def initializeFightScreen(playerTurn):
+#def initializeFightScreen(playerTurn):
 
-def playerTurn():
+#def playerTurn():
     #will contain everything done in one turn, will call other functions such as attack, AI attack, checkForWin, etc.
