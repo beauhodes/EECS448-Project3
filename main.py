@@ -120,9 +120,16 @@ def startScreen():
             pygame.display.update() # UPDATE THE PYGAME DISPLAY
 
 #def fightScreen(playerTurn):
+    #sets up graphics for fight screen 
 
 #def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
+    #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
+    #depending on choice, could call ThunderBoltAttack(player2) or usePotion() or whatever the choice is
+    #if attack was chosen, pop up display showing success or failure AND update the UI to show lowered enemy health if hit
+    #call AI turn
+    #AITurn will allow the AI to randomly decide what to do (will most likely attack) AND will...(cont below)
+    #will show the user a popup of what the AI did and if it was successful. AI should probably attack 90-95% of the time
 
 # MAIN
 if __name__ == "__main__":
