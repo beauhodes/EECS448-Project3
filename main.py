@@ -152,7 +152,7 @@ def startScreen():
             pygame.display.update() # UPDATE THE PYGAME DISPLAY
 
 #def fightScreen(playerTurn):
-    #sets up graphics for fight screen 
+    #sets up graphics for fight screen
 
 #def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
