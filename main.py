@@ -1,6 +1,7 @@
 # ALL IMPORTS AND ALL GLOBAL VARIABLES
 import pygame
 from pikachu import Pikachu
+import random
 #import math # NOT USED YET
 #import random # NOT USED YET
 #import pygame.gfxdraw  # NOT USED YET
@@ -160,8 +161,17 @@ def startScreen():
     #depending on choice, could call ThunderBoltAttack(player2) or usePotion() or whatever the choice is
     #if attack was chosen, pop up display showing success or failure AND update the UI to show lowered enemy health if hit
     #call AI turn
-    #AITurn will allow the AI to randomly decide what to do (will most likely attack) AND will...(cont below)
-    #will show the user a popup of what the AI did and if it was successful. AI should probably attack 90-95% of the time
+
+def AITurn():
+    AIMove = random.randint(1,101)
+    if (AIMove <= 90): #90% chance to attack
+        #attack
+        chosenAttack, result = playerAI.AIAttack() #chosenAttack will be the string of which attack was used, result was whether it worked or not
+        #display 3 second popup window of which attack was chosen and whether it worked
+        #checkForWin, if game over then exit this function and display victory screen
+    else if (AIMove <= 98 and playerAI.hasItem()): #8% chance to use item
+        #use item
+    #add 2% chance to run, need a run function to end the game
 
 # MAIN
 if __name__ == "__main__":
@@ -169,3 +179,4 @@ if __name__ == "__main__":
 
     #playerTest = Pikachu() # TESTER CODE
     #player1 = Pikachu() # CHOOSE PLAYER1'S POKEMON
+    #playerAI = # CHOOSE AI POKEMON
