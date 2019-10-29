@@ -5,15 +5,13 @@ class Pikachu:
         """
         Initialize arguments
         Args:
-        size - size of boat tile
-        coordinates - array of coordinates
+        None
         Returns:
         None
         """
-        #continue to add features
         self.name = "Pikachu"
         self.hp = 250
-        self.currentHealth =250
+        self.currentHealth = 250
         self.alive = True
 
     def doDamage(self, damageDone):
@@ -51,15 +49,25 @@ class Pikachu:
 
     def AIAttack(self, enemyPlayer):
         #randomly choose one of Pikachu's attacks and then use it
+        #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(0,5)
+        tempHealth = self.currentHealth
         if (attackToUse == 1):
             ThunderBoltAttack(enemyPlayer)
+            if (tempHealth != self.currentHealth):
+                return "ThunderBolt"
         if (attackToUse == 2):
             QuickAttack(enemyPlayer)
+            if (tempHealth != self.currentHealth):
+                return "Quick"
         if (attackToUse == 3):
             ThunderAttack(enemyPlayer)
+            if (tempHealth != self.currentHealth):
+                return "Thunder"
         if (attackToUse == 4):
             GrowlAttack(enemyPlayer)
-            
+            if (tempHealth != self.currentHealth):
+                return "Growl"
+
     def usePotion():
-        self.currentHealth = self.currentHealth + 10
+        self.currentHealth = self.currentHealth + 30
