@@ -13,6 +13,7 @@ class Pikachu:
         self.hp = 250
         self.currentHealth = 250
         self.alive = True
+        self.bag = ["healthPotion"] #will add more after project 3
 
     def doDamage(self, damageDone):
         self.currentHealth = self.currentHealth - damageDone
@@ -55,19 +56,34 @@ class Pikachu:
         if (attackToUse == 1):
             ThunderBoltAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "ThunderBolt"
+                return "ThunderBolt", True
+            else:
+                return "ThunderBolt", False
         if (attackToUse == 2):
             QuickAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "Quick"
+                return "Quick", True
+            else:
+                return "Quick", False
         if (attackToUse == 3):
             ThunderAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "Thunder"
+                return "Thunder", True
+            else:
+                return "Thunder", False
         if (attackToUse == 4):
             GrowlAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "Growl"
+                return "Growl", True
+            else:
+                return "Growl", False
 
-    def usePotion():
+    def useHealthPotion():
         self.currentHealth = self.currentHealth + 30
+        self.bag.remove("healthPotion")
+
+    def bagEmpty():
+        if (bag):
+            return False
+        else:
+            return True

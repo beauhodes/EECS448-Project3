@@ -14,6 +14,7 @@ class Charizard:
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
+        self.bag = ["healthPotion"] #will add more after project 3
 
     def doDamage(self, damageDone):
         self.currentHealth = self.currentHealth - damageDone
@@ -53,19 +54,34 @@ class Charizard:
         if (attackToUse == 1):
             HeatWaveAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "HeatWave"
+                return "HeatWave", True
+            else:
+                return "HeatWave", False
         if (attackToUse == 2):
             DragonRageAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "DragonRage"
+                return "DragonRage", True
+            else:
+                return "DragonRage", False
         if (attackToUse == 3):
             FireSpinAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "FireSpin"
+                return "FireSpin", True
+            else:
+                return "FireSpin", False
         if (attackToUse == 4):
             SlashAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "Slash"
+                return "Slash", True
+            else:
+                return "Slash", False
 
-    def usePotion():
+    def useHealthPotion():
         self.currentHealth = self.currentHealth + 30
+        self.bag.remove("healthPotion")
+
+    def bagEmpty():
+        if (bag):
+            return False
+        else:
+            return True
