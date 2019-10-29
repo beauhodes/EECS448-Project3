@@ -67,6 +67,18 @@ def trackPikachuButton_P1():
                 # (UNFINISHED) NEED TO SET VARIABLE - pokemonP1 - TO BE PIKACHU
                 print("MOUSE CLICK DETECTED ON PLAYER 1'S PIKACHU BUTTON")
 
+# (UNFINISHED) TRACKS IF PLAYER 1'S CHARIZARD BUTTON IS CLICKED
+def trackCharizardButton_P1():
+    mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
+    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
+    if displayWidth * 0.173 + 170 > mouse[0] > displayWidth * 0.173 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER 1'S CHARIZARD BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.173, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER 1'S CHARIZARD ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        # (UNFINISHED) IF PLAYER 1 AND PLAYER AI HAVE POKEMON SELECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.173, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S CHARIZARD BUTTON
+                # (UNFINISHED) NEED TO SET VARIABLE - pokemonP1 - TO BE CHARIZARD
+                print("MOUSE CLICK DETECTED ON PLAYER 1'S CHARIZARD BUTTON")
+
 # (UNFINISHED) TRACKS IF PLAYER AI'S PIKACHU BUTTON IS CLICKED
 def trackPikachuButton_AI():
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
@@ -79,6 +91,18 @@ def trackPikachuButton_AI():
                 # (UNFINISHED) NEED TO SET VARIABLE - pokemonAI - TO BE PIKACHU
                 print("MOUSE CLICK DETECTED ON PLAYER AI'S PIKACHU BUTTON")
 
+# (UNFINISHED) TRACKS IF PLAYER AI'S CHARIZARD BUTTON IS CLICKED
+def trackCharizardButton_AI():
+    mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
+    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
+    if displayWidth * 0.69 + 170 > mouse[0] > displayWidth * 0.69 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER AI'S CHARIZARD BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.69, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER AI'S CHARIZARD ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        # (UNFINISHED) IF PLAYER 1 AND PLAYER AI HAVE POKEMON SELECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.69, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S CHARIZARD BUTTON
+                # (UNFINISHED) NEED TO SET VARIABLE - pokemonAI - TO BE CHARIZARD
+                print("MOUSE CLICK DETECTED ON PLAYER AI'S CHARIZARD BUTTON")
+
 # (UNFINISHED) DISPLAYS THE START SCREEN
 def startScreen():
     # PLAYER 1'S POKEMON OPTIONS
@@ -88,6 +112,8 @@ def startScreen():
     # PLAYER 1'S POKEMON BUTTONS
     textPikachu1, textPikachu1_RECT = createTextObject("Pikachu", mediumText)
     textPikachu1_RECT.center = (displayWidth / 4, displayHeight / 5)
+    textCharizard1, textCharizard1_RECT = createTextObject("Charizard", mediumText)
+    textCharizard1_RECT.center = (displayWidth / 4, displayHeight / 3.8)
 
     # PLAYER 2'S POKEMON OPTIONS
     textPlayer2, textPlayer2_RECT = createTextObject("Player 2's Pokemon", largeText)
@@ -96,6 +122,8 @@ def startScreen():
     # PLAYER 2'S POKEMON BUTTONS
     textPikachu2, textPikachu2_RECT = createTextObject("Pikachu", mediumText)
     textPikachu2_RECT.center = (displayWidth / 1.3, displayHeight / 5)
+    textCharizard2, textCharizard2_RECT = createTextObject("Charizard", mediumText)
+    textCharizard2_RECT.center = (displayWidth / 1.3, displayHeight / 3.8)
 
     # PLAY BUTTON
     textPlay, textPlay_RECT = createTextObject("PLAY", largeText)
@@ -106,8 +134,10 @@ def startScreen():
         display.fill(WHITE) # MAKES BACKGROUND OF START SCREEN WHITE
         display.blit(textPlayer1, textPlayer1_RECT) # DISPLAYS PLAYER 1'S POKEMON
         display.blit(textPikachu1, textPikachu1_RECT) # DISPLAYS PIKACHU FOR PLAYER 1
-        display.blit(textPlayer2, textPlayer2_RECT) # DISPLAYS PLAYER 2'S POKEMON
-        display.blit(textPikachu2, textPikachu2_RECT) # DISPLAYS PIKACHU FOR PLAYER 2
+        display.blit(textCharizard1, textCharizard1_RECT) # DISPLAYS CHARIZARD FOR PLAYER 1
+        display.blit(textPlayer2, textPlayer2_RECT) # DISPLAYS PLAYER AI'S POKEMON
+        display.blit(textPikachu2, textPikachu2_RECT) # DISPLAYS PIKACHU FOR PLAYER AI
+        display.blit(textCharizard2, textCharizard2_RECT) # DISPLAYS CHARIZARD FOR PLAYER AI
         display.blit(textPlay, textPlay_RECT) # DISPLAYS PLAY
         for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
             if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
@@ -115,7 +145,9 @@ def startScreen():
                 pygame.quit() # QUIT PYGAME
                 quit() # QUIT PYTHON3
             trackPikachuButton_P1() # TRACKS IF PIKACHU BUTTON IS CLICKED BY PLAYER 1
+            trackCharizardButton_P1() # TRACKS IF CHARIZARD BUTTON IS CLICKED BY PLAYER 1
             trackPikachuButton_AI() # TRACKS IF PIKACHU BUTTON IS CLICKED BY PLAYER AI
+            trackCharizardButton_AI() # TRACKS IF CHARIZARD BUTTON IS CLICKED BY PLAYER AI
             trackPlayButton() # TRACKS IF PLAY BUTTON IS CLICKED
             pygame.display.update() # UPDATE THE PYGAME DISPLAY
 
