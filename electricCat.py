@@ -1,6 +1,6 @@
 import random
 
-class Charizard:
+class ElectricCat:
     def __init__(self):
         """
         Initialize arguments
@@ -9,10 +9,9 @@ class Charizard:
         Returns:
         None
         """
-        #continue to add features
-        self.name = "Charizard"
-        self.hp = 300
-        self.currentHealth = 300
+        self.name = "Electric Cat"
+        self.hp = 250
+        self.currentHealth = 250
         self.alive = True
         self.bag = ["healthPotion"] #will add more after project 3
 
@@ -27,54 +26,53 @@ class Charizard:
         else:
             return False
 
-    def HeatWaveAttack(self, enemyPlayer): #80 damage, 45 accuracy
-        #attack with thunder bolt
+    def LightningBoltAttack(self, enemyPlayer):
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 45):
-            enemyPlayer.doDamage(80)
+            enemyPlayer.doDamage(90)
 
-    def DragonRageAttack(self, enemyPlayer): #35 damage, 90 accuracy
+    def ElectricScratchAttack(self, enemyPlayer):
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 90):
-            enemyPlayer.doDamage(35)
+            enemyPlayer.doDamage(40)
 
-    def FireSpinAttack(self, enemyPlayer): #140 damage, 30 accuracy
+    def EnergyBeamAttack(self, enemyPlayer):
         chanceToHit = random.randint(1,101)
-        if (chanceToHit <= 30):
-            enemyPlayer.doDamage(140)
+        if (chanceToHit <= 40):
+            enemyPlayer.doDamage(110)
 
-    def SlashAttack(self, enemyPlayer): #20 damage, 100 accuracy
+    def BiteAttack(self, enemyPlayer):
         enemyPlayer.doDamage(20)
 
     def AIAttack(self, enemyPlayer):
-        #randomly choose one of Charizard's attacks and then use it
+        #randomly choose one of Electric Cat's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(0,5)
         tempHealth = self.currentHealth
         if (attackToUse == 1):
-            HeatWaveAttack(enemyPlayer)
+            LightningBoltAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "HeatWave", True
+                return "LightningBolt", True
             else:
-                return "HeatWave", False
+                return "LightningBolt", False
         if (attackToUse == 2):
-            DragonRageAttack(enemyPlayer)
+            ElectricScratchAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "DragonRage", True
+                return "ElectricScratch", True
             else:
-                return "DragonRage", False
+                return "ElectricScratch", False
         if (attackToUse == 3):
-            FireSpinAttack(enemyPlayer)
+            EnergyBeamAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "FireSpin", True
+                return "EnergyBeam", True
             else:
-                return "FireSpin", False
+                return "EnergyBeam", False
         if (attackToUse == 4):
-            SlashAttack(enemyPlayer)
+            BiteAttack(enemyPlayer)
             if (tempHealth != self.currentHealth):
-                return "Slash", True
+                return "Bite", True
             else:
-                return "Slash", False
+                return "Bite", False
 
     def useHealthPotion():
         self.currentHealth = self.currentHealth + 30
