@@ -113,10 +113,14 @@ def trackProgmonButtons_AI():
 
 # (UNFINISHED) TRACKS IF BATTLE MENU BUTTONS ARE CLICKED
 def trackBattleMenuButtons():
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.665 + 110 > mouse[0] > displayWidth * 0.665 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF FIGHT BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.665, displayHeight * 0.8, 110, 40), 5) # BOX AROUND FIGHT ON MOUSE-HOVER
+        pygame.draw.rect(display, RED, (displayWidth * 0.665, displayHeight * 0.805, 110, 40), 5) # BOX AROUND FIGHT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
@@ -134,7 +138,7 @@ def trackBattleMenuButtons():
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.865, displayHeight * 0.88, 95, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR QUIT BUTTON
-                print("MOUSE CLICK DETECTED ON QUIT BUTTON") # TESTER CODE
+                print("Quitting...")
                 pygame.quit()
                 quit()
 
@@ -212,16 +216,17 @@ def handleScreen(gameState):
             elif progmonP1 == "FireDragon":
                 progmonNameP1 = "Fire Dragon"
                 #progmonImageP1 = pygame.image.load('FireDragon.jpg')
-            # (UNFINISHED) CREATE PLAYER 1 TEXT OBJECT
+            # CREATE NAME FOR PLAYER 1
+            textNameP1, textNameP1_RECT = createTextObject("Player 1", largeText)
+            textNameP1_RECT.center = (displayWidth / 4.5, displayHeight / 30)
 
+            # CREATE NAME FOR PLAYER 1'S PROGMON
             textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, largeText)
-            textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 15)
+            textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 10)
 
             # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER 1'S PROGMON
             textProgmonHealthP1, textProgmonHealthP1_RECT = createTextObject("HEALTH", largeText)
-            textProgmonHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 9)
-
-            # (UNFINISHED) CREATE BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+            textProgmonHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 6)
 
             # (UNFINISHED) DISPLAY PLAYER 1'S PROGMON IMAGE
 
@@ -232,20 +237,21 @@ def handleScreen(gameState):
             elif progmonAI == "FireDragon":
                 progmonNameAI = "Fire Dragon"
                 #progmonImageAI = pygame.image.load('FireDragon.jpg')
-            # (UNFINISHED) CREATE PLAYER AI TEXT OBJECT
+            # CREATE NAME FOR PLAYER AI
+            textNameAI, textNameAI_RECT = createTextObject("Player AI", largeText)
+            textNameAI_RECT.center = (displayWidth / 1.3, displayHeight / 30)
 
+            # CREATE NAME FOR PLAYER AI'S PROGMON
             textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, largeText)
-            textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 15)
+            textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 10)
 
             # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER AI'S PROGMON
             textProgmonHealthAI, textProgmonHealthAI_RECT = createTextObject("HEALTH", largeText)
-            textProgmonHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 9)
-
-            # (UNFINISHED) CREATE BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+            textProgmonHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 6)
 
             # (UNFINISHED) DISPLAY PLAYER AI'S PROGMON IMAGE
 
-            # (UNFINISHED) CREATE BATTLE MENU OPTIONS
+            # CREATE BATTLE MENU OPTIONS
             textFight, textFight_RECT = createTextObject("FIGHT", largeText)
             textFight_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
             textBag, textBag_RECT = createTextObject("BAG", largeText)
@@ -255,11 +261,11 @@ def handleScreen(gameState):
             textQuit, textQuit_RECT = createTextObject("QUIT", largeText)
             textQuit_RECT.center = (displayWidth / 1.1, displayHeight / 1.1)
 
-            # (UNFINISHED) CREATE BOX AROUND BATTLE MENU OPTIONS
-
             display.fill(WHITE) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
+            display.blit(textNameP1, textNameP1_RECT) # DISPLAYS PLAYER 1'S NAME
             display.blit(textProgmonP1, textProgmonP1_RECT) # DISPLAYS PLAYER 1'S PROGMON NAME
             display.blit(textProgmonHealthP1, textProgmonHealthP1_RECT) # DISPLAYS PLAYER 1'S PROGMON HEALTH
+            display.blit(textNameAI, textNameAI_RECT) # DISPLAYS PLAYER AI'S NAME
             display.blit(textProgmonAI, textProgmonAI_RECT) # DISPLAYS PLAYER AI'S PROGMON NAME
             display.blit(textProgmonHealthAI, textProgmonHealthAI_RECT) # DISPLAYS PLAYER AI'S PROGMON HEALTH
             display.blit(textFight, textFight_RECT) # DISPLAYS FIGHT BATTLE OPTION
@@ -268,7 +274,6 @@ def handleScreen(gameState):
             display.blit(textQuit, textQuit_RECT) # DISPLAYS QUIT BATTLE OPTION
 
             trackBattleMenuButtons()
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
