@@ -47,8 +47,8 @@ def createTextObject(textToDisplay, fontToUse):
 # CHECKS IF (x, y) IS INSIDE OF (rect.x, rect.y)
 def isPointInRect(x, y, rect):
     if x < rect.x + rect.width and x > rect.x and y < rect.y + rect.height and y > rect.y:
-        return True # (x, y) IS INSIDE OF (rect.x, rect.y)
-    return False # (x, y) IS NOT INSIDE OF (rect.x, rect.y)
+        return True
+    return False
 
 # TRACKS IF THE PLAY BUTTON IS CLICKED
 def trackPlayButton():
@@ -62,7 +62,7 @@ def trackPlayButton():
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if progmonP1 != "" and progmonAI != "": # IF PLAYER 1 AND PLAYER AI HAVE PROGMON SELECTED
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.45, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAY BUTTON
-                    print("MOUSE CLICK DETECTED ON PLAY BUTTON") # TESTER CODE
+                    #print("MOUSE CLICK DETECTED ON PLAY BUTTON") # TESTER CODE
                     gameState = "fightScreen"
                     handleScreen(gameState) # "SWITCHES" THE PYGAME DISPLAY SCREEN
             else:
@@ -76,19 +76,19 @@ def trackProgmonButtons_P1():
     global progmonP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.19 + 130 > mouse[0] > displayWidth * 0.19 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.19, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER 1'S ELECTRICCAT ON MOUSE-HOVER
+    if displayWidth * 0.16 + 200 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.16, displayHeight * 0.17, 200, 40), 5) # BOX AROUND PLAYER 1'S ELECTRICCAT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.19, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S ELECTRICCAT BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER 1'S ELECTRICCAT BUTTON") # TESTER CODE
-                progmonP1 = "ElectricCat" # GLOBAL progmonP1 VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.16, displayHeight * 0.17, 200, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S ELECTRICCAT BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER 1'S ELECTRICCAT BUTTON") # TESTER CODE
+                progmonP1 = "ElectricCat"
                 print("progmonP1", progmonP1) # TESTER CODE
-    elif displayWidth * 0.173 + 170 > mouse[0] > displayWidth * 0.173 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER 1'S FIREDRAGON BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.173, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER 1'S FIREDRAGON ON MOUSE-HOVER
+    elif displayWidth * 0.16 + 190 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER 1'S FIREDRAGON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.16, displayHeight * 0.235, 190, 40), 5) # BOX AROUND PLAYER 1'S FIREDRAGON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.173, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S FIREDRAGON BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER 1'S FIREDRAGON BUTTON") # TESTER CODE
-                progmonP1 = "FireDragon" # GLOBAL progmonP1 VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.16, displayHeight * 0.235, 190, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S FIREDRAGON BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER 1'S FIREDRAGON BUTTON") # TESTER CODE
+                progmonP1 = "FireDragon"
                 print("progmonP1", progmonP1) # TESTER CODE
 
 # (UNFINISHED) TRACKS IF PLAYER AI'S PROGMON BUTTONS ARE CLICKED
@@ -96,19 +96,19 @@ def trackProgmonButtons_AI():
     global progmonAI
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.71 + 130 > mouse[0] > displayWidth * 0.71 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.71, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER AI'S ELECTRICCAT ON MOUSE-HOVER
+    if displayWidth * 0.68 + 200 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.17, 200, 40), 5) # BOX AROUND PLAYER AI'S ELECTRICCAT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.71, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S ELECTRICCAT BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER AI'S ELECTRICCAT BUTTON") # TESTER CODE
-                progmonAI = "ELECTRICCAT" # GLOBAL progmonAI VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.17, 200, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S ELECTRICCAT BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER AI'S ELECTRICCAT BUTTON") # TESTER CODE
+                progmonAI = "ElectricCat"
                 print("progmonAI", progmonAI) # TESTER CODE
-    elif displayWidth * 0.69 + 170 > mouse[0] > displayWidth * 0.69 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER AI'S FIREDRAGON BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.69, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER AI'S FIREDRAGON ON MOUSE-HOVER
+    elif displayWidth * 0.68 + 190 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER AI'S FIREDRAGON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.235, 190, 40), 5) # BOX AROUND PLAYER AI'S FIREDRAGON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.69, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S FIREDRAGON BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER AI'S FIREDRAGON BUTTON") # TESTER CODE
-                progmonAI = "FireDragon" # GLOBAL progmonAI VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.235, 190, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S FIREDRAGON BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER AI'S FIREDRAGON BUTTON") # TESTER CODE
+                progmonAI = "FireDragon"
                 print("progmonAI", progmonAI) # TESTER CODE
 
 # (UNFINISHED) HANDLES CONTROL OF GAMESTATE'S
@@ -120,9 +120,9 @@ def handleScreen(gameState):
             textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 8)
 
             # PLAYER 1'S PROGMON BUTTONS
-            textElectricCat1, textElectricCat1_RECT = createTextObject("ElectricCat", mediumText)
+            textElectricCat1, textElectricCat1_RECT = createTextObject("Electric Cat", mediumText)
             textElectricCat1_RECT.center = (displayWidth / 4, displayHeight / 5)
-            textFireDragon1, textFireDragon1_RECT = createTextObject("FireDragon", mediumText)
+            textFireDragon1, textFireDragon1_RECT = createTextObject("Fire Dragon", mediumText)
             textFireDragon1_RECT.center = (displayWidth / 4, displayHeight / 3.8)
 
             # (UNFINISHED) PLAYER 1'S PROGMON IMAGES
@@ -138,9 +138,9 @@ def handleScreen(gameState):
             textPlayerAI_RECT.center = (displayWidth / 1.3, displayHeight / 8)
 
             # PLAYER AI'S PROGMON BUTTONS
-            textElectricCatAI, textElectricCatAI_RECT = createTextObject("ElectricCat", mediumText)
+            textElectricCatAI, textElectricCatAI_RECT = createTextObject("Electric Cat", mediumText)
             textElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 5)
-            textFireDragonAI, textFireDragonAI_RECT = createTextObject("FireDragon", mediumText)
+            textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", mediumText)
             textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 3.8)
 
             # (UNFINISHED) PLAYER AI'S PROGMON IMAGES
@@ -168,23 +168,21 @@ def handleScreen(gameState):
             display.blit(textElectricCatAI, textElectricCatAI_RECT) # DISPLAYS ElectricCat FOR PLAYER AI
             display.blit(textFireDragonAI, textFireDragonAI_RECT) # DISPLAYS FireDragon FOR PLAYER AI
             display.blit(textPlay, textPlay_RECT) # DISPLAYS PLAY
-            trackProgmonButtons_P1() # TRACKS IF PLAYER 1 HAS SELECTED A PROGMON
-            trackProgmonButtons_AI() # TRACKS IF PLAYER AI HAS SELECTED A PROGMON
-            trackPlayButton() # TRACKS IF PLAY BUTTON IS CLICKED
-            for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
-                if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
-                    playGame = False # STOP RUNNING THE PROGRAM
-                    pygame.quit() # QUIT PYGAME
-                    quit() # QUIT PYTHON3
-                pygame.display.update() # UPDATE THE PYGAME DISPLAY
+            trackProgmonButtons_P1()
+            trackProgmonButtons_AI()
+            trackPlayButton()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                pygame.display.update()
         while gameState == "fightScreen":
             display.fill(BLACK) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
-            for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
-                if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
-                    playGame = False # STOP RUNNING THE PROGRAM
-                    pygame.quit() # QUIT PYGAME
-                    quit() # QUIT PYTHON3
-                pygame.display.update() # UPDATE THE PYGAME DISPLAY
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                pygame.display.update()
 
 def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
