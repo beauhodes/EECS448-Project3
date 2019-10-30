@@ -1,11 +1,7 @@
 # ALL IMPORTS AND ALL GLOBAL VARIABLES
-import pygame
-from pikachu import Pikachu
 import random
-#import math # NOT USED YET
-#import random # NOT USED YET
-#import pygame.gfxdraw  # NOT USED YET
-#from pygame.locals import * # NOT USED YET
+import pygame
+from electricCat import ElectricCat
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY VARIABLES
 pygame.init()
@@ -15,7 +11,7 @@ global displayHeight
 displayHeight = 720
 global display
 display = pygame.display.set_mode((displayWidth, displayHeight))
-pygame.display.set_caption('EECS448 Project 3: Pokemon Battle Simulator')
+pygame.display.set_caption('EECS448 Project 3: Progmon Battle Simulator')
 
 # GLOBAL TEXT OBJECT VARIABLES
 global BLACK
@@ -33,11 +29,15 @@ mediumText = pygame.font.Font('freesansbold.ttf', 48)
 global largeText
 largeText = pygame.font.Font('freesansbold.ttf', 65)
 
-# GLOBAL PLAYER POKEMON VARIABLES
-global pokemonP1
-pokemonP1 = ""
-global pokemonAI
-pokemonAI = ""
+# GLOBAL PLAYER PROGMON VARIABLES
+global progmonP1
+progmonP1 = ""
+global progmonAI
+progmonAI = ""
+
+# GLOBAL GAME STATE VARIABLE
+global gameState
+gameState = ""
 
 # CREATES A TEXT OBJECT
 def createTextObject(textToDisplay, fontToUse):
@@ -50,146 +50,141 @@ def isPointInRect(x, y, rect):
         return True # (x, y) IS INSIDE OF (rect.x, rect.y)
     return False # (x, y) IS NOT INSIDE OF (rect.x, rect.y)
 
-# (UNFINISHED) TRACKS IF THE PLAY BUTTON IS CLICKED
+# TRACKS IF THE PLAY BUTTON IS CLICKED
 def trackPlayButton():
-    global pokemonP1
-    global pokemonAI
+    global progmonP1
+    global progmonAI
+    global gameState
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.45 + 110 > mouse[0] > displayWidth * 0.45 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF PLAY BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.45, displayHeight * 0.805, 110, 40), 5) # BOX AROUND PLAY ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if pokemonP1 != "" and pokemonAI != "": # IF PLAYER 1 AND PLAYER AI HAVE POKEMON SELECTED
+            if progmonP1 != "" and progmonAI != "": # IF PLAYER 1 AND PLAYER AI HAVE PROGMON SELECTED
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.45, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAY BUTTON
-                    # (UNFINISHED) THIS IS WHERE WINDOW SWITCH SHOULD OCCUR
                     print("MOUSE CLICK DETECTED ON PLAY BUTTON") # TESTER CODE
-                    fightScreen(1) # (UNFINISHED) LET HUMAN = 1; AI = 2
-            else: # (UNFINISHED) PLAYER 1 AND/OR PLAYER AI HAVE NOT SELECTED THEIR POKEMON
-                print("FAILURE ON POKEMON SELECTION") # TESTER CODE
+                    gameState = "fightScreen"
+                    handleScreen(gameState) # "SWITCHES" THE PYGAME DISPLAY SCREEN
+            else:
+                if progmonP1 == "":
+                    print("ERROR: Player 1 needs to select a Progmon to play with.")
+                elif progmonAI == "":
+                    print("ERROR: Player AI needs to select a Progmon to play with.")
 
-# (UNFINISHED) TRACKS IF PLAYER 1'S PIKACHU BUTTON IS CLICKED
-def trackPikachuButton_P1():
-    global pokemonP1
+# (UNFINISHED) TRACKS IF PLAYER 1'S PROGMON BUTTONS ARE CLICKED
+def trackProgmonButtons_P1():
+    global progmonP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.19 + 130 > mouse[0] > displayWidth * 0.19 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER 1'S PIKACHU BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.19, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER 1'S PIKACHU ON MOUSE-HOVER
+    if displayWidth * 0.19 + 130 > mouse[0] > displayWidth * 0.19 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.19, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER 1'S ELECTRICCAT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.19, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S PIKACHU BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER 1'S PIKACHU BUTTON") # TESTER CODE
-                pokemonP1 = "Pikachu" # GLOBAL pokemonP1 VARIABLE
-                print("pokemonP1", pokemonP1) # TESTER CODE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.19, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S ELECTRICCAT BUTTON
+                print("MOUSE CLICK DETECTED ON PLAYER 1'S ELECTRICCAT BUTTON") # TESTER CODE
+                progmonP1 = "ElectricCat" # GLOBAL progmonP1 VARIABLE
+                print("progmonP1", progmonP1) # TESTER CODE
+    elif displayWidth * 0.173 + 170 > mouse[0] > displayWidth * 0.173 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER 1'S FIREDRAGON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.173, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER 1'S FIREDRAGON ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.173, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S FIREDRAGON BUTTON
+                print("MOUSE CLICK DETECTED ON PLAYER 1'S FIREDRAGON BUTTON") # TESTER CODE
+                progmonP1 = "FireDragon" # GLOBAL progmonP1 VARIABLE
+                print("progmonP1", progmonP1) # TESTER CODE
 
-# (UNFINISHED) TRACKS IF PLAYER 1'S CHARIZARD BUTTON IS CLICKED
-def trackCharizardButton_P1():
-    global pokemonP1
+# (UNFINISHED) TRACKS IF PLAYER AI'S PROGMON BUTTONS ARE CLICKED
+def trackProgmonButtons_AI():
+    global progmonAI
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.173 + 170 > mouse[0] > displayWidth * 0.173 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER 1'S CHARIZARD BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.173, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER 1'S CHARIZARD ON MOUSE-HOVER
+    if displayWidth * 0.71 + 130 > mouse[0] > displayWidth * 0.71 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.71, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER AI'S ELECTRICCAT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.173, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S CHARIZARD BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER 1'S CHARIZARD BUTTON") # TESTER CODE
-                pokemonP1 = "Charizard" # GLOBAL pokemonP1 VARIABLE
-                print("pokemonP1", pokemonP1) # TESTER CODE
-
-# (UNFINISHED) TRACKS IF PLAYER AI'S PIKACHU BUTTON IS CLICKED
-def trackPikachuButton_AI():
-    global pokemonAI
-    mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
-    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.71 + 130 > mouse[0] > displayWidth * 0.71 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER AI'S PIKACHU BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.71, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER AI'S PIKACHU ON MOUSE-HOVER
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.71, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S ELECTRICCAT BUTTON
+                print("MOUSE CLICK DETECTED ON PLAYER AI'S ELECTRICCAT BUTTON") # TESTER CODE
+                progmonAI = "ELECTRICCAT" # GLOBAL progmonAI VARIABLE
+                print("progmonAI", progmonAI) # TESTER CODE
+    elif displayWidth * 0.69 + 170 > mouse[0] > displayWidth * 0.69 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER AI'S FIREDRAGON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.69, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER AI'S FIREDRAGON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.71, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S PIKACHU BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER AI'S PIKACHU BUTTON") # TESTER CODE
-                pokemonAI = "Pikachu" # GLOBAL pokemonAI VARIABLE
-                print("pokemonAI", pokemonAI) # TESTER CODE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.69, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S FIREDRAGON BUTTON
+                print("MOUSE CLICK DETECTED ON PLAYER AI'S FIREDRAGON BUTTON") # TESTER CODE
+                progmonAI = "FireDragon" # GLOBAL progmonAI VARIABLE
+                print("progmonAI", progmonAI) # TESTER CODE
 
-# (UNFINISHED) TRACKS IF PLAYER AI'S CHARIZARD BUTTON IS CLICKED
-def trackCharizardButton_AI():
-    global pokemonAI
-    mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
-    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.69 + 170 > mouse[0] > displayWidth * 0.69 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER AI'S CHARIZARD BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.69, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER AI'S CHARIZARD ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.69, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S CHARIZARD BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER AI'S CHARIZARD BUTTON") # TESTER CODE
-                pokemonAI = "Charizard" # GLOBAL pokemonAI VARIABLE
-                print("pokemonAI", pokemonAI) # TESTER CODE
+# (UNFINISHED) HANDLES CONTROL OF GAMESTATE'S
+def handleScreen(gameState):
+    if gameState == "startScreen" or gameState == "fightScreen":
+        while gameState == "startScreen":
+            # PLAYER 1'S PROGMON OPTIONS
+            textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Progmon", largeText)
+            textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 8)
 
-# (UNFINISHED) DISPLAYS THE START SCREEN
-def startScreen():
-    # PLAYER 1'S POKEMON OPTIONS
-    textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Pokemon", largeText)
-    textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 8)
+            # PLAYER 1'S PROGMON BUTTONS
+            textElectricCat1, textElectricCat1_RECT = createTextObject("ElectricCat", mediumText)
+            textElectricCat1_RECT.center = (displayWidth / 4, displayHeight / 5)
+            textFireDragon1, textFireDragon1_RECT = createTextObject("FireDragon", mediumText)
+            textFireDragon1_RECT.center = (displayWidth / 4, displayHeight / 3.8)
 
-    # PLAYER 1'S POKEMON BUTTONS
-    textPikachu1, textPikachu1_RECT = createTextObject("Pikachu", mediumText)
-    textPikachu1_RECT.center = (displayWidth / 4, displayHeight / 5)
-    textCharizard1, textCharizard1_RECT = createTextObject("Charizard", mediumText)
-    textCharizard1_RECT.center = (displayWidth / 4, displayHeight / 3.8)
+            # (UNFINISHED) PLAYER 1'S PROGMON IMAGES
+            # imageElectricCat = pygame.image.load('ElectricCat.jpg')
+            # imageElectricCat_RECT = imageElectricCat.get_rect()
+            # imageElectricCat_RECT.center = (displayWidth / 6, displayHeight / 5.5)
+            # imageFireDragon = pygame.image.load('FireDragon.jpg')
+            # imageFireDragon_RECT = imageFireDragon.get_rect()
+            # imageFireDragon_RECT.center = (displayWidth / 7.5, displayHeight / 3.8)
 
-    # PLAYER 2'S POKEMON OPTIONS
-    textPlayer2, textPlayer2_RECT = createTextObject("Player 2's Pokemon", largeText)
-    textPlayer2_RECT.center = (displayWidth / 1.3, displayHeight / 8)
+            # PLAYER AI'S PROGMON OPTIONS
+            textPlayerAI, textPlayerAI_RECT = createTextObject("Player AI's Progmon", largeText)
+            textPlayerAI_RECT.center = (displayWidth / 1.3, displayHeight / 8)
 
-    # PLAYER 2'S POKEMON BUTTONS
-    textPikachu2, textPikachu2_RECT = createTextObject("Pikachu", mediumText)
-    textPikachu2_RECT.center = (displayWidth / 1.3, displayHeight / 5)
-    textCharizard2, textCharizard2_RECT = createTextObject("Charizard", mediumText)
-    textCharizard2_RECT.center = (displayWidth / 1.3, displayHeight / 3.8)
+            # PLAYER AI'S PROGMON BUTTONS
+            textElectricCatAI, textElectricCatAI_RECT = createTextObject("ElectricCat", mediumText)
+            textElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 5)
+            textFireDragonAI, textFireDragonAI_RECT = createTextObject("FireDragon", mediumText)
+            textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 3.8)
 
-    # PLAY BUTTON
-    textPlay, textPlay_RECT = createTextObject("PLAY", largeText)
-    textPlay_RECT.center = (displayWidth / 2, displayHeight / 1.2)
+            # (UNFINISHED) PLAYER AI'S PROGMON IMAGES
+            # imageElectricCat2 = pygame.image.load('ElectricCat.jpg')
+            # imageElectricCat2_RECT = imageElectricCat2.get_rect()
+            # imageElectricCat2_RECT.center = (displayWidth / 1.45, displayHeight / 5.5)
+            # imageFireDragon2 = pygame.image.load('FireDragon.jpg')
+            # imageFireDragon2_RECT = imageFireDragon2.get_rect()
+            # imageFireDragon2_RECT.center = (displayWidth / 1.52, displayHeight / 3.8)
 
-    #Pokemon Image Icons
-#     imagePikachu = pygame.image.load('Pikachu.jpg')
-#     imagePikachu_RECT = imagePikachu.get_rect()
-#     imagePikachu_RECT.center = (displayWidth / 6, displayHeight / 5.5)
-#     imageChar = pygame.image.load('Charizard.jpg')
-#     imageChar_RECT = imageChar.get_rect()
-#     imageChar_RECT.center = (displayWidth / 7.5, displayHeight / 3.8)
-#     imagePikachu2 = pygame.image.load('Pikachu.jpg')
-#     imagePikachu2_RECT = imagePikachu2.get_rect()
-#     imagePikachu2_RECT.center = (displayWidth / 1.45, displayHeight / 5.5)
-#     imageChar2 = pygame.image.load('Charizard.jpg')
-#     imageChar2_RECT = imageChar2.get_rect()
-#     imageChar2_RECT.center = (displayWidth / 1.52, displayHeight / 3.8)
+            # PLAY BUTTON
+            textPlay, textPlay_RECT = createTextObject("PLAY", largeText)
+            textPlay_RECT.center = (displayWidth / 2, displayHeight / 1.2)
 
-    playGame = True # MAIN GAME LOOP BOOLEAN VARIABLE
-    while playGame == True: # MAIN GAME LOOP
-        display.fill(WHITE) # MAKES BACKGROUND OF START SCREEN WHITE
-#         display.blit(imagePikachu, imagePikachu_RECT)
-#         display.blit(imageChar, imageChar_RECT)
-#         display.blit(imagePikachu2, imagePikachu2_RECT)
-#         display.blit(imageChar2, imageChar2_RECT)
-        display.blit(textPlayer1, textPlayer1_RECT) # DISPLAYS PLAYER 1'S POKEMON
-        display.blit(textPikachu1, textPikachu1_RECT) # DISPLAYS PIKACHU FOR PLAYER 1
-        display.blit(textCharizard1, textCharizard1_RECT) # DISPLAYS CHARIZARD FOR PLAYER 1
-        display.blit(textPlayer2, textPlayer2_RECT) # DISPLAYS PLAYER AI'S POKEMON
-        display.blit(textPikachu2, textPikachu2_RECT) # DISPLAYS PIKACHU FOR PLAYER AI
-        display.blit(textCharizard2, textCharizard2_RECT) # DISPLAYS CHARIZARD FOR PLAYER AI
-        display.blit(textPlay, textPlay_RECT) # DISPLAYS PLAY
-        for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
-            if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
-                playGame = False # STOP RUNNING THE PROGRAM
-                pygame.quit() # QUIT PYGAME
-                quit() # QUIT PYTHON3
-            trackPikachuButton_P1() # TRACKS IF PIKACHU BUTTON IS CLICKED BY PLAYER 1
-            trackCharizardButton_P1() # TRACKS IF CHARIZARD BUTTON IS CLICKED BY PLAYER 1
-            trackPikachuButton_AI() # TRACKS IF PIKACHU BUTTON IS CLICKED BY PLAYER AI
-            trackCharizardButton_AI() # TRACKS IF CHARIZARD BUTTON IS CLICKED BY PLAYER AI
+            # (UNFINISHED) DISPLAY TEXT OBJECTS AND IMAGES
+            display.fill(WHITE) # MAKES BACKGROUND OF START SCREEN WHITE
+            # display.blit(imageElectricCat, imageElectricCat_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER 1
+            # display.blit(imageFireDragon, imageFireDragon_RECT) # DISPLAYS FireDragon IMAGE FOR PLAYER 1
+            display.blit(textPlayer1, textPlayer1_RECT) # DISPLAYS PLAYER 1'S PROGMON
+            display.blit(textElectricCat1, textElectricCat1_RECT) # DISPLAYS ElectricCat FOR PLAYER 1
+            display.blit(textFireDragon1, textFireDragon1_RECT) # DISPLAYS FireDragon FOR PLAYER 1
+            # display.blit(imageElectricCat2, imageElectricCat2_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER AI
+            # display.blit(imageFireDragon2, imageFireDragon2_RECT) # DISPLAYS FireDragon IMAGE FOR PLAYER AI
+            display.blit(textPlayerAI, textPlayerAI_RECT) # DISPLAYS PLAYER AI'S PROGMON
+            display.blit(textElectricCatAI, textElectricCatAI_RECT) # DISPLAYS ElectricCat FOR PLAYER AI
+            display.blit(textFireDragonAI, textFireDragonAI_RECT) # DISPLAYS FireDragon FOR PLAYER AI
+            display.blit(textPlay, textPlay_RECT) # DISPLAYS PLAY
+            trackProgmonButtons_P1() # TRACKS IF PLAYER 1 HAS SELECTED A PROGMON
+            trackProgmonButtons_AI() # TRACKS IF PLAYER AI HAS SELECTED A PROGMON
             trackPlayButton() # TRACKS IF PLAY BUTTON IS CLICKED
-            pygame.display.update() # UPDATE THE PYGAME DISPLAY
-
-# (UNFINISHED) SETS UP GRAPHICS FOR THE FIGHT SCREEN
-def fightScreen(playerTurn):
-    print("fightScreen") # TESTER CODE
-    display.fill(BLACK)
-    pygame.display.update()
+            for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
+                if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
+                    playGame = False # STOP RUNNING THE PROGRAM
+                    pygame.quit() # QUIT PYGAME
+                    quit() # QUIT PYTHON3
+                pygame.display.update() # UPDATE THE PYGAME DISPLAY
+        while gameState == "fightScreen":
+            display.fill(BLACK) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
+            for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
+                if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
+                    playGame = False # STOP RUNNING THE PROGRAM
+                    pygame.quit() # QUIT PYGAME
+                    quit() # QUIT PYTHON3
+                pygame.display.update() # UPDATE THE PYGAME DISPLAY
 
 def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
@@ -198,29 +193,29 @@ def playerTurn():
     playerMove = "variable that contains ATTACK or USE_POTION ... can add others" #ex: clicking "attack" in GUI would then set this string to ATTACK
 
     if(playerMove == "ATTACK"): #or ----- if (FIGHT == True):
-        #depends on which attack P1 chooses; ex if P1 is pikachu & they chppse... pokemonP1.ThunderBoltAttack()
-        pokemonP1.RoarAttack(pokemonP1, pokemonAI);
+        #depends on which attack P1 chooses; ex if P1 is ElectricCat & they chppse... progmonP1.ThunderBoltAttack()
+        progmonP1.ThunderBoltAttack(progmonP1, progmonAI);
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
 
-        # if pokemonAI.checkAlive() == False
-        #     pokemonAI.faint()
+        # if progmonAI.checkAlive() == False
+        #     progmonAI.faint()
         #     fight over
 
     elif(playerMove == "BAG"):
-        if (pokemonP1.bagEmpty()):
-            print("This player has nothing in their bad")   #Display some message to the player "BAG IS EMPTY"
+        if (progmonP1.bagEmpty()):
+            print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
         else:
             #change the player UI to ask what they want to do
-            pokemonP1.useHealthPotion() #for this implementation, all we can use is health potions
+            progmonP1.useHealthPotion() #for this implementation, all we can use is health potions
             AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
 
     elif(playerMove == "RUN"):
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
         pygame.quit()
 
-    elif(playerMove == "POKEMON"):  #nothing for this is done, just an example
-        pokemonP1.switchPokemon()
+    elif(playerMove == "PROGMON"):  #nothing for this is done, just an example
+        progmonP1.switchProgmon()
 
 
     AITurn()    #after player's turn is over, let AI go
@@ -240,20 +235,20 @@ def AITurn():
     # #add 2% chance to run, need a run function to end the game
 
     # FOR BETA-VERSION (PROJECT 3 VERSION)
-    # MAKE SOME VARIABLE/DEF THAT SAYS IF POKEMON IS IN CRITICAL CONDITION
-    if(pokemonP1.currentHealth == critical):    #if P1 currently set-up pokemon is in critical condition - attack them
-        pokemonAI.AIAttack(pokemonAI, pokemonP1)
+    # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
+    if(progmonP1.currentHealth == critical):    #if P1 currently set-up progmon is in critical condition - attack them
+        progmonAI.AIAttack(progmonAI, progmonP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
-    elif(pokemonAI.currentHealth == critical and pokemonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
+    elif(progmonAI.currentHealth == critical and progmonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
         pygame.quit()
 
-    elif(pokemonAI.currentHealth == critical):  #if AI is low, it will use potion
-        pokemonAI.useHealthPotion()
+    elif(progmonAI.currentHealth == critical):  #if AI is low, it will use potion
+        progmonAI.useHealthPotion()
 
-    else:   # if pokemonP1 is not low and AI is not low, then all we can do is attack the other player
-        pokemonAI.AIAttack(pokemonAI, pokemonP1)
+    else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
+        progmonAI.AIAttack(progmonAI, progmonP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
 
@@ -261,8 +256,5 @@ def AITurn():
 
 # MAIN
 if __name__ == "__main__":
-    startScreen() # CALL startScreen TO LOAD THE START SCREEN
-
-    #playerTest = Pikachu() # TESTER CODE
-    #player1 = Pikachu() # CHOOSE PLAYER1'S POKEMON
-    #playerAI = # CHOOSE AI POKEMON
+    gameState = "startScreen"
+    handleScreen(gameState) # LOADS THE START SCREEN
