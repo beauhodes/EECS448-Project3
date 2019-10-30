@@ -228,7 +228,6 @@ def playerTurn():
 
 
 def AITurn():
-<<<<<<< HEAD
     # AIMove = random.randint(1,101)
     # if (AIMove <= 90): #90% chance to attack
     #     #attack
@@ -259,17 +258,6 @@ def AITurn():
         #update player's health in the UI
 
     playerTurn()    #after turn is over, let the player go
-=======
-    AIMove = random.randint(1,101)
-    if (AIMove <= 90): #90% chance to attack
-        #attack
-        chosenAttack, result = playerAI.AIAttack() #chosenAttack will be the string of which attack was used, result was whether it worked or not
-        #display 3 second popup window of which attack was chosen and whether it worked
-        #checkForWin, if game over then exit this function and display victory screen
-    #else if (AIMove <= 98 and playerAI.hasItem()): #8% chance to use item
-        #use item
-    #add 2% chance to run, need a run function to end the game
->>>>>>> 85293fb5527f72fcf8823f58ddc5c1b5f94a4a7f
 
 # MAIN
 if __name__ == "__main__":
