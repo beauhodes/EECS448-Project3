@@ -120,6 +120,23 @@ def trackBattleMenuButtons():
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
+    elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.63, displayHeight * 0.88, 180, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PROGMON BUTTON
+                print("MOUSE CLICK DETECTED ON PROGMON BUTTON") # TESTER CODE
+    elif displayWidth * 0.87 + 80 > mouse[0] > displayWidth * 0.87 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF BAG BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.87, displayHeight * 0.805, 80, 40), 5) # BOX AROUND BAG ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.87, displayHeight * 0.805, 80, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BAG BUTTON
+                print("MOUSE CLICK DETECTED ON BAG BUTTON") # TESTER CODE
+    elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.865, displayHeight * 0.88, 95, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR QUIT BUTTON
+                print("MOUSE CLICK DETECTED ON QUIT BUTTON") # TESTER CODE
+                pygame.quit()
+                quit()
 
 # (UNFINISHED) HANDLES CONTROL OF GAMESTATE'S
 def handleScreen(gameState):
