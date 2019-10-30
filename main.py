@@ -199,7 +199,7 @@ def playerTurn():
 
     if(playerMove == "ATTACK"): #or ----- if (FIGHT == True):
         #depends on which attack P1 chooses; ex if P1 is pikachu & they chppse... pokemonP1.ThunderBoltAttack()
-        pokemonP1.ThunderBoltAttack(pokemonP1, pokemonAI);
+        pokemonP1.RoarAttack(pokemonP1, pokemonAI);
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
 
