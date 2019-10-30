@@ -111,6 +111,16 @@ def trackProgmonButtons_AI():
                 progmonAI = "FireDragon"
                 print("progmonAI", progmonAI) # TESTER CODE
 
+# (UNFINISHED) TRACKS IF BATTLE MENU BUTTONS ARE CLICKED
+def trackBattleMenuButtons():
+    mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
+    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
+    if displayWidth * 0.665 + 110 > mouse[0] > displayWidth * 0.665 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF FIGHT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.665, displayHeight * 0.8, 110, 40), 5) # BOX AROUND FIGHT ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
+                print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
+
 # (UNFINISHED) HANDLES CONTROL OF GAMESTATE'S
 def handleScreen(gameState):
     if gameState == "startScreen" or gameState == "fightScreen":
@@ -168,6 +178,7 @@ def handleScreen(gameState):
             display.blit(textElectricCatAI, textElectricCatAI_RECT) # DISPLAYS ElectricCat FOR PLAYER AI
             display.blit(textFireDragonAI, textFireDragonAI_RECT) # DISPLAYS FireDragon FOR PLAYER AI
             display.blit(textPlay, textPlay_RECT) # DISPLAYS PLAY
+
             trackProgmonButtons_P1()
             trackProgmonButtons_AI()
             trackPlayButton()
@@ -177,7 +188,70 @@ def handleScreen(gameState):
                     quit()
                 pygame.display.update()
         while gameState == "fightScreen":
-            display.fill(BLACK) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
+            # (UNFINISHED) PLAYER 1'S PROGMON
+            if progmonP1 == "ElectricCat":
+                progmonNameP1 = "Electric Cat"
+                #progmonImageP1 = pygame.image.load('ElectricCat.jpg')
+            elif progmonP1 == "FireDragon":
+                progmonNameP1 = "Fire Dragon"
+                #progmonImageP1 = pygame.image.load('FireDragon.jpg')
+            # (UNFINISHED) CREATE PLAYER 1 TEXT OBJECT
+
+            textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, largeText)
+            textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 15)
+
+            # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER 1'S PROGMON
+            textProgmonHealthP1, textProgmonHealthP1_RECT = createTextObject("HEALTH", largeText)
+            textProgmonHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 9)
+
+            # (UNFINISHED) CREATE BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+
+            # (UNFINISHED) DISPLAY PLAYER 1'S PROGMON IMAGE
+
+            # (UNFINISHED) PLAYER AI'S PROGMON
+            if progmonAI == "ElectricCat":
+                progmonNameAI = "Electric Cat"
+                #progmonImageAI = pygame.image.load('ElectricCat.jpg')
+            elif progmonAI == "FireDragon":
+                progmonNameAI = "Fire Dragon"
+                #progmonImageAI = pygame.image.load('FireDragon.jpg')
+            # (UNFINISHED) CREATE PLAYER AI TEXT OBJECT
+
+            textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, largeText)
+            textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 15)
+
+            # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER AI'S PROGMON
+            textProgmonHealthAI, textProgmonHealthAI_RECT = createTextObject("HEALTH", largeText)
+            textProgmonHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 9)
+
+            # (UNFINISHED) CREATE BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+
+            # (UNFINISHED) DISPLAY PLAYER AI'S PROGMON IMAGE
+
+            # (UNFINISHED) CREATE BATTLE MENU OPTIONS
+            textFight, textFight_RECT = createTextObject("FIGHT", largeText)
+            textFight_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
+            textBag, textBag_RECT = createTextObject("BAG", largeText)
+            textBag_RECT.center = (displayWidth / 1.1, displayHeight / 1.2)
+            textProgmon, textProgmon_RECT = createTextObject("PROGMON", largeText)
+            textProgmon_RECT.center = (displayWidth / 1.4, displayHeight / 1.1)
+            textQuit, textQuit_RECT = createTextObject("QUIT", largeText)
+            textQuit_RECT.center = (displayWidth / 1.1, displayHeight / 1.1)
+
+            # (UNFINISHED) CREATE BOX AROUND BATTLE MENU OPTIONS
+
+            display.fill(WHITE) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
+            display.blit(textProgmonP1, textProgmonP1_RECT) # DISPLAYS PLAYER 1'S PROGMON NAME
+            display.blit(textProgmonHealthP1, textProgmonHealthP1_RECT) # DISPLAYS PLAYER 1'S PROGMON HEALTH
+            display.blit(textProgmonAI, textProgmonAI_RECT) # DISPLAYS PLAYER AI'S PROGMON NAME
+            display.blit(textProgmonHealthAI, textProgmonHealthAI_RECT) # DISPLAYS PLAYER AI'S PROGMON HEALTH
+            display.blit(textFight, textFight_RECT) # DISPLAYS FIGHT BATTLE OPTION
+            display.blit(textBag, textBag_RECT) # DISPLAYS BAG BATTLE OPTION
+            display.blit(textProgmon, textProgmon_RECT) # DISPLAYS PROGMON BATTLE OPTION
+            display.blit(textQuit, textQuit_RECT) # DISPLAYS QUIT BATTLE OPTION
+
+            trackBattleMenuButtons()
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
