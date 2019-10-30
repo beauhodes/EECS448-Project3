@@ -33,6 +33,8 @@ mediumText = pygame.font.Font('freesansbold.ttf', 48)
 global largeText
 largeText = pygame.font.Font('freesansbold.ttf', 65)
 
+# NEED GLOAB FOR WHO'S TURN IT IS ??
+
 # CREATES A TEXT OBJECT
 def createTextObject(textToDisplay, fontToUse):
     textSurface = font.render(textToDisplay, True, BLACK)
@@ -155,23 +157,73 @@ def startScreen():
 #def fightScreen(playerTurn):
     #sets up graphics for fight screen
 
-#def playerTurn():
+def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
-    #depending on choice, could call ThunderBoltAttack(player2) or usePotion() or whatever the choice is
-    #if attack was chosen, pop up display showing success or failure AND update the UI to show lowered enemy health if hit
-    #call AI turn
+
+    playerMove = "variable that contains ATTACK or USE_POTION ... can add others" #ex: clicking "attack" in GUI would then set this string to ATTACK
+
+    if(playerMove == "ATTACK"): #or ----- if (FIGHT == True):
+        #depends on which attack P1 chooses; ex if P1 is pikachu & they chppse... pokemonP1.ThunderBoltAttack()
+        pokemonP1.ThunderBoltAttack(pokemonP1, pokemonAI);
+        #now we should display some sort of window/message for the user saying if they hit or not
+        #update AI's health in the UI
+
+        # if pokemonAI.checkAlive() == False
+        #     pokemonAI.faint()
+        #     fight over
+
+    elif(playerMove == "BAG"):
+        if (pokemonP1.bagEmpty()):
+            print("This player has nothing in their bad")   #Display some message to the player "BAG IS EMPTY"
+        else:
+            #change the player UI to ask what they want to do
+            pokemonP1.useHealthPotion() #for this implementation, all we can use is health potions
+            AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
+
+    elif(playerMove == "RUN"):
+        # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
+        pygame.quit()
+
+    elif(playerMove == "POKEMON"):  #nothing for this is done, just an example
+        pokemonP1.switchPokemon()
+
+
+    AITurn()    #after player's turn is over, let AI go
+
+
 
 def AITurn():
-    AIMove = random.randint(1,101)
-    if (AIMove <= 90): #90% chance to attack
-        #attack
-        chosenAttack, result = playerAI.AIAttack() #chosenAttack will be the string of which attack was used, result was whether it worked or not
-        #display 3 second popup window of which attack was chosen and whether it worked
-        #checkForWin, if game over then exit this function and display victory screen
-    else if (AIMove <= 98 and playerAI.hasItem()): #8% chance to use item
-        #use item
-    #add 2% chance to run, need a run function to end the game
+    # AIMove = random.randint(1,101)
+    # if (AIMove <= 90): #90% chance to attack
+    #     #attack
+    #     chosenAttack, result = playerAI.AIAttack() #chosenAttack will be the string of which attack was used, result was whether it worked or not
+    #     #display 3 second popup window of which attack was chosen and whether it worked
+    #     #checkForWin, if game over then exit this function and display victory screen
+    # else if (AIMove <= 98 and playerAI.hasItem()): #8% chance to use item
+    #     playerAI.useHealthPotion()
+    #     #use item
+    # #add 2% chance to run, need a run function to end the game
+
+    # FOR BETA-VERSION (PROJECT 3 VERSION)
+    # MAKE SOME VARIABLE/DEF THAT SAYS IF POKEMON IS IN CRITICAL CONDITION
+    if(pokemonP1.currentHealth == critical):    #if P1 currently set-up pokemon is in critical condition - attack them
+        pokemonAI.AIAttack(pokemonAI, pokemonP1)
+        #now we should display some sort of window/message for the user saying if they hit or not
+        #update player's health in the UI
+    elif(pokemonAI.currentHealth == critical and pokemonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
+        # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
+        pygame.quit()
+
+    elif(pokemonAI.currentHealth == critical):  #if AI is low, it will use potion
+        pokemonAI.useHealthPotion()
+
+    else:   # if pokemonP1 is not low and AI is not low, then all we can do is attack the other player
+        pokemonAI.AIAttack(pokemonAI, pokemonP1)
+        #now we should display some sort of window/message for the user saying if they hit or not
+        #update player's health in the UI
+
+    playerTurn()    #after turn is over, let the player go
 
 # MAIN
 if __name__ == "__main__":
