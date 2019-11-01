@@ -47,8 +47,8 @@ def createTextObject(textToDisplay, fontToUse):
 # CHECKS IF (x, y) IS INSIDE OF (rect.x, rect.y)
 def isPointInRect(x, y, rect):
     if x < rect.x + rect.width and x > rect.x and y < rect.y + rect.height and y > rect.y:
-        return True # (x, y) IS INSIDE OF (rect.x, rect.y)
-    return False # (x, y) IS NOT INSIDE OF (rect.x, rect.y)
+        return True
+    return False
 
 # TRACKS IF THE PLAY BUTTON IS CLICKED
 def trackPlayButton():
@@ -62,7 +62,7 @@ def trackPlayButton():
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if progmonP1 != "" and progmonAI != "": # IF PLAYER 1 AND PLAYER AI HAVE PROGMON SELECTED
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.45, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAY BUTTON
-                    print("MOUSE CLICK DETECTED ON PLAY BUTTON") # TESTER CODE
+                    #print("MOUSE CLICK DETECTED ON PLAY BUTTON") # TESTER CODE
                     gameState = "fightScreen"
                     handleScreen(gameState) # "SWITCHES" THE PYGAME DISPLAY SCREEN
             else:
@@ -76,19 +76,19 @@ def trackProgmonButtons_P1():
     global progmonP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.19 + 130 > mouse[0] > displayWidth * 0.19 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.19, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER 1'S ELECTRICCAT ON MOUSE-HOVER
+    if displayWidth * 0.16 + 200 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.1 + 40 > mouse[1] > displayHeight * 0.1: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.16, displayHeight * 0.1, 200, 40), 5) # BOX AROUND PLAYER 1'S ELECTRICCAT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.19, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S ELECTRICCAT BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER 1'S ELECTRICCAT BUTTON") # TESTER CODE
-                progmonP1 = "ElectricCat" # GLOBAL progmonP1 VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.16, displayHeight * 0.1, 200, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S ELECTRICCAT BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER 1'S ELECTRICCAT BUTTON") # TESTER CODE
+                progmonP1 = "ElectricCat"
                 print("progmonP1", progmonP1) # TESTER CODE
-    elif displayWidth * 0.173 + 170 > mouse[0] > displayWidth * 0.173 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER 1'S FIREDRAGON BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.173, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER 1'S FIREDRAGON ON MOUSE-HOVER
+    elif displayWidth * 0.16 + 190 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.223 + 40 > mouse[1] > displayHeight * 0.223: # VALID LOCATION OF PLAYER 1'S FIREDRAGON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.16, displayHeight * 0.223, 190, 40), 5) # BOX AROUND PLAYER 1'S FIREDRAGON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.173, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S FIREDRAGON BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER 1'S FIREDRAGON BUTTON") # TESTER CODE
-                progmonP1 = "FireDragon" # GLOBAL progmonP1 VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.16, displayHeight * 0.223, 190, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S FIREDRAGON BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER 1'S FIREDRAGON BUTTON") # TESTER CODE
+                progmonP1 = "FireDragon"
                 print("progmonP1", progmonP1) # TESTER CODE
 
 # (UNFINISHED) TRACKS IF PLAYER AI'S PROGMON BUTTONS ARE CLICKED
@@ -96,20 +96,51 @@ def trackProgmonButtons_AI():
     global progmonAI
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
-    if displayWidth * 0.71 + 130 > mouse[0] > displayWidth * 0.71 and displayHeight * 0.17 + 40 > mouse[1] > displayHeight * 0.17: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.71, displayHeight * 0.17, 130, 40), 5) # BOX AROUND PLAYER AI'S ELECTRICCAT ON MOUSE-HOVER
+    if displayWidth * 0.68 + 200 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.1 + 40 > mouse[1] > displayHeight * 0.1: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.1, 200, 40), 5) # BOX AROUND PLAYER AI'S ELECTRICCAT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.71, displayHeight * 0.17, 130, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S ELECTRICCAT BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER AI'S ELECTRICCAT BUTTON") # TESTER CODE
-                progmonAI = "ELECTRICCAT" # GLOBAL progmonAI VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.1, 200, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S ELECTRICCAT BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER AI'S ELECTRICCAT BUTTON") # TESTER CODE
+                progmonAI = "ElectricCat"
                 print("progmonAI", progmonAI) # TESTER CODE
-    elif displayWidth * 0.69 + 170 > mouse[0] > displayWidth * 0.69 and displayHeight * 0.235 + 40 > mouse[1] > displayHeight * 0.235: # VALID LOCATION OF PLAYER AI'S FIREDRAGON BUTTON
-        pygame.draw.rect(display, RED, (displayWidth * 0.69, displayHeight * 0.235, 170, 40), 5) # BOX AROUND PLAYER AI'S FIREDRAGON ON MOUSE-HOVER
+    elif displayWidth * 0.68 + 190 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.223 + 40 > mouse[1] > displayHeight * 0.223: # VALID LOCATION OF PLAYER AI'S FIREDRAGON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.223, 190, 40), 5) # BOX AROUND PLAYER AI'S FIREDRAGON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.69, displayHeight * 0.235, 170, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S FIREDRAGON BUTTON
-                print("MOUSE CLICK DETECTED ON PLAYER AI'S FIREDRAGON BUTTON") # TESTER CODE
-                progmonAI = "FireDragon" # GLOBAL progmonAI VARIABLE
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.223, 190, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S FIREDRAGON BUTTON
+                #print("MOUSE CLICK DETECTED ON PLAYER AI'S FIREDRAGON BUTTON") # TESTER CODE
+                progmonAI = "FireDragon"
                 print("progmonAI", progmonAI) # TESTER CODE
+
+# (UNFINISHED) TRACKS IF BATTLE MENU BUTTONS ARE CLICKED
+def trackBattleMenuButtons():
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+
+    mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
+    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
+    if displayWidth * 0.665 + 110 > mouse[0] > displayWidth * 0.665 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF FIGHT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.665, displayHeight * 0.805, 110, 40), 5) # BOX AROUND FIGHT ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
+                print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
+    elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.63, displayHeight * 0.88, 180, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PROGMON BUTTON
+                print("MOUSE CLICK DETECTED ON PROGMON BUTTON") # TESTER CODE
+    elif displayWidth * 0.87 + 80 > mouse[0] > displayWidth * 0.87 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF BAG BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.87, displayHeight * 0.805, 80, 40), 5) # BOX AROUND BAG ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.87, displayHeight * 0.805, 80, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BAG BUTTON
+                print("MOUSE CLICK DETECTED ON BAG BUTTON") # TESTER CODE
+    elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
+        pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
+        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+            if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.865, displayHeight * 0.88, 95, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR QUIT BUTTON
+                print("Quitting...")
+                pygame.quit()
+                quit()
 
 # (UNFINISHED) HANDLES CONTROL OF GAMESTATE'S
 def handleScreen(gameState):
@@ -117,39 +148,39 @@ def handleScreen(gameState):
         while gameState == "startScreen":
             # PLAYER 1'S PROGMON OPTIONS
             textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Progmon", largeText)
-            textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 8)
+            textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 19)
 
             # PLAYER 1'S PROGMON BUTTONS
-            textElectricCat1, textElectricCat1_RECT = createTextObject("ElectricCat", mediumText)
-            textElectricCat1_RECT.center = (displayWidth / 4, displayHeight / 5)
-            textFireDragon1, textFireDragon1_RECT = createTextObject("FireDragon", mediumText)
-            textFireDragon1_RECT.center = (displayWidth / 4, displayHeight / 3.8)
+            textElectricCatP1, textElectricCatP1_RECT = createTextObject("Electric Cat", mediumText)
+            textElectricCatP1_RECT.center = (displayWidth / 4, displayHeight / 7.5)
+            textFireDragonP1, textFireDragonP1_RECT = createTextObject("Fire Dragon", mediumText)
+            textFireDragonP1_RECT.center = (displayWidth / 4, displayHeight / 4)
 
-            # (UNFINISHED) PLAYER 1'S PROGMON IMAGES
-            # imageElectricCat = pygame.image.load('ElectricCat.jpg')
-            # imageElectricCat_RECT = imageElectricCat.get_rect()
-            # imageElectricCat_RECT.center = (displayWidth / 6, displayHeight / 5.5)
-            # imageFireDragon = pygame.image.load('FireDragon.jpg')
-            # imageFireDragon_RECT = imageFireDragon.get_rect()
-            # imageFireDragon_RECT.center = (displayWidth / 7.5, displayHeight / 3.8)
+            # PLAYER 1'S PROGMON IMAGES
+            imageSmallElectricCatP1 = pygame.image.load('smallElectricCat.png')
+            imageSmallElectricCatP1_RECT = imageSmallElectricCatP1.get_rect()
+            imageSmallElectricCatP1_RECT.center = (displayWidth / 9, displayHeight / 7.5)
+            imageSmallFireDragonP1 = pygame.image.load('smallFireDragon.png')
+            imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
+            imageSmallFireDragonP1_RECT.center = (displayWidth / 9, displayHeight / 4)
 
             # PLAYER AI'S PROGMON OPTIONS
             textPlayerAI, textPlayerAI_RECT = createTextObject("Player AI's Progmon", largeText)
-            textPlayerAI_RECT.center = (displayWidth / 1.3, displayHeight / 8)
+            textPlayerAI_RECT.center = (displayWidth / 1.3, displayHeight / 19)
 
             # PLAYER AI'S PROGMON BUTTONS
-            textElectricCatAI, textElectricCatAI_RECT = createTextObject("ElectricCat", mediumText)
-            textElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 5)
-            textFireDragonAI, textFireDragonAI_RECT = createTextObject("FireDragon", mediumText)
-            textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 3.8)
+            textElectricCatAI, textElectricCatAI_RECT = createTextObject("Electric Cat", mediumText)
+            textElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 7.5)
+            textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", mediumText)
+            textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 4)
 
-            # (UNFINISHED) PLAYER AI'S PROGMON IMAGES
-            # imageElectricCat2 = pygame.image.load('ElectricCat.jpg')
-            # imageElectricCat2_RECT = imageElectricCat2.get_rect()
-            # imageElectricCat2_RECT.center = (displayWidth / 1.45, displayHeight / 5.5)
-            # imageFireDragon2 = pygame.image.load('FireDragon.jpg')
-            # imageFireDragon2_RECT = imageFireDragon2.get_rect()
-            # imageFireDragon2_RECT.center = (displayWidth / 1.52, displayHeight / 3.8)
+            # PLAYER AI'S PROGMON IMAGES
+            imageSmallElectricCatAI = pygame.image.load('smallElectricCat.png')
+            imageSmallElectricCatAI_RECT = imageSmallElectricCatAI.get_rect()
+            imageSmallElectricCatAI_RECT.center = (displayWidth / 1.6, displayHeight / 7.5)
+            imageSmallFireDragonAI = pygame.image.load('smallFireDragon.png')
+            imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
+            imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
 
             # PLAY BUTTON
             textPlay, textPlay_RECT = createTextObject("PLAY", largeText)
@@ -157,34 +188,103 @@ def handleScreen(gameState):
 
             # (UNFINISHED) DISPLAY TEXT OBJECTS AND IMAGES
             display.fill(WHITE) # MAKES BACKGROUND OF START SCREEN WHITE
-            # display.blit(imageElectricCat, imageElectricCat_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER 1
-            # display.blit(imageFireDragon, imageFireDragon_RECT) # DISPLAYS FireDragon IMAGE FOR PLAYER 1
+            display.blit(imageSmallElectricCatP1, imageSmallElectricCatP1_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER 1
+            display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT) # DISPLAYS FireDragon IMAGE FOR PLAYER 1
             display.blit(textPlayer1, textPlayer1_RECT) # DISPLAYS PLAYER 1'S PROGMON
-            display.blit(textElectricCat1, textElectricCat1_RECT) # DISPLAYS ElectricCat FOR PLAYER 1
-            display.blit(textFireDragon1, textFireDragon1_RECT) # DISPLAYS FireDragon FOR PLAYER 1
-            # display.blit(imageElectricCat2, imageElectricCat2_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER AI
-            # display.blit(imageFireDragon2, imageFireDragon2_RECT) # DISPLAYS FireDragon IMAGE FOR PLAYER AI
+            display.blit(textElectricCatP1, textElectricCatP1_RECT) # DISPLAYS ElectricCat FOR PLAYER 1
+            display.blit(textFireDragonP1, textFireDragonP1_RECT) # DISPLAYS FireDragon FOR PLAYER 1
+            display.blit(imageSmallElectricCatAI, imageSmallElectricCatAI_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER AI
+            display.blit(imageSmallFireDragonAI, imageSmallFireDragonAI_RECT) # DISPLAYS FireDragon IMAGE FOR PLAYER AI
             display.blit(textPlayerAI, textPlayerAI_RECT) # DISPLAYS PLAYER AI'S PROGMON
             display.blit(textElectricCatAI, textElectricCatAI_RECT) # DISPLAYS ElectricCat FOR PLAYER AI
             display.blit(textFireDragonAI, textFireDragonAI_RECT) # DISPLAYS FireDragon FOR PLAYER AI
             display.blit(textPlay, textPlay_RECT) # DISPLAYS PLAY
-            trackProgmonButtons_P1() # TRACKS IF PLAYER 1 HAS SELECTED A PROGMON
-            trackProgmonButtons_AI() # TRACKS IF PLAYER AI HAS SELECTED A PROGMON
-            trackPlayButton() # TRACKS IF PLAY BUTTON IS CLICKED
-            for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
-                if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
-                    playGame = False # STOP RUNNING THE PROGRAM
-                    pygame.quit() # QUIT PYGAME
-                    quit() # QUIT PYTHON3
-                pygame.display.update() # UPDATE THE PYGAME DISPLAY
+
+            trackProgmonButtons_P1()
+            trackProgmonButtons_AI()
+            trackPlayButton()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                pygame.display.update()
         while gameState == "fightScreen":
-            display.fill(BLACK) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
-            for event in pygame.event.get(): # FOR-LOOP TO HANDLE ALL PYGAME EVENTS
-                if event.type == pygame.QUIT: # IF PYGAME EVENT IS QUIT
-                    playGame = False # STOP RUNNING THE PROGRAM
-                    pygame.quit() # QUIT PYGAME
-                    quit() # QUIT PYTHON3
-                pygame.display.update() # UPDATE THE PYGAME DISPLAY
+            # PLAYER 1'S PROGMON
+            if progmonP1 == "ElectricCat":
+                progmonNameP1 = "Electric Cat"
+                progmonImageP1 = pygame.image.load('largeElectricCat.png')
+                progmonImageP1_RECT = progmonImageP1.get_rect()
+                progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
+            elif progmonP1 == "FireDragon":
+                progmonNameP1 = "Fire Dragon"
+                progmonImageP1 = pygame.image.load('largeFireDragon.png')
+                progmonImageP1_RECT = progmonImageP1.get_rect()
+                progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
+            # CREATE NAME FOR PLAYER 1
+            textNameP1, textNameP1_RECT = createTextObject("Player 1", largeText)
+            textNameP1_RECT.center = (displayWidth / 4.5, displayHeight / 30)
+
+            # CREATE NAME FOR PLAYER 1'S PROGMON
+            textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, largeText)
+            textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 10)
+
+            # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER 1'S PROGMON
+            textProgmonHealthP1, textProgmonHealthP1_RECT = createTextObject("HEALTH", largeText)
+            textProgmonHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 6)
+
+            # PLAYER AI'S PROGMON
+            if progmonAI == "ElectricCat":
+                progmonNameAI = "Electric Cat"
+                progmonImageAI = pygame.image.load('largeElectricCat.png')
+                progmonImageAI_RECT = progmonImageAI.get_rect()
+                progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
+            elif progmonAI == "FireDragon":
+                progmonNameAI = "Fire Dragon"
+                progmonImageAI = pygame.image.load('largeFireDragon.png')
+                progmonImageAI_RECT = progmonImageAI.get_rect()
+                progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
+            # CREATE NAME FOR PLAYER AI
+            textNameAI, textNameAI_RECT = createTextObject("Player AI", largeText)
+            textNameAI_RECT.center = (displayWidth / 1.3, displayHeight / 30)
+
+            # CREATE NAME FOR PLAYER AI'S PROGMON
+            textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, largeText)
+            textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 10)
+
+            # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER AI'S PROGMON
+            textProgmonHealthAI, textProgmonHealthAI_RECT = createTextObject("HEALTH", largeText)
+            textProgmonHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 6)
+
+            # CREATE BATTLE MENU OPTIONS
+            textFight, textFight_RECT = createTextObject("FIGHT", largeText)
+            textFight_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
+            textBag, textBag_RECT = createTextObject("BAG", largeText)
+            textBag_RECT.center = (displayWidth / 1.1, displayHeight / 1.2)
+            textProgmon, textProgmon_RECT = createTextObject("PROGMON", largeText)
+            textProgmon_RECT.center = (displayWidth / 1.4, displayHeight / 1.1)
+            textQuit, textQuit_RECT = createTextObject("QUIT", largeText)
+            textQuit_RECT.center = (displayWidth / 1.1, displayHeight / 1.1)
+
+            display.fill(WHITE) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
+            display.blit(progmonImageP1, progmonImageP1_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER 1
+            display.blit(textNameP1, textNameP1_RECT) # DISPLAYS PLAYER 1'S NAME
+            display.blit(textProgmonP1, textProgmonP1_RECT) # DISPLAYS PLAYER 1'S PROGMON NAME
+            display.blit(textProgmonHealthP1, textProgmonHealthP1_RECT) # DISPLAYS PLAYER 1'S PROGMON HEALTH
+            display.blit(progmonImageAI, progmonImageAI_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER AI
+            display.blit(textNameAI, textNameAI_RECT) # DISPLAYS PLAYER AI'S NAME
+            display.blit(textProgmonAI, textProgmonAI_RECT) # DISPLAYS PLAYER AI'S PROGMON NAME
+            display.blit(textProgmonHealthAI, textProgmonHealthAI_RECT) # DISPLAYS PLAYER AI'S PROGMON HEALTH
+            display.blit(textFight, textFight_RECT) # DISPLAYS FIGHT BATTLE OPTION
+            display.blit(textBag, textBag_RECT) # DISPLAYS BAG BATTLE OPTION
+            display.blit(textProgmon, textProgmon_RECT) # DISPLAYS PROGMON BATTLE OPTION
+            display.blit(textQuit, textQuit_RECT) # DISPLAYS QUIT BATTLE OPTION
+
+            trackBattleMenuButtons()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                pygame.display.update()
 
 def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
