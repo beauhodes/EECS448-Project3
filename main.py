@@ -319,7 +319,7 @@ def playerTurn():
                 progmonP1.BiteAttack(progmonP1, progmonAI)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
-        if(!(progmonAI.checkAlive())):
+        if(progmonAI.checkAlive() != True):
             print("AI progmon has died")
             pygame.quit()
 
@@ -362,7 +362,7 @@ def AITurn():
         progmonAI.AIAttack(progmonAI, progmonP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
-        if(!(progmonAI.checkAlive())):
+        if(progmonAI.checkAlive() != True):
             print("P1 progmon has died")
             pygame.quit()
     elif(progmonAI.currentHealth <= critical and progmonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
