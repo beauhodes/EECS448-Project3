@@ -49,6 +49,18 @@ def createTextObject(textToDisplay, fontToUse):
     textSurface = font.render(textToDisplay, True, BLACK)
     return textSurface, textSurface.get_rect()
 
+# QUITS THE GAME
+def quitGame():
+    print("Quitting...")
+    pygame.quit()
+    quit()
+
+# HANDLES PYGAME EVENTS
+def eventHandler():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            quitGame()
+
 # CHECKS IF (x, y) IS INSIDE OF (rect.x, rect.y)
 def isPointInRect(x, y, rect):
     if x < rect.x + rect.width and x > rect.x and y < rect.y + rect.height and y > rect.y:
@@ -157,14 +169,13 @@ def trackBattleMenuButtons():
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.865, displayHeight * 0.88, 95, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR QUIT BUTTON
-                print("Quitting...")
-                pygame.quit()
-                quit()
+                quitGame()
 
 # (UNFINISHED) HANDLES CONTROL OF GAMESTATE'S
 def handleScreen(gameState):
     if gameState == "startScreen" or gameState == "fightScreen":
         while gameState == "startScreen":
+            eventHandler()
             # PLAYER 1'S PROGMON OPTIONS
             textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Progmon", largeText)
             textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 19)
@@ -224,10 +235,10 @@ def handleScreen(gameState):
             trackPlayButton()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
-                    quit()
+                    quitGame()
                 pygame.display.update()
         while gameState == "fightScreen":
+            eventHandler()
             # PLAYER 1'S PROGMON
             if progmonP1 == "ElectricCat":
                 progmonNameP1 = "Electric Cat"
@@ -305,11 +316,8 @@ def handleScreen(gameState):
 
             trackBattleMenuButtons()
             playerTurn()
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    quit()
-                pygame.display.update()
+
+            pygame.display.update()
 
 def playerTurn():
     global playerMove
@@ -318,20 +326,18 @@ def playerTurn():
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
 
     if(playerMove == "FIGHT"):
+        p1Attack = random.randint(0,5)
+        print("p1Attack", p1Attack)
         if(progmonP1 == "FireDragon"):
-            p1Attack = random.randint(0,5)
-            print("p1Attack", p1Attack)
             if(p1Attack == 1):
-                myP1.RoarAttack(myP1, myAI)
+                myP1.RoarAttack(myAI)
             elif(p1Attack == 2):
-                myP1.ClawSwipeAttack(myP1, myAI)
+                myP1.ClawSwipeAttack(myAI)
             elif(p1Attack == 3):
-                myP1.FireBreathAttack(myP1, myAI)
+                myP1.FireBreathAttack(myAI)
             elif(p1Attack == 4):
-                myP1.TailWhipAttack(myP1, myAI)
-
+                myP1.TailWhipAttack(myAI)
         elif(progmonP1 == "ElectricCat"):
-            p1Attack = random.randint(0,5)
             if(p1Attack == 1):
                 myP1.LightningBoltAttack(myAI)
             elif(p1Attack == 2):
@@ -344,18 +350,19 @@ def playerTurn():
         #update AI's health in the UI
         if(myAI.checkAlive() != True):
             print("AI progmon has died")
-            pygame.quit()
+            quitGame()
 
     elif(playerMove == "BAG"):
-        if (myP1.bagEmpty()):
-            print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
-        else:
-            myP1.useHealthPotion() #for this implementation, all we can use is health potions
-            AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
+        myP1.useBag()
+        # if (myP1.bagEmpty()):
+        #print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
+        # else:
+        #     myP1.useHealthPotion() #for this implementation, all we can use is health potions
+        #     AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
 
     elif(playerMove == "RUN"):
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
-        pygame.quit()
+        quitGame()
 
     elif(playerMove == "PROGMON"):  #nothing for this is done, just an example
         print("NOT YET IMPLEMENTED")
@@ -384,21 +391,21 @@ def AITurn():
     # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
     critical = 80
     if(myP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
-        myAI.AIAttack(myAI, myP1)
+        myAI.AIAttack(myP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
         if(myAI.checkAlive() != True):
             print("P1 progmon has died")
-            pygame.quit()
+            quitGame()
     elif(myAI.currentHealth <= critical and myAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
-        pygame.quit()
+        quitGame()
 
     elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
         myAI.useHealthPotion()
 
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
-        myAI.AIAttack(myAI, myP1)
+        myAI.AIAttack(myP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
 
@@ -406,5 +413,6 @@ def AITurn():
 
 # MAIN
 if __name__ == "__main__":
+    eventHandler()
     gameState = "startScreen"
     handleScreen(gameState) # LOADS THE START SCREEN
