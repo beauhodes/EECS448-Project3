@@ -14,6 +14,9 @@ class ElectricCat:
         self.currentHealth = 250
         self.alive = True
         self.bag = ["healthPotion"] #will add more after project 3
+        print("ElectricCat BAG: ", self.bag)
+        self.bag.remove["healthPotion"]
+        print("ElectricCat BAG: ", self.bag)
 
     def doDamage(self, damageDone):
         self.currentHealth = self.currentHealth - damageDone
