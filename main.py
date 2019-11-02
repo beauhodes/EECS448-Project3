@@ -34,6 +34,8 @@ global progmonP1
 progmonP1 = ""
 global progmonAI
 progmonAI = ""
+global playerMove
+playerMove = ""
 
 # GLOBAL GAME STATE VARIABLE
 global gameState
@@ -126,18 +128,21 @@ def trackBattleMenuButtons():
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
                 # (UNFINISHED) CALL A FUNCTION TO DISPLAY ATTACK OPTIONS
+                playerMove = "FIGHT"
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.63, displayHeight * 0.88, 180, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PROGMON BUTTON
                 print("MOUSE CLICK DETECTED ON PROGMON BUTTON") # TESTER CODE
                 # (UNFINISHED) CALL A FUNCTION TO DISPLAY PROGMON SWITCH OPTIONS
+                playerMove = "PROGMON"
     elif displayWidth * 0.87 + 80 > mouse[0] > displayWidth * 0.87 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF BAG BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.87, displayHeight * 0.805, 80, 40), 5) # BOX AROUND BAG ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.87, displayHeight * 0.805, 80, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BAG BUTTON
                 print("MOUSE CLICK DETECTED ON BAG BUTTON") # TESTER CODE
                 # (UNFINISHED) CALL A FUNCTION TO DISPLAY BAG ITEM OPTIONS
+                playerMove = "BAG"
     elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
@@ -298,24 +303,39 @@ def handleScreen(gameState):
 def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
+    if(playerMove == "ATTACK"):
 
-    playerMove = "variable that contains ATTACK or USE_POTION ... can add others" #ex: clicking "attack" in GUI would then set this string to ATTACK
+        if(progmonP1 == "FireDragon"):
+            p1Attack = random.randint(0,5)
+            if(p1Attack == 1):
+                progmonP1.RoarAttack(progmonP1, progmonAI)
+            elif(p1Attack == 2):
+                progmonP1.ClawSwipeAttack(progmonP1, progmonAI)
+            elif(p1Attack == 3):
+                progmonP1.FireBreathAttack(progmonP1, progmonAI)
+            elif(p1Attack == 4):
+                progmonP1.TailWhipAttack(progmonP1, progmonAI)
 
-    if(playerMove == "ATTACK"): #or ----- if (FIGHT == True):
-        #depends on which attack P1 chooses; ex if P1 is ElectricCat & they chppse... progmonP1.ThunderBoltAttack()
-        progmonP1.ThunderBoltAttack(progmonP1, progmonAI);
+        elif(progmonP1 == "ElectricCat"):
+            p1Attack = random.randint(0,5)
+            if(p1Attack == 1):
+                progmonP1.LightningBoltAttack(progmonP1, progmonAI)
+            elif(p1Attack == 2):
+                progmonP1.ElectricScratchAttack(progmonP1, progmonAI)
+            elif(p1Attack == 3):
+                progmonP1.EnergyBeamAttack(progmonP1, progmonAI)
+            elif(p1Attack == 4):
+                progmonP1.BiteAttack(progmonP1, progmonAI)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
-
-        # if progmonAI.checkAlive() == False
-        #     progmonAI.faint()
-        #     fight over
+        if(progmonAI.checkAlive() != True):
+            print("AI progmon has died")
+            pygame.quit()
 
     elif(playerMove == "BAG"):
         if (progmonP1.bagEmpty()):
             print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
         else:
-            #change the player UI to ask what they want to do
             progmonP1.useHealthPotion() #for this implementation, all we can use is health potions
             AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
 
@@ -324,7 +344,8 @@ def playerTurn():
         pygame.quit()
 
     elif(playerMove == "PROGMON"):  #nothing for this is done, just an example
-        progmonP1.switchProgmon()
+        print("progmon")
+        #progmonP1.switchProgmon()
 
 
     AITurn()    #after player's turn is over, let AI go
@@ -345,15 +366,19 @@ def AITurn():
 
     # FOR BETA-VERSION (PROJECT 3 VERSION)
     # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
-    if(progmonP1.currentHealth == critical):    #if P1 currently set-up progmon is in critical condition - attack them
+    critical = 80
+    if(progmonP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
         progmonAI.AIAttack(progmonAI, progmonP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
-    elif(progmonAI.currentHealth == critical and progmonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
+        if(progmonAI.checkAlive() != True):
+            print("P1 progmon has died")
+            pygame.quit()
+    elif(progmonAI.currentHealth <= critical and progmonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
         pygame.quit()
 
-    elif(progmonAI.currentHealth == critical):  #if AI is low, it will use potion
+    elif(progmonAI.currentHealth <= critical):  #if AI is low, it will use potion
         progmonAI.useHealthPotion()
 
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
