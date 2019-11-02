@@ -313,13 +313,14 @@ def handleScreen(gameState):
 
 def playerTurn():
     global playerMove
-    print("playerMove:", playerMove) # TESTER CODE
+    #print("playerMove:", playerMove) # TESTER CODE
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
 
-    if(playerMove == "ATTACK"):
+    if(playerMove == "FIGHT"):
         if(progmonP1 == "FireDragon"):
             p1Attack = random.randint(0,5)
+            print("p1Attack", p1Attack)
             if(p1Attack == 1):
                 myP1.RoarAttack(myP1, myAI)
             elif(p1Attack == 2):
@@ -332,13 +333,13 @@ def playerTurn():
         elif(progmonP1 == "ElectricCat"):
             p1Attack = random.randint(0,5)
             if(p1Attack == 1):
-                myP1.LightningBoltAttack(myP1, myAI)
+                myP1.LightningBoltAttack(myAI)
             elif(p1Attack == 2):
-                myP1.ElectricScratchAttack(myP1, myAI)
+                myP1.ElectricScratchAttack(myAI)
             elif(p1Attack == 3):
-                myP1.EnergyBeamAttack(myP1, myAI)
+                myP1.EnergyBeamAttack(myAI)
             elif(p1Attack == 4):
-                myP1.BiteAttack(myP1, myAI)
+                myP1.BiteAttack(myAI)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
         if(myAI.checkAlive() != True):
@@ -361,7 +362,7 @@ def playerTurn():
         #progmonP1.switchProgmon()
 
 
-    AITurn()    #after player's turn is over, let AI go
+    #AITurn()    #after player's turn is over, let AI go
 
 
 
