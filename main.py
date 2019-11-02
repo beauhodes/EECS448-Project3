@@ -353,9 +353,9 @@ def playerTurn():
             quitGame()
 
     elif(playerMove == "BAG"):
-        myP1.useBag()
+        #myP1.useBag()
         # if (myP1.bagEmpty()):
-        #print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
+        print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
         # else:
         #     myP1.useHealthPotion() #for this implementation, all we can use is health potions
         #     AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
