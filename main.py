@@ -37,6 +37,8 @@ global progmonAI
 progmonAI = ""
 global playerMove
 playerMove = ""
+global myP1
+global myAI
 
 # GLOBAL GAME STATE VARIABLE
 global gameState
@@ -77,6 +79,7 @@ def trackPlayButton():
 # (UNFINISHED) TRACKS IF PLAYER 1'S PROGMON BUTTONS ARE CLICKED
 def trackProgmonButtons_P1():
     global progmonP1
+    global myP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.16 + 200 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.1 + 40 > mouse[1] > displayHeight * 0.1: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
@@ -99,6 +102,7 @@ def trackProgmonButtons_P1():
 # (UNFINISHED) TRACKS IF PLAYER AI'S PROGMON BUTTONS ARE CLICKED
 def trackProgmonButtons_AI():
     global progmonAI
+    global myAI
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.68 + 200 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.1 + 40 > mouse[1] > displayHeight * 0.1: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
@@ -120,6 +124,7 @@ def trackProgmonButtons_AI():
 
 # (UNFINISHED) TRACKS IF BATTLE MENU BUTTONS ARE CLICKED
 def trackBattleMenuButtons():
+    global playerMove
     pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
@@ -299,6 +304,7 @@ def handleScreen(gameState):
             display.blit(textUserPrompt, textUserPrompt_RECT) # DISPLAYS USER PROMPT MESSAGE
 
             trackBattleMenuButtons()
+            playerTurn()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -306,11 +312,12 @@ def handleScreen(gameState):
                 pygame.display.update()
 
 def playerTurn():
+    global playerMove
+    print("playerMove:", playerMove) # TESTER CODE
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
 
     if(playerMove == "ATTACK"):
-
         if(progmonP1 == "FireDragon"):
             p1Attack = random.randint(0,5)
             if(p1Attack == 1):
@@ -350,7 +357,7 @@ def playerTurn():
         pygame.quit()
 
     elif(playerMove == "PROGMON"):  #nothing for this is done, just an example
-        print("progmon")
+        print("NOT YET IMPLEMENTED")
         #progmonP1.switchProgmon()
 
 
@@ -359,6 +366,8 @@ def playerTurn():
 
 
 def AITurn():
+    global myP1
+    global myAI
     # AIMove = random.randint(1,101)
     # if (AIMove <= 90): #90% chance to attack
     #     #attack
