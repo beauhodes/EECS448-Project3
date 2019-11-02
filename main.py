@@ -294,9 +294,29 @@ def handleScreen(gameState):
 def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
+    if(playerMove == "ATTACK"):
 
-    if(playerMove == "ATTACK"): #or ----- if (FIGHT == True):
-        progmonP1.ThunderBoltAttack(progmonP1, progmonAI);
+        if(progmonP1 == "FireDragon"):
+            p1Attack = random.randint(0,5)
+            if(p1Attack == 1):
+                progmonP1.RoarAttack(progmonP1, progmonAI)
+            elif(p1Attack == 2):
+                progmonP1.ClawSwipeAttack(progmonP1, progmonAI)
+            elif(p1Attack == 3):
+                progmonP1.FireBreathAttack(progmonP1, progmonAI)
+            elif(p1Attack == 4):
+                progmonP1.TailWhipAttack(progmonP1, progmonAI)
+
+        elif(progmonP1 == "ElectricCat"):
+            p1Attack = random.randint(0,5)
+            if(p1Attack == 1):
+                progmonP1.LightningBoltAttack(progmonP1, progmonAI)
+            elif(p1Attack == 2):
+                progmonP1.ElectricScratchAttack(progmonP1, progmonAI)
+            elif(p1Attack == 3):
+                progmonP1.EnergyBeamAttack(progmonP1, progmonAI)
+            elif(p1Attack == 4):
+                progmonP1.BiteAttack(progmonP1, progmonAI)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
         if(!(progmonAI.checkAlive())):
@@ -315,6 +335,7 @@ def playerTurn():
         pygame.quit()
 
     elif(playerMove == "PROGMON"):  #nothing for this is done, just an example
+        print("progmon")
         #progmonP1.switchProgmon()
 
 
