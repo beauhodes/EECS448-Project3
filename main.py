@@ -294,11 +294,14 @@ def handleScreen(gameState):
 def playerTurn():
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
-    
+
     if(playerMove == "ATTACK"): #or ----- if (FIGHT == True):
         progmonP1.ThunderBoltAttack(progmonP1, progmonAI);
         #now we should display some sort of window/message for the user saying if they hit or not
         #update AI's health in the UI
+        if(!(progmonAI.checkAlive())):
+            print("AI progmon has died")
+            pygame.quit()
 
     elif(playerMove == "BAG"):
         if (progmonP1.bagEmpty()):
@@ -333,15 +336,19 @@ def AITurn():
 
     # FOR BETA-VERSION (PROJECT 3 VERSION)
     # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
-    if(progmonP1.currentHealth == critical):    #if P1 currently set-up progmon is in critical condition - attack them
+    critical = 80
+    if(progmonP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
         progmonAI.AIAttack(progmonAI, progmonP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
-    elif(progmonAI.currentHealth == critical and progmonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
+        if(!(progmonAI.checkAlive())):
+            print("P1 progmon has died")
+            pygame.quit()
+    elif(progmonAI.currentHealth <= critical and progmonAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
         pygame.quit()
 
-    elif(progmonAI.currentHealth == critical):  #if AI is low, it will use potion
+    elif(progmonAI.currentHealth <= critical):  #if AI is low, it will use potion
         progmonAI.useHealthPotion()
 
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
