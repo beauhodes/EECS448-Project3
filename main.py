@@ -123,6 +123,7 @@ def trackBattleMenuButtons():
     pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND USER INPUT PROMPT MESSAGE
 
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
@@ -131,18 +132,21 @@ def trackBattleMenuButtons():
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
+                # (UNFINISHED) CALL A FUNCTION TO DISPLAY ATTACK OPTIONS
                 playerMove = "FIGHT"
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.63, displayHeight * 0.88, 180, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PROGMON BUTTON
                 print("MOUSE CLICK DETECTED ON PROGMON BUTTON") # TESTER CODE
+                # (UNFINISHED) CALL A FUNCTION TO DISPLAY PROGMON SWITCH OPTIONS
                 playerMove = "PROGMON"
     elif displayWidth * 0.87 + 80 > mouse[0] > displayWidth * 0.87 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF BAG BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.87, displayHeight * 0.805, 80, 40), 5) # BOX AROUND BAG ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.87, displayHeight * 0.805, 80, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BAG BUTTON
                 print("MOUSE CLICK DETECTED ON BAG BUTTON") # TESTER CODE
+                # (UNFINISHED) CALL A FUNCTION TO DISPLAY BAG ITEM OPTIONS
                 playerMove = "BAG"
     elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
@@ -275,6 +279,10 @@ def handleScreen(gameState):
             textQuit, textQuit_RECT = createTextObject("QUIT", largeText)
             textQuit_RECT.center = (displayWidth / 1.1, displayHeight / 1.1)
 
+            # CREATE USER INPUT PROMPT MESSAGE
+            textUserPrompt, textUserPrompt_RECT = createTextObject("What would you like to do?", largeText)
+            textUserPrompt_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+
             display.fill(WHITE) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
             display.blit(progmonImageP1, progmonImageP1_RECT) # DISPLAYS ElectricCat IMAGE FOR PLAYER 1
             display.blit(textNameP1, textNameP1_RECT) # DISPLAYS PLAYER 1'S NAME
@@ -288,6 +296,7 @@ def handleScreen(gameState):
             display.blit(textBag, textBag_RECT) # DISPLAYS BAG BATTLE OPTION
             display.blit(textProgmon, textProgmon_RECT) # DISPLAYS PROGMON BATTLE OPTION
             display.blit(textQuit, textQuit_RECT) # DISPLAYS QUIT BATTLE OPTION
+            display.blit(textUserPrompt, textUserPrompt_RECT) # DISPLAYS USER PROMPT MESSAGE
 
             trackBattleMenuButtons()
             for event in pygame.event.get():
