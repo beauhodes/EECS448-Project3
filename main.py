@@ -86,6 +86,13 @@ def isPointInRect(x, y, rect):
 
 # TRACKS IF THE PLAY BUTTON IS CLICKED
 def trackPlayButton():
+    """
+    Tracks when there is a click on the play button
+    Args:
+    None
+    Returns:
+    None OR gameState is changed to fightScreen and window updates
+    """
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     if displayWidth * 0.45 + 110 > mouse[0] > displayWidth * 0.45 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF PLAY BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.45, displayHeight * 0.805, 110, 40), 5) # BOX AROUND PLAY ON MOUSE-HOVER
@@ -101,6 +108,13 @@ def trackPlayButton():
 
 # TRACKS IF PLAYER 1'S PROGMON BUTTONS ARE CLICKED
 def trackProgmonButtons_P1():
+    """
+    Tracks when there is a click on Player 1's Progmon buttons
+    Args:
+    None
+    Returns:
+    None
+    """
     global progmonP1
     global myP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
@@ -121,6 +135,11 @@ def trackProgmonButtons_P1():
 
 # TRACKS IF PLAYER AI'S PROGMON BUTTONS ARE CLICKED
 def trackProgmonButtons_AI():
+    """
+    Tracks when there is a click on Player AI's Progmon buttons
+    Args: None
+    Returns: None
+    """
     global progmonAI
     global myAI
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
@@ -224,6 +243,13 @@ def trackBattleMenuButtons():
 
 # (UNFINISHED - PROJECT 4) HANDLES CONTROL OF THE GAMESTATE'S
 def handleScreen(gameState):
+    """
+    Handles the control of the gameStates
+    Args:
+    gameState (string) - the current game state
+    Returns:
+    None
+    """
     global myP1
     global progmonNameP1
     global myAI
