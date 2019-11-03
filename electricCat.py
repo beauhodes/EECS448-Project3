@@ -55,7 +55,6 @@ class ElectricCat:
 
         Returns: Current health
         """
-        print("test")
         return self.currentHealth
 
     def LightningBoltAttack(self, enemyPlayer):
@@ -71,6 +70,9 @@ class ElectricCat:
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 45):
             enemyPlayer.doDamage(90)
+            print("Lightning Bolt did 90 damage!\n")
+        else:
+            print("Lightning Bolt missed!\n")
 
     def ElectricScratchAttack(self, enemyPlayer):
         """
@@ -85,6 +87,9 @@ class ElectricCat:
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 90):
             enemyPlayer.doDamage(40)
+            print("Electric Scratch did 40 damage!\n")
+        else:
+            print("Electric Scratch missed!\n")
 
     def EnergyBeamAttack(self, enemyPlayer):
         """
@@ -99,6 +104,9 @@ class ElectricCat:
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 40):
             enemyPlayer.doDamage(110)
+            print("Energy Beam did 110 damage!\n")
+        else:
+            print("Energy Beam missed!\n")
 
     def BiteAttack(self, enemyPlayer):
         """
@@ -111,6 +119,7 @@ class ElectricCat:
         """
 
         enemyPlayer.doDamage(20)
+        print("Bite did 20 damage!\n")
 
     def AIAttack(self, enemyPlayer):
         """
@@ -126,28 +135,28 @@ class ElectricCat:
 
         #randomly choose one of Electric Cat's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
-        attackToUse = random.randint(0,5)
+        attackToUse = random.randint(1,5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if (attackToUse == 1):
-            LightningBoltAttack(enemyPlayer)
+            self.LightningBoltAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "LightningBolt", True
             else:
                 return "LightningBolt", False
         if (attackToUse == 2):
-            ElectricScratchAttack(enemyPlayer)
+            self.ElectricScratchAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "ElectricScratch", True
             else:
                 return "ElectricScratch", False
         if (attackToUse == 3):
-            EnergyBeamAttack(enemyPlayer)
+            self.EnergyBeamAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "EnergyBeam", True
             else:
                 return "EnergyBeam", False
         if (attackToUse == 4):
-            BiteAttack(enemyPlayer)
+            self.BiteAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "Bite", True
             else:

@@ -72,6 +72,9 @@ class FireDragon:
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 45):
             enemyPlayer.doDamage(80)
+            print("Roar did 80 damage!\n")
+        else:
+            print("Roar missed!\n")
 
     def ClawSwipeAttack(self, enemyPlayer): #35 damage, 90 accuracy
         """
@@ -86,6 +89,9 @@ class FireDragon:
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 90):
             enemyPlayer.doDamage(35)
+            print("Claw Swipe did 35 damage!\n")
+        else:
+            print("Claw Swipe missed!\n")
 
     def FireBreathAttack(self, enemyPlayer): #140 damage, 30 accuracy
         """
@@ -99,6 +105,9 @@ class FireDragon:
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 30):
             enemyPlayer.doDamage(140)
+            print("Fire Breath did 140 damage!\n")
+        else:
+            print("Fire Breath missed!\n")
 
     def TailWhipAttack(self, enemyPlayer): #20 damage, 100 accuracy
         """
@@ -110,6 +119,7 @@ class FireDragon:
         Returns: None
         """
         enemyPlayer.doDamage(20)
+        print("Tail Whip did 20 damage!\n")
 
     def AIAttack(self, enemyPlayer):
         """
@@ -124,28 +134,28 @@ class FireDragon:
         """
         #randomly choose one of Fire Dragon's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
-        attackToUse = random.randint(0,5)
+        attackToUse = random.randint(1,5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if (attackToUse == 1):
-            RoarAttack(enemyPlayer)
+            self.RoarAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "Roar", True
             else:
                 return "Roar", False
         if (attackToUse == 2):
-            ClawSwipeAttack(enemyPlayer)
+            self.ClawSwipeAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "ClawSwipe", True
             else:
                 return "ClawSwipe", False
         if (attackToUse == 3):
-            FireBreathAttack(enemyPlayer)
+            self.FireBreathAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "FireBreath", True
             else:
                 return "FireBreath", False
         if (attackToUse == 4):
-            SlashAttack(enemyPlayer)
+            self.TailWhipAttack(enemyPlayer)
             if (tempHealth != enemyPlayer.getCurrentHealth()):
                 return "TailWhip", True
             else:
