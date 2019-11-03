@@ -110,6 +110,13 @@ def trackProgmonButtons_AI():
 
 # (UNFINISHED - PROJECT 4) TRACKS IF BATTLE MENU BUTTONS ARE CLICKED
 def trackBattleMenuButtons():
+    """
+    Keeps track of which buttons are being pressed and acts according to the users input
+
+    Args: None
+
+    Returns: None
+    """
     global playerMove
     pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
@@ -330,61 +337,68 @@ def handleScreen(gameState):
             #playerTurn()
 
 # (UNFINISHED) HANDLES ALL FUNCTIONS THAT OCCUR DURING PLAYER 1'S TURN
-def playerTurn():
-    # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
-    global playerMove
-    global progmonNameP1
-    global progmonNameAI
-    # print("playerMove =", playerMove) # TESTER CODE
-    if(playerMove == "FIGHT"):
-        p1Attack = random.randint(0,5)
-        # print("p1Attack =", p1Attack) # TESTER CODE
-        if(progmonP1 == "FireDragon"):
-            if(p1Attack == 1):
-                print("Player 1's", progmonNameP1, "used Roar!")
-                myP1.RoarAttack(myAI)
-            elif(p1Attack == 2):
-                print("Player 1's", progmonNameP1, "used Claw Swipe!")
-                myP1.ClawSwipeAttack(myAI)
-            elif(p1Attack == 3):
-                print("Player 1's", progmonNameP1, "used Fire Breath!")
-                myP1.FireBreathAttack(myAI)
-            elif(p1Attack == 4):
-                print("Player 1's", progmonNameP1, "used Tail Whip!")
-                myP1.TailWhipAttack(myAI)
-        elif(progmonP1 == "ElectricCat"):
-            if(p1Attack == 1):
-                print("Player 1's", progmonNameP1, "used Lightning Bolt!")
-                myP1.LightningBoltAttack(myAI)
-            elif(p1Attack == 2):
-                print("Player 1's", progmonNameP1, "used Electric Scratch!")
-                myP1.ElectricScratchAttack(myAI)
-            elif(p1Attack == 3):
-                print("Player 1's", progmonNameP1, "used Energy Beam!")
-                myP1.EnergyBeamAttack(myAI)
-            elif(p1Attack == 4):
-                print("Player 1's", progmonNameP1, "used Bite!")
-                myP1.BiteAttack(myAI)
-        if(myAI.checkAlive() != True):
-            print("Player AI's", progmonNameAI, "has fainted. You win!\n")
-            quitGame()
-    # (UNFINISHED - PROJECT 4) ADD MORE ITEMS TO THE BAG PLUS NEED ABILITY TO SELECT THE ITEM YOU WANT TO USE
-    elif(playerMove == "BAG"):
-        if (myP1.bagEmpty()):
-            print("Player 1 has nothing in their Bag.\n")
-        else:
-            myP1.useHealthPotion()
-            print("Player 1 has used a Health Potion!\n") # TESTER CODE
-            # AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
-    # (UNFINISHED - PROJECT 4) ALLOW PLAYER 1 THE ABILITY TO CHANGE THEIR PROGMON DURING THE BATTLE
-    elif(playerMove == "PROGMON"):
-        # progmonP1.switchProgmon()
-        print("PROGMON SWITCHING IS NOT AVAILABLE AT THIS TIME")
-
-    # (UNFINISHED - PROJECT 3) AFTER PLAYER 1'S TURN IS OVER, LET PLAYER AI GO
-    AITurn()
+# def playerTurn():
+#     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
+#     global playerMove
+#     global progmonNameP1
+#     global progmonNameAI
+#     # print("playerMove =", playerMove) # TESTER CODE
+#     if(playerMove == "FIGHT"):
+#         p1Attack = random.randint(0,5)
+#         # print("p1Attack =", p1Attack) # TESTER CODE
+#         if(progmonP1 == "FireDragon"):
+#             if(p1Attack == 1):
+#                 print("Player 1's", progmonNameP1, "used Roar!")
+#                 myP1.RoarAttack(myAI)
+#             elif(p1Attack == 2):
+#                 print("Player 1's", progmonNameP1, "used Claw Swipe!")
+#                 myP1.ClawSwipeAttack(myAI)
+#             elif(p1Attack == 3):
+#                 print("Player 1's", progmonNameP1, "used Fire Breath!")
+#                 myP1.FireBreathAttack(myAI)
+#             elif(p1Attack == 4):
+#                 print("Player 1's", progmonNameP1, "used Tail Whip!")
+#                 myP1.TailWhipAttack(myAI)
+#         elif(progmonP1 == "ElectricCat"):
+#             if(p1Attack == 1):
+#                 print("Player 1's", progmonNameP1, "used Lightning Bolt!")
+#                 myP1.LightningBoltAttack(myAI)
+#             elif(p1Attack == 2):
+#                 print("Player 1's", progmonNameP1, "used Electric Scratch!")
+#                 myP1.ElectricScratchAttack(myAI)
+#             elif(p1Attack == 3):
+#                 print("Player 1's", progmonNameP1, "used Energy Beam!")
+#                 myP1.EnergyBeamAttack(myAI)
+#             elif(p1Attack == 4):
+#                 print("Player 1's", progmonNameP1, "used Bite!")
+#                 myP1.BiteAttack(myAI)
+#         if(myAI.checkAlive() != True):
+#             print("Player AI's", progmonNameAI, "has fainted. You win!\n")
+#             quitGame()
+#     # (UNFINISHED - PROJECT 4) ADD MORE ITEMS TO THE BAG PLUS NEED ABILITY TO SELECT THE ITEM YOU WANT TO USE
+#     elif(playerMove == "BAG"):
+#         if (myP1.bagEmpty()):
+#             print("Player 1 has nothing in their Bag.\n")
+#         else:
+#             myP1.useHealthPotion()
+#             print("Player 1 has used a Health Potion!\n") # TESTER CODE
+#             # AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
+#     # (UNFINISHED - PROJECT 4) ALLOW PLAYER 1 THE ABILITY TO CHANGE THEIR PROGMON DURING THE BATTLE
+#     elif(playerMove == "PROGMON"):
+#         # progmonP1.switchProgmon()
+#         print("PROGMON SWITCHING IS NOT AVAILABLE AT THIS TIME")
+#
+#     # (UNFINISHED - PROJECT 3) AFTER PLAYER 1'S TURN IS OVER, LET PLAYER AI GO
+#     AITurn()
 
 def AITurn():
+    """
+    Our AI decides which is the best thing to do, fight, bad, or run, depending on its health and the enemy's health.
+
+    Args: None
+
+    Returns: None
+    """
     global myP1
     global myAI
     # AIMove = random.randint(1,101)
