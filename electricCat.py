@@ -39,7 +39,8 @@ class ElectricCat:
         Checks if the dragon is alive
 
         Args: None
-        Returns: None
+        Returns:
+        Boolean telling whether the cat is alive
         """
 
         if(self.alive == True):
@@ -180,7 +181,8 @@ class ElectricCat:
 
         Args: None
 
-        Returns: None
+        Returns:
+        Boolean telling whether or not the badg is empty
         """
 
         if (self.bag):

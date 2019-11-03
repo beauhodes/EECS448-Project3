@@ -40,7 +40,8 @@ class FireDragon:
         Checks if the dragon is alive
 
         Args: None
-        Returns: None
+        Returns:
+        Boolean telling whether the dragon is alive
         """
 
         if(self.alive == True):
@@ -179,7 +180,8 @@ class FireDragon:
 
         Args: None
 
-        Returns: None
+        Returns:
+        Boolean telling whether or not the bag is empty
         """
 
         if (self.bag):
