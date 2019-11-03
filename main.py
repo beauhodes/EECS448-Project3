@@ -121,6 +121,39 @@ def trackBattleMenuButtons():
         if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 playerMove = "FIGHT"
+                pygame.time.delay(500)
+                p1Attack = random.randint(0,5)
+                # print("p1Attack =", p1Attack) # TESTER CODE
+                if(progmonP1 == "FireDragon"):
+                    if(p1Attack == 1):
+                        print("Player 1's", progmonNameP1, "used Roar!")
+                        myP1.RoarAttack(myAI)
+                    elif(p1Attack == 2):
+                        print("Player 1's", progmonNameP1, "used Claw Swipe!")
+                        myP1.ClawSwipeAttack(myAI)
+                    elif(p1Attack == 3):
+                        print("Player 1's", progmonNameP1, "used Fire Breath!")
+                        myP1.FireBreathAttack(myAI)
+                    elif(p1Attack == 4):
+                        print("Player 1's", progmonNameP1, "used Tail Whip!")
+                        myP1.TailWhipAttack(myAI)
+                elif(progmonP1 == "ElectricCat"):
+                    if(p1Attack == 1):
+                        print("Player 1's", progmonNameP1, "used Lightning Bolt!")
+                        myP1.LightningBoltAttack(myAI)
+                    elif(p1Attack == 2):
+                        print("Player 1's", progmonNameP1, "used Electric Scratch!")
+                        myP1.ElectricScratchAttack(myAI)
+                    elif(p1Attack == 3):
+                        print("Player 1's", progmonNameP1, "used Energy Beam!")
+                        myP1.EnergyBeamAttack(myAI)
+                    elif(p1Attack == 4):
+                        print("Player 1's", progmonNameP1, "used Bite!")
+                        myP1.BiteAttack(myAI)
+                if(myAI.checkAlive() != True):
+                    print("Player AI's", progmonNameAI, "has fainted. You win!\n")
+                    quitGame()
+                AITurn()
                 # (UNFINISHED - PROJECT 4) CALL A FUNCTION TO DISPLAY ATTACK OPTIONS
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
@@ -133,7 +166,14 @@ def trackBattleMenuButtons():
         if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.87, displayHeight * 0.805, 80, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BAG BUTTON
                 playerMove = "BAG"
+                pygame.time.delay(500)
+                if (myP1.bagEmpty()):
+                    print("Player 1 has nothing in their Bag.\n")
+                else:
+                    myP1.useHealthPotion()
+                    print("Player 1 has used a Health Potion!\n") # TESTER CODE
                 # (UNFINISHED - PROJECT 4) CALL A FUNCTION TO DISPLAY BAG ITEM OPTIONS
+                AITurn()
     elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
         if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -283,7 +323,7 @@ def handleScreen(gameState):
             display.blit(textUserPrompt, textUserPrompt_RECT) # DISPLAYS USER PROMPT MESSAGE
 
             trackBattleMenuButtons()
-            playerTurn()
+            #playerTurn()
 
 # (UNFINISHED) HANDLES ALL FUNCTIONS THAT OCCUR DURING PLAYER 1'S TURN
 def playerTurn():
@@ -376,7 +416,7 @@ def AITurn():
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
 
-    playerTurn()    #after turn is over, let the player go
+    #playerTurn()    #after turn is over, let the player go
 
 # MAIN
 if __name__ == "__main__":
