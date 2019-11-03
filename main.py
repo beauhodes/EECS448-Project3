@@ -405,7 +405,7 @@ def AITurn():
         myAI.AIAttack(myP1)
         #now we should display some sort of window/message for the user saying if they hit or not
         #update player's health in the UI
-        if(myAI.checkAlive() != True):
+        if(myP1.checkAlive() != True):
             print("P1 progmon has died")
             quitGame()
     elif(myAI.currentHealth <= critical and myAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
