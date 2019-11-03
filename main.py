@@ -153,6 +153,7 @@ def trackBattleMenuButtons():
                 if(myAI.checkAlive() != True):
                     print("Player AI's", progmonNameAI, "has fainted. You win!\n")
                     quitGame()
+                pygame.time.delay(1200)
                 AITurn()
                 # (UNFINISHED - PROJECT 4) CALL A FUNCTION TO DISPLAY ATTACK OPTIONS
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
@@ -160,6 +161,8 @@ def trackBattleMenuButtons():
         if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.63, displayHeight * 0.88, 180, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PROGMON BUTTON
                 playerMove = "PROGMON"
+                pygame.time.delay(500)
+                print("PROGMON SWITCHING IS NOT AVAILABLE AT THIS TIME")
                 # (UNFINISHED - PROJECT 4) CALL A FUNCTION TO DISPLAY PROGMON SWITCH OPTIONS
     elif displayWidth * 0.87 + 80 > mouse[0] > displayWidth * 0.87 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF BAG BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.87, displayHeight * 0.805, 80, 40), 5) # BOX AROUND BAG ON MOUSE-HOVER
@@ -173,6 +176,7 @@ def trackBattleMenuButtons():
                     myP1.useHealthPotion()
                     print("Player 1 has used a Health Potion!\n") # TESTER CODE
                 # (UNFINISHED - PROJECT 4) CALL A FUNCTION TO DISPLAY BAG ITEM OPTIONS
+                pygame.time.delay(1200)
                 AITurn()
     elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
