@@ -31,6 +31,13 @@ progmonNameAI = ""
 
 # HANDLES PYGAME EVENTS
 def eventHandler():
+    """
+    Checks for different pygame events
+    Args:
+    None
+    Returns:
+    None
+    """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             quitGame()
@@ -38,17 +45,41 @@ def eventHandler():
 
 # QUITS THE GAME
 def quitGame():
+    """
+    Closes the game window
+    Args:
+    None
+    Returns:
+    None
+    """
     print("Quitting...")
     pygame.quit()
     quit()
 
 # CREATES A TEXT OBJECT
 def createTextObject(textToDisplay, fontToUse):
+    """
+    Creates a text object
+    Args:
+    textToDisplay: the string to display
+    fontToUse: the style of the text
+    Returns:
+    the textSurface and textSurface_RECT
+    """
     textSurface = font.render(textToDisplay, True, BLACK)
     return textSurface, textSurface.get_rect()
 
 # CHECKS IF (x, y) IS INSIDE OF (rect.x, rect.y)
 def isPointInRect(x, y, rect):
+    """
+    Checks if a coordinate is within the bounds of a pygame.rect object
+    Args:
+    x (float): x coordinate to check
+    y (float): y coordinate to check
+    rect (pygame.Rect): object to see if x any y are in
+    Returns:
+    bool: True if x and y are in rect, False otherwise
+    """
     if x < rect.x + rect.width and x > rect.x and y < rect.y + rect.height and y > rect.y:
         return True
     return False
