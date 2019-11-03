@@ -19,7 +19,6 @@ class ElectricCat:
         self.currentHealth = 250
         self.alive = True
         self.bag = ["healthPotion"] #will add more after project 3
-        print("ElectricCat BAG: ", self.bag)
 
     def doDamage(self, damageDone):
         """
@@ -47,6 +46,17 @@ class ElectricCat:
             return True
         else:
             return False
+
+    def getCurrentHealth(self):
+        """
+        Gets current health
+
+        Args: None
+
+        Returns: Current health
+        """
+        print("test")
+        return self.currentHealth
 
     def LightningBoltAttack(self, enemyPlayer):
         """
@@ -143,7 +153,7 @@ class ElectricCat:
             else:
                 return "Bite", False
 
-    def useHealthPotion():
+    def useHealthPotion(self):
         """
         Uses health potion to heal 30 points of health
 
@@ -155,7 +165,7 @@ class ElectricCat:
         self.currentHealth = self.currentHealth + 30
         self.bag.remove("healthPotion")
 
-    def bagEmpty():
+    def bagEmpty(self):
         """
         Checks if bag is empty
 
@@ -164,7 +174,7 @@ class ElectricCat:
         Returns: None
         """
 
-        if (bag):
+        if (self.bag):
             return False
         else:
             return True

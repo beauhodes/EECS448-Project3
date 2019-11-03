@@ -48,7 +48,7 @@ class FireDragon:
         else:
             return False
 
-    def getCurrentHealth():
+    def getCurrentHealth(self):
         """
         Gets current health
 
@@ -151,7 +151,7 @@ class FireDragon:
             else:
                 return "TailWhip", False
 
-    def useHealthPotion():
+    def useHealthPotion(self):
         """
         Uses health potion to heal 30 points of health
 
@@ -163,7 +163,7 @@ class FireDragon:
         self.currentHealth = self.currentHealth + 30
         self.bag.remove("healthPotion")
 
-    def bagEmpty():
+    def bagEmpty(self):
         """
         Checks if bag is empty
 
@@ -172,7 +172,7 @@ class FireDragon:
         Returns: None
         """
 
-        if (bag):
+        if (self.bag):
             return False
         else:
             return True

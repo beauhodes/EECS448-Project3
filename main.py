@@ -73,15 +73,13 @@ def trackPlayButton():
     global progmonAI
     global gameState
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
-    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.45 + 110 > mouse[0] > displayWidth * 0.45 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF PLAY BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.45, displayHeight * 0.805, 110, 40), 5) # BOX AROUND PLAY ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
-            if progmonP1 != "" and progmonAI != "": # IF PLAYER 1 AND PLAYER AI HAVE PROGMON SELECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
+            if progmonP1 != "" and progmonAI != "":
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.45, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAY BUTTON
-                    #print("MOUSE CLICK DETECTED ON PLAY BUTTON") # TESTER CODE
                     gameState = "fightScreen"
-                    handleScreen(gameState) # "SWITCHES" THE PYGAME DISPLAY SCREEN
+                    handleScreen(gameState)
             else:
                 if progmonP1 == "":
                     print("ERROR: Player 1 needs to select a Progmon to play with.")
@@ -93,46 +91,36 @@ def trackProgmonButtons_P1():
     global progmonP1
     global myP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
-    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.16 + 200 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.1 + 40 > mouse[1] > displayHeight * 0.1: # VALID LOCATION OF PLAYER 1'S ELECTRICCAT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.16, displayHeight * 0.1, 200, 40), 5) # BOX AROUND PLAYER 1'S ELECTRICCAT ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.16, displayHeight * 0.1, 200, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S ELECTRICCAT BUTTON
-                #print("MOUSE CLICK DETECTED ON PLAYER 1'S ELECTRICCAT BUTTON") # TESTER CODE
                 progmonP1 = "ElectricCat"
                 myP1 = ElectricCat()
-                print("progmonP1", progmonP1) # TESTER CODE
     elif displayWidth * 0.16 + 190 > mouse[0] > displayWidth * 0.16 and displayHeight * 0.223 + 40 > mouse[1] > displayHeight * 0.223: # VALID LOCATION OF PLAYER 1'S FIREDRAGON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.16, displayHeight * 0.223, 190, 40), 5) # BOX AROUND PLAYER 1'S FIREDRAGON ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.16, displayHeight * 0.223, 190, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER 1'S FIREDRAGON BUTTON
-                #print("MOUSE CLICK DETECTED ON PLAYER 1'S FIREDRAGON BUTTON") # TESTER CODE
                 progmonP1 = "FireDragon"
                 myP1 = FireDragon()
-                print("progmonP1", progmonP1) # TESTER CODE
 
 # (UNFINISHED) TRACKS IF PLAYER AI'S PROGMON BUTTONS ARE CLICKED
 def trackProgmonButtons_AI():
     global progmonAI
     global myAI
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
-    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.68 + 200 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.1 + 40 > mouse[1] > displayHeight * 0.1: # VALID LOCATION OF PLAYER AI'S ELECTRICCAT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.1, 200, 40), 5) # BOX AROUND PLAYER AI'S ELECTRICCAT ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.1, 200, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S ELECTRICCAT BUTTON
-                #print("MOUSE CLICK DETECTED ON PLAYER AI'S ELECTRICCAT BUTTON") # TESTER CODE
                 progmonAI = "ElectricCat"
                 myAI = ElectricCat()
-                print("progmonAI", progmonAI) # TESTER CODE
     elif displayWidth * 0.68 + 190 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.223 + 40 > mouse[1] > displayHeight * 0.223: # VALID LOCATION OF PLAYER AI'S FIREDRAGON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.223, 190, 40), 5) # BOX AROUND PLAYER AI'S FIREDRAGON ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.223, 190, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PLAYER AI'S FIREDRAGON BUTTON
-                #print("MOUSE CLICK DETECTED ON PLAYER AI'S FIREDRAGON BUTTON") # TESTER CODE
                 progmonAI = "FireDragon"
                 myAI = FireDragon()
-                print("progmonAI", progmonAI) # TESTER CODE
 
 # (UNFINISHED) TRACKS IF BATTLE MENU BUTTONS ARE CLICKED
 def trackBattleMenuButtons():
@@ -143,31 +131,27 @@ def trackBattleMenuButtons():
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND USER INPUT PROMPT MESSAGE
 
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
-    #print("mouse(x, y): ", mouse[0], ",", mouse[1]) # TESTER CODE
     if displayWidth * 0.665 + 110 > mouse[0] > displayWidth * 0.665 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF FIGHT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.665, displayHeight * 0.805, 110, 40), 5) # BOX AROUND FIGHT ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
-                print("MOUSE CLICK DETECTED ON FIGHT BUTTON") # TESTER CODE
                 # (UNFINISHED) CALL A FUNCTION TO DISPLAY ATTACK OPTIONS
                 playerMove = "FIGHT"
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.63, displayHeight * 0.88, 180, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR PROGMON BUTTON
-                print("MOUSE CLICK DETECTED ON PROGMON BUTTON") # TESTER CODE
                 # (UNFINISHED) CALL A FUNCTION TO DISPLAY PROGMON SWITCH OPTIONS
                 playerMove = "PROGMON"
     elif displayWidth * 0.87 + 80 > mouse[0] > displayWidth * 0.87 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF BAG BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.87, displayHeight * 0.805, 80, 40), 5) # BOX AROUND BAG ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.87, displayHeight * 0.805, 80, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BAG BUTTON
-                print("MOUSE CLICK DETECTED ON BAG BUTTON") # TESTER CODE
                 # (UNFINISHED) CALL A FUNCTION TO DISPLAY BAG ITEM OPTIONS
                 playerMove = "BAG"
     elif displayWidth * 0.865 + 95 > mouse[0] > displayWidth * 0.865 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF QUIT BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.865, displayHeight * 0.88, 95, 40), 5) # BOX AROUND QUIT ON MOUSE-HOVER
-        if pygame.mouse.get_pressed() == (1, 0, 0): # MOUSE CLICK DETECTED
+        if pygame.mouse.get_pressed() == (1, 0, 0):
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.865, displayHeight * 0.88, 95, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR QUIT BUTTON
                 quitGame()
 
@@ -321,7 +305,7 @@ def handleScreen(gameState):
 
 def playerTurn():
     global playerMove
-    #print("playerMove:", playerMove) # TESTER CODE
+    print("playerMove:", playerMove) # TESTER CODE
     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
     #has to begin by tracking "fight", "bag", "run", etc (needs to be a different function probably)
 
@@ -353,25 +337,19 @@ def playerTurn():
             quitGame()
 
     elif(playerMove == "BAG"):
-        #myP1.useBag()
-        # if (myP1.bagEmpty()):
-        print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
-        # else:
-        #     myP1.useHealthPotion() #for this implementation, all we can use is health potions
-        #     AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
-
-    elif(playerMove == "RUN"):
-        # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
+        if (myP1.bagEmpty()):
+            print("This player has nothing in their bag")   #Display some message to the player "BAG IS EMPTY"
+        else:
+            print("HEALTH POTION USED")
+            myP1.useHealthPotion() #for this implementation, all we can use is health potions
+            #AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
+    elif(playerMove == "QUIT"):
         quitGame()
-
-    elif(playerMove == "PROGMON"):  #nothing for this is done, just an example
-        print("NOT YET IMPLEMENTED")
-        #progmonP1.switchProgmon()
-
-
-    #AITurn()    #after player's turn is over, let AI go
-
-
+    elif(playerMove == "PROGMON"):
+        # (UNFINISHED)
+        # progmonP1.switchProgmon()
+        print("PROGMON FUNCTION HAS NOT YET BEEN IMPLEMENTED")
+    AITurn() # after player's turn is over, let AI go
 
 def AITurn():
     global myP1
