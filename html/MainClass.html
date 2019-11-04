@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>main.py &#8212; Project3 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="electricCat.py" href="ElectricCatClass.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-main">
+<span id="main-py"></span><h1>main.py<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="main.AITurn">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">AITurn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.AITurn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Our AI decides which is the best thing to do, fight, bad, or run, depending on its health and the enemy’s health.</p>
+<p>Args: None</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.createTextObject">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">createTextObject</code><span class="sig-paren">(</span><em class="sig-param">textToDisplay</em>, <em class="sig-param">fontToUse</em><span class="sig-paren">)</span><a class="headerlink" href="#main.createTextObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a text object
+Args:
+textToDisplay: the string to display
+fontToUse: the style of the text
+Returns:
+the textSurface and textSurface_RECT</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.eventHandler">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">eventHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.eventHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for different pygame events
+Args:
+None
+Returns:
+None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.handleScreen">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">handleScreen</code><span class="sig-paren">(</span><em class="sig-param">gameState</em><span class="sig-paren">)</span><a class="headerlink" href="#main.handleScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the control of the gameStates
+Args:
+gameState (string) - the current game state
+Returns:
+None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.isPointInRect">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">isPointInRect</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">rect</em><span class="sig-paren">)</span><a class="headerlink" href="#main.isPointInRect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a coordinate is within the bounds of a pygame.rect object
+Args:
+x (float): x coordinate to check
+y (float): y coordinate to check
+rect (pygame.Rect): object to see if x any y are in
+Returns:
+bool: True if x and y are in rect, False otherwise</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.quitGame">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">quitGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.quitGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the game window
+Args:
+None
+Returns:
+None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.trackBattleMenuButtons">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackBattleMenuButtons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackBattleMenuButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keeps track of which buttons are being pressed and acts according to the users input</p>
+<p>Args: None</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.trackPlayButton">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackPlayButton</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackPlayButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tracks when there is a click on the play button
+Args:
+None
+Returns:
+None OR gameState is changed to fightScreen and window updates</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.trackProgmonButtons_AI">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackProgmonButtons_AI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackProgmonButtons_AI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tracks when there is a click on Player AI’s Progmon buttons
+Args: None
+Returns: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.trackProgmonButtons_P1">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackProgmonButtons_P1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackProgmonButtons_P1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tracks when there is a click on Player 1’s Progmon buttons
+Args:
+None
+Returns:
+None</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FireDragonClass.html">fireDragon.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">main.py</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ElectricCatClass.html" title="previous chapter">electricCat.py</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Beauhodes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/MainClass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

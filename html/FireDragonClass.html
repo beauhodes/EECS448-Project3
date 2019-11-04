@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>fireDragon.py &#8212; Project3 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="electricCat.py" href="ElectricCatClass.html" />
+    <link rel="prev" title="Welcome to Project3’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-fireDragon">
+<span id="firedragon-py"></span><h1>fireDragon.py<a class="headerlink" href="#module-fireDragon" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fireDragon.FireDragon">
+<em class="property">class </em><code class="sig-prename descclassname">fireDragon.</code><code class="sig-name descname">FireDragon</code><a class="headerlink" href="#fireDragon.FireDragon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for fire dragon fighter</p>
+<dl class="method">
+<dt id="fireDragon.FireDragon.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy fighter object with a randomly chosen attack</p>
+<p>Args:
+enemyPlayer: The enemy fighter object</p>
+<p>Returns:
+String of which attack was used
+Boolean of whether it succeeded or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.ClawSwipeAttack">
+<code class="sig-name descname">ClawSwipeAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.ClawSwipeAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy fighter object with claw swipe</p>
+<p>Args:
+enemyPlayer: The enemy fighter object</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.FireBreathAttack">
+<code class="sig-name descname">FireBreathAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.FireBreathAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy fighter object with fire breath</p>
+<p>Args:
+enemyPlayer: The enemy fighter object</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.RoarAttack">
+<code class="sig-name descname">RoarAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.RoarAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy fighter object with roar</p>
+<p>Args:
+enemyPlayer: The enemy fighter object</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.TailWhipAttack">
+<code class="sig-name descname">TailWhipAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.TailWhipAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy fighter object with tail whip</p>
+<p>Args:
+enemyPlayer: The enemy fighter object</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if bag is empty</p>
+<p>Args: None</p>
+<p>Returns:
+Boolean telling whether or not the bag is empty</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the dragon is alive</p>
+<p>Args: None
+Returns:
+Boolean telling whether the dragon is alive</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the dragon’s health, set alive to false if health gets below 1</p>
+<p>Args:
+damageDone: Amount of damage to do</p>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets current health</p>
+<p>Args: None</p>
+<p>Returns: Current health</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses health potion to heal 30 points of health</p>
+<p>Args: None</p>
+<p>Returns: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fireDragon.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MainClass.html">main.py</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Project3’s documentation!</a></li>
+      <li>Next: <a href="ElectricCatClass.html" title="next chapter">electricCat.py</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Beauhodes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/FireDragonClass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
