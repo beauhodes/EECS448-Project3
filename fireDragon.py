@@ -4,16 +4,14 @@ class FireDragon:
     """
     Class for fire dragon fighter
     """
-
     def __init__(self):
         """
         Creates variables associated with the class
-
-        Args: None
-
-        Returns: None
+        Args:
+            None
+        Returns:
+            None
         """
-
         #continue to add features
         self.name = "Fire Dragon"
         self.hp = 300
@@ -24,13 +22,11 @@ class FireDragon:
     def doDamage(self, damageDone):
         """
         Deals damage to the dragon's health, set alive to false if health gets below 1
-
         Args:
-        damageDone: Amount of damage to do
-
-        Returns: None
+            damageDone: Amount of damage to do
+        Returns:
+            None
         """
-
         self.currentHealth = self.currentHealth - damageDone
         if (self.currentHealth <= 0):
             self.alive = False
@@ -38,12 +34,11 @@ class FireDragon:
     def checkAlive(self):
         """
         Checks if the dragon is alive
-
-        Args: None
+        Args:
+            None
         Returns:
-        Boolean telling whether the dragon is alive
+            Boolean telling whether the dragon is alive
         """
-
         if(self.alive == True):
             return True
         else:
@@ -52,24 +47,21 @@ class FireDragon:
     def getCurrentHealth(self):
         """
         Gets current health
-
-        Args: None
-
-        Returns: Current health
+        Args:
+            None
+        Returns:
+            Current health
         """
-
         return self.currentHealth
 
     def RoarAttack(self, enemyPlayer): #80 damage, 45 accuracy
         """
         Attacks enemy fighter object with roar
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
-
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 45):
             enemyPlayer.doDamage(80)
@@ -80,13 +72,11 @@ class FireDragon:
     def ClawSwipeAttack(self, enemyPlayer): #35 damage, 90 accuracy
         """
         Attacks enemy fighter object with claw swipe
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
-
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 90):
             enemyPlayer.doDamage(35)
@@ -97,11 +87,10 @@ class FireDragon:
     def FireBreathAttack(self, enemyPlayer): #140 damage, 30 accuracy
         """
         Attacks enemy fighter object with fire breath
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 30):
@@ -113,11 +102,10 @@ class FireDragon:
     def TailWhipAttack(self, enemyPlayer): #20 damage, 100 accuracy
         """
         Attacks enemy fighter object with tail whip
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
         enemyPlayer.doDamage(20)
         print("Tail Whip did 20 damage!\n")
@@ -125,13 +113,11 @@ class FireDragon:
     def AIAttack(self, enemyPlayer):
         """
         Attacks enemy fighter object with a randomly chosen attack
-
         Args:
-        enemyPlayer: The enemy fighter object
-
+            enemyPlayer: The enemy fighter object
         Returns:
-        String of which attack was used
-        Boolean of whether it succeeded or not
+            String of which attack was used
+            Boolean of whether it succeeded or not
         """
         #randomly choose one of Fire Dragon's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
@@ -165,25 +151,22 @@ class FireDragon:
     def useHealthPotion(self):
         """
         Uses health potion to heal 30 points of health
-
-        Args: None
-
-        Returns: None
+        Args:
+            None
+        Returns:
+            None
         """
-
         self.currentHealth = self.currentHealth + 30
         self.bag.remove("healthPotion")
 
     def bagEmpty(self):
         """
         Checks if bag is empty
-
-        Args: None
-
+        Args:
+            None
         Returns:
-        Boolean telling whether or not the bag is empty
+            Boolean telling whether or not the bag is empty
         """
-
         if (self.bag):
             return False
         else:
