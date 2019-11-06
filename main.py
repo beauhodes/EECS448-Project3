@@ -268,10 +268,10 @@ def handleScreen(gameState):
             textFireDragonP1, textFireDragonP1_RECT = createTextObject("Fire Dragon", mediumText)
             textFireDragonP1_RECT.center = (displayWidth / 4, displayHeight / 4)
             # PLAYER 1'S PROGMON IMAGES
-            imageSmallElectricCatP1 = pygame.image.load('smallElectricCat.png')
+            imageSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
             imageSmallElectricCatP1_RECT = imageSmallElectricCatP1.get_rect()
             imageSmallElectricCatP1_RECT.center = (displayWidth / 9, displayHeight / 7.5)
-            imageSmallFireDragonP1 = pygame.image.load('smallFireDragon.png')
+            imageSmallFireDragonP1 = pygame.image.load('Sprites/smallFireDragon.png')
             imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
             imageSmallFireDragonP1_RECT.center = (displayWidth / 9, displayHeight / 4)
 
@@ -284,10 +284,10 @@ def handleScreen(gameState):
             textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", mediumText)
             textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 4)
             # PLAYER AI'S PROGMON IMAGES
-            imageSmallElectricCatAI = pygame.image.load('smallElectricCat.png')
+            imageSmallElectricCatAI = pygame.image.load('Sprites/smallElectricCat.png')
             imageSmallElectricCatAI_RECT = imageSmallElectricCatAI.get_rect()
             imageSmallElectricCatAI_RECT.center = (displayWidth / 1.6, displayHeight / 7.5)
-            imageSmallFireDragonAI = pygame.image.load('smallFireDragon.png')
+            imageSmallFireDragonAI = pygame.image.load('Sprites/smallFireDragon.png')
             imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
             imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
 
@@ -317,12 +317,12 @@ def handleScreen(gameState):
             eventHandler()
             if progmonP1 == "ElectricCat":
                 progmonNameP1 = "Electric Cat"
-                progmonImageP1 = pygame.image.load('largeElectricCat.png')
+                progmonImageP1 = pygame.image.load('Sprites/largeElectricCat.png')
                 progmonImageP1_RECT = progmonImageP1.get_rect()
                 progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
             elif progmonP1 == "FireDragon":
                 progmonNameP1 = "Fire Dragon"
-                progmonImageP1 = pygame.image.load('largeFireDragon.png')
+                progmonImageP1 = pygame.image.load('Sprites/largeFireDragon.png')
                 progmonImageP1_RECT = progmonImageP1.get_rect()
                 progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
             # CREATE NAME FOR PLAYER 1
@@ -341,12 +341,12 @@ def handleScreen(gameState):
 
             if progmonAI == "ElectricCat":
                 progmonNameAI = "Electric Cat"
-                progmonImageAI = pygame.image.load('largeElectricCat.png')
+                progmonImageAI = pygame.image.load('Sprites/largeElectricCat.png')
                 progmonImageAI_RECT = progmonImageAI.get_rect()
                 progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
             elif progmonAI == "FireDragon":
                 progmonNameAI = "Fire Dragon"
-                progmonImageAI = pygame.image.load('largeFireDragon.png')
+                progmonImageAI = pygame.image.load('Sprites/largeFireDragon.png')
                 progmonImageAI_RECT = progmonImageAI.get_rect()
                 progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
             # CREATE NAME FOR PLAYER AI
