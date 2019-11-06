@@ -34,9 +34,9 @@ def eventHandler():
     """
     Checks for different pygame events
     Args:
-    None
+        None
     Returns:
-    None
+        None
     """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -48,9 +48,9 @@ def quitGame():
     """
     Closes the game window
     Args:
-    None
+        None
     Returns:
-    None
+        None
     """
     print("Quitting...")
     pygame.quit()
@@ -61,10 +61,10 @@ def createTextObject(textToDisplay, fontToUse):
     """
     Creates a text object
     Args:
-    textToDisplay: the string to display
-    fontToUse: the style of the text
+        textToDisplay: the string to display
+        fontToUse: the style of the text
     Returns:
-    the textSurface and textSurface_RECT
+        the textSurface and textSurface_RECT
     """
     textSurface = font.render(textToDisplay, True, BLACK)
     return textSurface, textSurface.get_rect()
@@ -74,11 +74,11 @@ def isPointInRect(x, y, rect):
     """
     Checks if a coordinate is within the bounds of a pygame.rect object
     Args:
-    x (float): x coordinate to check
-    y (float): y coordinate to check
-    rect (pygame.Rect): object to see if x any y are in
+        x (float): x coordinate to check
+        y (float): y coordinate to check
+        rect (pygame.Rect): object to see if x any y are in
     Returns:
-    bool: True if x and y are in rect, False otherwise
+        bool: True if x and y are in rect, False otherwise
     """
     if x < rect.x + rect.width and x > rect.x and y < rect.y + rect.height and y > rect.y:
         return True
@@ -89,9 +89,9 @@ def trackPlayButton():
     """
     Tracks when there is a click on the play button
     Args:
-    None
+        None
     Returns:
-    None OR gameState is changed to fightScreen and window updates
+        None OR gameState is changed to fightScreen and window updates
     """
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
     if displayWidth * 0.45 + 110 > mouse[0] > displayWidth * 0.45 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF PLAY BUTTON
@@ -111,9 +111,9 @@ def trackProgmonButtons_P1():
     """
     Tracks when there is a click on Player 1's Progmon buttons
     Args:
-    None
+        None
     Returns:
-    None
+        None
     """
     global progmonP1
     global myP1
@@ -137,8 +137,10 @@ def trackProgmonButtons_P1():
 def trackProgmonButtons_AI():
     """
     Tracks when there is a click on Player AI's Progmon buttons
-    Args: None
-    Returns: None
+    Args:
+        None
+    Returns:
+        None
     """
     global progmonAI
     global myAI
@@ -162,10 +164,10 @@ def trackProgmonButtons_AI():
 def trackBattleMenuButtons():
     """
     Keeps track of which buttons are being pressed and acts according to the users input
-
-    Args: None
-
-    Returns: None
+    Args:
+        None
+    Returns:
+        None
     """
     global playerMove
     pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
@@ -246,9 +248,9 @@ def handleScreen(gameState):
     """
     Handles the control of the gameStates
     Args:
-    gameState (string) - the current game state
+        gameState (string) - the current game state
     Returns:
-    None
+        None
     """
     global myP1
     global progmonNameP1
@@ -451,10 +453,10 @@ def handleScreen(gameState):
 def AITurn():
     """
     Our AI decides which is the best thing to do, fight, bad, or run, depending on its health and the enemy's health.
-
-    Args: None
-
-    Returns: None
+    Args:
+        None
+    Returns:
+        None
     """
     global myP1
     global myAI

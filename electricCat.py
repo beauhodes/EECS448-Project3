@@ -4,16 +4,14 @@ class ElectricCat:
     """
     Class for fire dragon fighter
     """
-
     def __init__(self):
         """
         Creates variables associated with the class
-
-        Args: None
-
-        Returns: None
+        Args:
+            None
+        Returns:
+            None
         """
-
         self.name = "Electric Cat"
         self.hp = 250
         self.currentHealth = 250
@@ -23,13 +21,11 @@ class ElectricCat:
     def doDamage(self, damageDone):
         """
         Deals damage to the dragon's health, set alive to false if health gets below 1
-
         Args:
-        damageDone: Amount of damage to do
-
-        Returns: None
+            damageDone: Amount of damage to do
+        Returns:
+            None
         """
-
         self.currentHealth = self.currentHealth - damageDone
         if (self.currentHealth <= 0):
             self.alive = False
@@ -37,12 +33,11 @@ class ElectricCat:
     def checkAlive(self):
         """
         Checks if the dragon is alive
-
-        Args: None
+        Args:
+            None
         Returns:
-        Boolean telling whether the cat is alive
+            Boolean telling whether the cat is alive
         """
-
         if(self.alive == True):
             return True
         else:
@@ -51,23 +46,21 @@ class ElectricCat:
     def getCurrentHealth(self):
         """
         Gets current health
-
-        Args: None
-
-        Returns: Current health
+        Args:
+            None
+        Returns:
+            Current health
         """
         return self.currentHealth
 
     def LightningBoltAttack(self, enemyPlayer):
         """
         Attacks enemy fighter object with lightning bolt
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
-
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 45):
             enemyPlayer.doDamage(90)
@@ -78,13 +71,11 @@ class ElectricCat:
     def ElectricScratchAttack(self, enemyPlayer):
         """
         Attacks enemy fighter object with electric scratch
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
-
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 90):
             enemyPlayer.doDamage(40)
@@ -95,13 +86,11 @@ class ElectricCat:
     def EnergyBeamAttack(self, enemyPlayer):
         """
         Attacks enemy fighter object with energy beam
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
-
         chanceToHit = random.randint(1,101)
         if (chanceToHit <= 40):
             enemyPlayer.doDamage(110)
@@ -112,28 +101,23 @@ class ElectricCat:
     def BiteAttack(self, enemyPlayer):
         """
         Attacks enemy fighter object with bite
-
         Args:
-        enemyPlayer: The enemy fighter object
-
-        Returns: None
+            enemyPlayer: The enemy fighter object
+        Returns:
+            None
         """
-
         enemyPlayer.doDamage(20)
         print("Bite did 20 damage!\n")
 
     def AIAttack(self, enemyPlayer):
         """
         Attacks enemy fighter object with a randomly chosen attack
-
         Args:
-        enemyPlayer: The enemy fighter object
-
+            enemyPlayer: The enemy fighter object
         Returns:
-        String of which attack was used
-        Boolean of whether it succeeded or not
+            String of which attack was used
+            Boolean of whether it succeeded or not
         """
-
         #randomly choose one of Electric Cat's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(1,5)
@@ -166,25 +150,22 @@ class ElectricCat:
     def useHealthPotion(self):
         """
         Uses health potion to heal 30 points of health
-
-        Args: None
-
-        Returns: None
+        Args:
+            None
+        Returns:
+            None
         """
-
         self.currentHealth = self.currentHealth + 30
         self.bag.remove("healthPotion")
 
     def bagEmpty(self):
         """
         Checks if bag is empty
-
-        Args: None
-
+        Args:
+            None
         Returns:
-        Boolean telling whether or not the badg is empty
+            Boolean telling whether or not the badg is empty
         """
-
         if (self.bag):
             return False
         else:
