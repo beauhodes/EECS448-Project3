@@ -1,17 +1,26 @@
 /***************************************************************************************
-*    Title: PyGame
+*    Title: Pygame
 *    Author: Lenard Lindstrom, René Dudfield, Pete Shinners, Nicholas Dudfield, Thomas Kluyver
 *    Date: October 28, 2000
-*    Code version: 1.9.6
-*    Availability: https://pygame.org or https://github.com/pygame/pygame/
+*    Code Version: Python3 + Pygame 1.9.6
+*    Availability: https://pygame.org OR https://github.com/pygame/pygame/
 *
 ***************************************************************************************/
 
 /***************************************************************************************
-*    Title: TextObjects() function
-*    Author: Unknown author but it was found from pythonprogramming.net
-*    Date: Unknown
-*    Code version: Uses Pygame 1.9.6
+*    Title: createTextObject()
+*    Author: SentDex (YouTuber) https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ
+*    Date: October 10, 2014
+*    Code Version: Python3 + Pygame 1.9.6
 *    Availability: https://pythonprogramming.net/pygame-start-menu-tutorial/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: messageBox.py
+*    Author: MyreMyalar; Modified By: MattR0se (Redditors)
+*    Date: March 2019
+*    Code Version: Python3 + Pygame 1.9.6
+*    Availability: https://www.reddit.com/r/pygame/comments/apjikj/pygame_message_boxes/
 *
 ***************************************************************************************/
