@@ -1,6 +1,6 @@
 import random
 import pygame
-# from messageBox import MessageBox # (UNFINISHED - PROJECT 4) NOT SURE IF THIS WILL BE USED
+import pygame.gfxdraw
 from fireDragon import FireDragon
 from electricCat import ElectricCat
 
@@ -15,10 +15,10 @@ pygame.display.set_caption('EECS448 Project 4: Progmon Battle Simulator')
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
-font = pygame.font.Font('freesansbold.ttf', 32)
-smallText = pygame.font.Font('freesansbold.ttf', 36)
-mediumText = pygame.font.Font('freesansbold.ttf', 48)
-largeText = pygame.font.Font('freesansbold.ttf', 65)
+miniText = pygame.font.Font('freesansbold.ttf', 24)
+smallText = pygame.font.Font('freesansbold.ttf', 32)
+mediumText = pygame.font.Font('freesansbold.ttf', 36)
+largeText = pygame.font.Font('freesansbold.ttf', 42)
 
 # GLOBAL VARIABLES
 # gameState = "" # (UNFINISHED - PROJECT 4) DO NOT THINK THIS GLOBAL VARIABLE IS NEEDED
@@ -67,7 +67,7 @@ def createTextObject(textToDisplay, fontToUse):
     Returns:
         The created textSurface and textSurface_RECT
     """
-    textSurface = font.render(textToDisplay, True, BLACK)
+    textSurface = fontToUse.render(textToDisplay, True, BLACK)
     return textSurface, textSurface.get_rect()
 
 # CHECKS IF (x, y) IS INSIDE OF (rect.x, rect.y)
@@ -184,39 +184,42 @@ def trackBattleMenuButtons():
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 playerMove = "FIGHT"
                 pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                p1Attack = random.randint(0, 5)
-                # print("p1Attack =", p1Attack) # TESTER CODE
-                if progmonP1 == "FireDragon":
-                    if p1Attack == 1:
-                        print("Player 1's", progmonNameP1, "used Roar!")
-                        myP1.RoarAttack(myAI)
-                    elif p1Attack == 2:
-                        print("Player 1's", progmonNameP1, "used Claw Swipe!")
-                        myP1.ClawSwipeAttack(myAI)
-                    elif p1Attack == 3:
-                        print("Player 1's", progmonNameP1, "used Fire Breath!")
-                        myP1.FireBreathAttack(myAI)
-                    elif p1Attack == 4:
-                        print("Player 1's", progmonNameP1, "used Tail Whip!")
-                        myP1.TailWhipAttack(myAI)
-                elif progmonP1 == "ElectricCat":
-                    if p1Attack == 1:
-                        print("Player 1's", progmonNameP1, "used Lightning Bolt!")
-                        myP1.LightningBoltAttack(myAI)
-                    elif p1Attack == 2:
-                        print("Player 1's", progmonNameP1, "used Electric Scratch!")
-                        myP1.ElectricScratchAttack(myAI)
-                    elif p1Attack == 3:
-                        print("Player 1's", progmonNameP1, "used Energy Beam!")
-                        myP1.EnergyBeamAttack(myAI)
-                    elif p1Attack == 4:
-                        print("Player 1's", progmonNameP1, "used Bite!")
-                        myP1.BiteAttack(myAI)
-                if myAI.checkAlive() != True:
-                    print("Player AI's", progmonNameAI, "has fainted. You win!\n")
-                    quitGame()
-                pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-                AITurn()
+
+                handleScreen("attackMenu")
+
+                # p1Attack = random.randint(0, 5)
+                # # print("p1Attack =", p1Attack) # TESTER CODE
+                # if progmonP1 == "FireDragon":
+                #     if p1Attack == 1:
+                #         print("Player 1's", progmonNameP1, "used Roar!")
+                #         myP1.RoarAttack(myAI)
+                #     elif p1Attack == 2:
+                #         print("Player 1's", progmonNameP1, "used Claw Swipe!")
+                #         myP1.ClawSwipeAttack(myAI)
+                #     elif p1Attack == 3:
+                #         print("Player 1's", progmonNameP1, "used Fire Breath!")
+                #         myP1.FireBreathAttack(myAI)
+                #     elif p1Attack == 4:
+                #         print("Player 1's", progmonNameP1, "used Tail Whip!")
+                #         myP1.TailWhipAttack(myAI)
+                # elif progmonP1 == "ElectricCat":
+                #     if p1Attack == 1:
+                #         print("Player 1's", progmonNameP1, "used Lightning Bolt!")
+                #         myP1.LightningBoltAttack(myAI)
+                #     elif p1Attack == 2:
+                #         print("Player 1's", progmonNameP1, "used Electric Scratch!")
+                #         myP1.ElectricScratchAttack(myAI)
+                #     elif p1Attack == 3:
+                #         print("Player 1's", progmonNameP1, "used Energy Beam!")
+                #         myP1.EnergyBeamAttack(myAI)
+                #     elif p1Attack == 4:
+                #         print("Player 1's", progmonNameP1, "used Bite!")
+                #         myP1.BiteAttack(myAI)
+                # if myAI.checkAlive() != True:
+                #     print("Player AI's", progmonNameAI, "has fainted. You win!\n")
+                #     quitGame()
+                # pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+                # AITurn()
                 # (UNFINISHED - PROJECT 4) CALL A FUNCTION TO DISPLAY ATTACK OPTIONS
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
         pygame.draw.rect(display, RED, (displayWidth * 0.63, displayHeight * 0.88, 180, 40), 5) # BOX AROUND PROGMON ON MOUSE-HOVER
@@ -261,16 +264,16 @@ def handleScreen(gameState):
     global progmonNameP1
     global myAI
     global progmonNameAI
-    if gameState == "startScreen" or gameState == "fightScreen":
+    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "attackMenu":
         while gameState == "startScreen":
             eventHandler()
             # PLAYER 1'S PROGMON OPTIONS
             textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Progmon", largeText)
             textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 19)
             # PLAYER 1'S PROGMON BUTTONS
-            textElectricCatP1, textElectricCatP1_RECT = createTextObject("Electric Cat", mediumText)
+            textElectricCatP1, textElectricCatP1_RECT = createTextObject("Electric Cat", smallText)
             textElectricCatP1_RECT.center = (displayWidth / 4, displayHeight / 7.5)
-            textFireDragonP1, textFireDragonP1_RECT = createTextObject("Fire Dragon", mediumText)
+            textFireDragonP1, textFireDragonP1_RECT = createTextObject("Fire Dragon", smallText)
             textFireDragonP1_RECT.center = (displayWidth / 4, displayHeight / 4)
             # PLAYER 1'S PROGMON IMAGES
             imageSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
@@ -284,9 +287,9 @@ def handleScreen(gameState):
             textPlayerAI, textPlayerAI_RECT = createTextObject("Player AI's Progmon", largeText)
             textPlayerAI_RECT.center = (displayWidth / 1.3, displayHeight / 19)
             # PLAYER AI'S PROGMON BUTTONS
-            textElectricCatAI, textElectricCatAI_RECT = createTextObject("Electric Cat", mediumText)
+            textElectricCatAI, textElectricCatAI_RECT = createTextObject("Electric Cat", smallText)
             textElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 7.5)
-            textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", mediumText)
+            textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", smallText)
             textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 4)
             # PLAYER AI'S PROGMON IMAGES
             imageSmallElectricCatAI = pygame.image.load('Sprites/smallElectricCat.png')
@@ -297,7 +300,7 @@ def handleScreen(gameState):
             imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
 
             # PLAY BUTTON
-            textPlay, textPlay_RECT = createTextObject("PLAY", largeText)
+            textPlay, textPlay_RECT = createTextObject("PLAY", mediumText)
             textPlay_RECT.center = (displayWidth / 2, displayHeight / 1.2)
 
             # DISPLAY TEXT OBJECTS AND IMAGES
@@ -331,16 +334,16 @@ def handleScreen(gameState):
                 progmonImageP1_RECT = progmonImageP1.get_rect()
                 progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
             # CREATE NAME FOR PLAYER 1
-            textNameP1, textNameP1_RECT = createTextObject("Player 1", largeText)
+            textNameP1, textNameP1_RECT = createTextObject("Player 1", mediumText)
             textNameP1_RECT.center = (displayWidth / 4.5, displayHeight / 30)
             # CREATE NAME FOR PLAYER 1'S PROGMON
-            textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, largeText)
+            textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, mediumText)
             textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 10)
 
             # (UNFINISHED - PROJECT 4) CREATE HEALTH BAR FOR PLAYER 1'S PROGMON
             progmonHealthP1 = myP1.getCurrentHealth()
             # print("progmonHealthP1 =", progmonHealthP1) # TESTER CODE
-            textHealthP1 = font.render(str(progmonHealthP1), True, BLACK, None)
+            textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None)
             textHealthP1_RECT = textHealthP1.get_rect()
             textHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 6)
 
@@ -355,31 +358,31 @@ def handleScreen(gameState):
                 progmonImageAI_RECT = progmonImageAI.get_rect()
                 progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
             # CREATE NAME FOR PLAYER AI
-            textNameAI, textNameAI_RECT = createTextObject("Player AI", largeText)
+            textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText)
             textNameAI_RECT.center = (displayWidth / 1.3, displayHeight / 30)
             # CREATE NAME FOR PLAYER AI'S PROGMON
-            textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, largeText)
+            textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, mediumText)
             textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 10)
 
             # (UNFINISHED - PROJECT 4) CREATE HEALTH BAR FOR PLAYER AI'S PROGMON
             progmonHealthAI = myAI.getCurrentHealth()
             # print("progmonHealthAI =", progmonHealthAI) # TESTER CODE
-            textHealthAI = font.render(str(progmonHealthAI), True, BLACK, None)
+            textHealthAI = smallText.render(str(progmonHealthAI), True, BLACK, None)
             textHealthAI_RECT = textHealthAI.get_rect()
             textHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 6)
 
             # CREATE BATTLE MENU OPTIONS
-            textFight, textFight_RECT = createTextObject("FIGHT", largeText)
+            textFight, textFight_RECT = createTextObject("FIGHT", smallText)
             textFight_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
-            textBag, textBag_RECT = createTextObject("BAG", largeText)
+            textBag, textBag_RECT = createTextObject("BAG", smallText)
             textBag_RECT.center = (displayWidth / 1.1, displayHeight / 1.2)
-            textProgmon, textProgmon_RECT = createTextObject("PROGMON", largeText)
+            textProgmon, textProgmon_RECT = createTextObject("PROGMON", smallText)
             textProgmon_RECT.center = (displayWidth / 1.4, displayHeight / 1.1)
-            textQuit, textQuit_RECT = createTextObject("QUIT", largeText)
+            textQuit, textQuit_RECT = createTextObject("QUIT", smallText)
             textQuit_RECT.center = (displayWidth / 1.1, displayHeight / 1.1)
 
             # (UNFINISHED - PROJECT 4) CREATE USER INPUT PROMPT MESSAGE
-            textUserPrompt, textUserPrompt_RECT = createTextObject("What would you like to do?", largeText)
+            textUserPrompt, textUserPrompt_RECT = createTextObject("What would you like to do?", smallText)
             textUserPrompt_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
 
             display.fill(WHITE) # MAKES BACKGROUND OF FIGHT SCREEN WHITE
@@ -399,6 +402,15 @@ def handleScreen(gameState):
 
             trackBattleMenuButtons()
             # playerTurn()
+        while gameState == "attackMenu":
+            eventHandler()
+
+            pygame.gfxdraw.box(display, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), WHITE)
+            pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5)
+
+            textTackle, textTackle_RECT = createTextObject("Roar", miniText)
+            textTackle_RECT.center = (displayWidth / 1.5, displayHeight / 1.2)
+            display.blit(textTackle, textTackle_RECT)
         else:
             print("ERROR: Invalid gameState")
             quitGame()
@@ -503,5 +515,4 @@ def AITurn():
 
 # MAIN
 if __name__ == "__main__":
-    # eventHandler()
     handleScreen("startScreen") # LOADS THE START SCREEN
