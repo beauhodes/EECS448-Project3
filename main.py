@@ -21,8 +21,8 @@ mediumText = pygame.font.Font('freesansbold.ttf', 36)
 largeText = pygame.font.Font('freesansbold.ttf', 42)
 
 # GLOBAL VARIABLES
-# gameState = ""
 playerMove = ""
+attackChoiceP1 = ""
 global myP1
 progmonP1 = ""
 progmonNameP1 = ""
@@ -310,7 +310,7 @@ def trackButtonsFightScreen():
             if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.665, displayHeight * 0.805, 110, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIGHT BUTTON
                 playerMove = "FIGHT"
                 pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                controlScreen("attackMenu")
+                controlScreen("fightMenu")
                 # p1Attack = random.randint(0, 5)
                 # # print("p1Attack =", p1Attack) # TESTER CODE
                 # if progmonP1 == "FireDragon":
@@ -339,10 +339,9 @@ def trackButtonsFightScreen():
                 #     elif p1Attack == 4:
                 #         print("Player 1's", progmonNameP1, "used Bite!")
                 #         myP1.BiteAttack(myAI)
-                # if myAI.checkAlive() != True:
-                #     # controlScreen("statScreen")
-                #     print("Player AI's", progmonNameAI, "has fainted. You win!\n")
-                #     quitGame()
+                if myAI.checkAlive() != True:
+                    print("Player AI's", progmonNameAI, "has fainted. You win!\n")
+                    quitGame()
                 # pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
                 # AITurn()
     elif displayWidth * 0.63 + 180 > mouse[0] > displayWidth * 0.63 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF PROGMON BUTTON
@@ -376,9 +375,9 @@ def trackButtonsFightScreen():
                 quitGame()
 
 # (UNFINISHED)
-def displayAttackMenu():
+def displayFightMenu():
     """
-    Displays the Attack Menu for Player 1 after "FIGHT" has been clicked
+    Displays the Fight Menu for Player 1 after "FIGHT" has been clicked
     Args:
         None
     Returns:
@@ -418,16 +417,35 @@ def displayAttackMenu():
         display.blit(textFireBreath, textFireBreath_RECT)
         display.blit(textTailWhip, textTailWhip_RECT)
 
-# (UNFINISHED) RENAME TO handleAttackMenu() FOR CONTROLLING PLAYER 1'S TURN (???)
-def trackButtonsAttackMenu():
+def checkAliveAI():
     """
-    Handles all button input on the Attack Menu
+    Checks if Player AI's Progmon is still alive
     Args:
         None
     Returns:
         None
     """
+    global myAI
+    global progmonNameAI
+
+    if myAI.checkAlive() == True:
+        return True
+    else:
+        return False
+
+# (UNFINISHED) RENAME TO handleFightMenu() FOR CONTROLLING PLAYER 1'S TURN (???)
+def trackButtonsFightMenu():
+    """
+    Handles all button input on the Fight Menu
+    Args:
+        None
+    Returns:
+        None
+    """
+    global myP1
+    global myAI
     global progmonP1
+    global attackChoiceP1
     mouse = pygame.mouse.get_pos() # GETS (x, y) COORDINATES OF MOUSE
 
     if progmonP1 == "ElectricCat":
@@ -438,7 +456,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Electric Cat used Lightning Bolt!")
                     myP1.LightningBoltAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
         elif displayWidth * 0.8 + 165 > mouse[0] > displayWidth * 0.8 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF ENERGY BEAM BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.8, displayHeight * 0.805, 165, 40), 5) # BOX AROUND ENERGY BEAM ON MOUSE-HOVER
             if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -446,7 +469,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Electric Cat used Energy Beam!")
                     myP1.EnergyBeamAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
         elif displayWidth * 0.625 + 195 > mouse[0] > displayWidth * 0.625 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF ELECTRIC SCRATCH BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.625, displayHeight * 0.88, 195, 40), 5) # BOX AROUND ELECTRIC SCRATCH ON MOUSE-HOVER
             if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -454,7 +482,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Electric Cat used Electric Scratch!")
                     myP1.ElectricScratchAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
         elif displayWidth * 0.845 + 60 > mouse[0] > displayWidth * 0.845 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF BITE BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.845, displayHeight * 0.88, 60, 40), 5) # BOX AROUND BITE ON MOUSE-HOVER
             if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -462,7 +495,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Electric Cat used Bite!")
                     myP1.BiteAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
     elif progmonP1 == "FireDragon":
         if displayWidth * 0.68 + 70 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF ROAR BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.68, displayHeight * 0.805, 70, 40), 5) # BOX AROUND ROAR ON MOUSE-HOVER
@@ -471,7 +509,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Fire Dragon used Roar!")
                     myP1.RoarAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
         elif displayWidth * 0.8 + 150 > mouse[0] > displayWidth * 0.8 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF CLAW SWIPE BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.8, displayHeight * 0.805, 150, 40), 5) # BOX AROUND CLAW SWIPE ON MOUSE-HOVER
             if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -479,7 +522,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Fire Dragon used Claw Swipe!")
                     myP1.ClawSwipeAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
         elif displayWidth * 0.65 + 135 > mouse[0] > displayWidth * 0.65 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF FIRE BREATH BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.65, displayHeight * 0.88, 135, 40), 5) # BOX AROUND FIRE BREATH ON MOUSE-HOVER
             if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -487,7 +535,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Fire Dragon used Fire Breath!")
                     myP1.FireBreathAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
         elif displayWidth * 0.815 + 120 > mouse[0] > displayWidth * 0.815 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF TAIL WHIP BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.815, displayHeight * 0.88, 120, 40), 5) # BOX AROUND TAIL WHIP ON MOUSE-HOVER
             if pygame.mouse.get_pressed() == (1, 0, 0):
@@ -495,8 +548,12 @@ def trackButtonsAttackMenu():
                     print("Player 1's Fire Dragon used Tail Whip!")
                     myP1.TailWhipAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
-                    controlScreen("fightScreen")
-
+                    if checkAliveAI():
+                        AITurn()
+                        controlScreen("fightScreen")
+                    else:
+                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        controlScreen("endScreen")
 # (UNFINISHED)
 def displayBagMenu():
     """
@@ -572,12 +629,7 @@ def controlScreen(gameState):
     Returns:
         None
     """
-    global myP1
-    global progmonNameP1
-    global myAI
-    global progmonNameAI
-
-    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "attackMenu" or gameState == "bagMenu" or gameState == "progmonMenu":
+    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "fightMenu" or gameState == "bagMenu" or gameState == "progmonMenu" or gameState == "endScreen":
         while gameState == "startScreen":
             eventHandler()
             displayStartScreen()
@@ -587,10 +639,10 @@ def controlScreen(gameState):
             displayFightScreen()
             trackButtonsFightScreen()
             # playerTurn()
-        while gameState == "attackMenu":
+        while gameState == "fightMenu":
             eventHandler()
-            displayAttackMenu()
-            trackButtonsAttackMenu()
+            displayFightMenu()
+            trackButtonsFightMenu()
         while gameState == "bagMenu":
             eventHandler()
             displayBagMenu()
@@ -599,64 +651,68 @@ def controlScreen(gameState):
             eventHandler()
             displayProgmonMenu()
             # trackButtonsProgmonMenu()
+        while gameState == "endScreen":
+            eventHandler()
+            # displayEndScreen()
+            # trackButtonsEndScreen()
     else:
         print("ERROR: Invalid gameState")
         quitGame()
 
 # (UNFINISHED) HANDLES ALL FUNCTIONS THAT OCCUR DURING PLAYER 1'S TURN
-# def playerTurn():
-#     # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
-#     global playerMove
-#     global progmonNameP1
-#     global progmonNameAI
-#     # print("playerMove =", playerMove) # TESTER CODE
-#     if(playerMove == "FIGHT"):
-#         p1Attack = random.randint(0,5)
-#         # print("p1Attack =", p1Attack) # TESTER CODE
-#         if(progmonP1 == "FireDragon"):
-#             if(p1Attack == 1):
-#                 print("Player 1's", progmonNameP1, "used Roar!")
-#                 myP1.RoarAttack(myAI)
-#             elif(p1Attack == 2):
-#                 print("Player 1's", progmonNameP1, "used Claw Swipe!")
-#                 myP1.ClawSwipeAttack(myAI)
-#             elif(p1Attack == 3):
-#                 print("Player 1's", progmonNameP1, "used Fire Breath!")
-#                 myP1.FireBreathAttack(myAI)
-#             elif(p1Attack == 4):
-#                 print("Player 1's", progmonNameP1, "used Tail Whip!")
-#                 myP1.TailWhipAttack(myAI)
-#         elif(progmonP1 == "ElectricCat"):
-#             if(p1Attack == 1):
-#                 print("Player 1's", progmonNameP1, "used Lightning Bolt!")
-#                 myP1.LightningBoltAttack(myAI)
-#             elif(p1Attack == 2):
-#                 print("Player 1's", progmonNameP1, "used Electric Scratch!")
-#                 myP1.ElectricScratchAttack(myAI)
-#             elif(p1Attack == 3):
-#                 print("Player 1's", progmonNameP1, "used Energy Beam!")
-#                 myP1.EnergyBeamAttack(myAI)
-#             elif(p1Attack == 4):
-#                 print("Player 1's", progmonNameP1, "used Bite!")
-#                 myP1.BiteAttack(myAI)
-#         if(myAI.checkAlive() != True):
-#             print("Player AI's", progmonNameAI, "has fainted. You win!\n")
-#             quitGame()
-#     # (UNFINISHED) ADD MORE ITEMS TO THE BAG PLUS NEED ABILITY TO SELECT THE ITEM YOU WANT TO USE
-#     elif(playerMove == "BAG"):
-#         if (myP1.bagEmpty()):
-#             print("Player 1 has nothing in their Bag.\n")
-#         else:
-#             myP1.useHealthPotion()
-#             print("Player 1 has used a Health Potion!\n") # TESTER CODE
-#             # AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
-#     # (UNFINISHED) ALLOW PLAYER 1 THE ABILITY TO CHANGE THEIR PROGMON DURING THE BATTLE
-#     elif(playerMove == "PROGMON"):
-#         # progmonP1.switchProgmon()
-#         print("PROGMON SWITCHING IS NOT AVAILABLE AT THIS TIME")
-#
-#     # (UNFINISHED) AFTER PLAYER 1'S TURN IS OVER, LET PLAYER AI GO
-#     AITurn()
+def playerTurn():
+    # WILL CONTAIN EVERYTHING DONE IN ONE TURN (WILL CALL OTHER FUNCTIONS SUCH AS attack, attack_AI, checkForWin, etc.)
+    global playerMove
+    global progmonNameP1
+    global progmonNameAI
+    # print("playerMove =", playerMove) # TESTER CODE
+    if(playerMove == "FIGHT"):
+        p1Attack = random.randint(0,5)
+        # print("p1Attack =", p1Attack) # TESTER CODE
+        if(progmonP1 == "FireDragon"):
+            if(p1Attack == 1):
+                print("Player 1's", progmonNameP1, "used Roar!")
+                myP1.RoarAttack(myAI)
+            elif(p1Attack == 2):
+                print("Player 1's", progmonNameP1, "used Claw Swipe!")
+                myP1.ClawSwipeAttack(myAI)
+            elif(p1Attack == 3):
+                print("Player 1's", progmonNameP1, "used Fire Breath!")
+                myP1.FireBreathAttack(myAI)
+            elif(p1Attack == 4):
+                print("Player 1's", progmonNameP1, "used Tail Whip!")
+                myP1.TailWhipAttack(myAI)
+        elif(progmonP1 == "ElectricCat"):
+            if(p1Attack == 1):
+                print("Player 1's", progmonNameP1, "used Lightning Bolt!")
+                myP1.LightningBoltAttack(myAI)
+            elif(p1Attack == 2):
+                print("Player 1's", progmonNameP1, "used Electric Scratch!")
+                myP1.ElectricScratchAttack(myAI)
+            elif(p1Attack == 3):
+                print("Player 1's", progmonNameP1, "used Energy Beam!")
+                myP1.EnergyBeamAttack(myAI)
+            elif(p1Attack == 4):
+                print("Player 1's", progmonNameP1, "used Bite!")
+                myP1.BiteAttack(myAI)
+        if(myAI.checkAlive() != True):
+            print("Player AI's", progmonNameAI, "has fainted. You win!\n")
+            quitGame()
+    # (UNFINISHED) ADD MORE ITEMS TO THE BAG PLUS NEED ABILITY TO SELECT THE ITEM YOU WANT TO USE
+    elif(playerMove == "BAG"):
+        if (myP1.bagEmpty()):
+            print("Player 1 has nothing in their Bag.\n")
+        else:
+            myP1.useHealthPotion()
+            print("Player 1 has used a Health Potion!\n") # TESTER CODE
+            # AIBagTrack += 1 #lets AI track how many items you've use from your bag so it can be more AI-ish
+    # (UNFINISHED) ALLOW PLAYER 1 THE ABILITY TO CHANGE THEIR PROGMON DURING THE BATTLE
+    elif(playerMove == "PROGMON"):
+        # progmonP1.switchProgmon()
+        print("PROGMON SWITCHING IS NOT AVAILABLE AT THIS TIME")
+
+    # (UNFINISHED) AFTER PLAYER 1'S TURN IS OVER, LET PLAYER AI GO
+    AITurn()
 
 # HANDLES THE DECISIONS THE AI HAS TO MAKE DURING THEIR TURN DEPENDING ON THEIR HEALTH AND ENEMY'S HEALTH
 def AITurn():
