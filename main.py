@@ -428,6 +428,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.635, displayHeight * 0.805, 175, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR LIGHTNING BOLT BUTTON
                     print("Player 1's Electric Cat used Lightning Bolt!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Lightning Bolt!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.LightningBoltAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -450,6 +458,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.8, displayHeight * 0.805, 165, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR ENERGY BEAM BUTTON
                     print("Player 1's Electric Cat used Energy Beam!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Energy Beam!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.EnergyBeamAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -472,6 +488,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.625, displayHeight * 0.88, 195, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR ELECTRIC SCRATCH BUTTON
                     print("Player 1's Electric Cat used Electric Scratch!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Electric Scratch!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.ElectricScratchAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -494,6 +518,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.845, displayHeight * 0.88, 60, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR BITE BUTTON
                     print("Player 1's Electric Cat used Bite!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Bite!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.BiteAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -517,6 +549,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.68, displayHeight * 0.805, 70, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR ROAR BUTTON
                     print("Player 1's Fire Dragon used Roar!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Roar!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.RoarAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -539,6 +579,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.8, displayHeight * 0.805, 150, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR CLAW SWIPE BUTTON
                     print("Player 1's Fire Dragon used Claw Swipe!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Claw Swipe!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.ClawSwipeAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -561,6 +609,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.65, displayHeight * 0.88, 135, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR FIRE BREATH BUTTON
                     print("Player 1's Fire Dragon used Fire Breath!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Fire Breath!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.FireBreathAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
@@ -583,6 +639,14 @@ def trackButtonsFightMenu():
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 if isPointInRect(mouse[0], mouse[1], pygame.Rect(displayWidth * 0.815, displayHeight * 0.88, 120, 40)): # MOUSE CLICK IS IN VALID LOCATION FOR TAIL WHIP BUTTON
                     print("Player 1's Fire Dragon used Tail Whip!")
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Tail Whip!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     myP1.TailWhipAttack(myAI)
                     pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                     if checkAliveAI():
