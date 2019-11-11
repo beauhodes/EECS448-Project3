@@ -67,8 +67,10 @@ class ElectricCat:
         if(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             print("Lightning Bolt did 90 damage!\n")
+            return True
         else:
             print("Lightning Bolt missed!\n")
+            return False
 
     def ElectricScratchAttack(self, enemyPlayer): # 40 damage, 90 accuracy
         """
@@ -83,8 +85,10 @@ class ElectricCat:
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(40)
             print("Electric Scratch did 40 damage!\n")
+            return True
         else:
             print("Electric Scratch missed!\n")
+            return False
 
     def EnergyBeamAttack(self, enemyPlayer): # 110 damage, 40 accuracy
         """
@@ -99,8 +103,10 @@ class ElectricCat:
         if(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             print("Energy Beam did 110 damage!\n")
+            return True
         else:
             print("Energy Beam missed!\n")
+            return False
 
     def BiteAttack(self, enemyPlayer): # 20 damage, 100 accuracy
         """
@@ -113,6 +119,7 @@ class ElectricCat:
         """
         enemyPlayer.doDamage(20)
         print("Bite did 20 damage!\n")
+        return True
 
     def AIAttack(self, enemyPlayer):
         """
