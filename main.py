@@ -835,8 +835,11 @@ def AITurn():
     # elif(myAI.currentHealth <= critical and myAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
         # quitGame()
-    # elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
-    #     myAI.useHealthPotion() # ERRORS ON SECOND CALL
+    elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
+        if myAI.bagEmpty():
+            print("Player AI's Bag is empty!")
+        else:
+            myAI.useHealthPotion() # ERRORS ON SECOND CALL
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
         myAI.AIAttack(myP1)
         # now we should display some sort of window/message for the user saying if they hit or not
