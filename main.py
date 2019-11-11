@@ -338,6 +338,14 @@ def trackButtonsFightScreen():
                 pygame.time.delay(500) # WAIT TO PREVENT MULTIPLE BUTTON CLICKS
                 if myP1.bagEmpty():
                     print("Player 1 has nothing in their Bag") # TESTER CODE
+
+                    # MESSAGE TO PLAYER 1
+                    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                    textMessage, textMessage_RECT = createTextObject("Your Bag is empty!", miniText)
+                    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                    display.blit(textMessage, textMessage_RECT)
+
                     controlScreen("fightScreen")
                 else:
                     controlScreen("bagMenu")
@@ -368,6 +376,7 @@ def displayFightMenu():
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
     textMessage, textMessage_RECT = createTextObject("Which attack do you want to use?", miniText)
     textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+    display.blit(textMessage, textMessage_RECT)
 
     if progmonP1 == "ElectricCat":
         textLightningBolt, textLightningBolt_RECT = createTextObject("Lightning Bolt", miniText)
@@ -397,7 +406,6 @@ def displayFightMenu():
         display.blit(textClawSwipe, textClawSwipe_RECT)
         display.blit(textFireBreath, textFireBreath_RECT)
         display.blit(textTailWhip, textTailWhip_RECT)
-        display.blit(textMessage, textMessage_RECT)
 
 # (UNFINISHED) RENAME TO handleFightMenu() FOR CONTROLLING PLAYER 1'S TURN (???)
 def trackButtonsFightMenu():
@@ -427,7 +435,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
         elif displayWidth * 0.8 + 165 > mouse[0] > displayWidth * 0.8 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF ENERGY BEAM BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.8, displayHeight * 0.805, 165, 40), 5) # BOX AROUND ENERGY BEAM ON MOUSE-HOVER
@@ -441,7 +457,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
         elif displayWidth * 0.625 + 195 > mouse[0] > displayWidth * 0.625 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF ELECTRIC SCRATCH BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.625, displayHeight * 0.88, 195, 40), 5) # BOX AROUND ELECTRIC SCRATCH ON MOUSE-HOVER
@@ -455,7 +479,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
         elif displayWidth * 0.845 + 60 > mouse[0] > displayWidth * 0.845 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF BITE BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.845, displayHeight * 0.88, 60, 40), 5) # BOX AROUND BITE ON MOUSE-HOVER
@@ -469,7 +501,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
     elif progmonP1 == "FireDragon":
         if displayWidth * 0.68 + 70 > mouse[0] > displayWidth * 0.68 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF ROAR BUTTON
@@ -484,7 +524,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
         elif displayWidth * 0.8 + 150 > mouse[0] > displayWidth * 0.8 and displayHeight * 0.805 + 40 > mouse[1] > displayHeight * 0.805: # VALID LOCATION OF CLAW SWIPE BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.8, displayHeight * 0.805, 150, 40), 5) # BOX AROUND CLAW SWIPE ON MOUSE-HOVER
@@ -498,7 +546,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
         elif displayWidth * 0.65 + 135 > mouse[0] > displayWidth * 0.65 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF FIRE BREATH BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.65, displayHeight * 0.88, 135, 40), 5) # BOX AROUND FIRE BREATH ON MOUSE-HOVER
@@ -512,7 +568,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
         elif displayWidth * 0.815 + 120 > mouse[0] > displayWidth * 0.815 and displayHeight * 0.88 + 40 > mouse[1] > displayHeight * 0.88: # VALID LOCATION OF TAIL WHIP BUTTON
             pygame.draw.rect(display, RED, (displayWidth * 0.815, displayHeight * 0.88, 120, 40), 5) # BOX AROUND TAIL WHIP ON MOUSE-HOVER
@@ -526,7 +590,15 @@ def trackButtonsFightMenu():
                         AITurn()
                         controlScreen("fightScreen")
                     else:
-                        print("Player AI's", progmonNameAI, "has fainted. You win!\n") # TESTER CODE
+                        print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+
+                        # MESSAGE TO PLAYER 1
+                        pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+                        pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+                        textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+                        textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+                        display.blit(textMessage, textMessage_RECT)
+
                         controlScreen("endScreen")
 
 # (UNFINISHED)
@@ -699,8 +771,8 @@ def AITurn():
     # elif(myAI.currentHealth <= critical and myAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
         # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
         # quitGame()
-    elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
-        myAI.useHealthPotion()
+    # elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
+    #     myAI.useHealthPotion() # ERRORS ON SECOND CALL
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
         myAI.AIAttack(myP1)
         # now we should display some sort of window/message for the user saying if they hit or not
