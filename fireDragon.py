@@ -67,8 +67,10 @@ class FireDragon:
         if(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             print("Roar did 80 damage!\n")
+            return True
         else:
             print("Roar missed!\n")
+            return False
 
     def ClawSwipeAttack(self, enemyPlayer): # 35 damage, 90 accuracy
         """
@@ -83,8 +85,10 @@ class FireDragon:
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(35)
             print("Claw Swipe did 35 damage!\n")
+            return True
         else:
             print("Claw Swipe missed!\n")
+            return False
 
     def FireBreathAttack(self, enemyPlayer): # 140 damage, 30 accuracy
         """
@@ -99,8 +103,10 @@ class FireDragon:
         if(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
             print("Fire Breath did 140 damage!\n")
+            return True
         else:
             print("Fire Breath missed!\n")
+            return False
 
     def TailWhipAttack(self, enemyPlayer): # 20 damage, 100 accuracy
         """
@@ -113,6 +119,7 @@ class FireDragon:
         """
         enemyPlayer.doDamage(20)
         print("Tail Whip did 20 damage!\n")
+        return True
 
     def AIAttack(self, enemyPlayer):
         """

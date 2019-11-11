@@ -15,12 +15,3 @@
 *    Availability: https://pythonprogramming.net/pygame-start-menu-tutorial/
 *
 ***************************************************************************************/
-
-/***************************************************************************************
-*    Title: messageBox.py
-*    Author: MyreMyalar; Modified By: MattR0se (Redditors)
-*    Date: March 2019
-*    Code Version: Python3 + Pygame 1.9.6
-*    Availability: https://www.reddit.com/r/pygame/comments/apjikj/pygame_message_boxes/
-*
-***************************************************************************************/
