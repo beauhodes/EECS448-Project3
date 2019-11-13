@@ -81,22 +81,6 @@ def isButtonClickDetected(surfaceRect):
             return True
     return False
 
-def checkAliveAI():
-    """
-    Checks if Player AI's Progmon is still alive
-    Args:
-        None
-    Returns:
-        None
-    """
-    global myAI
-    global progmonNameAI
-
-    if myAI.checkAlive() == True:
-        return True
-    else:
-        return False
-
 # (UNFINISHED)
 def startScreen():
     """
@@ -359,7 +343,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -381,7 +365,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -403,7 +387,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -425,7 +409,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -464,7 +448,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -486,7 +470,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -508,7 +492,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
@@ -530,7 +514,7 @@ def fightMenu():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
