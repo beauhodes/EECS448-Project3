@@ -647,6 +647,7 @@ def AITurn():
     elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
         if myAI.bagEmpty():
             print("Player AI's Bag is empty!")
+            myAI.AIAttack(myP1)
         else:
             myAI.useHealthPotion() # ERRORS ON SECOND CALL
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
