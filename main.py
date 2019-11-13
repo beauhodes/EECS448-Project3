@@ -297,6 +297,15 @@ def fightScreen():
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
 
+            pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.3, 450, 100), BLACK) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+            pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+            textMessage, textMessage_RECT = createTextObject("Your Bag is empty!", miniText)
+            textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+            display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+
+            pygame.time.wait(3000)
+
             controlScreen("fightScreen")
         else:
             controlScreen("bagMenu")
