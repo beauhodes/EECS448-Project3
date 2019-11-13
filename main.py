@@ -239,9 +239,9 @@ def fightScreen():
     # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER 1'S PROGMON
     progmonHealthP1 = myP1.getCurrentHealth()
     # print("progmonHealthP1 =", progmonHealthP1) # TESTER CODE
-    textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None) # FOR PROJECT 3
-    textHealthP1_RECT = textHealthP1.get_rect() # FOR PROJECT 3
-    textHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 6) # FOR PROJECT 3
+    textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None)
+    textHealthP1_RECT = textHealthP1.get_rect()
+    textHealthP1_RECT.center = (displayWidth / 3.2, displayHeight / 6)
 
     # PLAYER AI
     textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText)
@@ -261,9 +261,9 @@ def fightScreen():
     # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER AI'S PROGMON
     progmonHealthAI = myAI.getCurrentHealth()
     # print("progmonHealthAI =", progmonHealthAI) # TESTER CODE
-    textHealthAI = smallText.render(str(progmonHealthAI), True, BLACK, None) # FOR PROJECT 3
-    textHealthAI_RECT = textHealthAI.get_rect() # FOR PROJECT 3
-    textHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 6) # FOR PROJECT 3
+    textHealthAI = smallText.render(str(progmonHealthAI), True, BLACK, None)
+    textHealthAI_RECT = textHealthAI.get_rect()
+    textHealthAI_RECT.center = (displayWidth / 1.145, displayHeight / 6)
 
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE)
@@ -284,9 +284,12 @@ def fightScreen():
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-    pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for health bar
-    pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for health bar
-    pygame.draw.rect(display, (0, 200, 0 ), (displayWidth * .162, displayHeight * .141, 121*(progmonHealthP1/myP1.getHp()), 37), 0) #fill for health bar
+    pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for P1 health bar
+    pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for P1 health bar
+    pygame.draw.rect(display, (0, 200, 0 ), (displayWidth * .162, displayHeight * .141, 121*(progmonHealthP1/myP1.getHp()), 37), 0) #fill for P1 health bar
+    pygame.draw.rect(display, BLACK, (displayWidth * .72, displayHeight * .14, 125, 40), 5) #outline for AI health bar
+    pygame.draw.rect(display, RED, (displayWidth * .722, displayHeight * .141, 121, 37), 0) #fill for AI health bar
+    pygame.draw.rect(display, (0, 200, 0 ), (displayWidth * .722, displayHeight * .141, 121*(progmonHealthAI/myAI.getHp()), 37), 0) #fill for AI health bar
 
     # TRACK BATTLE MENU BUTTONS
     if isButtonClickDetected(textFight_RECT):
