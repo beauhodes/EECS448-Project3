@@ -156,8 +156,16 @@ class WaterTurtle:
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth + 30
-        self.bag.remove("healthPotion")
+        if(self.currentHealth+30 > self.hp):
+            hpToAdd = self.hp - self.currentHealth
+            self.currentHealth + hpToAdd
+            print("Health potion healed you for:", hpToAdd, "\n")
+            self.bag.remove("healthPotion")
+
+        else:
+            self.currentHealth + 30
+            print("Health potion healed you for: 30\n")
+            self.bag.remove("healthPotion")
 
     def bagEmpty(self):
         """
