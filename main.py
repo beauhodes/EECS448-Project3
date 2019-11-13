@@ -284,6 +284,9 @@ def fightScreen():
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+    pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for health bar
+    pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for health bar
+    pygame.draw.rect(display, (0, 200, 0 ), (displayWidth * .162, displayHeight * .141, 121*(progmonHealthP1/myP1.getHp()), 37), 0) #fill for health bar
 
     # TRACK BATTLE MENU BUTTONS
     if isButtonClickDetected(textFight_RECT):

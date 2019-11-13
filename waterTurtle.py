@@ -55,6 +55,16 @@ class WaterTurtle:
         """
         return self.currentHealth
 
+    def getHp(self):
+        """
+        Gets the currentHealth of WaterTurtle
+        Args:
+            self (object) - FireDragon
+        Returns:
+            FireDragon's currentHealth
+        """
+        return self.hp
+
     def aquaJet(self):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 70):
