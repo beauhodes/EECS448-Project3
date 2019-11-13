@@ -54,6 +54,16 @@ class FireDragon:
         """
         return self.currentHealth
 
+    def getHp(self):
+        """
+        Gets the currentHealth of FireDragon
+        Args:
+            self (object) - FireDragon
+        Returns:
+            FireDragon's currentHealth
+        """
+        return self.hp
+
     def RoarAttack(self, enemyPlayer): # 80 damage, 45 accuracy
         """
         Attacks enemy Progmon with Roar

@@ -54,6 +54,16 @@ class ElectricCat:
         """
         return self.currentHealth
 
+    def getHp(self):
+        """
+        Gets the currentHealth of ElectricCat
+        Args:
+            self (object) - FireDragon
+        Returns:
+            FireDragon's currentHealth
+        """
+        return self.hp
+
     def LightningBoltAttack(self, enemyPlayer): # 90 damage, 45 accuracy
         """
         Attacks enemy Progmon with Lightning Bolt

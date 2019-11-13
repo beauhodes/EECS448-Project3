@@ -3,6 +3,7 @@ import pygame
 import pygame.gfxdraw
 from fireDragon import FireDragon
 from electricCat import ElectricCat
+from waterTurtle import WaterTurtle
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY VARIABLES
 pygame.init()
@@ -81,21 +82,22 @@ def isButtonClickDetected(surfaceRect):
             return True
     return False
 
-def checkAliveAI():
+def detectFaintedAI():
     """
-    Checks if Player AI's Progmon is still alive
+    Checks if Player AI's Progmon has fainted
     Args:
         None
     Returns:
         None
     """
-    global myAI
-    global progmonNameAI
-
-    if myAI.checkAlive() == True:
-        return True
-    else:
-        return False
+    # MESSAGE TO PLAYER 1
+    pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+    textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+    display.blit(textMessage, textMessage_RECT)
+    pygame.display.update()
+    pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
 # (UNFINISHED)
 def startScreen():
@@ -237,9 +239,9 @@ def fightScreen():
     # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER 1'S PROGMON
     progmonHealthP1 = myP1.getCurrentHealth()
     # print("progmonHealthP1 =", progmonHealthP1) # TESTER CODE
-    textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None) # FOR PROJECT 3
-    textHealthP1_RECT = textHealthP1.get_rect() # FOR PROJECT 3
-    textHealthP1_RECT.center = (displayWidth / 4.5, displayHeight / 6) # FOR PROJECT 3
+    textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None)
+    textHealthP1_RECT = textHealthP1.get_rect()
+    textHealthP1_RECT.center = (displayWidth / 3.2, displayHeight / 6)
 
     # PLAYER AI
     textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText)
@@ -259,9 +261,9 @@ def fightScreen():
     # (UNFINISHED) CREATE HEALTH BAR FOR PLAYER AI'S PROGMON
     progmonHealthAI = myAI.getCurrentHealth()
     # print("progmonHealthAI =", progmonHealthAI) # TESTER CODE
-    textHealthAI = smallText.render(str(progmonHealthAI), True, BLACK, None) # FOR PROJECT 3
-    textHealthAI_RECT = textHealthAI.get_rect() # FOR PROJECT 3
-    textHealthAI_RECT.center = (displayWidth / 1.3, displayHeight / 6) # FOR PROJECT 3
+    textHealthAI = smallText.render(str(progmonHealthAI), True, BLACK, None)
+    textHealthAI_RECT = textHealthAI.get_rect()
+    textHealthAI_RECT.center = (displayWidth / 1.145, displayHeight / 6)
 
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE)
@@ -282,6 +284,12 @@ def fightScreen():
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
+    pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for P1 health bar
+    pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for P1 health bar
+    pygame.draw.rect(display, (0, 200, 0 ), (displayWidth * .162, displayHeight * .141, 121*(progmonHealthP1/myP1.getHp()), 37), 0) #fill for P1 health bar
+    pygame.draw.rect(display, BLACK, (displayWidth * .72, displayHeight * .14, 125, 40), 5) #outline for AI health bar
+    pygame.draw.rect(display, RED, (displayWidth * .722, displayHeight * .141, 121, 37), 0) #fill for AI health bar
+    pygame.draw.rect(display, (0, 200, 0 ), (displayWidth * .722, displayHeight * .141, 121*(progmonHealthAI/myAI.getHp()), 37), 0) #fill for AI health bar
 
     # TRACK BATTLE MENU BUTTONS
     if isButtonClickDetected(textFight_RECT):
@@ -296,7 +304,8 @@ def fightScreen():
             textMessage, textMessage_RECT = createTextObject("Your Bag is empty!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
-
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             controlScreen("fightScreen")
         else:
             controlScreen("bagMenu")
@@ -355,19 +364,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Lightning Bolt!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
         elif isButtonClickDetected(textEnergyBeam_RECT):
             # print("Player 1's Electric Cat used Energy Beam!") # TESTER CODE
             myP1.EnergyBeamAttack(myAI)
@@ -377,19 +383,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Energy Beam!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
         elif isButtonClickDetected(textElectricScratch_RECT):
             # print("Player 1's Electric Cat used Electric Scratch!") # TESTER CODE
             myP1.ElectricScratchAttack(myAI)
@@ -399,19 +402,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Electric Scratch!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
         elif isButtonClickDetected(textBite_RECT):
             # print("Player 1's Electric Cat used Bite!") # TESTER CODE
             myP1.BiteAttack(myAI)
@@ -421,20 +421,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Electric Cat used Bite!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
-
+                detectFaintedAI()
     elif progmonP1 == "FireDragon":
         textRoar, textRoar_RECT = createTextObject("Roar", miniText)
         textRoar_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
@@ -460,19 +456,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Roar!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
         elif isButtonClickDetected(textClawSwipe_RECT):
             # print("Player 1's Fire Dragon used Claw Swipe!") # TESTER CODE
             myP1.ClawSwipeAttack(myAI)
@@ -482,19 +475,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Claw Swipe!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
         elif isButtonClickDetected(textFireBreath_RECT):
             # print("Player 1's Fire Dragon used Fire Breath!") # TESTER CODE
             myP1.FireBreathAttack(myAI)
@@ -504,19 +494,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Fire Breath!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
         elif isButtonClickDetected(textTailWhip_RECT):
             # print("Player 1's Fire Dragon used Tail Whip!") # TESTER CODE
             myP1.TailWhipAttack(myAI)
@@ -526,19 +513,16 @@ def fightMenu():
             textMessage, textMessage_RECT = createTextObject("Player 1's Fire Dragon used Tail Whip!", miniText)
             textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
             display.blit(textMessage, textMessage_RECT)
+            pygame.display.update()
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if checkAliveAI():
+            if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
                 AITurn()
                 controlScreen("fightScreen")
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # MESSAGE TO PLAYER 1
-                pygame.gfxdraw.box(display, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-                pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.79, 450, 100), 5) # BOX AROUND MESSAGE TO PLAYER 1
-                textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-                textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-                display.blit(textMessage, textMessage_RECT)
+                detectFaintedAI()
 
 # (UNFINISHED)
 def bagMenu():
@@ -574,6 +558,8 @@ def bagMenu():
         textMessage, textMessage_RECT = createTextObject("Player 1 has used a Health Potion!", miniText)
         textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
         display.blit(textMessage, textMessage_RECT)
+        pygame.display.update()
+        pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
         AITurn()
@@ -667,6 +653,7 @@ def AITurn():
     elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
         if myAI.bagEmpty():
             print("Player AI's Bag is empty!")
+            myAI.AIAttack(myP1)
         else:
             myAI.useHealthPotion() # ERRORS ON SECOND CALL
     else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player

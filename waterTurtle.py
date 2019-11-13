@@ -2,13 +2,12 @@ import random
 
 class WaterTurtle:
     """
-    Class for the new Water Turtle pokemon
+    Class for the new Water Turtle Progmon
     """
 
     def __init__(self):
         """
-        Creates variables associated with FireDragon
-
+        Creates variables associated with WaterTurtle
         Args:
             self (object) - WaterTurtle
         Returns:
@@ -24,7 +23,7 @@ class WaterTurtle:
         """
         Deals damage to the enemy's health; set alive to False if health goes below 1
         Args:
-            self (object) - FireDragon
+            self (object) - WaterTurtle
             damageDone (int) - amount of damage to do
         Returns:
             None
@@ -55,6 +54,16 @@ class WaterTurtle:
             WaterTurtle's currentHealth
         """
         return self.currentHealth
+
+    def getHp(self):
+        """
+        Gets the currentHealth of WaterTurtle
+        Args:
+            self (object) - FireDragon
+        Returns:
+            FireDragon's currentHealth
+        """
+        return self.hp
 
     def aquaJet(self):
         chanceToHit = random.randint(1, 101)
@@ -143,7 +152,7 @@ class WaterTurtle:
         """
         Uses a healthPotion to heal 30 points of health
         Args:
-            self (object) - ElectricCat
+            self (object) - WaterTurtle
         Returns:
             None
         """
@@ -154,7 +163,7 @@ class WaterTurtle:
         """
         Checks if the Bag is empty
         Args:
-            self (object) - ElectricCat
+            self (object) - WaterTurtle
         Returns:
             (bool) - True if Bag is empty, otherwise False
         """
