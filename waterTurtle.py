@@ -100,7 +100,7 @@ class WaterTurtle:
 
     def waterPulse(self):
         chanceToHit = random.randint(1, 101)
-        if(self.statBoost == True && chanceToHit <= 48):
+        if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
