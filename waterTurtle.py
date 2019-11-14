@@ -4,7 +4,6 @@ class WaterTurtle:
     """
     Class for the new Water Turtle Progmon
     """
-
     def __init__(self):
         """
         Creates variables associated with WaterTurtle
@@ -61,9 +60,9 @@ class WaterTurtle:
         """
         Gets the currentHealth of WaterTurtle
         Args:
-            self (object) - FireDragon
+            self (object) - WaterTurtle
         Returns:
-            FireDragon's currentHealth
+            WaterTurtle's currentHealth
         """
         return self.hp
 
@@ -79,7 +78,7 @@ class WaterTurtle:
             self.statBoost = False
             enemyPlayer.doDamage(55)
             enemyPlayer.setStunStatus()
-            print("Water turtle does 55 damage and stuns the enemy!\n")
+            print("Water Turtle does 55 damage and stuns the enemy!\n")
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
             print("Aqua Jet did 45 damage!\n")
@@ -104,7 +103,7 @@ class WaterTurtle:
             self.statBoost = False
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
-            print("Water turtle does 80 damage and stuns the enemy!\n")
+            print("Water Turtle does 80 damage and stuns the enemy!\n")
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
             print("Water Pulse did 70 damage!\n")
@@ -120,7 +119,7 @@ class WaterTurtle:
 
     def bubble(self):
         enemyPlayer.doDamage(12)
-        print("Tackle did 12 damage!\n")
+        print("Bubble did 12 damage!\n")
         return True
 
     def AIAttack(self, enemy):
@@ -177,17 +176,17 @@ class WaterTurtle:
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
 
         else:
             self.currentHealth + 30
-            print("Health potion healed you for: 30\n")
+            print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
 
     def useStatBoost(self):
         """
-        Allows this progmon to use a statBoost Potion
+        Allows this Progmon to use a statBoost Potion
         Args:
             self (object) - WaterTurtle
         Returns:

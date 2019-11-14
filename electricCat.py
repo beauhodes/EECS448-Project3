@@ -60,9 +60,9 @@ class ElectricCat:
         """
         Gets the currentHealth of ElectricCat
         Args:
-            self (object) - FireDragon
+            self (object) - ElectricCat
         Returns:
-            FireDragon's currentHealth
+            ElectricCat's currentHealth
         """
         return self.hp
 
@@ -189,17 +189,17 @@ class ElectricCat:
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
 
         else:
             self.currentHealth + 30
-            print("Health potion healed you for: 30\n")
+            print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
 
     def useStatBoost(self):
         """
-        Allows this progmon to use a statBoost Potion
+        Allows this Progmon to use a statBoost Potion
         Args:
             self (object) - WaterTurtle
         Returns:

@@ -199,9 +199,9 @@ class FireDragon:
 
     def useStatBoost(self):
         """
-        Allows this progmon to use a statBoost Potion
+        Allows this Progmon to use a statBoost Potion
         Args:
-            self (object) - WaterTurtle
+            self (object) - FireDragon
         Returns:
             None
         """
