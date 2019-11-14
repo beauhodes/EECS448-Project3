@@ -75,7 +75,7 @@ class WaterTurtle:
 
     def aquaJet(self):
         chanceToHit = random.randint(1, 101)
-        if(self.statBoost == True && chanceToHit <= 70):
+        if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
             enemyPlayer.doDamage(55)
             enemyPlayer.setStunStatus()
