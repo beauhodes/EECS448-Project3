@@ -16,7 +16,9 @@ class FireDragon:
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.stunned = False
+        self.statBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -63,6 +65,12 @@ class FireDragon:
             FireDragon's currentHealth
         """
         return self.hp
+
+    def setStunStatus(self):
+        self.stunned = True
+
+    def getStunStatus(self):
+        return self.stunned
 
     def RoarAttack(self, enemyPlayer): # 80 damage, 45 accuracy
         """
@@ -188,6 +196,18 @@ class FireDragon:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
             self.bag.remove("healthPotion")
+
+    def useStatBoost(self):
+        """
+        Allows this progmon to use a statBoost Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Fire Dragon is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
 
     def bagEmpty(self):
         """
