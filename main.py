@@ -145,9 +145,6 @@ def startScreen():
     imageSmallFireDragonAI = pygame.image.load('Sprites/smallFireDragon.png')
     imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
     imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
-    imageBackground = pygame.image.load('Sprites/background.png')
-    imageBackground_RECT = imageSmallFireDragonAI.get_rect()
-    imageBackground_RECT.center = (displayWidth/30, displayHeight/20)
 
     # PLAY BUTTON
     textPlay, textPlay_RECT = createTextObject("PLAY", mediumText)
@@ -155,7 +152,6 @@ def startScreen():
 
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE)
-    display.blit(imageBackground, imageBackground_RECT)
     display.blit(imageSmallElectricCatP1, imageSmallElectricCatP1_RECT)
     display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT)
     display.blit(textPlayer1, textPlayer1_RECT)
