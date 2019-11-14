@@ -18,6 +18,8 @@ class WaterTurtle:
         self.currentHealth = 200
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.stunned = False
+        self.statBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -65,8 +67,19 @@ class WaterTurtle:
         """
         return self.hp
 
+    def setStunStatus(self):
+        self.stunned = True
+
+    def getStunStatus(self):
+        return self.stunned
+
     def aquaJet(self):
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 70):
+            self.statBoost = False
+            enemyPlayer.doDamage(55)
+            enemyPlayer.setStunStatus()
+            print("Water turtle does 55 damage and stuns the enemy!\n")
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
             print("Aqua Jet did 45 damage!\n")
@@ -87,6 +100,11 @@ class WaterTurtle:
 
     def waterPulse(self):
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 48):
+            self.statBoost = False
+            enemyPlayer.doDamage(80)
+            enemyPlayer.setStunStatus()
+            print("Water turtle does 80 damage and stuns the enemy!\n")
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
             print("Water Pulse did 70 damage!\n")
@@ -166,6 +184,18 @@ class WaterTurtle:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
             self.bag.remove("healthPotion")
+
+    def useStatBoost(self):
+        """
+        Allows this progmon to use a statBoost Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Water Turtle is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
 
     def bagEmpty(self):
         """

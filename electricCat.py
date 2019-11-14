@@ -16,7 +16,9 @@ class ElectricCat:
         self.hp = 250
         self.currentHealth = 250
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.stunned = False
+        self.statBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -63,6 +65,12 @@ class ElectricCat:
             FireDragon's currentHealth
         """
         return self.hp
+
+    def setStunStatus(self):
+        self.stunned = True
+
+    def getStunStatus(self):
+        return self.stunned
 
     def LightningBoltAttack(self, enemyPlayer): # 90 damage, 45 accuracy
         """
@@ -188,6 +196,18 @@ class ElectricCat:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
             self.bag.remove("healthPotion")
+
+    def useStatBoost(self):
+        """
+        Allows this progmon to use a statBoost Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Electric Cat is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
 
     def bagEmpty(self):
         """
