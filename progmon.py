@@ -3,11 +3,11 @@ import random
 
 class Progmon(ABC):
     """
-    Abstract class for all progmon
+    Abstract class for all Progmon
     """
     def __init__(self):
         """
-        Creates variables associated with progmon
+        Creates variables associated with Progmon
         Args:
             self (object)
         Returns:
@@ -33,41 +33,41 @@ class Progmon(ABC):
 
     def checkAlive(self):
         """
-        Checks if FireDragon is alive
+        Checks if Progmon is alive
         Args:
             self (object)
         Returns:
-            (bool) - True if progmon is alive, otherwise False
+            (bool) - True if Progmon is alive, otherwise False
         """
         pass
 
     def getCurrentHealth(self):
         """
-        Gets the currentHealth of progmon
+        Gets the currentHealth of Progmon
         Args:
             self (object)
         Returns:
-            progmon's currentHealth
+            Progmon's currentHealth
         """
         pass
 
     def getHp(self):
         """
-        Gets the currentHealth of progmon
+        Gets the currentHealth of Progmon
         Args:
             self (object)
         Returns:
-            progmon's currentHealth
+            Progmon's currentHealth
         """
         pass
 
     def getAttackList(self):
         """
-        Gets the attackList of progmon
+        Gets the attackList of Progmon
         Args:
             self (object)
         Returns:
-            progmon's attackList
+            Progmon's attackList
         """
         pass
 
@@ -108,7 +108,7 @@ class Progmon(ABC):
         """
         Attacks enemy Progmon
         Args:
-            self (object) - FireDragon
+            self (object) - Progmon
             enemyPlayer (object) - enemy Progmon
         Returns:
             None
@@ -653,9 +653,9 @@ class WaterTurtleTest(Progmon):
         """
         Gets the currentHealth of WaterTurtle
         Args:
-            self (object) - FireDragon
+            self (object) - WaterTurtle
         Returns:
-            FireDragon's currentHealth
+            WaterTurtle's currentHealth
         """
         return self.hp
 
