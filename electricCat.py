@@ -19,6 +19,7 @@ class ElectricCat:
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.stunned = False
         self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -29,7 +30,11 @@ class ElectricCat:
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth - damageDone
+        if(self.defenseBoost == True):
+            self.currentHealth = self.currentHealth - damageDone + 10
+        else:
+            self.currentHealth = self.currentHealth - damageDone
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -82,6 +87,11 @@ class ElectricCat:
             None
         """
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 45):
+            self.statBoost = False
+            enemyPlayer.doDamage(90)
+            enemyPlayer.setStunStatus()
+            print("Electric Cat does 90 damage and stuns the enemy!\n")
         if(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             print("Lightning Bolt did 90 damage!\n")
@@ -118,6 +128,11 @@ class ElectricCat:
             None
         """
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 40):
+            self.statBoost = False
+            enemyPlayer.doDamage(140)
+            enemyPlayer.setStunStatus()
+            print("Electric Cat does 110 damage and stuns the enemy!\n")
         if(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             print("Energy Beam did 110 damage!\n")
@@ -208,6 +223,18 @@ class ElectricCat:
         self.statBoost = True
         print("Stat Boost for Electric Cat is activated!\n You will do +10 damage and have a chance to stun!\n")
         self.bag.remove("statBoost")
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object) - ElectricCat
+        Returns:
+            None
+        """
+        self.defenseBoost = True
+        print("Defense boost for Electric Cat is now activated!\n You will take 10 less damage on the next attack.\n")
+        self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
         """

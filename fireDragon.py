@@ -19,6 +19,7 @@ class FireDragon:
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.stunned = False
         self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -29,7 +30,11 @@ class FireDragon:
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth - damageDone
+        if(self.defenseBoost == True):
+            self.currentHealth = self.currentHealth - damageDone + 10
+        else:
+            self.currentHealth = self.currentHealth - damageDone
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -82,6 +87,11 @@ class FireDragon:
             None
         """
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 45):
+            self.statBoost = False
+            enemyPlayer.doDamage(80)
+            enemyPlayer.setStunStatus()
+            print("Fire Dragon does 80 damage and stuns the enemy!\n")
         if(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             print("Roar did 80 damage!\n")
@@ -118,6 +128,11 @@ class FireDragon:
             None
         """
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 30):
+            self.statBoost = False
+            enemyPlayer.doDamage(140)
+            enemyPlayer.setStunStatus()
+            print("Fire Dragon does 140 damage and stuns the enemy!\n")
         if(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
             print("Fire Breath did 140 damage!\n")
@@ -208,6 +223,18 @@ class FireDragon:
         self.statBoost = True
         print("Stat Boost for Fire Dragon is activated!\n You will do +10 damage and have a chance to stun!\n")
         self.bag.remove("statBoost")
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object) - FireDragon
+        Returns:
+            None
+        """
+        self.defenseBoost = True
+        print("Defense boost for Fire Dragon is now activated!\n You will take 10 less damage on the next attack.\n")
+        self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
         """
