@@ -16,7 +16,8 @@ class FireDragon:
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion"]
+        self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
         self.stunned = False
         self.statBoost = False
         self.defenseBoost = False
@@ -72,12 +73,26 @@ class FireDragon:
         return self.hp
 
     def setStunStatus(self):
+        """
+        Sets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            None
+        """
         self.stunned = True
 
     def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
         return self.stunned
 
-    def RoarAttack(self, enemyPlayer): # 80 damage, 45 accuracy
+    def attack1(self, enemyPlayer): # 80 damage, 45 accuracy
         """
         Attacks enemy Progmon with Roar
         Args:
@@ -93,7 +108,7 @@ class FireDragon:
             enemyPlayer.setStunStatus()
             print("Fire Dragon does 80 damage and stuns the enemy!\n")
             return True
-        if(chanceToHit <= 45):
+        elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             print("Roar did 80 damage!\n")
             return True
@@ -101,7 +116,7 @@ class FireDragon:
             print("Roar missed!\n")
             return False
 
-    def ClawSwipeAttack(self, enemyPlayer): # 35 damage, 90 accuracy
+    def attack2(self, enemyPlayer): # 35 damage, 90 accuracy
         """
         Attacks enemy Progmon with Claw Swipe
         Args:
@@ -119,7 +134,7 @@ class FireDragon:
             print("Claw Swipe missed!\n")
             return False
 
-    def FireBreathAttack(self, enemyPlayer): # 140 damage, 30 accuracy
+    def attack3(self, enemyPlayer): # 140 damage, 30 accuracy
         """
         Attacks enemy Progmon with Fire Breath
         Args:
@@ -135,7 +150,7 @@ class FireDragon:
             enemyPlayer.setStunStatus()
             print("Fire Dragon does 140 damage and stuns the enemy!\n")
             return True
-        if(chanceToHit <= 30):
+        elif(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
             print("Fire Breath did 140 damage!\n")
             return True
@@ -143,7 +158,7 @@ class FireDragon:
             print("Fire Breath missed!\n")
             return False
 
-    def TailWhipAttack(self, enemyPlayer): # 20 damage, 100 accuracy
+    def attack4(self, enemyPlayer): # 20 damage, 100 accuracy
         """
         Attacks enemy Progmon with Tail Whip
         Args:
@@ -171,25 +186,25 @@ class FireDragon:
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if(attackToUse == 1):
-            self.RoarAttack(enemyPlayer)
+            self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "Roar", True
             else:
                 return "Roar", False
         if(attackToUse == 2):
-            self.ClawSwipeAttack(enemyPlayer)
+            self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "ClawSwipe", True
             else:
                 return "ClawSwipe", False
         if(attackToUse == 3):
-            self.FireBreathAttack(enemyPlayer)
+            self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "FireBreath", True
             else:
                 return "FireBreath", False
         if(attackToUse == 4):
-            self.TailWhipAttack(enemyPlayer)
+            self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "TailWhip", True
             else:

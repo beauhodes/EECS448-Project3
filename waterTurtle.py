@@ -2,7 +2,7 @@ import random
 
 class WaterTurtle:
     """
-    Class for the new Water Turtle Progmon
+    Class for the Water Turtle Progmon
     """
     def __init__(self):
         """
@@ -17,6 +17,7 @@ class WaterTurtle:
         self.currentHealth = 200
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.attackList = ["Aqua Jet", "Aqua Tail", "Water Pulse", "Bubble"]
         self.stunned = False
         self.statBoost = False
         self.defenseBoost = False
@@ -72,12 +73,26 @@ class WaterTurtle:
         return self.hp
 
     def setStunStatus(self):
+        """
+        Sets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            None
+        """
         self.stunned = True
 
     def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
         return self.stunned
 
-    def aquaJet(self):
+    def attack1(self):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
@@ -93,7 +108,7 @@ class WaterTurtle:
             print("Aqua Jet missed!\n")
             return False
 
-    def aquaTail(self):
+    def attack2(self):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
@@ -103,7 +118,7 @@ class WaterTurtle:
             print("Aqua Tail missed!\n")
             return False
 
-    def waterPulse(self):
+    def attack3(self):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
@@ -119,12 +134,7 @@ class WaterTurtle:
             print("Water Pulse missed!\n")
             return False
 
-    def tackle(self):
-        enemyPlayer.doDamage(10)
-        print("Tackle did 10 damage!\n")
-        return True
-
-    def bubble(self):
+    def attack4(self):
         enemyPlayer.doDamage(12)
         print("Bubble did 12 damage!\n")
         return True
@@ -142,31 +152,25 @@ class WaterTurtle:
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if(attackToUse == 1):
-            self.aquaJet(enemyPlayer)
+            self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "AI Aqua Jet hit for 45 damage!", True
             else:
                 return "AI Aqua Jet missed!\n", False
         if(attackToUse == 2):
-            self.aquaTail(enemyPlayer)
+            self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "AI Aqua Tail hit!\n", True
             else:
                 return "AI Aqua Tail missed!\n", False
         if(attackToUse == 3):
-            self.waterPulse(enemyPlayer)
+            self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "AI Water Pulse hit!\n", True
             else:
                 return "AI Water Pulse missed!\n", False
         if(attackToUse == 4):
-            self.tackle(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Tackle hit!\n", True
-            else:
-                return "AI Tackle missed!\n", False
-        if(attackToUse == 5):
-            self.bubble(enemyPlayer)
+            self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "AI Bubble hit!\n", True
             else:

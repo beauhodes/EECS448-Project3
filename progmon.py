@@ -19,6 +19,9 @@ class Progmon(ABC):
         self.alive = True
         self.bag = []
         self.attackList = []
+        self.stunned = False
+        self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -58,6 +61,26 @@ class Progmon(ABC):
             self (object)
         Returns:
             Progmon's currentHealth
+        """
+        pass
+
+    def setStunStatus(self):
+        """
+        Sets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            None
+        """
+        pass
+
+    def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
         """
         pass
 
@@ -113,9 +136,6 @@ class Progmon(ABC):
         Returns:
             None
         """
-        # enemyPlayer.doDamage(20)
-        # print("Tail Whip did 20 damage!\n")
-        # return True
         pass
 
     def AIAttack(self, enemyPlayer):
@@ -140,6 +160,26 @@ class Progmon(ABC):
         """
         pass
 
+    def useStatBoost(self):
+        """
+        Allows this Progmon to use a statBoost Potion
+        Args:
+            self (object)
+        Returns:
+            None
+        """
+        pass
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object)
+        Returns:
+            None
+        """
+        pass
+
     def bagEmpty(self):
         """
         Checks if the Bag is empty
@@ -156,7 +196,7 @@ class Progmon(ABC):
 
 
 
-class FireDragonTester(Progmon):
+class FireDragonProgmon(Progmon):
     """
     Class for the Fire Dragon Progmon
     """
@@ -174,6 +214,9 @@ class FireDragonTester(Progmon):
         self.alive = True
         self.bag = ["healthPotion"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
+        self.stunned = False
+        self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -184,7 +227,11 @@ class FireDragonTester(Progmon):
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth - damageDone
+        if(self.defenseBoost == True):
+            self.currentHealth = self.currentHealth - damageDone + 10
+        else:
+            self.currentHealth = self.currentHealth - damageDone
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -221,15 +268,25 @@ class FireDragonTester(Progmon):
         """
         return self.hp
 
-    def getAttackList(self):
+    def setStunStatus(self):
         """
-        Gets the attackList of FireDragon
+        Sets the stun status of Progmon
         Args:
-            self (object) - FireDragon
+            self (object)
         Returns:
-            FireDragon's attackList
+            None
         """
-        return self.attackList
+        self.stunned = True
+
+    def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
+        return self.stunned
 
     def attack1(self, enemyPlayer): # 80 damage, 45 accuracy
         """
@@ -241,7 +298,13 @@ class FireDragonTester(Progmon):
             None
         """
         chanceToHit = random.randint(1, 101)
-        if(chanceToHit <= 45):
+        if(self.statBoost == True and chanceToHit <= 45):
+            self.statBoost = False
+            enemyPlayer.doDamage(80)
+            enemyPlayer.setStunStatus()
+            print("Fire Dragon does 80 damage and stuns the enemy!\n")
+            return True
+        elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             print("Roar did 80 damage!\n")
             return True
@@ -277,7 +340,13 @@ class FireDragonTester(Progmon):
             None
         """
         chanceToHit = random.randint(1, 101)
-        if(chanceToHit <= 30):
+        if(self.statBoost == True and chanceToHit <= 30):
+            self.statBoost = False
+            enemyPlayer.doDamage(140)
+            enemyPlayer.setStunStatus()
+            print("Fire Dragon does 140 damage and stuns the enemy!\n")
+            return True
+        elif(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
             print("Fire Breath did 140 damage!\n")
             return True
@@ -356,6 +425,30 @@ class FireDragonTester(Progmon):
             print("Health potion healed you for: 30\n")
             self.bag.remove("healthPotion")
 
+    def useStatBoost(self):
+        """
+        Allows this Progmon to use a statBoost Potion
+        Args:
+            self (object) - FireDragon
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Fire Dragon is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object) - FireDragon
+        Returns:
+            None
+        """
+        self.defenseBoost = True
+        print("Defense boost for Fire Dragon is now activated!\n You will take 10 less damage on the next attack.\n")
+        self.bag.remove("defenseBoost")
+
     def bagEmpty(self):
         """
         Checks if the Bag is empty
@@ -375,7 +468,7 @@ class FireDragonTester(Progmon):
 
 
 
-class ElectricCatTester(Progmon):
+class ElectricCatProgmon(Progmon):
     """
     Class for the Electric Cat Progmon
     """
@@ -393,6 +486,9 @@ class ElectricCatTester(Progmon):
         self.alive = True
         self.bag = ["healthPotion"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
+        self.stunned = False
+        self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -403,7 +499,11 @@ class ElectricCatTester(Progmon):
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth - damageDone
+        if(self.defenseBoost == True):
+            self.currentHealth = self.currentHealth - damageDone + 10
+        else:
+            self.currentHealth = self.currentHealth - damageDone
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -434,21 +534,31 @@ class ElectricCatTester(Progmon):
         """
         Gets the currentHealth of ElectricCat
         Args:
-            self (object) - FireDragon
+            self (object) - ElectricCat
         Returns:
-            FireDragon's currentHealth
+            ElectricCat's currentHealth
         """
         return self.hp
 
-    def getAttackList(self):
+    def setStunStatus(self):
         """
-        Gets the attackList of ElectricCat
+        Sets the stun status of Progmon
         Args:
-            self (object) - ElectricCat
+            self (object)
         Returns:
-            ElectricCat's attackList
+            None
         """
-        return self.attackList
+        self.stunned = True
+
+    def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
+        return self.stunned
 
     def attack1(self, enemyPlayer): # 90 damage, 45 accuracy
         """
@@ -460,7 +570,13 @@ class ElectricCatTester(Progmon):
             None
         """
         chanceToHit = random.randint(1, 101)
-        if(chanceToHit <= 45):
+        if(self.statBoost == True and chanceToHit <= 45):
+            self.statBoost = False
+            enemyPlayer.doDamage(90)
+            enemyPlayer.setStunStatus()
+            print("Electric Cat does 90 damage and stuns the enemy!\n")
+            return True
+        elif(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             print("Lightning Bolt did 90 damage!\n")
             return True
@@ -496,7 +612,13 @@ class ElectricCatTester(Progmon):
             None
         """
         chanceToHit = random.randint(1, 101)
-        if(chanceToHit <= 40):
+        if(self.statBoost == True and chanceToHit <= 40):
+            self.statBoost = False
+            enemyPlayer.doDamage(140)
+            enemyPlayer.setStunStatus()
+            print("Electric Cat does 110 damage and stuns the enemy!\n")
+            return True
+        elif(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             print("Energy Beam did 110 damage!\n")
             return True
@@ -567,13 +689,37 @@ class ElectricCatTester(Progmon):
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
 
         else:
             self.currentHealth + 30
-            print("Health potion healed you for: 30\n")
+            print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
+
+    def useStatBoost(self):
+        """
+        Allows this Progmon to use a statBoost Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Electric Cat is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object) - ElectricCat
+        Returns:
+            None
+        """
+        self.defenseBoost = True
+        print("Defense boost for Electric Cat is now activated!\n You will take 10 less damage on the next attack.\n")
+        self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
         """
@@ -594,7 +740,7 @@ class ElectricCatTester(Progmon):
 
 
 
-class WaterTurtleTest(Progmon):
+class WaterTurtleProgmon(Progmon):
     """
     Class for the new Water Turtle Progmon
     """
@@ -612,7 +758,10 @@ class WaterTurtleTest(Progmon):
         self.currentHealth = 200
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
-        self.attackList = ["Aqua Jet", "Aqua Tail", "Water Pulse", "Tackle"]
+        self.attackList = ["Aqua Jet", "Aqua Tail", "Water Pulse", "Bubble"]
+        self.stunned = False
+        self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -623,7 +772,11 @@ class WaterTurtleTest(Progmon):
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth - damageDone
+        if(self.defenseBoost == True):
+            self.currentHealth = self.currentHealth - damageDone + 10
+        else:
+            self.currentHealth = self.currentHealth - damageDone
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -660,18 +813,34 @@ class WaterTurtleTest(Progmon):
         """
         return self.hp
 
-    def getAttackList(self):
+    def setStunStatus(self):
         """
-        Gets the attackList of WaterTurtle
+        Sets the stun status of Progmon
         Args:
-            self (object) - WaterTurtle
+            self (object)
         Returns:
-            WaterTurtle's attackList
+            None
         """
-        return self.attackList
+        self.stunned = True
+
+    def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
+        return self.stunned
 
     def attack1(self):
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 70):
+            self.statBoost = False
+            enemyPlayer.doDamage(55)
+            enemyPlayer.setStunStatus()
+            print("Water Turtle does 55 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
             print("Aqua Jet did 45 damage!\n")
@@ -692,6 +861,12 @@ class WaterTurtleTest(Progmon):
 
     def attack3(self):
         chanceToHit = random.randint(1, 101)
+        if(self.statBoost == True and chanceToHit <= 48):
+            self.statBoost = False
+            enemyPlayer.doDamage(80)
+            enemyPlayer.setStunStatus()
+            print("Water Turtle does 80 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
             print("Water Pulse did 70 damage!\n")
@@ -702,7 +877,7 @@ class WaterTurtleTest(Progmon):
 
     def attack4(self):
         enemyPlayer.doDamage(12)
-        print("Tackle did 12 damage!\n")
+        print("Bubble did 12 damage!\n")
         return True
 
     def AIAttack(self, enemy):
@@ -738,9 +913,9 @@ class WaterTurtleTest(Progmon):
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Tackle hit!\n", True
+                return "AI Bubble hit!\n", True
             else:
-                return "AI Tackle missed!\n", False
+                return "AI Bubble missed!\n", False
 
     def useHealthPotion(self):
         """
@@ -753,13 +928,37 @@ class WaterTurtleTest(Progmon):
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
 
         else:
             self.currentHealth + 30
-            print("Health potion healed you for: 30\n")
+            print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
+
+    def useStatBoost(self):
+        """
+        Allows this Progmon to use a statBoost Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Water Turtle is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.defenseBoost = True
+        print("Defense boost for Water Turtle is now activated!\n You will take 10 less damage on the next attack.\n")
+        self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
         """

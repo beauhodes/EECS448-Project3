@@ -4,7 +4,7 @@ import pygame.gfxdraw
 from fireDragon import FireDragon
 from electricCat import ElectricCat
 from waterTurtle import WaterTurtle
-from progmon import Progmon, FireDragonTester, ElectricCatTester, WaterTurtleTest
+from progmon import Progmon, FireDragonProgmon, ElectricCatProgmon, WaterTurtleProgmon
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY VARIABLES
 pygame.init()
@@ -177,21 +177,21 @@ def startScreen():
 
     # TRACK PROGMON BUTTONS FOR PLAYER 1
     if isButtonClickDetected(textElectricCatP1_RECT):
-        myP1 = ElectricCatTester()
+        myP1 = ElectricCatProgmon()
         progmonP1 = "ElectricCat"
         # print("progmonP1 =", progmonP1) # TESTER CODE
     elif isButtonClickDetected(textFireDragonP1_RECT):
-        myP1 = FireDragonTester()
+        myP1 = FireDragonProgmon()
         progmonP1 = "FireDragon"
         # print("progmonP1 =", progmonP1) # TESTER CODE
 
     # TRACK PROGMON BUTTONS FOR PLAYER AI
     if isButtonClickDetected(textElectricCatAI_RECT):
-        myAI = ElectricCatTester()
+        myAI = ElectricCatProgmon()
         progmonAI = "ElectricCat"
         # print("progmonAI =", progmonAI) # TESTER CODE
     elif isButtonClickDetected(textFireDragonAI_RECT):
-        myAI = FireDragonTester()
+        myAI = FireDragonProgmon()
         progmonAI = "FireDragon"
         # print("progmonAI =", progmonAI) # TESTER CODE
 
@@ -224,6 +224,12 @@ def fightScreen():
         textMessage, textMessage_RECT = createTextObject("Player 1, you have been stunned by the AI!", miniText)
         pygame.time.delay(300)
         AITurn()
+
+    #background
+    imageFightBackground = pygame.image.load('Sprites/fightScreen.png')
+    imageFightBackground_RECT = imageFightBackground.get_rect()
+    imageFightBackground_RECT.center = (displayWidth/2, displayHeight/2)
+
     # MESSAGE TO PLAYER 1
     textMessage, textMessage_RECT = createTextObject("What do you want to do?", miniText)
     textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
@@ -284,6 +290,7 @@ def fightScreen():
 
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE)
+    display.blit(imageFightBackground, imageFightBackground_RECT)
     display.blit(progmonImageP1, progmonImageP1_RECT)
     display.blit(textNameP1, textNameP1_RECT)
     display.blit(textProgmonP1, textProgmonP1_RECT)
@@ -362,11 +369,11 @@ def fightMenu():
     if(len(P1attackList) == 4):
         textAttack1, textAttack1_RECT = createTextObject(str(P1attackList[0]), miniText)
         textAttack1_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
-        textAttack2, textAttack2_RECT = createTextObject(str(P1attackList[1]), miniText)
+        textAttack2, textAttack2_RECT = createTextObject(str(P1attackList[3]), miniText)
         textAttack2_RECT.center = (displayWidth / 1.15, displayHeight / 1.1)
         textAttack3, textAttack3_RECT = createTextObject(str(P1attackList[2]), miniText)
         textAttack3_RECT.center = (displayWidth / 1.4, displayHeight / 1.1)
-        textAttack4, textAttack4_RECT = createTextObject(str(P1attackList[3]), miniText)
+        textAttack4, textAttack4_RECT = createTextObject(str(P1attackList[1]), miniText)
         textAttack4_RECT.center = (displayWidth / 1.14, displayHeight / 1.2)
 
         display.blit(textAttack1, textAttack1_RECT)

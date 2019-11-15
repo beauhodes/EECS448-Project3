@@ -16,7 +16,8 @@ class ElectricCat:
         self.hp = 250
         self.currentHealth = 250
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion"]
+        self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
         self.stunned = False
         self.statBoost = False
         self.defenseBoost = False
@@ -72,12 +73,26 @@ class ElectricCat:
         return self.hp
 
     def setStunStatus(self):
+        """
+        Sets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            None
+        """
         self.stunned = True
 
     def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
         return self.stunned
 
-    def LightningBoltAttack(self, enemyPlayer): # 90 damage, 45 accuracy
+    def attack1(self, enemyPlayer): # 90 damage, 45 accuracy
         """
         Attacks enemy Progmon with Lightning Bolt
         Args:
@@ -93,7 +108,7 @@ class ElectricCat:
             enemyPlayer.setStunStatus()
             print("Electric Cat does 90 damage and stuns the enemy!\n")
             return True
-        if(chanceToHit <= 45):
+        elif(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             print("Lightning Bolt did 90 damage!\n")
             return True
@@ -101,7 +116,7 @@ class ElectricCat:
             print("Lightning Bolt missed!\n")
             return False
 
-    def ElectricScratchAttack(self, enemyPlayer): # 40 damage, 90 accuracy
+    def attack2(self, enemyPlayer): # 40 damage, 90 accuracy
         """
         Attacks enemy Progmon with Electric Scratch
         Args:
@@ -119,7 +134,7 @@ class ElectricCat:
             print("Electric Scratch missed!\n")
             return False
 
-    def EnergyBeamAttack(self, enemyPlayer): # 110 damage, 40 accuracy
+    def attack3(self, enemyPlayer): # 110 damage, 40 accuracy
         """
         Attacks enemy Progmon with Energy Beam
         Args:
@@ -135,7 +150,7 @@ class ElectricCat:
             enemyPlayer.setStunStatus()
             print("Electric Cat does 110 damage and stuns the enemy!\n")
             return True
-        if(chanceToHit <= 40):
+        elif(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             print("Energy Beam did 110 damage!\n")
             return True
@@ -143,7 +158,7 @@ class ElectricCat:
             print("Energy Beam missed!\n")
             return False
 
-    def BiteAttack(self, enemyPlayer): # 20 damage, 100 accuracy
+    def attack4(self, enemyPlayer): # 20 damage, 100 accuracy
         """
         Attacks enemy Progmon with Bite
         Args:
@@ -171,25 +186,25 @@ class ElectricCat:
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if(attackToUse == 1):
-            self.LightningBoltAttack(enemyPlayer)
+            self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "LightningBolt", True
             else:
                 return "LightningBolt", False
         if(attackToUse == 2):
-            self.ElectricScratchAttack(enemyPlayer)
+            self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "ElectricScratch", True
             else:
                 return "ElectricScratch", False
         if(attackToUse == 3):
-            self.EnergyBeamAttack(enemyPlayer)
+            self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "EnergyBeam", True
             else:
                 return "EnergyBeam", False
         if(attackToUse == 4):
-            self.BiteAttack(enemyPlayer)
+            self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "Bite", True
             else:
