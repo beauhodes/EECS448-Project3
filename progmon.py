@@ -44,6 +44,16 @@ class Progmon(ABC):
         """
         pass
 
+    def getAttackList(self):
+        """
+        Gets the attack list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's attackList
+        """
+        pass
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of Progmon
@@ -247,6 +257,16 @@ class FireDragonProgmon(Progmon):
             return True
         else:
             return False
+
+    def getAttackList(self):
+        """
+        Gets the attack list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's attackList
+        """
+        return self.attackList
 
     def getCurrentHealth(self):
         """
@@ -520,6 +540,16 @@ class ElectricCatProgmon(Progmon):
         else:
             return False
 
+    def getAttackList(self):
+        """
+        Gets the attack list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's attackList
+        """
+        return self.attackList
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of ElectricCat
@@ -792,6 +822,16 @@ class WaterTurtleProgmon(Progmon):
             return True
         else:
             return False
+
+    def getAttackList(self):
+        """
+        Gets the attack list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's attackList
+        """
+        return self.attackList
 
     def getCurrentHealth(self):
         """

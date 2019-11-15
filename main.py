@@ -291,6 +291,10 @@ def fightScreen():
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE)
     display.blit(imageFightBackground, imageFightBackground_RECT)
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 0) # BOX AROUND BATTLE MENU OPTIONS
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 0) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 0) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 0) # BOX AROUND MESSAGE TO PLAYER 1
     display.blit(progmonImageP1, progmonImageP1_RECT)
     display.blit(textNameP1, textNameP1_RECT)
     display.blit(textProgmonP1, textProgmonP1_RECT)
@@ -304,10 +308,6 @@ def fightScreen():
     display.blit(textProgmon, textProgmon_RECT)
     display.blit(textQuit, textQuit_RECT)
     display.blit(textMessage, textMessage_RECT)
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
     pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for P1 health bar
     pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for P1 health bar
     pygame.draw.rect(display, (0, 200, 0), (displayWidth * .162, displayHeight * .141, 121 * (progmonHealthP1 / myP1.getHp()), 37), 0) #fill for P1 health bar
@@ -586,9 +586,9 @@ def AITurn():
     # FOR BETA-VERSION (PROJECT 3 VERSION)
     # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
     critical = 80
-    if(myAi.getStunStatus() == True):
+    if(myAI.getStunStatus() == True):
         print("The AI was stunned and their turn has been skipped!\n")
-    elif(myP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
+    elif(myP1.getCurrentHealth() <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
         myAI.AIAttack(myP1)
         # now we should display some sort of window/message for the user saying if they hit or not
         # update player's health in the UI

@@ -52,6 +52,16 @@ class ElectricCat:
         else:
             return False
 
+    def getAttackList(self):
+        """
+        Gets the attack list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's attackList
+        """
+        return self.attackList
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of ElectricCat
