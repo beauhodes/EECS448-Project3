@@ -219,6 +219,11 @@ def fightScreen():
     global myAI
     global progmonNameAI
 
+    if(myP1.getStunStatus() == True):
+        print("Player 1 is stunned by the AI, your turn will be skipped!\n")
+        textMessage, textMessage_RECT = createTextObject("Player 1, you have been stunned by the AI!", miniText)
+        pygame.time.delay(300)
+        AITurn()
     # MESSAGE TO PLAYER 1
     textMessage, textMessage_RECT = createTextObject("What do you want to do?", miniText)
     textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
@@ -574,7 +579,9 @@ def AITurn():
     # FOR BETA-VERSION (PROJECT 3 VERSION)
     # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
     critical = 80
-    if(myP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
+    if(myAi.getStunStatus() == True):
+        print("The AI was stunned and their turn has been skipped!\n")
+    elif(myP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
         myAI.AIAttack(myP1)
         # now we should display some sort of window/message for the user saying if they hit or not
         # update player's health in the UI
