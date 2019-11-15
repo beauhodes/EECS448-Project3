@@ -83,6 +83,16 @@ def isButtonClickDetected(surfaceRect):
             return True
     return False
 
+def displayMessageBox(text):
+    # MESSAGE TO PLAYER 1
+    pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # UNFILLED BOX
+    textMessage, textMessage_RECT = createTextObject(text, miniText)
+    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.15)
+    display.blit(textMessage, textMessage_RECT)
+    pygame.display.update()
+    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+
 def detectFaintedAI():
     """
     Checks if Player AI's Progmon has fainted
@@ -91,14 +101,15 @@ def detectFaintedAI():
     Returns:
         None
     """
-    # MESSAGE TO PLAYER 1
-    pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
-    textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-    display.blit(textMessage, textMessage_RECT)
-    pygame.display.update()
-    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+    displayMessageBox("Player AI's Progmon has fainted. You win!")
+    # # MESSAGE TO PLAYER 1
+    # pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+    # pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
+    # textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+    # textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+    # display.blit(textMessage, textMessage_RECT)
+    # pygame.display.update()
+    # pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
 # (UNFINISHED)
 def startScreen():
@@ -378,6 +389,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack2_RECT):
             # print("Player 1's Electric Cat used Energy Beam!") # TESTER CODE
             myP1.attack2(myAI)
@@ -397,6 +409,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack3_RECT):
             # print("Player 1's Electric Cat used Electric Scratch!") # TESTER CODE
             myP1.attack3(myAI)
@@ -416,6 +429,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack4_RECT):
             # print("Player 1's Electric Cat used Bite!") # TESTER CODE
             myP1.attack4(myAI)
@@ -435,6 +449,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
 
 # (UNFINISHED)
 def bagMenu():
@@ -499,6 +514,10 @@ def progmonMenu():
     controlScreen("fightScreen") # TEMPORARY FIX FOR UN-IMPLEMENTED FEATURE
 
 # (UNFINISHED)
+def endScreen():
+    display.fill(BLACK)
+
+# (UNFINISHED)
 def controlScreen(gameState):
     """
     Handles control of the screen via game state
@@ -507,7 +526,7 @@ def controlScreen(gameState):
     Returns:
         None
     """
-    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "fightMenu" or gameState == "bagMenu" or gameState == "progmonMenu":
+    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "fightMenu" or gameState == "bagMenu" or gameState == "progmonMenu" or gameState == "endScreen":
         while gameState == "startScreen":
             eventHandler()
             startScreen()
@@ -523,6 +542,9 @@ def controlScreen(gameState):
         while gameState == "progmonMenu":
             eventHandler()
             progmonMenu()
+        while gameState == "endScreen":
+            eventHandler()
+            endScreen()
     else:
         print("ERROR: Invalid gameState")
         quitGame()
