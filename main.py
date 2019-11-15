@@ -83,6 +83,16 @@ def isButtonClickDetected(surfaceRect):
             return True
     return False
 
+def displayMessageBox(text):
+    # MESSAGE TO PLAYER 1
+    pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX
+    pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # UNFILLED BOX
+    textMessage, textMessage_RECT = createTextObject(text, miniText)
+    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.15)
+    display.blit(textMessage, textMessage_RECT)
+    pygame.display.update()
+    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+
 def detectFaintedAI():
     """
     Checks if Player AI's Progmon has fainted
@@ -91,14 +101,15 @@ def detectFaintedAI():
     Returns:
         None
     """
-    # MESSAGE TO PLAYER 1
-    pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
-    textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
-    textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
-    display.blit(textMessage, textMessage_RECT)
-    pygame.display.update()
-    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+    displayMessageBox("Player AI's Progmon has fainted. You win!")
+    # # MESSAGE TO PLAYER 1
+    # pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
+    # pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
+    # textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+    # textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
+    # display.blit(textMessage, textMessage_RECT)
+    # pygame.display.update()
+    # pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
 # (UNFINISHED)
 def startScreen():
