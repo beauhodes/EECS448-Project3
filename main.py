@@ -378,6 +378,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack2_RECT):
             # print("Player 1's Electric Cat used Energy Beam!") # TESTER CODE
             myP1.attack2(myAI)
@@ -397,6 +398,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack3_RECT):
             # print("Player 1's Electric Cat used Electric Scratch!") # TESTER CODE
             myP1.attack3(myAI)
@@ -416,6 +418,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack4_RECT):
             # print("Player 1's Electric Cat used Bite!") # TESTER CODE
             myP1.attack4(myAI)
@@ -435,6 +438,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
+                # controlScreen("endScreen") # (UNFINISHED)
 
 # (UNFINISHED)
 def bagMenu():
@@ -499,6 +503,10 @@ def progmonMenu():
     controlScreen("fightScreen") # TEMPORARY FIX FOR UN-IMPLEMENTED FEATURE
 
 # (UNFINISHED)
+def endScreen():
+    display.fill(BLACK)
+
+# (UNFINISHED)
 def controlScreen(gameState):
     """
     Handles control of the screen via game state
@@ -507,7 +515,7 @@ def controlScreen(gameState):
     Returns:
         None
     """
-    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "fightMenu" or gameState == "bagMenu" or gameState == "progmonMenu":
+    if gameState == "startScreen" or gameState == "fightScreen" or gameState == "fightMenu" or gameState == "bagMenu" or gameState == "progmonMenu" or gameState == "endScreen":
         while gameState == "startScreen":
             eventHandler()
             startScreen()
@@ -523,6 +531,9 @@ def controlScreen(gameState):
         while gameState == "progmonMenu":
             eventHandler()
             progmonMenu()
+        while gameState == "endScreen":
+            eventHandler()
+            endScreen()
     else:
         print("ERROR: Invalid gameState")
         quitGame()
