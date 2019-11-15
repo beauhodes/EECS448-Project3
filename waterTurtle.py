@@ -34,7 +34,7 @@ class WaterTurtle:
             self.currentHealth = self.currentHealth - damageDone + 10
         else:
             self.currentHealth = self.currentHealth - damageDone
-            
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -84,6 +84,7 @@ class WaterTurtle:
             enemyPlayer.doDamage(55)
             enemyPlayer.setStunStatus()
             print("Water Turtle does 55 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
             print("Aqua Jet did 45 damage!\n")
@@ -109,6 +110,7 @@ class WaterTurtle:
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
             print("Water Turtle does 80 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
             print("Water Pulse did 70 damage!\n")

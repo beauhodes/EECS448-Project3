@@ -92,6 +92,7 @@ class FireDragon:
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
             print("Fire Dragon does 80 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             print("Roar did 80 damage!\n")
@@ -133,6 +134,7 @@ class FireDragon:
             enemyPlayer.doDamage(140)
             enemyPlayer.setStunStatus()
             print("Fire Dragon does 140 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
             print("Fire Breath did 140 damage!\n")

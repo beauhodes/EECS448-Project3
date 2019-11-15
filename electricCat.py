@@ -92,6 +92,7 @@ class ElectricCat:
             enemyPlayer.doDamage(90)
             enemyPlayer.setStunStatus()
             print("Electric Cat does 90 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             print("Lightning Bolt did 90 damage!\n")
@@ -133,6 +134,7 @@ class ElectricCat:
             enemyPlayer.doDamage(140)
             enemyPlayer.setStunStatus()
             print("Electric Cat does 110 damage and stuns the enemy!\n")
+            return True
         if(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             print("Energy Beam did 110 damage!\n")
