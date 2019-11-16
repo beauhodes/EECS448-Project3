@@ -572,43 +572,25 @@ def AITurn():
     """
     global myP1
     global myAI
-    # AIMove = random.randint(1,101)
-    # if (AIMove <= 90): #90% chance to attack
-    #     #attack
-    #     chosenAttack, result = playerAI.AIAttack() #chosenAttack will be the string of which attack was used, result was whether it worked or not
-    #     #display 3 second popup window of which attack was chosen and whether it worked
-    #     #checkForWin, if game over then exit this function and display victory screen
-    # else if (AIMove <= 98 and playerAI.hasItem()): #8% chance to use item
-    #     playerAI.useHealthPotion()
-    #     #use item
-    # #add 2% chance to run, need a run function to end the game
 
-    # FOR BETA-VERSION (PROJECT 3 VERSION)
-    # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
-    critical = 80
-    if(myAI.getStunStatus() == True):
-        print("The AI was stunned and their turn has been skipped!\n")
-    elif(myP1.getCurrentHealth() <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
-        myAI.AIAttack(myP1)
-        # now we should display some sort of window/message for the user saying if they hit or not
-        # update player's health in the UI
-        if(myP1.checkAlive() != True):
-            print("P1 progmon has died")
-            # quitGame()
-    # elif(myAI.currentHealth <= critical and myAI.bagEmpty):   #this should be the AI's last option - AI is going to die if it's hit again
-        # DISPLAY SOME SORT OF MESSAGE SAYING THE THIS PLAYER CHOSE TO RUN
-        # quitGame()
-    elif(myAI.currentHealth <= critical):  #if AI is low, it will use potion
-        if myAI.bagEmpty():
-            print("Player AI's Bag is empty!")
-            myAI.AIAttack(myP1)
-        else:
-            myAI.useHealthPotion() # ERRORS ON SECOND CALL
-    else:   # if progmonP1 is not low and AI is not low, then all we can do is attack the other player
-        myAI.AIAttack(myP1)
-        # now we should display some sort of window/message for the user saying if they hit or not
-        # update player's health in the UI
-    # playerTurn()    #after turn is over, let the player go
+    if(myP1.checkAlive() != True):
+        print("P1 progmon has died")
+        # go to end game screen
+
+    P1critical = (myP1.getCurrentHealth() / myP1.getHp()) #check if P1 is at critical health (<= 20% of max health)
+    AIcritical = (myP1.getCurrentHealth() / myP1.getHp()) #check if AI is at critical health (<= 20% of max health)
+    if(myAI.getStunStatus() == True): #if stunned, skip turn
+        print("The AI was stunned, turn skipped!\n")
+        #DISPLAY: "The AI was stunned, turn skipped!"
+    elif(P1critical <= .2): #if P1 is critical, always attack
+        messageToShow = myAI.AIAttack()        #go back and remove second parameter
+        print("{}\n".format(messageToShow))
+        #DISPLAY: messageToShow
+    elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #if AI is critical but P1 is not, use healing potion (if AI has it)
+        myAI.useHealthPotion()
+        #DISPLAY: the same thing that use health potion is printing to terminal
+    else: #give 70% chance to attack, 20% to use bag item, 10% chance to switch progmon
+        print("WORK IN PROGRESS")
 
 if __name__ == "__main__":
     controlScreen("startScreen")
