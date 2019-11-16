@@ -232,7 +232,7 @@ class FireDragonProgmon(Progmon):
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
         self.stunned = False
         self.statBoost = False
@@ -523,7 +523,7 @@ class ElectricCatProgmon(Progmon):
         self.hp = 250
         self.currentHealth = 250
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
         self.stunned = False
         self.statBoost = False

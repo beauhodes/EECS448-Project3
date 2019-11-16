@@ -579,18 +579,53 @@ def AITurn():
 
     P1critical = (myP1.getCurrentHealth() / myP1.getHp()) #check if P1 is at critical health (<= 20% of max health)
     AIcritical = (myP1.getCurrentHealth() / myP1.getHp()) #check if AI is at critical health (<= 20% of max health)
+
     if(myAI.getStunStatus() == True): #if stunned, skip turn
         print("The AI was stunned, turn skipped!\n")
         #DISPLAY: "The AI was stunned, turn skipped!"
     elif(P1critical <= .2): #if P1 is critical, always attack
-        messageToShow = myAI.AIAttack()        #go back and remove second parameter
+        messageToShow = myAI.AIAttack()
         print("{}\n".format(messageToShow))
         #DISPLAY: messageToShow
     elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #if AI is critical but P1 is not, use healing potion (if AI has it)
         myAI.useHealthPotion()
         #DISPLAY: the same thing that use health potion is printing to terminal
-    else: #give 70% chance to attack, 20% to use bag item, 10% chance to switch progmon
+    elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 30% chance to run (else attack)
+        percentage = random.randint(1, 101)
+        if(percentage <= 30):
+            print("AI will run")
+            #make AI run
+        else:
+            messageToShow = myAI.AIAttack()        #go back and remove second parameter
+            print("{}\n".format(messageToShow))
+            #DISPLAY: messageToShow
+    else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
         print("WORK IN PROGRESS")
+        percentage = random.randint(1, 101)
+        if(percentage <= 70):
+            messageToShow = myAI.AIAttack()
+            print("{}\n".format(messageToShow))
+            #DISPLAY: messageToShow
+        elif(percentage <= 90):
+            if(myAI.bagEmpty() == True): #attack
+                messageToShow = myAI.AIAttack()
+                print("{}\n".format(messageToShow))
+                #DISPLAY: messageToShow
+            else:
+                if("statBoost" in myAI.getBag()):
+                    myAI.useStatBoost()
+                    #DISPLAY: the same thing that use stat potion is printing to terminal
+                elif("defenseBoost" in myAI.getBag()):
+                    myAI.useDefenseBoost()
+                    #DISPLAY: the same thing that use defense boost is printing to terminal
+                elif("healthPotion" in myAI.getBag()):
+                    myAI.useHealthPotion()
+                    #DISPLAY: the same thing that use health potion is printing to terminal
+        elif(percentage <= 97):
+            print("This will switch progmon\n")
+        else:
+            print("AI will run")
+            #make AI run
 
 if __name__ == "__main__":
     controlScreen("startScreen")
