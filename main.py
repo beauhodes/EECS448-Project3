@@ -4,7 +4,7 @@ import pygame.gfxdraw
 from fireDragon import FireDragon
 from electricCat import ElectricCat
 from waterTurtle import WaterTurtle
-from progmon import Progmon, FireDragonTester, ElectricCatTester, WaterTurtleTest
+from progmon import Progmon, FireDragonProgmon, ElectricCatProgmon, WaterTurtleProgmon
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY VARIABLES
 pygame.init()
@@ -177,21 +177,21 @@ def startScreen():
 
     # TRACK PROGMON BUTTONS FOR PLAYER 1
     if isButtonClickDetected(textElectricCatP1_RECT):
-        myP1 = ElectricCatTester()
+        myP1 = ElectricCatProgmon()
         progmonP1 = "ElectricCat"
         # print("progmonP1 =", progmonP1) # TESTER CODE
     elif isButtonClickDetected(textFireDragonP1_RECT):
-        myP1 = FireDragonTester()
+        myP1 = FireDragonProgmon()
         progmonP1 = "FireDragon"
         # print("progmonP1 =", progmonP1) # TESTER CODE
 
     # TRACK PROGMON BUTTONS FOR PLAYER AI
     if isButtonClickDetected(textElectricCatAI_RECT):
-        myAI = ElectricCatTester()
+        myAI = ElectricCatProgmon()
         progmonAI = "ElectricCat"
         # print("progmonAI =", progmonAI) # TESTER CODE
     elif isButtonClickDetected(textFireDragonAI_RECT):
-        myAI = FireDragonTester()
+        myAI = FireDragonProgmon()
         progmonAI = "FireDragon"
         # print("progmonAI =", progmonAI) # TESTER CODE
 
@@ -218,6 +218,17 @@ def fightScreen():
     global progmonNameP1
     global myAI
     global progmonNameAI
+
+    if(myP1.getStunStatus() == True):
+        print("Player 1 is stunned by the AI, your turn will be skipped!\n")
+        textMessage, textMessage_RECT = createTextObject("Player 1, you have been stunned by the AI!", miniText)
+        pygame.time.delay(300)
+        AITurn()
+
+    #background
+    imageFightBackground = pygame.image.load('Sprites/fightScreen.png')
+    imageFightBackground_RECT = imageFightBackground.get_rect()
+    imageFightBackground_RECT.center = (displayWidth/2, displayHeight/2)
 
     # MESSAGE TO PLAYER 1
     textMessage, textMessage_RECT = createTextObject("What do you want to do?", miniText)
@@ -279,6 +290,11 @@ def fightScreen():
 
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE)
+    display.blit(imageFightBackground, imageFightBackground_RECT)
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 0) # BOX AROUND BATTLE MENU OPTIONS
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 0) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 0) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, WHITE, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 0) # BOX AROUND MESSAGE TO PLAYER 1
     display.blit(progmonImageP1, progmonImageP1_RECT)
     display.blit(textNameP1, textNameP1_RECT)
     display.blit(textProgmonP1, textProgmonP1_RECT)
@@ -292,10 +308,6 @@ def fightScreen():
     display.blit(textProgmon, textProgmon_RECT)
     display.blit(textQuit, textQuit_RECT)
     display.blit(textMessage, textMessage_RECT)
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 5) # BOX AROUND BATTLE MENU OPTIONS
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 5) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
     pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for P1 health bar
     pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for P1 health bar
     pygame.draw.rect(display, (0, 200, 0), (displayWidth * .162, displayHeight * .141, 121 * (progmonHealthP1 / myP1.getHp()), 37), 0) #fill for P1 health bar
@@ -357,11 +369,11 @@ def fightMenu():
     if(len(P1attackList) == 4):
         textAttack1, textAttack1_RECT = createTextObject(str(P1attackList[0]), miniText)
         textAttack1_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
-        textAttack2, textAttack2_RECT = createTextObject(str(P1attackList[1]), miniText)
+        textAttack2, textAttack2_RECT = createTextObject(str(P1attackList[3]), miniText)
         textAttack2_RECT.center = (displayWidth / 1.15, displayHeight / 1.1)
         textAttack3, textAttack3_RECT = createTextObject(str(P1attackList[2]), miniText)
         textAttack3_RECT.center = (displayWidth / 1.4, displayHeight / 1.1)
-        textAttack4, textAttack4_RECT = createTextObject(str(P1attackList[3]), miniText)
+        textAttack4, textAttack4_RECT = createTextObject(str(P1attackList[1]), miniText)
         textAttack4_RECT.center = (displayWidth / 1.14, displayHeight / 1.2)
 
         display.blit(textAttack1, textAttack1_RECT)
@@ -574,7 +586,9 @@ def AITurn():
     # FOR BETA-VERSION (PROJECT 3 VERSION)
     # MAKE SOME VARIABLE/DEF THAT SAYS IF PROGMON IS IN CRITICAL CONDITION
     critical = 80
-    if(myP1.currentHealth <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
+    if(myAI.getStunStatus() == True):
+        print("The AI was stunned and their turn has been skipped!\n")
+    elif(myP1.getCurrentHealth() <= critical):    #if P1 currently set-up progmon is in critical condition - attack them
         myAI.AIAttack(myP1)
         # now we should display some sort of window/message for the user saying if they hit or not
         # update player's health in the UI
