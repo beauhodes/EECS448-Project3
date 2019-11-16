@@ -17,6 +17,10 @@ class ElectricCat:
         self.currentHealth = 250
         self.alive = True
         self.bag = ["healthPotion"]
+        self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
+        self.stunned = False
+        self.statBoost = False
+        self.defenseBoost = False
 
     def doDamage(self, damageDone):
         """
@@ -27,7 +31,11 @@ class ElectricCat:
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth - damageDone
+        if(self.defenseBoost == True):
+            self.currentHealth = self.currentHealth - damageDone + 10
+        else:
+            self.currentHealth = self.currentHealth - damageDone
+
         if(self.currentHealth <= 0):
             self.alive = False
 
@@ -44,6 +52,16 @@ class ElectricCat:
         else:
             return False
 
+    def getAttackList(self):
+        """
+        Gets the attack list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's attackList
+        """
+        return self.attackList
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of ElectricCat
@@ -54,7 +72,37 @@ class ElectricCat:
         """
         return self.currentHealth
 
-    def LightningBoltAttack(self, enemyPlayer): # 90 damage, 45 accuracy
+    def getHp(self):
+        """
+        Gets the currentHealth of ElectricCat
+        Args:
+            self (object) - ElectricCat
+        Returns:
+            ElectricCat's currentHealth
+        """
+        return self.hp
+
+    def setStunStatus(self):
+        """
+        Sets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            None
+        """
+        self.stunned = True
+
+    def getStunStatus(self):
+        """
+        Gets the stun status of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's stunned
+        """
+        return self.stunned
+
+    def attack1(self, enemyPlayer): # 90 damage, 45 accuracy
         """
         Attacks enemy Progmon with Lightning Bolt
         Args:
@@ -64,7 +112,13 @@ class ElectricCat:
             None
         """
         chanceToHit = random.randint(1, 101)
-        if(chanceToHit <= 45):
+        if(self.statBoost == True and chanceToHit <= 45):
+            self.statBoost = False
+            enemyPlayer.doDamage(90)
+            enemyPlayer.setStunStatus()
+            print("Electric Cat does 90 damage and stuns the enemy!\n")
+            return True
+        elif(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             print("Lightning Bolt did 90 damage!\n")
             return True
@@ -72,7 +126,7 @@ class ElectricCat:
             print("Lightning Bolt missed!\n")
             return False
 
-    def ElectricScratchAttack(self, enemyPlayer): # 40 damage, 90 accuracy
+    def attack2(self, enemyPlayer): # 40 damage, 90 accuracy
         """
         Attacks enemy Progmon with Electric Scratch
         Args:
@@ -90,7 +144,7 @@ class ElectricCat:
             print("Electric Scratch missed!\n")
             return False
 
-    def EnergyBeamAttack(self, enemyPlayer): # 110 damage, 40 accuracy
+    def attack3(self, enemyPlayer): # 110 damage, 40 accuracy
         """
         Attacks enemy Progmon with Energy Beam
         Args:
@@ -100,7 +154,13 @@ class ElectricCat:
             None
         """
         chanceToHit = random.randint(1, 101)
-        if(chanceToHit <= 40):
+        if(self.statBoost == True and chanceToHit <= 40):
+            self.statBoost = False
+            enemyPlayer.doDamage(140)
+            enemyPlayer.setStunStatus()
+            print("Electric Cat does 110 damage and stuns the enemy!\n")
+            return True
+        elif(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             print("Energy Beam did 110 damage!\n")
             return True
@@ -108,7 +168,7 @@ class ElectricCat:
             print("Energy Beam missed!\n")
             return False
 
-    def BiteAttack(self, enemyPlayer): # 20 damage, 100 accuracy
+    def attack4(self, enemyPlayer): # 20 damage, 100 accuracy
         """
         Attacks enemy Progmon with Bite
         Args:
@@ -136,25 +196,25 @@ class ElectricCat:
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if(attackToUse == 1):
-            self.LightningBoltAttack(enemyPlayer)
+            self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "LightningBolt", True
             else:
                 return "LightningBolt", False
         if(attackToUse == 2):
-            self.ElectricScratchAttack(enemyPlayer)
+            self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "ElectricScratch", True
             else:
                 return "ElectricScratch", False
         if(attackToUse == 3):
-            self.EnergyBeamAttack(enemyPlayer)
+            self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "EnergyBeam", True
             else:
                 return "EnergyBeam", False
         if(attackToUse == 4):
-            self.BiteAttack(enemyPlayer)
+            self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "Bite", True
             else:
@@ -168,8 +228,40 @@ class ElectricCat:
         Returns:
             None
         """
-        self.currentHealth = self.currentHealth + 30
-        self.bag.remove("healthPotion")
+        if(self.currentHealth+30 > self.hp):
+            hpToAdd = self.hp - self.currentHealth
+            self.currentHealth + hpToAdd
+            print("Health Potion healed you for:", hpToAdd, "\n")
+            self.bag.remove("healthPotion")
+
+        else:
+            self.currentHealth + 30
+            print("Health Potion healed you for: 30\n")
+            self.bag.remove("healthPotion")
+
+    def useStatBoost(self):
+        """
+        Allows this Progmon to use a statBoost Potion
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.statBoost = True
+        print("Stat Boost for Electric Cat is activated!\n You will do +10 damage and have a chance to stun!\n")
+        self.bag.remove("statBoost")
+
+    def useDefenseBoost(self):
+        """
+        Allows this progmon to use a defense Potion
+        Args:
+            self (object) - ElectricCat
+        Returns:
+            None
+        """
+        self.defenseBoost = True
+        print("Defense boost for Electric Cat is now activated!\n You will take 10 less damage on the next attack.\n")
+        self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
         """
