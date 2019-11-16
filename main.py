@@ -55,7 +55,7 @@ def quitGame():
     pygame.quit()
     quit()
 
-def createTextObject(textToDisplay, fontToUse):
+def createTextObject(textToDisplay, fontToUse, colorToUse):
     """
     Creates a text object with textToDisplay and fontToUse
     Args:
@@ -64,7 +64,7 @@ def createTextObject(textToDisplay, fontToUse):
     Returns:
         The created textSurface and textSurface_RECT
     """
-    textSurface = fontToUse.render(textToDisplay, True, BLACK)
+    textSurface = fontToUse.render(textToDisplay, True, colorToUse)
     return textSurface, textSurface.get_rect()
 
 def isButtonClickDetected(surfaceRect):
@@ -87,7 +87,7 @@ def displayMessageBox(text):
     # MESSAGE TO PLAYER 1
     pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX
     pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # UNFILLED BOX
-    textMessage, textMessage_RECT = createTextObject(text, miniText)
+    textMessage, textMessage_RECT = createTextObject(text, miniText, BLACK)
     textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.15)
     display.blit(textMessage, textMessage_RECT)
     pygame.display.update()
@@ -105,7 +105,7 @@ def detectFaintedAI():
     # # MESSAGE TO PLAYER 1
     # pygame.gfxdraw.box(display, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), WHITE) # FILLED BOX FOR DISPLAYING THE MESSAGE TO PLAYER 1
     # pygame.draw.rect(display, BLACK, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 5) # BOX AROUND MESSAGE TO PLAYER 1
-    # textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText)
+    # textMessage, textMessage_RECT = createTextObject("Player AI's Progmon fainted. You win!", miniText, BLACK)
     # textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
     # display.blit(textMessage, textMessage_RECT)
     # pygame.display.update()
@@ -126,12 +126,12 @@ def startScreen():
     global progmonAI
 
     # PLAYER 1'S PROGMON OPTIONS
-    textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Progmon", largeText)
+    textPlayer1, textPlayer1_RECT = createTextObject("Player 1's Progmon", largeText, BLACK)
     textPlayer1_RECT.center = (displayWidth / 4, displayHeight / 19)
     # PLAYER 1'S PROGMON BUTTONS
-    textElectricCatP1, textElectricCatP1_RECT = createTextObject("Electric Cat", smallText)
+    textElectricCatP1, textElectricCatP1_RECT = createTextObject("Electric Cat", smallText, BLACK)
     textElectricCatP1_RECT.center = (displayWidth / 4, displayHeight / 7.5)
-    textFireDragonP1, textFireDragonP1_RECT = createTextObject("Fire Dragon", smallText)
+    textFireDragonP1, textFireDragonP1_RECT = createTextObject("Fire Dragon", smallText, BLACK)
     textFireDragonP1_RECT.center = (displayWidth / 4, displayHeight / 4)
     # PLAYER 1'S PROGMON IMAGES
     imageSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
@@ -142,12 +142,12 @@ def startScreen():
     imageSmallFireDragonP1_RECT.center = (displayWidth / 9, displayHeight / 4)
 
     # PLAYER AI'S PROGMON OPTIONS
-    textPlayerAI, textPlayerAI_RECT = createTextObject("Player AI's Progmon", largeText)
+    textPlayerAI, textPlayerAI_RECT = createTextObject("Player AI's Progmon", largeText, BLACK)
     textPlayerAI_RECT.center = (displayWidth / 1.3, displayHeight / 19)
     # PLAYER AI'S PROGMON BUTTONS
-    textElectricCatAI, textElectricCatAI_RECT = createTextObject("Electric Cat", smallText)
+    textElectricCatAI, textElectricCatAI_RECT = createTextObject("Electric Cat", smallText, BLACK)
     textElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 7.5)
-    textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", smallText)
+    textFireDragonAI, textFireDragonAI_RECT = createTextObject("Fire Dragon", smallText, BLACK)
     textFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 4)
     # PLAYER AI'S PROGMON IMAGES
     imageSmallElectricCatAI = pygame.image.load('Sprites/smallElectricCat.png')
@@ -158,7 +158,7 @@ def startScreen():
     imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
 
     # PLAY BUTTON
-    textPlay, textPlay_RECT = createTextObject("PLAY", mediumText)
+    textPlay, textPlay_RECT = createTextObject("PLAY", mediumText, BLACK)
     textPlay_RECT.center = (displayWidth / 2, displayHeight / 1.2)
 
     # DISPLAY TEXT OBJECTS AND IMAGES
@@ -221,7 +221,7 @@ def fightScreen():
 
     if(myP1.getStunStatus() == True):
         print("Player 1 is stunned by the AI, your turn will be skipped!\n")
-        textMessage, textMessage_RECT = createTextObject("Player 1, you have been stunned by the AI!", miniText)
+        textMessage, textMessage_RECT = createTextObject("Player 1, you have been stunned by the AI!", miniText, BLACK)
         pygame.time.delay(300)
         AITurn()
 
@@ -231,23 +231,23 @@ def fightScreen():
     imageFightBackground_RECT.center = (displayWidth/2, displayHeight/2)
 
     # MESSAGE TO PLAYER 1
-    textMessage, textMessage_RECT = createTextObject("What do you want to do?", miniText)
+    textMessage, textMessage_RECT = createTextObject("What do you want to do?", miniText, BLACK)
     textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
 
     # BATTLE MENU OPTIONS
-    textFight, textFight_RECT = createTextObject("FIGHT", smallText)
-    textFight_RECT.center = (displayWidth / 1.4, displayHeight / 1.2)
-    textBag, textBag_RECT = createTextObject("BAG", smallText)
-    textBag_RECT.center = (displayWidth / 1.1, displayHeight / 1.2)
-    textProgmon, textProgmon_RECT = createTextObject("PROGMON", smallText)
-    textProgmon_RECT.center = (displayWidth / 1.4, displayHeight / 1.1)
-    textQuit, textQuit_RECT = createTextObject("QUIT", smallText)
-    textQuit_RECT.center = (displayWidth / 1.1, displayHeight / 1.1)
+    textFight, textFight_RECT = createTextObject("FIGHT", smallText, BLACK)
+    textFight_RECT.center = (displayWidth * 0.2, displayHeight * 0.96)
+    textBag, textBag_RECT = createTextObject("BAG", smallText, BLACK)
+    textBag_RECT.center = (displayWidth * 0.4, displayHeight * 0.96)
+    textProgmon, textProgmon_RECT = createTextObject("PROGMON", smallText, BLACK)
+    textProgmon_RECT.center = (displayWidth * 0.6, displayHeight * 0.96)
+    textQuit, textQuit_RECT = createTextObject("QUIT", smallText, BLACK)
+    textQuit_RECT.center = (displayWidth * 0.8, displayHeight * 0.96)
 
     # PLAYER 1
-    textNameP1, textNameP1_RECT = createTextObject("Player 1", mediumText)
+    textNameP1, textNameP1_RECT = createTextObject("Player 1", mediumText, WHITE)
     textNameP1_RECT.center = (displayWidth / 4.5, displayHeight / 30)
-    textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, mediumText)
+    textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, mediumText, BLACK)
     textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 10)
     if progmonP1 == "ElectricCat":
         progmonNameP1 = "Electric Cat"
@@ -267,9 +267,9 @@ def fightScreen():
     textHealthP1_RECT.center = (displayWidth / 3.2, displayHeight / 6)
 
     # PLAYER AI
-    textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText)
+    textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText, WHITE)
     textNameAI_RECT.center = (displayWidth / 1.3, displayHeight / 30)
-    textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, mediumText)
+    textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, mediumText, BLACK)
     textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 10)
     if progmonAI == "ElectricCat":
         progmonNameAI = "Electric Cat"
@@ -289,12 +289,16 @@ def fightScreen():
     textHealthAI_RECT.center = (displayWidth / 1.145, displayHeight / 6)
 
     # DISPLAY TEXT OBJECTS AND IMAGES
-    display.fill(WHITE)
+    display.fill(WHITE) # might not need anymore because of the background
     display.blit(imageFightBackground, imageFightBackground_RECT)
-    pygame.draw.rect(display, WHITE, (displayWidth * 0.62, displayHeight * 0.79, 370, 120), 0) # BOX AROUND BATTLE MENU OPTIONS
-    pygame.draw.rect(display, WHITE, (displayWidth * 0.06, displayHeight * 0.065, 350, 100), 0) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, WHITE, (displayWidth * 0.6, displayHeight * 0.065, 350, 100), 0) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, WHITE, (displayWidth * 0.02, displayHeight * 0.79, 600, 120), 0) # BOX AROUND MESSAGE TO PLAYER 1
+
+    pygame.draw.rect(display, WHITE, (displayWidth * .06, displayHeight * .065, 350, 100), 0) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, WHITE, (displayWidth * .6, displayHeight * .065, 350, 100), 0) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+
+    pygame.draw.rect(display, RED, (displayWidth * .037, displayHeight * .75, 480, 120), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+    pygame.draw.rect(display, RED, (displayWidth * .518, displayHeight * .75, 480, 120), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
+    pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .92, 1000, 50), 0) # FILLED BOX FOR BATTLE MENU BUTTONS
+
     display.blit(progmonImageP1, progmonImageP1_RECT)
     display.blit(textNameP1, textNameP1_RECT)
     display.blit(textProgmonP1, textProgmonP1_RECT)
