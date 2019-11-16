@@ -17,6 +17,7 @@ pygame.display.set_caption('EECS448 Project 4: Progmon Battle Simulator')
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
+LIGHT_GREEN = pygame.Color(0, 200, 0)
 miniText = pygame.font.Font('freesansbold.ttf', 24)
 smallText = pygame.font.Font('freesansbold.ttf', 32)
 mediumText = pygame.font.Font('freesansbold.ttf', 36)
@@ -236,19 +237,19 @@ def fightScreen():
 
     # BATTLE MENU OPTIONS
     textFight, textFight_RECT = createTextObject("FIGHT", smallText, BLACK)
-    textFight_RECT.center = (displayWidth * 0.2, displayHeight * 0.96)
+    textFight_RECT.center = (displayWidth * 0.2, displayHeight * 0.955)
     textBag, textBag_RECT = createTextObject("BAG", smallText, BLACK)
-    textBag_RECT.center = (displayWidth * 0.4, displayHeight * 0.96)
+    textBag_RECT.center = (displayWidth * 0.4, displayHeight * 0.955)
     textProgmon, textProgmon_RECT = createTextObject("PROGMON", smallText, BLACK)
-    textProgmon_RECT.center = (displayWidth * 0.6, displayHeight * 0.96)
+    textProgmon_RECT.center = (displayWidth * 0.6, displayHeight * 0.955)
     textQuit, textQuit_RECT = createTextObject("QUIT", smallText, BLACK)
-    textQuit_RECT.center = (displayWidth * 0.8, displayHeight * 0.96)
+    textQuit_RECT.center = (displayWidth * 0.8, displayHeight * 0.955)
 
     # PLAYER 1
     textNameP1, textNameP1_RECT = createTextObject("Player 1", mediumText, WHITE)
-    textNameP1_RECT.center = (displayWidth / 4.5, displayHeight / 30)
+    textNameP1_RECT.center = (displayWidth * .175, displayHeight * .035)
     textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, mediumText, BLACK)
-    textProgmonP1_RECT.center = (displayWidth / 4.5, displayHeight / 10)
+    textProgmonP1_RECT.center = (displayWidth * .175, displayHeight * .105)
     if progmonP1 == "ElectricCat":
         progmonNameP1 = "Electric Cat"
         progmonImageP1 = pygame.image.load('Sprites/largeElectricCat.png')
@@ -264,13 +265,13 @@ def fightScreen():
     # print("progmonHealthP1 =", progmonHealthP1) # TESTER CODE
     textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None)
     textHealthP1_RECT = textHealthP1.get_rect()
-    textHealthP1_RECT.center = (displayWidth / 3.2, displayHeight / 6)
+    textHealthP1_RECT.center = (displayWidth * .28, displayHeight * .168)
 
     # PLAYER AI
     textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText, WHITE)
-    textNameAI_RECT.center = (displayWidth / 1.3, displayHeight / 30)
+    textNameAI_RECT.center = (displayWidth / 1.3, displayHeight * .035)
     textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, mediumText, BLACK)
-    textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight / 10)
+    textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight * .105)
     if progmonAI == "ElectricCat":
         progmonNameAI = "Electric Cat"
         progmonImageAI = pygame.image.load('Sprites/largeElectricCat.png')
@@ -292,8 +293,15 @@ def fightScreen():
     display.fill(WHITE) # might not need anymore because of the background
     display.blit(imageFightBackground, imageFightBackground_RECT)
 
-    pygame.draw.rect(display, WHITE, (displayWidth * .06, displayHeight * .065, 350, 100), 0) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
-    pygame.draw.rect(display, WHITE, (displayWidth * .6, displayHeight * .065, 350, 100), 0) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
+    pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .07, 300, 100), 0) # FILLED BOX FOR PLAYER 1'S PROGMON INFO
+    pygame.draw.rect(display, BLACK, (displayWidth * .05, displayHeight * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER 1'S HEALTH BAR
+    pygame.draw.rect(display, RED, (displayWidth * .052, displayHeight * .141, 196, 37), 0) # FILLED BOX FOR PLAYER 1'S HEALTH BAR
+    pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .052, displayHeight * .141, 196 * (progmonHealthP1 / myP1.getHp()), 37), 0) # FILLED BOX FOR PLAYER 1'S HEALTH BAR
+
+    pygame.draw.rect(display, WHITE, (displayWidth * .6, displayHeight * .07, 350, 100), 0) # FILLED BOX FOR PLAYER AI'S PROGMON INFO
+    pygame.draw.rect(display, BLACK, (displayWidth * .72, displayHeight * .14, 125, 40), 5) #outline for AI health bar
+    pygame.draw.rect(display, RED, (displayWidth * .722, displayHeight * .141, 121, 37), 0) #fill for AI health bar
+    pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .722, displayHeight * .141, 121 * (progmonHealthAI / myAI.getHp()), 37), 0) #fill for AI health bar
 
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
     pygame.draw.rect(display, WHITE, (displayWidth * .518, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
@@ -312,12 +320,6 @@ def fightScreen():
     display.blit(textProgmon, textProgmon_RECT)
     display.blit(textQuit, textQuit_RECT)
     display.blit(textMessage, textMessage_RECT)
-    pygame.draw.rect(display, BLACK, (displayWidth * .16, displayHeight * .14, 125, 40), 5) #outline for P1 health bar
-    pygame.draw.rect(display, RED, (displayWidth * .162, displayHeight * .141, 121, 37), 0) #fill for P1 health bar
-    pygame.draw.rect(display, (0, 200, 0), (displayWidth * .162, displayHeight * .141, 121 * (progmonHealthP1 / myP1.getHp()), 37), 0) #fill for P1 health bar
-    pygame.draw.rect(display, BLACK, (displayWidth * .72, displayHeight * .14, 125, 40), 5) #outline for AI health bar
-    pygame.draw.rect(display, RED, (displayWidth * .722, displayHeight * .141, 121, 37), 0) #fill for AI health bar
-    pygame.draw.rect(display, (0, 200, 0), (displayWidth * .722, displayHeight * .141, 121 * (progmonHealthAI / myAI.getHp()), 37), 0) #fill for AI health bar
 
     # TRACK BATTLE MENU BUTTONS
     if isButtonClickDetected(textFight_RECT):
