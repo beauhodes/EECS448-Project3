@@ -15,6 +15,7 @@ pygame.display.set_caption('EECS448 Project 4: Progmon Battle Simulator')
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
+GREEN = pygame.Color(160, 219, 154)  # endScreen background color
 miniText = pygame.font.Font('freesansbold.ttf', 24)
 smallText = pygame.font.Font('freesansbold.ttf', 32)
 mediumText = pygame.font.Font('freesansbold.ttf', 36)
