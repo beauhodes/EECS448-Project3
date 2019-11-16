@@ -113,9 +113,6 @@ class Progmon(ABC):
         Returns:
             None
         """
-        # enemyPlayer.doDamage(20)
-        # print("Tail Whip did 20 damage!\n")
-        # return True
         pass
 
     def AIAttack(self, enemyPlayer):
