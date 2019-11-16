@@ -295,8 +295,8 @@ def fightScreen():
     pygame.draw.rect(display, WHITE, (displayWidth * .06, displayHeight * .065, 350, 100), 0) # BOX AROUND PLAYER 1'S PROGMON NAME AND HEALTH
     pygame.draw.rect(display, WHITE, (displayWidth * .6, displayHeight * .065, 350, 100), 0) # BOX AROUND PLAYER AI'S PROGMON NAME AND HEALTH
 
-    pygame.draw.rect(display, RED, (displayWidth * .037, displayHeight * .75, 480, 120), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-    pygame.draw.rect(display, RED, (displayWidth * .518, displayHeight * .75, 480, 120), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
+    pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+    pygame.draw.rect(display, WHITE, (displayWidth * .518, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .92, 1000, 50), 0) # FILLED BOX FOR BATTLE MENU BUTTONS
 
     display.blit(progmonImageP1, progmonImageP1_RECT)
