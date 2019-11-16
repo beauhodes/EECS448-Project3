@@ -232,7 +232,7 @@ def fightScreen():
     imageFightBackground_RECT.center = (displayWidth/2, displayHeight/2)
 
     # MESSAGE TO PLAYER 1
-    textMessage, textMessage_RECT = createTextObject("What do you want to do?", miniText, BLACK)
+    textMessage, textMessage_RECT = createTextObject("", miniText, BLACK)
     textMessage_RECT.center = (displayWidth / 3.7, displayHeight / 1.2)
 
     # BATTLE MENU OPTIONS
@@ -248,60 +248,58 @@ def fightScreen():
     # PLAYER 1
     textNameP1, textNameP1_RECT = createTextObject("Player 1", mediumText, WHITE)
     textNameP1_RECT.center = (displayWidth * .175, displayHeight * .035)
-    textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, mediumText, BLACK)
+    textProgmonP1, textProgmonP1_RECT = createTextObject(progmonNameP1, mediumText, WHITE)
     textProgmonP1_RECT.center = (displayWidth * .175, displayHeight * .105)
     if progmonP1 == "ElectricCat":
         progmonNameP1 = "Electric Cat"
         progmonImageP1 = pygame.image.load('Sprites/largeElectricCat.png')
         progmonImageP1_RECT = progmonImageP1.get_rect()
-        progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
+        progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     elif progmonP1 == "FireDragon":
         progmonNameP1 = "Fire Dragon"
         progmonImageP1 = pygame.image.load('Sprites/largeFireDragon.png')
         progmonImageP1_RECT = progmonImageP1.get_rect()
-        progmonImageP1_RECT.center = (displayWidth / 4.5, displayHeight / 2.5)
+        progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     # PLAYER 1'S PROGMON HEALTH BAR
     progmonHealthP1 = myP1.getCurrentHealth()
-    # print("progmonHealthP1 =", progmonHealthP1) # TESTER CODE
-    textHealthP1 = smallText.render(str(progmonHealthP1), True, BLACK, None)
+    textHealthP1 = smallText.render(str(progmonHealthP1), True, WHITE, None)
     textHealthP1_RECT = textHealthP1.get_rect()
     textHealthP1_RECT.center = (displayWidth * .28, displayHeight * .168)
 
     # PLAYER AI
     textNameAI, textNameAI_RECT = createTextObject("Player AI", mediumText, WHITE)
-    textNameAI_RECT.center = (displayWidth / 1.3, displayHeight * .035)
-    textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, mediumText, BLACK)
-    textProgmonAI_RECT.center = (displayWidth / 1.3, displayHeight * .105)
+    textNameAI_RECT.center = (displayWidth * .825, displayHeight * .035)
+    textProgmonAI, textProgmonAI_RECT = createTextObject(progmonNameAI, mediumText, WHITE)
+    textProgmonAI_RECT.center = (displayWidth * .825, displayHeight * .105)
     if progmonAI == "ElectricCat":
         progmonNameAI = "Electric Cat"
         progmonImageAI = pygame.image.load('Sprites/largeElectricCat.png')
         progmonImageAI_RECT = progmonImageAI.get_rect()
-        progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
+        progmonImageAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "FireDragon":
         progmonNameAI = "Fire Dragon"
         progmonImageAI = pygame.image.load('Sprites/largeFireDragon.png')
         progmonImageAI_RECT = progmonImageAI.get_rect()
-        progmonImageAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.5)
+        progmonImageAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     # PLAYER AI'S PROGMON HEALTH BAR
     progmonHealthAI = myAI.getCurrentHealth()
-    # print("progmonHealthAI =", progmonHealthAI) # TESTER CODE
-    textHealthAI = smallText.render(str(progmonHealthAI), True, BLACK, None)
+    textHealthAI = smallText.render(str(progmonHealthAI), True, WHITE, None)
     textHealthAI_RECT = textHealthAI.get_rect()
-    textHealthAI_RECT.center = (displayWidth / 1.145, displayHeight / 6)
+    textHealthAI_RECT.center = (displayWidth * .925, displayHeight * .168)
 
     # DISPLAY TEXT OBJECTS AND IMAGES
     display.fill(WHITE) # might not need anymore because of the background
     display.blit(imageFightBackground, imageFightBackground_RECT)
 
-    pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .07, 300, 100), 0) # FILLED BOX FOR PLAYER 1'S PROGMON INFO
-    pygame.draw.rect(display, BLACK, (displayWidth * .05, displayHeight * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER 1'S HEALTH BAR
-    pygame.draw.rect(display, RED, (displayWidth * .052, displayHeight * .141, 196, 37), 0) # FILLED BOX FOR PLAYER 1'S HEALTH BAR
-    pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .052, displayHeight * .141, 196 * (progmonHealthP1 / myP1.getHp()), 37), 0) # FILLED BOX FOR PLAYER 1'S HEALTH BAR
+    # pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .07, 300, 100), 0) # FILLED BOX FOR PLAYER 1'S PROGMON INFO
+    pygame.draw.rect(display, WHITE, (displayWidth * .05, displayHeight * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
+    pygame.draw.rect(display, RED, (displayWidth * .052, displayHeight * .141, 196, 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
+    pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .052, displayHeight * .141, 196 * (progmonHealthP1 / myP1.getHp()), 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
 
-    pygame.draw.rect(display, WHITE, (displayWidth * .6, displayHeight * .07, 350, 100), 0) # FILLED BOX FOR PLAYER AI'S PROGMON INFO
-    pygame.draw.rect(display, BLACK, (displayWidth * .72, displayHeight * .14, 125, 40), 5) #outline for AI health bar
-    pygame.draw.rect(display, RED, (displayWidth * .722, displayHeight * .141, 121, 37), 0) #fill for AI health bar
-    pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .722, displayHeight * .141, 121 * (progmonHealthAI / myAI.getHp()), 37), 0) #fill for AI health bar
+    # pygame.draw.rect(display, WHITE, (displayWidth * .685, displayHeight * .07, 300, 100), 0) # FILLED BOX FOR PLAYER AI'S PROGMON INFO
+    pygame.draw.rect(display, WHITE, (displayWidth * .699, displayHeight * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
+    pygame.draw.rect(display, RED, (displayWidth * .701, displayHeight * .141, 196, 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
+    pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .701, displayHeight * .141, 196 * (progmonHealthAI / myAI.getHp()), 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
 
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
     pygame.draw.rect(display, WHITE, (displayWidth * .518, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
