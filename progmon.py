@@ -458,7 +458,6 @@ class FireDragonProgmon(Progmon):
             self.currentHealth + hpToAdd
             print("Health potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
-
         else:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
