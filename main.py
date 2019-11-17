@@ -271,18 +271,14 @@ def fightScreen():
     if progmonAI == "ElectricCat":
         progmonNameAI = "Electric Cat"
         imgProgmonAI = pygame.image.load('Sprites/largeElectricCat.png')
-        imgProgmonAI_RECT = imgProgmonAI.get_rect()
-        imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "FireDragon":
         progmonNameAI = "Fire Dragon"
         imgProgmonAI = pygame.image.load('Sprites/largeFireDragon.png')
-        imgProgmonAI_RECT = imgProgmonAI.get_rect()
-        imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "WaterTurtle":
         progmonNameAI = "Water Turtle"
         imgProgmonAI = pygame.image.load('Sprites/largeElectricCat.png') # (UNFINISHED - NEED WATER TURTLE SPRITE)
-        imgProgmonAI_RECT = imgProgmonAI.get_rect()
-        imgProgmonAI_RECT.center = (displayWidth * .2, displayHeight * .45)
+    imgProgmonAI_RECT = imgProgmonAI.get_rect()
+    imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     display.blit(imgProgmonAI, imgProgmonAI_RECT)
 
     # BATTLE MENU
@@ -309,29 +305,23 @@ def fightScreen():
         if isButtonClickDetected(txtFight_RECT):
             controlScreen("fightMenu")
         elif isButtonClickDetected(txtBag_RECT):
-            if myP1.bagEmpty():
+            if myP1.bagEmpty() == False:
+                controlScreen("bagMenu")
+            else:
                 # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
                 txtMsgP1, txtMsgP1_RECT = createTextObject("Your Bag is empty!", miniText, BLACK)
                 txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
                 display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000)
                 controlScreen("fightScreen")
-            else:
-                controlScreen("bagMenu")
-                pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-                AITurn()
         elif isButtonClickDetected(txtProgmon_RECT):
             controlScreen("progmonMenu")
         elif isButtonClickDetected(txtQuit_RECT):
             quitGame()
     elif myP1.getStunStatus() == True:
         # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-        textMsg, textMsg_RECT = createTextObject(("Player 1's {} has been stunned by {}!".format(progmonNameP1, progmonNameAI)), miniText, BLACK)
+        txtMsg, txtMsg_RECT = createTextObject(("Player 1's {} has been stunned by {}!".format(progmonNameP1, progmonNameAI)), miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth / 3.7, displayHeight / 1.15)
         display.blit(txtMsgP1, txtMsgP1_RECT)
 
@@ -611,28 +601,25 @@ def bagMenu():
     Returns:
         None
     """
-    # (UNFINISHED - UPPER MESSAGE TO PLAYER 1
+    pygame.gfxdraw.box(display, (displayWidth * 0.037, displayHeight * 0.92, 1000, 50), WHITE) # FILLED BOX FOR BAG MENU BUTTONS
+
+    # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-    txtMsgP1, txtMsgP1_RECT = createTextObject("Which item do you want to use?", miniText, BLACK)
+    txtMsgP1, txtMsgP1_RECT = createTextObject("Select an item to use", miniText, BLACK)
     txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
     display.blit(txtMsgP1, txtMsgP1_RECT)
 
-
-    pygame.display.update() # DO WE NEED THIS LINE?
-
-
-    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+    print(myP1.getBag())
 
     # ITEMS
-    pygame.gfxdraw.box(display, (displayWidth * 0.037, displayHeight * 0.92, 1000, 50), WHITE) # FILLED BOX FOR BAG MENU BUTTONS
     txtHealthPotion, txtHealthPotion_RECT = createTextObject("Health Potion", miniText, BLACK)
-    txtHealthPotion_RECT.center = (displayWidth * .2, displayHeight * .955)
+    txtHealthPotion_RECT.center = (displayWidth * .1, displayHeight * .955)
     display.blit(txtHealthPotion, txtHealthPotion_RECT)
     txtStatBoost, txtStatBoost_RECT = createTextObject("Stat Boost", miniText, BLACK)
-    txtStatBoost_RECT.center = (displayWidth * .4, displayHeight * .955)
+    txtStatBoost_RECT.center = (displayWidth * .5, displayHeight * .955)
     display.blit(txtStatBoost, txtStatBoost_RECT)
     txtDefenseBoost, txtDefenseBoost_RECT = createTextObject("Defense Boost", miniText, BLACK)
-    txtDefenseBoost_RECT.center = (displayWidth * .6, displayHeight * .955)
+    txtDefenseBoost_RECT.center = (displayWidth * .8, displayHeight * .955)
     display.blit(txtDefenseBoost, txtDefenseBoost_RECT)
 
     if isButtonClickDetected(txtHealthPotion_RECT):
@@ -643,43 +630,37 @@ def bagMenu():
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
 
-
-        pygame.display.update() # DO WE NEED THIS LINE?
-
+        pygame.gfxdraw.box(display, (displayWidth * 0.1, displayHeight * 0.92, 60, 50), WHITE) # FILLED BOX FOR COVERING HEALTH POTION
 
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-    if isButtonClickDetected(txtStatBoost_RECT):
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
+    elif isButtonClickDetected(txtStatBoost_RECT):
         myP1.useStatBoost()
         # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
         pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
         txtMsgP1, txtMsgP1_RECT = createTextObject("Player 1 has used a Stat Boost!", miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-        pygame.display.update() # DO WE NEED THIS LINE?
-
-
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-    if isButtonClickDetected(txtDefenseBoost_RECT):
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
+    elif isButtonClickDetected(txtDefenseBoost_RECT):
         myP1.useDefenseBoost()
         # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
         pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
         txtMsgP1, txtMsgP1_RECT = createTextObject("Player 1 has used a Defense Boost!", miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-        pygame.display.update() # DO WE NEED THIS LINE?
-
-
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-    pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-    AITurn()
-    controlScreen("fightScreen")
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
 
 def progmonMenu():
     """
