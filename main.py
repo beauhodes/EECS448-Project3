@@ -402,7 +402,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
-                # controlScreen("endScreen") # (UNFINISHED)
+                controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack2_RECT):
             # print("Player 1's Electric Cat used Energy Beam!") # TESTER CODE
             myP1.attack2(myAI)
@@ -422,7 +422,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
-                # controlScreen("endScreen") # (UNFINISHED)
+                controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack3_RECT):
             # print("Player 1's Electric Cat used Electric Scratch!") # TESTER CODE
             myP1.attack3(myAI)
@@ -442,7 +442,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
-                # controlScreen("endScreen") # (UNFINISHED)
+                controlScreen("endScreen") # (UNFINISHED)
         elif isButtonClickDetected(textAttack4_RECT):
             # print("Player 1's Electric Cat used Bite!") # TESTER CODE
             myP1.attack4(myAI)
@@ -462,7 +462,7 @@ def fightMenu():
             else:
                 print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
                 detectFaintedAI()
-                # controlScreen("endScreen") # (UNFINISHED)
+                controlScreen("endScreen") # (UNFINISHED)
 
 # (UNFINISHED)
 def bagMenu():
@@ -528,7 +528,50 @@ def progmonMenu():
 
 # (UNFINISHED)
 def endScreen():
-    display.fill(BLACK)
+    display.fill(GREEN)
+
+    #Display progmon of 2 players
+    PlayerVS_AItext = progmonP1 + "   VS  " + progmonAI
+    TextSurf, TextRect = createTextObject(PlayerVS_AItext, mediumText)
+    TextRect.center = ((displayWidth / 2), (displayHeight * .05))
+    display.blit(TextSurf, TextRect)
+
+    #Display Player1's progmon's image
+    if progmonP1 == "ElectricCat":    
+        imageSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
+        imageSmallElectricCatP1_RECT = imageSmallElectricCatP1.get_rect()
+        imageSmallElectricCatP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imageSmallElectricCatP1, imageSmallElectricCatP1_RECT)
+    elif progmonP1 == "FireDragon":
+        imageSmallFireDragonP1 = pygame.image.load('Sprites/smallFireDragon.png')
+        imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
+        imageSmallFireDragonP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT)
+
+    #Display AI's progmon's image
+    if progmonAI == "ElectricCat":
+        imageSmallElectricCatAI = pygame.image.load('Sprites/smallElectricCat.png')
+        imageSmallElectricCatAI_RECT = imageSmallElectricCatAI.get_rect()
+        imageSmallElectricCatAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imageSmallElectricCatAI, imageSmallElectricCatAI_RECT)
+    elif progmonAI == "FireDragon":
+        imageSmallFireDragonAI = pygame.image.load('Sprites/smallFireDragon.png')
+        imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
+        imageSmallFireDragonAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imageSmallFireDragonAI, imageSmallFireDragonAI_RECT)
+
+    #Display winner of the game
+    WinnerText = pygame.font.Font('freesansbold.ttf', 50)
+    text = "winner +  wins!"
+    TextSurf, TextRect = createTextObject(text, WinnerText)
+    TextRect.center = ((displayWidth / 2), (displayHeight * .14))
+    display.blit(TextSurf, TextRect)
+
+
+    
+    #update Display
+    pygame.display.update()
+
 
 # (UNFINISHED)
 def controlScreen(gameState):
