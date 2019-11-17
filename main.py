@@ -1,3 +1,15 @@
+"""
+BUG LIST:
+    > Attack functions need to return True/False AND a String that tells DAMAGE_DONE or ATTACK missed
+        --> This String will be used to output turn-by-turn messages to both Players
+    > When a Progmon faints, their HealthBar does NOT update to display 0 health
+    > Progmon fainted message not staying on screen after mouse is moved
+        --> Need this message to stay on screen as long as we have not switched to the endScreen
+    > stunStatus NEVER updates to be False, putting the game into an infinite loop
+    > Game crashes when you click on an item that you have already used before
+    > Occasionally, when you click on BAG, the bagMenu does NOT display and Stat Boost is automatically selected for Player 1
+        --> Player 1 does NOT get returned to the fightScreen
+"""
 import random
 import pygame
 import pygame.gfxdraw
