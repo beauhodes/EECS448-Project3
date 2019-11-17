@@ -331,7 +331,7 @@ def fightScreen():
             quitGame()
     elif myP1.getStunStatus() == True:
         # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-        textMsg, txtMsg_RECT = createTextObject(("Player 1's {} has been stunned by {}!".format(progmonNameP1, progmonNameAI)), miniText, BLACK)
+        textMsg, txtMsgP1_RECT = createTextObject(("Player 1's {} has been stunned by {}!".format(progmonNameP1, progmonNameAI)), miniText, BLACK)
         myP1.stunned = False
         txtMsgP1_RECT.center = (displayWidth / 3.7, displayHeight / 1.15)
         display.blit(txtMsgP1, txtMsgP1_RECT)
