@@ -248,7 +248,7 @@ class ElectricCat:
             None
         """
         self.statBoost = True
-        print("Stat Boost for Electric Cat is activated!\n You will do +10 damage and have a chance to stun!\n")
+        print("Stat Boost for Electric Cat is activated!\nYou will do +10 damage and have a chance to stun!\n")
         self.bag.remove("statBoost")
 
     def useDefenseBoost(self):

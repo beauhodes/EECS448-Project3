@@ -54,6 +54,16 @@ class Progmon(ABC):
         """
         pass
 
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        pass
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of Progmon
@@ -222,7 +232,7 @@ class FireDragonProgmon(Progmon):
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
         self.stunned = False
         self.statBoost = False
@@ -267,6 +277,16 @@ class FireDragonProgmon(Progmon):
             Progmon's attackList
         """
         return self.attackList
+
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
 
     def getCurrentHealth(self):
         """
@@ -395,7 +415,6 @@ class FireDragonProgmon(Progmon):
             enemyPlayer (object) - enemy Progmon
         Returns:
             (string) - the attack that was used by the AI
-            (bool) - True if the attack hit, otherwise False
         """
         #randomly choose one of FireDragon's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
@@ -404,27 +423,27 @@ class FireDragonProgmon(Progmon):
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "Roar", True
+                return "Roar"
             else:
-                return "Roar", False
+                return "Roar"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "ClawSwipe", True
+                return "ClawSwipe"
             else:
-                return "ClawSwipe", False
+                return "ClawSwipe"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "FireBreath", True
+                return "FireBreath"
             else:
-                return "FireBreath", False
+                return "FireBreath"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "TailWhip", True
+                return "TailWhip"
             else:
-                return "TailWhip", False
+                return "TailWhip"
 
     def useHealthPotion(self):
         """
@@ -439,7 +458,6 @@ class FireDragonProgmon(Progmon):
             self.currentHealth + hpToAdd
             print("Health potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
-
         else:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
@@ -504,7 +522,7 @@ class ElectricCatProgmon(Progmon):
         self.hp = 20
         self.currentHealth = 20
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
         self.stunned = False
         self.statBoost = False
@@ -549,6 +567,16 @@ class ElectricCatProgmon(Progmon):
             Progmon's attackList
         """
         return self.attackList
+
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
 
     def getCurrentHealth(self):
         """
@@ -677,7 +705,6 @@ class ElectricCatProgmon(Progmon):
             enemyPlayer (object) - enemy Progmon
         Returns:
             (string) - the attack that was used by the AI
-            (bool) - True if the attack hit, otherwise False
         """
         #randomly choose one of ElectricCat's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
@@ -686,27 +713,27 @@ class ElectricCatProgmon(Progmon):
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "LightningBolt", True
+                return "LightningBolt"
             else:
-                return "LightningBolt", False
+                return "LightningBolt"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "ElectricScratch", True
+                return "ElectricScratch"
             else:
-                return "ElectricScratch", False
+                return "ElectricScratch"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "EnergyBeam", True
+                return "EnergyBeam"
             else:
-                return "EnergyBeam", False
+                return "EnergyBeam"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "Bite", True
+                return "Bite"
             else:
-                return "Bite", False
+                return "Bite"
 
     def useHealthPotion(self):
         """
@@ -774,7 +801,6 @@ class WaterTurtleProgmon(Progmon):
     """
     Class for the new Water Turtle Progmon
     """
-
     def __init__(self):
         """
         Creates variables associated with WaterTurtle
@@ -833,6 +859,16 @@ class WaterTurtleProgmon(Progmon):
         """
         return self.attackList
 
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of WaterTurtle
@@ -873,7 +909,7 @@ class WaterTurtleProgmon(Progmon):
         """
         return self.stunned
 
-    def attack1(self):
+    def attack1(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
@@ -889,7 +925,7 @@ class WaterTurtleProgmon(Progmon):
             print("Aqua Jet missed!\n")
             return False
 
-    def attack2(self):
+    def attack2(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
@@ -899,7 +935,7 @@ class WaterTurtleProgmon(Progmon):
             print("Aqua Tail missed!\n")
             return False
 
-    def attack3(self):
+    def attack3(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
@@ -915,12 +951,12 @@ class WaterTurtleProgmon(Progmon):
             print("Water Pulse missed!\n")
             return False
 
-    def attack4(self):
+    def attack4(self, enemyPlayer):
         enemyPlayer.doDamage(12)
         print("Bubble did 12 damage!\n")
         return True
 
-    def AIAttack(self, enemy):
+    def AIAttack(self, enemyPlayer):
         """
         Attacks enemy Progmon with a randomly chosen attack
         Args:
@@ -928,34 +964,33 @@ class WaterTurtleProgmon(Progmon):
             enemyPlayer (object) - enemy Progmon
         Returns:
             (string) - the attack that was used by the AI
-            (bool) - True if the attack hit, otherwise False
         """
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Jet hit for 45 damage!", True
+                return "AI Aqua Jet hit for 45 damage!"
             else:
-                return "AI Aqua Jet missed!\n", False
+                return "AI Aqua Jet missed!\n"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Tail hit!\n", True
+                return "AI Aqua Tail hit!\n"
             else:
-                return "AI Aqua Tail missed!\n", False
+                return "AI Aqua Tail missed!\n"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Water Pulse hit!\n", True
+                return "AI Water Pulse hit!\n"
             else:
-                return "AI Water Pulse missed!\n", False
+                return "AI Water Pulse missed!\n"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Bubble hit!\n", True
+                return "AI Bubble hit!\n"
             else:
-                return "AI Bubble missed!\n", False
+                return "AI Bubble missed!\n"
 
     def useHealthPotion(self):
         """
