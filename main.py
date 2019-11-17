@@ -360,229 +360,146 @@ def fightMenu():
         txtAttack4_RECT.center = (displayWidth * .8, displayHeight * .955)
         display.blit(txtAttack4, txtAttack4_RECT)
 
-        # TRACK FIGHT MENU BUTTONS
-        if isButtonClickDetected(txtAttack1_RECT):
-            attackTracker = myP1.attack1(myAI)
-            # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
-            pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[0])), miniText, BLACK)
+    # TRACK FIGHT MENU BUTTONS
+    if isButtonClickDetected(txtAttack1_RECT):
+        attackHit = myP1.attack1(myAI)
+        # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+        txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[0])), miniText, BLACK)
+        txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+        display.blit(txtMsgP1, txtMsgP1_RECT)
+        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        if attackHit[0] == True:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-            pygame.display.update() # DO WE NEED THIS LINE?
-
-
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-            if attackTracker == True:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject("hit for INSERT_DAMAGE_HERE", miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
+        else:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-            else:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("{}'s {} missed!".format(progmonNameP1, attackList[0])), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-
-            if myAI.checkAlive():
-                pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-                AITurn()
-                controlScreen("fightScreen")
-            else:
-                print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-                pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-                controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
-        elif isButtonClickDetected(txtAttack2_RECT):
-            attackTracker = myP1.attack2(myAI)
-            # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        if myAI.checkAlive():
+            pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+            AITurn()
+            controlScreen("fightScreen")
+        else:
+            print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+            # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[1])), miniText, BLACK)
+            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
-
-            pygame.display.update() # DO WE NEED THIS LINE?
-
-
+    if isButtonClickDetected(txtAttack2_RECT):
+        attackHit = myP1.attack2(myAI)
+        # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+        txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[1])), miniText, BLACK)
+        txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+        display.blit(txtMsgP1, txtMsgP1_RECT)
+        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        if attackHit[0] == True:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        else:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if attackTracker == True:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject("hit for INSERT_DAMAGE_HERE", miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-            else:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("{}'s {} missed!".format(progmonNameP1, attackList[1])), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-
-            if myAI.checkAlive():
-                pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-                AITurn()
-                controlScreen("fightScreen")
-            else:
-                print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-                pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-                controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
-        elif isButtonClickDetected(txtAttack3_RECT):
-            attackTracker = myP1.attack3(myAI)
-            # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        if myAI.checkAlive():
+            pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+            AITurn()
+            controlScreen("fightScreen")
+        else:
+            print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+            # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[2])), miniText, BLACK)
+            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
-
-            pygame.display.update() # DO WE NEED THIS LINE?
-
-
+    if isButtonClickDetected(txtAttack3_RECT):
+        attackHit = myP1.attack3(myAI)
+        # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+        txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[2])), miniText, BLACK)
+        txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+        display.blit(txtMsgP1, txtMsgP1_RECT)
+        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        if attackHit[0] == True:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        else:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if attackTracker == True:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject("hit for INSERT_DAMAGE_HERE", miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-            else:
-                print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-                pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-                controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
-
-            if myAI.checkAlive():
-                pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-                AITurn()
-                controlScreen("fightScreen")
-            else:
-                print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-                pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-                controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
-        elif isButtonClickDetected(txtAttack4_RECT):
-            attackTracker = myP1.attack4(myAI)
-            # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        if myAI.checkAlive():
+            pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+            AITurn()
+            controlScreen("fightScreen")
+        else:
+            print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+            # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[3])), miniText, BLACK)
+            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
-
-            pygame.display.update() # DO WE NEED THIS LINE?
-
-
+    if isButtonClickDetected(txtAttack4_RECT):
+        attackHit = myP1.attack4(myAI)
+        # (UNFINISHED - MIDDLE MESSAGE TO PLAYER 1)
+        pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+        txtMsgP1, txtMsgP1_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, attackList[3])), miniText, BLACK)
+        txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+        display.blit(txtMsgP1, txtMsgP1_RECT)
+        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        if attackHit[0] == True:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        else:
+            # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
+            txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
-            if attackTracker == True:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject("hit for INSERT_DAMAGE_HERE", miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-            else:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("{}'s {} missed!".format(progmonNameP1, attackList[3])), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .9)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-
-            if myAI.checkAlive():
-                pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-                AITurn()
-                controlScreen("fightScreen")
-            else:
-                print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
-                # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
-                pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
-                txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
-                txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
-                display.blit(txtMsgP1, txtMsgP1_RECT)
-
-
-                pygame.display.update() # DO WE NEED THIS LINE?
-
-
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-                controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
+        if myAI.checkAlive():
+            pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+            AITurn()
+            controlScreen("fightScreen")
+        else:
+            print("Player AI's", progmonNameAI, "has fainted. You win!") # TESTER CODE
+            # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
+            pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+            txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
+            txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+            display.blit(txtMsgP1, txtMsgP1_RECT)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
 def bagMenu():
     """

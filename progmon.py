@@ -342,15 +342,12 @@ class FireDragonProgmon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
-            print("Fire Dragon does 80 damage and stuns the enemy!\n")
-            return True
+            return True, "Roar does 80 damage and stuns the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
-            print("Roar did 80 damage!\n")
-            return True
+            return True, "Roar does 80 damage!"
         else:
-            print("Roar missed!\n")
-            return False
+            return False, "Roar missed!"
 
     def attack2(self, enemyPlayer): # 35 damage, 90 accuracy
         """
@@ -364,11 +361,9 @@ class FireDragonProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(35)
-            print("Claw Swipe did 35 damage!\n")
-            return True
+            return True, "Claw Swipe did 35 damage!"
         else:
-            print("Claw Swipe missed!\n")
-            return False
+            return False, "Claw Swipe missed!"
 
     def attack3(self, enemyPlayer): # 140 damage, 30 accuracy
         """
@@ -384,15 +379,12 @@ class FireDragonProgmon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(140)
             enemyPlayer.setStunStatus()
-            print("Fire Dragon does 140 damage and stuns the enemy!\n")
-            return True
+            return True, "Fire Dragon does 140 damage and stuns the enemy!"
         elif(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
-            print("Fire Breath did 140 damage!\n")
-            return True
+            return True, "Fire Breath did 140 damage!"
         else:
-            print("Fire Breath missed!\n")
-            return False
+            return False, "Fire Breath missed!"
 
     def attack4(self, enemyPlayer): # 20 damage, 100 accuracy
         """
@@ -404,8 +396,7 @@ class FireDragonProgmon(Progmon):
             None
         """
         enemyPlayer.doDamage(20)
-        print("Tail Whip did 20 damage!\n")
-        return True
+        return True, "Tail Whip did 20 damage!"
 
     def AIAttack(self, enemyPlayer):
         """
@@ -632,15 +623,12 @@ class ElectricCatProgmon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(90)
             enemyPlayer.setStunStatus()
-            print("Electric Cat does 90 damage and stuns the enemy!\n")
-            return True
+            return True, "Electric Cat does 90 damage and stuns the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
-            print("Lightning Bolt did 90 damage!\n")
-            return True
+            return True, "Lightning Bolt did 90 damage!"
         else:
-            print("Lightning Bolt missed!\n")
-            return False
+            return False, "Lightning Bolt missed!"
 
     def attack2(self, enemyPlayer): # 40 damage, 90 accuracy
         """
@@ -654,11 +642,9 @@ class ElectricCatProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(40)
-            print("Electric Scratch did 40 damage!\n")
-            return True
+            return True, "Electric Scratch did 40 damage!"
         else:
-            print("Electric Scratch missed!\n")
-            return False
+            return False, "Electric Scratch missed!"
 
     def attack3(self, enemyPlayer): # 110 damage, 40 accuracy
         """
@@ -674,15 +660,12 @@ class ElectricCatProgmon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(140)
             enemyPlayer.setStunStatus()
-            print("Electric Cat does 110 damage and stuns the enemy!\n")
-            return True
+            return True, "Electric Cat does 110 damage and stuns the enemy!"
         elif(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
-            print("Energy Beam did 110 damage!\n")
-            return True
+            return True, "Energy Beam did 110 damage!"
         else:
-            print("Energy Beam missed!\n")
-            return False
+            return False, "Energy Beam missed!"
 
     def attack4(self, enemyPlayer): # 20 damage, 100 accuracy
         """
@@ -694,8 +677,7 @@ class ElectricCatProgmon(Progmon):
             None
         """
         enemyPlayer.doDamage(20)
-        print("Bite did 20 damage!\n")
-        return True
+        return True, "Bite did 20 damage!"
 
     def AIAttack(self, enemyPlayer):
         """
@@ -915,25 +897,20 @@ class WaterTurtleProgmon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(55)
             enemyPlayer.setStunStatus()
-            print("Water Turtle does 55 damage and stuns the enemy!\n")
-            return True
+            return True, "Aqua Jet does 55 damage and stuns the enemy!"
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
-            print("Aqua Jet did 45 damage!\n")
-            return True
+            return True, "Aqua Jet does 45 damage!"
         else:
-            print("Aqua Jet missed!\n")
-            return False
+            return False, "Aqua Jet missed!"
 
     def attack2(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
-            print("Aqua Tail did 50 damage!\n")
-            return True
+            return True, "Aqua Tail did 50 damage!"
         else:
-            print("Aqua Tail missed!\n")
-            return False
+            return False, "Aqua Tail missed!"
 
     def attack3(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
@@ -941,20 +918,17 @@ class WaterTurtleProgmon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
-            print("Water Turtle does 80 damage and stuns the enemy!\n")
+            return True, "Water Pulse does 80 damage and stuns the enemy!"
             return True
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
-            print("Water Pulse did 70 damage!\n")
-            return True
+            return True, "Water Pulse did 70 damage!"
         else:
-            print("Water Pulse missed!\n")
-            return False
+            return False, "Water Pulse missed!"
 
     def attack4(self, enemyPlayer):
         enemyPlayer.doDamage(12)
-        print("Bubble did 12 damage!\n")
-        return True
+        return True, "Bubble did 12 damage!"
 
     def AIAttack(self, enemyPlayer):
         """
@@ -972,25 +946,25 @@ class WaterTurtleProgmon(Progmon):
             if(tempHealth != enemyPlayer.getCurrentHealth()):
                 return "AI Aqua Jet hit for 45 damage!"
             else:
-                return "AI Aqua Jet missed!\n"
+                return "AI Aqua Jet missed!"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Tail hit!\n"
+                return "AI Aqua Tail hit!"
             else:
-                return "AI Aqua Tail missed!\n"
+                return "AI Aqua Tail missed!"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Water Pulse hit!\n"
+                return "AI Water Pulse hit!"
             else:
-                return "AI Water Pulse missed!\n"
+                return "AI Water Pulse missed!"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Bubble hit!\n"
+                return "AI Bubble hit!"
             else:
-                return "AI Bubble missed!\n"
+                return "AI Bubble missed!"
 
     def useHealthPotion(self):
         """
