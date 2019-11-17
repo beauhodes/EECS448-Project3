@@ -380,7 +380,7 @@ def fightMenu():
 
         # TRACK FIGHT MENU BUTTONS
         if isButtonClickDetected(textAttack1_RECT):
-            myP1.attack1(myAI)
+            hit = myP1.attack1(myAI)
             # (UNFINISHED) MESSAGE TO PLAYER 1
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
             textMessage, textMessage_RECT = createTextObject(("Player 1's {} used {}!".format(progmonNameP1, P1attackList[0])), miniText, BLACK)
@@ -388,6 +388,20 @@ def fightMenu():
             display.blit(textMessage, textMessage_RECT)
             pygame.display.update()
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            if hit == True:
+                # (UNFINISHED) MESSAGE TO PLAYER 1
+                textMessage, textMessage_RECT = createTextObject("hit for INSERT_DAMAGE_HERE", miniText, BLACK)
+                textMessage_RECT.center = (displayWidth * .25, displayHeight * .85)
+                display.blit(textMessage, textMessage_RECT)
+                pygame.display.update()
+                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            else:
+                # (UNFINISHED) MESSAGE TO PLAYER 1
+                textMessage, textMessage_RECT = createTextObject(("{}'s {} missed!".format(progmonNameP1, P1attackList[0])), miniText, BLACK)
+                textMessage_RECT.center = (displayWidth * .25, displayHeight * .85)
+                display.blit(textMessage, textMessage_RECT)
+                pygame.display.update()
+                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
                 pygame.time.delay(1200) # WAIT BEFORE LETTING AI GO
