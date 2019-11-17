@@ -802,7 +802,6 @@ class WaterTurtleProgmon(Progmon):
     """
     Class for the new Water Turtle Progmon
     """
-
     def __init__(self):
         """
         Creates variables associated with WaterTurtle
@@ -911,7 +910,7 @@ class WaterTurtleProgmon(Progmon):
         """
         return self.stunned
 
-    def attack1(self):
+    def attack1(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
@@ -927,7 +926,7 @@ class WaterTurtleProgmon(Progmon):
             print("Aqua Jet missed!\n")
             return False
 
-    def attack2(self):
+    def attack2(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
@@ -937,7 +936,7 @@ class WaterTurtleProgmon(Progmon):
             print("Aqua Tail missed!\n")
             return False
 
-    def attack3(self):
+    def attack3(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
@@ -953,12 +952,12 @@ class WaterTurtleProgmon(Progmon):
             print("Water Pulse missed!\n")
             return False
 
-    def attack4(self):
+    def attack4(self, enemyPlayer):
         enemyPlayer.doDamage(12)
         print("Bubble did 12 damage!\n")
         return True
 
-    def AIAttack(self, enemy):
+    def AIAttack(self, enemyPlayer):
         """
         Attacks enemy Progmon with a randomly chosen attack
         Args:
