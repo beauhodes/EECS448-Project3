@@ -457,20 +457,11 @@ class FireDragonProgmon(Progmon):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
             print("Health potion healed you for:", hpToAdd, "\n")
-            try:
-                self.bag.remove("healthPotion")
-            except:
-                print("error removing healthPotion from P1 Bag")
-                pass
-
+            self.bag.remove("healthPotion")
         else:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
-            try:
-                self.bag.remove("healthPotion")
-            except:
-                print("error removing healthPotion from P1 Bag")
-                pass
+            self.bag.remove("healthPotion")
 
     def useStatBoost(self):
         """
@@ -482,11 +473,7 @@ class FireDragonProgmon(Progmon):
         """
         self.statBoost = True
         print("Stat Boost for Fire Dragon is activated!\n You will do +10 damage and have a chance to stun!\n")
-        try:
-            self.bag.remove("statBoost")
-        except:
-            print("error removing statBoost from P1 Bag")
-            pass
+        self.bag.remove("statBoost")
 
     def useDefenseBoost(self):
         """
@@ -498,11 +485,7 @@ class FireDragonProgmon(Progmon):
         """
         self.defenseBoost = True
         print("Defense boost for Fire Dragon is now activated!\n You will take 10 less damage on the next attack.\n")
-        try:
-            self.bag.remove("defenseBoost")
-        except:
-            print("error removing defenseBoost from P1 Bag")
-            pass
+        self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
         """
