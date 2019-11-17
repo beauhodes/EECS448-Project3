@@ -501,8 +501,8 @@ class ElectricCatProgmon(Progmon):
             None
         """
         self.name = "Electric Cat"
-        self.hp = 250
-        self.currentHealth = 250
+        self.hp = 20
+        self.currentHealth = 20
         self.alive = True
         self.bag = ["healthPotion"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
