@@ -6,9 +6,6 @@ BUG LIST:
     > Progmon fainted message not staying on screen after mouse is moved
         --> Need this message to stay on screen as long as we have not switched to the endScreen
     > stunStatus NEVER updates to be False, putting the game into an infinite loop
-    > Game crashes when you click on an item that you have already used before
-    > Occasionally, when you click on BAG, the bagMenu does NOT display and Stat Boost is automatically selected for Player 1
-        --> Player 1 does NOT get returned to the fightScreen
 """
 import random
 import pygame
@@ -240,16 +237,12 @@ def fightScreen():
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
     if progmonP1 == "ElectricCat":
         imgProgmonP1 = pygame.image.load('Sprites/largeElectricCat.png')
-        imgProgmonP1_RECT = imgProgmonP1.get_rect()
-        imgProgmonP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     elif progmonP1 == "FireDragon":
         imgProgmonP1 = pygame.image.load('Sprites/largeFireDragon.png')
-        imgProgmonP1_RECT = imgProgmonP1.get_rect()
-        imgProgmonP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     elif progmonP1 == "WaterTurtle":
         imgProgmonP1 = pygame.image.load('Sprites/largeElectricCat.png') # (UNFINISHED - NEED WATER TURTLE SPRITE)
-        imgProgmonP1_RECT = imgProgmonP1.get_rect()
-        imgProgmonP1_RECT.center = (displayWidth * .2, displayHeight * .45)
+    imgProgmonP1_RECT = imgProgmonP1.get_rect()
+    imgProgmonP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     display.blit(imgProgmonP1, imgProgmonP1_RECT)
 
     # PLAYER AI
@@ -271,18 +264,14 @@ def fightScreen():
     if progmonAI == "ElectricCat":
         progmonNameAI = "Electric Cat"
         imgProgmonAI = pygame.image.load('Sprites/largeElectricCat.png')
-        imgProgmonAI_RECT = imgProgmonAI.get_rect()
-        imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "FireDragon":
         progmonNameAI = "Fire Dragon"
         imgProgmonAI = pygame.image.load('Sprites/largeFireDragon.png')
-        imgProgmonAI_RECT = imgProgmonAI.get_rect()
-        imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "WaterTurtle":
         progmonNameAI = "Water Turtle"
         imgProgmonAI = pygame.image.load('Sprites/largeElectricCat.png') # (UNFINISHED - NEED WATER TURTLE SPRITE)
-        imgProgmonAI_RECT = imgProgmonAI.get_rect()
-        imgProgmonAI_RECT.center = (displayWidth * .2, displayHeight * .45)
+    imgProgmonAI_RECT = imgProgmonAI.get_rect()
+    imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     display.blit(imgProgmonAI, imgProgmonAI_RECT)
 
     # BATTLE MENU
