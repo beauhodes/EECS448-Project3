@@ -124,7 +124,7 @@ def startScreen():
     imageSmallFireDragonP1 = pygame.image.load('Sprites/smallFireDragon.png')
     imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
     imageSmallFireDragonP1_RECT.center = (displayWidth / 9, displayHeight / 4)
-    imageSmallWaterTurtleP1 = pygame.image.load('Sprites/smallElectricCat.png')
+    imageSmallWaterTurtleP1 = pygame.image.load('Sprites/smallElectricCat.png') # (UNFINISHED)
     imageSmallWaterTurtleP1_RECT = imageSmallWaterTurtleP1.get_rect()
     imageSmallWaterTurtleP1_RECT.center = (displayWidth / 9, displayHeight / 2.5)
 
@@ -145,7 +145,7 @@ def startScreen():
     imageSmallFireDragonAI = pygame.image.load('Sprites/smallFireDragon.png')
     imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
     imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
-    imageSmallWaterTurtleAI = pygame.image.load('Sprites/smallElectricCat.png')
+    imageSmallWaterTurtleAI = pygame.image.load('Sprites/smallElectricCat.png') # (UNFINISHED)
     imageSmallWaterTurtleAI_RECT = imageSmallWaterTurtleAI.get_rect()
     imageSmallWaterTurtleAI_RECT.center = (displayWidth / 9, displayHeight / 2.5)
 
@@ -157,14 +157,14 @@ def startScreen():
     display.fill(WHITE)
     display.blit(imageSmallElectricCatP1, imageSmallElectricCatP1_RECT)
     display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT)
-    # display.blit(imageSmallWaterTurtleP1, imageSmallWaterTurtleP1_RECT)
+    # display.blit(imageSmallWaterTurtleP1, imageSmallWaterTurtleP1_RECT) # (UNFINISHED)
     display.blit(textPlayer1, textPlayer1_RECT)
     display.blit(textElectricCatP1, textElectricCatP1_RECT)
     display.blit(textFireDragonP1, textFireDragonP1_RECT)
     display.blit(textWaterTurtleP1, textWaterTurtleP1_RECT)
     display.blit(imageSmallElectricCatAI, imageSmallElectricCatAI_RECT)
     display.blit(imageSmallFireDragonAI, imageSmallFireDragonAI_RECT)
-    # display.blit(imageSmallWaterTurtleAI, imageSmallWaterTurtleAI_RECT)
+    # display.blit(imageSmallWaterTurtleAI, imageSmallWaterTurtleAI_RECT) # (UNFINISHED)
     display.blit(textPlayerAI, textPlayerAI_RECT)
     display.blit(textElectricCatAI, textElectricCatAI_RECT)
     display.blit(textFireDragonAI, textFireDragonAI_RECT)
@@ -266,7 +266,7 @@ def fightScreen():
         progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     elif progmonP1 == "WaterTurtle":
         progmonNameP1 = "Water Turtle"
-        progmonImageP1 = pygame.image.load('Sprites/largeElectricCat.png')
+        progmonImageP1 = pygame.image.load('Sprites/largeElectricCat.png') # (UNFINISHED)
         progmonImageP1_RECT = progmonImageP1.get_rect()
         progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     progmonHealthP1 = myP1.getCurrentHealth()
@@ -298,7 +298,7 @@ def fightScreen():
         progmonImageAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "WaterTurtle":
         progmonNameAI = "Water Turtle"
-        progmonImageAI = pygame.image.load('Sprites/largeElectricCat.png')
+        progmonImageAI = pygame.image.load('Sprites/largeElectricCat.png') # (UNFINISHED)
         progmonImageAI_RECT = progmonImageAI.get_rect()
         progmonImageAI_RECT.center = (displayWidth * .2, displayHeight * .45)
     progmonHealthAI = myAI.getCurrentHealth()
