@@ -124,9 +124,9 @@ def startScreen():
     imageSmallFireDragonP1 = pygame.image.load('Sprites/smallFireDragon.png')
     imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
     imageSmallFireDragonP1_RECT.center = (displayWidth / 9, displayHeight / 4)
-    # imageSmallWaterTurtleP1 = pygame.image.load('Sprites/smallWaterTurtle.png')
-    # imageSmallWaterTurtleP1_RECT = imageSmallWaterTurtleP1.get_rect()
-    # imageSmallWaterTurtleP1_RECT.center = (displayWidth / 9, displayHeight / 2.5)
+    imageSmallWaterTurtleP1 = pygame.image.load('Sprites/smallElectricCat.png')
+    imageSmallWaterTurtleP1_RECT = imageSmallWaterTurtleP1.get_rect()
+    imageSmallWaterTurtleP1_RECT.center = (displayWidth / 9, displayHeight / 2.5)
 
     # PLAYER AI'S PROGMON OPTIONS
     textPlayerAI, textPlayerAI_RECT = createTextObject("Player AI's Progmon", largeText, BLACK)
@@ -145,9 +145,9 @@ def startScreen():
     imageSmallFireDragonAI = pygame.image.load('Sprites/smallFireDragon.png')
     imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
     imageSmallFireDragonAI_RECT.center = (displayWidth / 1.6, displayHeight / 4)
-    # imageSmallWaterTurtleAI = pygame.image.load('Sprites/smallWaterTurtle.png')
-    # imageSmallWaterTurtleAI_RECT = imageSmallWaterTurtleAI.get_rect()
-    # imageSmallWaterTurtleAI_RECT.center = (displayWidth / 9, displayHeight / 2.5)
+    imageSmallWaterTurtleAI = pygame.image.load('Sprites/smallElectricCat.png')
+    imageSmallWaterTurtleAI_RECT = imageSmallWaterTurtleAI.get_rect()
+    imageSmallWaterTurtleAI_RECT.center = (displayWidth / 9, displayHeight / 2.5)
 
     # PLAY BUTTON
     textPlay, textPlay_RECT = createTextObject("PLAY", mediumText, BLACK)
@@ -266,9 +266,9 @@ def fightScreen():
         progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     elif progmonP1 == "WaterTurtle":
         progmonNameP1 = "Water Turtle"
-        # progmonImageP1 = pygame.image.load('Sprites/largeWaterTurtle.png')
-        # progmonImageP1_RECT = progmonImageP1.get_rect()
-        # progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
+        progmonImageP1 = pygame.image.load('Sprites/largeElectricCat.png')
+        progmonImageP1_RECT = progmonImageP1.get_rect()
+        progmonImageP1_RECT.center = (displayWidth * .2, displayHeight * .45)
     progmonHealthP1 = myP1.getCurrentHealth()
     textHealthP1 = smallText.render(str(progmonHealthP1), True, WHITE, None)
     textHealthP1_RECT = textHealthP1.get_rect()
@@ -276,7 +276,7 @@ def fightScreen():
     pygame.draw.rect(display, WHITE, (displayWidth * .05, displayHeight * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
     pygame.draw.rect(display, RED, (displayWidth * .052, displayHeight * .141, 196, 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
     pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .052, displayHeight * .141, 196 * (progmonHealthP1 / myP1.getHp()), 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
-    # display.blit(progmonImageP1, progmonImageP1_RECT)
+    display.blit(progmonImageP1, progmonImageP1_RECT)
     display.blit(textNameP1, textNameP1_RECT)
     display.blit(textProgmonP1, textProgmonP1_RECT)
     display.blit(textHealthP1, textHealthP1_RECT)
@@ -298,9 +298,9 @@ def fightScreen():
         progmonImageAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     elif progmonAI == "WaterTurtle":
         progmonNameAI = "Water Turtle"
-        # progmonImageAI = pygame.image.load('Sprites/largeWaterTurtle.png')
-        # progmonImageAI_RECT = progmonImageAI.get_rect()
-        # progmonImageAI_RECT.center = (displayWidth * .2, displayHeight * .45)
+        progmonImageAI = pygame.image.load('Sprites/largeElectricCat.png')
+        progmonImageAI_RECT = progmonImageAI.get_rect()
+        progmonImageAI_RECT.center = (displayWidth * .2, displayHeight * .45)
     progmonHealthAI = myAI.getCurrentHealth()
     textHealthAI = smallText.render(str(progmonHealthAI), True, WHITE, None)
     textHealthAI_RECT = textHealthAI.get_rect()
@@ -308,7 +308,7 @@ def fightScreen():
     pygame.draw.rect(display, WHITE, (displayWidth * .699, displayHeight * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
     pygame.draw.rect(display, RED, (displayWidth * .701, displayHeight * .141, 196, 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
     pygame.draw.rect(display, LIGHT_GREEN, (displayWidth * .701, displayHeight * .141, 196 * (progmonHealthAI / myAI.getHp()), 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
-    # display.blit(progmonImageAI, progmonImageAI_RECT)
+    display.blit(progmonImageAI, progmonImageAI_RECT)
     display.blit(textNameAI, textNameAI_RECT)
     display.blit(textProgmonAI, textProgmonAI_RECT)
     display.blit(textHealthAI, textHealthAI_RECT)
