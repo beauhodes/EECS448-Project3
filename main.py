@@ -607,6 +607,17 @@ def endScreen():
         imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
         imageSmallFireDragonP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
         display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT)
+    elif progmonP1 == "WalterTurtle":
+        imgSmallWaterTurtleP1 = pygame.image.load('Sprites/smallWaterTurtle.png')
+        imgSmallWaterTurtleP1_RECT = imgSmallWaterTurtleP1.get_rect()
+        imgSmallWaterTurtleP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imgSmallWaterTurtleP1, imgSmallWaterTurtleP1_RECT)
+    elif progmonP1 == "FinalBoss":
+        imgSmallFinalBossP1 = pygame.image.load('Sprites/smallFinalBoss.png')
+        imgSmallFinalBossP1_RECT = imgSmallFinalBossP1.get_rect()
+        imgSmallFinalBossP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imgSmallFinalBossP1, imgSmallFinalBossP1_RECT)
+
 
     #Display AI's progmon's image
     if progmonAI == "ElectricCat":
@@ -619,6 +630,16 @@ def endScreen():
         imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
         imageSmallFireDragonAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
         display.blit(imageSmallFireDragonAI, imageSmallFireDragonAI_RECT)
+    elif progmonAI == "WalterTurtle":
+        imgSmallWaterTurtleAI = pygame.image.load('Sprites/smallWaterTurtle.png')
+        imgSmallWaterTurtleAI_RECT = imgSmallWaterTurtleAI.get_rect()
+        imgSmallWaterTurtleAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imgSmallWaterTurtleAI, imgSmallWaterTurtleAI_RECT)
+    elif progmonAI == "FinalBoss":
+        imgSmallFinalBossAI = pygame.image.load('Sprites/smallFinalBoss.png')
+        imgSmallFinalBossAI_RECT = imgSmallFinalBossAI.get_rect()
+        imgSmallFinalBossAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imgSmallFinalBossAI, imgSmallFinalBossAI_RECT)
 
     #Display winner of the game
     WinnerText = pygame.font.Font('freesansbold.ttf', 50)
@@ -681,7 +702,7 @@ def endScreen():
     TextRect.center = ((displayWidth / 1.3), (displayHeight * .65))
     display.blit(TextSurf, TextRect) 
            
-    text_PlayerAI_Miss = "Missed in %: 
+    text_PlayerAI_Miss = "Missed in %: " 
     TextSurf, TextRect = createTextObject(text_PlayerAI_Miss, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight * .75))
     display.blit(TextSurf, TextRect)

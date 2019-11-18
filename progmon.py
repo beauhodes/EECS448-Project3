@@ -229,8 +229,8 @@ class FireDragonProgmon(Progmon):
             None
         """
         self.name = "Fire Dragon"
-        self.hp = 300
-        self.currentHealth = 300
+        self.hp = 20
+        self.currentHealth = 20
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
@@ -792,8 +792,8 @@ class WaterTurtleProgmon(Progmon):
             None
         """
         self.name = "Water Turtle"
-        self.hp = 200
-        self.currentHealth = 200
+        self.hp = 20
+        self.currentHealth = 20
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Aqua Jet", "Aqua Tail", "Water Pulse", "Bubble"]
