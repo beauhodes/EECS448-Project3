@@ -309,6 +309,36 @@ def fightScreen():
 
     # ICONS
     #will display icons here (when attributes are active) - WORK IN PROGRESS
+    if(myP1.getStunStatus()):
+        imgP1Stun = pygame.image.load('Sprites/stunIcon.png')
+        imgP1Stun_RECT = imgP1Stun.get_rect()
+        imgP1Stun_RECT.center = (displayWidth * .06, displayHeight * .25)
+        display.blit(imgP1Stun, imgP1Stun_RECT)
+    if(myP1.getStatBoost()):
+        imgP1Boost = pygame.image.load('Sprites/boostIcon.png')
+        imgP1Boost_RECT = imgP1Boost.get_rect()
+        imgP1Boost_RECT.center = (displayWidth * .13, displayHeight * .25)
+        display.blit(imgP1Boost, imgP1Boost_RECT)
+    if(myP1.getDefenseBoost()):
+        imgP1Defense = pygame.image.load('Sprites/defenseIcon.png')
+        imgP1Defense_RECT = imgP1Defense.get_rect()
+        imgP1Defense_RECT.center = (displayWidth * .2, displayHeight * .25)
+        display.blit(imgP1Defense, imgP1Defense_RECT)
+    if(myAI.getStunStatus()):
+        imgAIStun = pygame.image.load('Sprites/stunIcon.png')
+        imgAIStun_RECT = imgAIStun.get_rect()
+        imgAIStun_RECT.center = (displayWidth * .72, displayHeight * .25)
+        display.blit(imgAIStun, imgAIStun_RECT)
+    if(myAI.getStatBoost()):
+        imgAIBoost = pygame.image.load('Sprites/boostIcon.png')
+        imgAIBoost_RECT = imgAIBoost.get_rect()
+        imgAIBoost_RECT.center = (displayWidth * .79, displayHeight * .25)
+        display.blit(imgAIBoost, imgAIBoost_RECT)
+    if(myAI.getDefenseBoost()):
+        imgAIDefense = pygame.image.load('Sprites/defenseIcon.png')
+        imgAIDefense_RECT = imgAIDefense.get_rect()
+        imgAIDefense_RECT.center = (displayWidth * .86, displayHeight * .25)
+        display.blit(imgAIDefense, imgAIDefense_RECT)
 
     # BATTLE MENU
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .92, 1000, 50), 0) # FILLED BOX FOR BATTLE MENU BUTTONS
