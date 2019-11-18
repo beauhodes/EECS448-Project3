@@ -84,11 +84,12 @@ class Progmon(ABC):
         """
         pass
 
-    def setStunStatus(self):
+    def setStunStatus(self, setter):
         """
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
@@ -101,6 +102,48 @@ class Progmon(ABC):
             self (object)
         Returns:
             Progmon's stunned
+        """
+        pass
+
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        pass
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        pass
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        pass
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
         """
         pass
 
@@ -308,15 +351,16 @@ class FireDragonProgmon(Progmon):
         """
         return self.hp
 
-    def setStunStatus(self):
+    def setStunStatus(self, setter):
         """
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
-        self.stunned = True
+        self.stunned = setter
 
     def getStunStatus(self):
         """
@@ -327,6 +371,48 @@ class FireDragonProgmon(Progmon):
             Progmon's stunned
         """
         return self.stunned
+
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
 
     def attack1(self, enemyPlayer): # 80 damage, 45 accuracy
         """
@@ -478,6 +564,9 @@ class FireDragonProgmon(Progmon):
         print("Defense boost for Fire Dragon is now activated!\n You will take 10 less damage on the next attack.\n")
         self.bag.remove("defenseBoost")
 
+    def getDefenseBoost(self):
+        return self.defenseBoost
+
     def bagEmpty(self):
         """
         Checks if the Bag is empty
@@ -589,15 +678,16 @@ class ElectricCatProgmon(Progmon):
         """
         return self.hp
 
-    def setStunStatus(self):
+    def setStunStatus(self, setter):
         """
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
-        self.stunned = True
+        self.stunned = setter
 
     def getStunStatus(self):
         """
@@ -608,6 +698,48 @@ class ElectricCatProgmon(Progmon):
             Progmon's stunned
         """
         return self.stunned
+
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
 
     def attack1(self, enemyPlayer): # 90 damage, 45 accuracy
         """
@@ -871,15 +1003,16 @@ class WaterTurtleProgmon(Progmon):
         """
         return self.hp
 
-    def setStunStatus(self):
+    def setStunStatus(self, setter):
         """
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
-        self.stunned = True
+        self.stunned = setter
 
     def getStunStatus(self):
         """
@@ -890,6 +1023,48 @@ class WaterTurtleProgmon(Progmon):
             Progmon's stunned
         """
         return self.stunned
+
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
 
     def attack1(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)

@@ -304,6 +304,9 @@ def fightScreen():
     imgProgmonAI_RECT.center = (displayWidth * .8, displayHeight * .45)
     display.blit(imgProgmonAI, imgProgmonAI_RECT)
 
+    # ICONS
+    #will display icons here (when attributes are active) - WORK IN PROGRESS
+
     # BATTLE MENU
     pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .92, 1000, 50), 0) # FILLED BOX FOR BATTLE MENU BUTTONS
     txtFight, txtFight_RECT = createTextObject("FIGHT", smallText, BLACK)
