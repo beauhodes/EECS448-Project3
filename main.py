@@ -110,8 +110,17 @@ def startScreen():
     # display.blit(imgBackground, imgBackground_RECT)
     display.fill(WHITE)
 
+    # BACKGROUND
+    imgBackground = pygame.image.load('Sprites/startScreen.png')
+    imgBackground_RECT = imgBackground.get_rect()
+    imgBackground_RECT.center = (displayWidth * .5, displayHeight * .5)
+    display.blit(imgBackground, imgBackground_RECT)
+
+    pygame.draw.rect(display, WHITE, (displayWidth * .07, displayHeight * .083, 320, 270), 0) # FILLED BOX FOR P1
+    pygame.draw.rect(display, WHITE, (displayWidth * .583, displayHeight * .083, 320, 270), 0) # FILLED BOX FOR AI
+
     # PLAYER 1
-    txtP1, txtP1_RECT = createTextObject("Player 1's Progmon", largeText, BLACK)
+    txtP1, txtP1_RECT = createTextObject("Player 1's Progmon", largeText, WHITE)
     txtP1_RECT.center = (displayWidth / 4, displayHeight / 19)
     display.blit(txtP1, txtP1_RECT)
     txtElectricCatP1, txtElectricCatP1_RECT = createTextObject("Electric Cat", smallText, BLACK)
@@ -149,7 +158,7 @@ def startScreen():
         progmonNameP1 = "Water Turtle"
 
     # PLAYER AI
-    txtAI, txtAI_RECT = createTextObject("Player AI's Progmon", largeText, BLACK)
+    txtAI, txtAI_RECT = createTextObject("Player AI's Progmon", largeText, WHITE)
     txtAI_RECT.center = (displayWidth / 1.3, displayHeight / 19)
     display.blit(txtAI, txtAI_RECT)
     txtElectricCatAI, txtElectricCatAI_RECT = createTextObject("Electric Cat", smallText, BLACK)
@@ -187,7 +196,7 @@ def startScreen():
         progmonNameAI = "Water Turtle"
 
     # PLAY BUTTON
-    txtPlay, txtPlay_RECT = createTextObject("PLAY", mediumText, BLACK)
+    txtPlay, txtPlay_RECT = createTextObject("PLAY", mediumText, WHITE)
     txtPlay_RECT.center = (displayWidth * .5, displayHeight / 1.2)
     display.blit(txtPlay, txtPlay_RECT)
     if isButtonClickDetected(txtPlay_RECT):
