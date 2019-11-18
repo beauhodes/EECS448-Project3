@@ -292,6 +292,7 @@ class FireDragonProgmon(Progmon):
         """
         if(self.defenseBoost == True):
             self.currentHealth = self.currentHealth - damageDone + 10
+            self.defenseBoost = False
         else:
             self.currentHealth = self.currentHealth - damageDone
 
@@ -619,6 +620,7 @@ class ElectricCatProgmon(Progmon):
         """
         if(self.defenseBoost == True):
             self.currentHealth = self.currentHealth - damageDone + 10
+            self.defenseBoost = False
         else:
             self.currentHealth = self.currentHealth - damageDone
 
@@ -944,6 +946,7 @@ class WaterTurtleProgmon(Progmon):
         """
         if(self.defenseBoost == True):
             self.currentHealth = self.currentHealth - damageDone + 10
+            self.defenseBoost = False
         else:
             self.currentHealth = self.currentHealth - damageDone
 
