@@ -12,6 +12,8 @@ BUG LIST:
     > Player AI's turn-by-turn Messages are not updating properly
         --> Not displaying Player 1's ProgmonName has fainted
         --> Not displaying any of AI's attack messages correctly
+    > Game is delaying/waiting too long between turns (7200ms total b/w turns)
+    > AI is getting to attack after Player 1 clicks on PROGMON button
 """
 import random
 import pygame
@@ -26,7 +28,7 @@ global myAI
 progmonAI = ""
 progmonNameAI = ""
 
-#GLOBAL VARIABLES for endScreen() 
+#GLOBAL VARIABLES for endScreen()
 winner = ""
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
@@ -644,7 +646,7 @@ def progmonMenu():
     AITurn()
     controlScreen("fightScreen")
 
-def endScreen():            # unfinish , still need to add variables and statistic 
+def endScreen():            # unfinish , still need to add variables and statistic
     global winner
     display.fill(GREEN)
 
@@ -655,7 +657,7 @@ def endScreen():            # unfinish , still need to add variables and statist
     display.blit(TextSurf, TextRect)
 
     #Display Player1's progmon's image
-    if progmonP1 == "ElectricCat":    
+    if progmonP1 == "ElectricCat":
         imageSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
         imageSmallElectricCatP1_RECT = imageSmallElectricCatP1.get_rect()
         imageSmallElectricCatP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
@@ -766,8 +768,8 @@ def endScreen():            # unfinish , still need to add variables and statist
     text_PlayerAI_Hit = "Hit in %: " #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerAI_Hit, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.47))
-    display.blit(TextSurf, TextRect) 
-           
+    display.blit(TextSurf, TextRect)
+
     text_PlayerAI_Miss = "Missed in %: "  #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerAI_Miss, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.56))
@@ -783,7 +785,7 @@ def endScreen():            # unfinish , still need to add variables and statist
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.74))
     display.blit(TextSurf, TextRect)
 
-    # QUIT GAME BUTTON 
+    # QUIT GAME BUTTON
     text_QuitGame, text_QuitGame_RECT = createTextObject("QUIT", smallText, BLACK)
     text_QuitGame_RECT.center = (displayWidth / 1.5, displayHeight * 0.90)
     display.blit(text_QuitGame, text_QuitGame_RECT)
@@ -795,13 +797,13 @@ def endScreen():            # unfinish , still need to add variables and statist
     text_Restart_RECT.center = (displayWidth / 2.7, displayHeight * 0.90)
     display.blit(text_Restart, text_Restart_RECT)
     if isButtonClickDetected(text_Restart_RECT):
-        controlScreen("startScreen")   
+        controlScreen("startScreen")
 
 
 
 
 
-    
+
     #update Display
     pygame.display.update()
 
