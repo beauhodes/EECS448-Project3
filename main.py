@@ -593,7 +593,7 @@ def progmonMenu():
     # (UNFINISHED - PROGMON SWITCHING)
     print("PROGMON SWITCHING HAS NOT BEEN IMPLEMENTED")
 
-def endScreen():
+def endScreen():            # unfinish , still need to add variables and statistic 
     display.fill(GREEN)
 
     #Display progmon of 2 players
@@ -663,7 +663,7 @@ def endScreen():
     display.blit(TextSurf, TextRect)
 
 
-    text_PlayerP1_Attack = "Total Attacked: " 
+    text_PlayerP1_Attack = "Total Attacked: "    #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerP1_Attack, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.38))
     display.blit(TextSurf, TextRect)
@@ -674,25 +674,23 @@ def endScreen():
     # missed1 = ((totalMissedPlayer1 / totalAttackPlayer1)*100)
     # missed1Percentage = round(missed1, 2)
 
-    text_PlayerP1_Hit = "Hit in %: "
+    text_PlayerP1_Hit = "Hit in %: " #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerP1_Hit, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.47))
     display.blit(TextSurf, TextRect)
 
 
-    text_PlayerP1_Miss = "Missed in %: " 
+    text_PlayerP1_Miss = "Missed in %: "  #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerP1_Miss, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.56))
     display.blit(TextSurf, TextRect)
 
-
-    text_PlayerP1_Bag = "Bag: " 
+    text_PlayerP1_Bag = "Bag: "  # still working on this
     TextSurf, TextRect = createTextObject(text_PlayerP1_Bag, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.65))
     display.blit(TextSurf, TextRect)
 
-
-    text_PlayerP1_ProgmonChanged = "Bag: " 
+    text_PlayerP1_ProgmonChanged = "Changed to: "  # dont know what to call this yet?
     TextSurf, TextRect = createTextObject(text_PlayerP1_ProgmonChanged, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.74))
     display.blit(TextSurf, TextRect)
@@ -703,7 +701,7 @@ def endScreen():
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.28))
     display.blit(TextSurf, TextRect)
 
-    text_PlayerAI_Attack = "Total Attacked: "
+    text_PlayerAI_Attack = "Total Attacked: " #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerAI_Attack, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.38))
     display.blit(TextSurf, TextRect)
@@ -713,22 +711,22 @@ def endScreen():
     # missed2 = ((totalMissedPlayer2 / totalAttackPlayer2) * 100)
     # missed2Percentage = round(missed2, 2)
 
-    text_PlayerAI_Hit = "Hit in %: "
+    text_PlayerAI_Hit = "Hit in %: " #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerAI_Hit, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.47))
     display.blit(TextSurf, TextRect) 
            
-    text_PlayerAI_Miss = "Missed in %: " 
+    text_PlayerAI_Miss = "Missed in %: "  #still working on this
     TextSurf, TextRect = createTextObject(text_PlayerAI_Miss, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.56))
     display.blit(TextSurf, TextRect)
 
-    text_PlayerAI_Bag = "Bag: "
+    text_PlayerAI_Bag = "Bag: "  # still working on this
     TextSurf, TextRect = createTextObject(text_PlayerAI_Bag, mediumText, BLACK)
     TextRect.center = ((displayWidth/ 1.3), (displayHeight*.65))
     display.blit(TextSurf, TextRect)
 
-    text_PlayerAI_ProgmonChanged = "Bag: "
+    text_PlayerAI_ProgmonChanged = "Changed to: "  #dont know what to call this yet?
     TextSurf, TextRect = createTextObject(text_PlayerAI_ProgmonChanged, mediumText, BLACK)
     TextRect.center = ((displayWidth / 1.3), (displayHeight*.74))
     display.blit(TextSurf, TextRect)
