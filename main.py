@@ -668,7 +668,7 @@ def endScreen():
 
     #Display progmon of 2 players
     PlayerVS_AItext = progmonP1 + "   VS  " + progmonAI
-    TextSurf, TextRect = createTextObject(PlayerVS_AItext, mediumText)
+    TextSurf, TextRect = createTextObject(PlayerVS_AItext, mediumText, BLACK)
     TextRect.center = ((displayWidth / 2), (displayHeight * .05))
     display.blit(TextSurf, TextRect)
 
@@ -699,7 +699,7 @@ def endScreen():
     #Display winner of the game
     WinnerText = pygame.font.Font('freesansbold.ttf', 50)
     text = "winner +  wins!"
-    TextSurf, TextRect = createTextObject(text, WinnerText)
+    TextSurf, TextRect = createTextObject(text, WinnerText, BLACK)
     TextRect.center = ((displayWidth / 2), (displayHeight * .14))
     display.blit(TextSurf, TextRect)
 
