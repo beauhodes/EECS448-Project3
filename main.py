@@ -634,17 +634,83 @@ def progmonMenu():
     Returns:
         None
     """
-    # (UNFINISHED - PROGMON SWITCHING)
-    print("PROGMON SWITCHING HAS NOT BEEN IMPLEMENTED")
-    txtMsgP1, txtMsgP1_RECT = createTextObject("PROGMON SWITCHING HAS NOT BEEN IMPLEMENTED", miniText, BLACK)
-    txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+    global myP1
+    global progmonP1
+    global progmonNameP1
+    global myAI
+    global winner
+
+    pygame.gfxdraw.box(display, (displayWidth * 0.037, displayHeight * 0.92, 1000, 50), WHITE) # FILLED BOX FOR FIGHT MENU BUTTONS
+
+    pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
+    txtMsgP1, txtMsgP1_RECT = createTextObject("Choose a progmon to switch to:", miniText, BLACK)
+    txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .75)
     display.blit(txtMsgP1, txtMsgP1_RECT)
 
-    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+    #display buttons
+    progSwitch1, progSwitch1_RECT = createTextObject("Electric Cat", miniText, BLACK)
+    progSwitch1_RECT.center = (displayWidth * .2, displayHeight * .955)
+    display.blit(progSwitch1, progSwitch1_RECT)
+    progSwitch2, progSwitch2_RECT = createTextObject("Fire Dragon", miniText, BLACK)
+    progSwitch2_RECT.center = (displayWidth * .4, displayHeight * .955)
+    display.blit(progSwitch2, progSwitch2_RECT)
+    progSwitch3, progSwitch3_RECT = createTextObject("Water Turtle", miniText, BLACK)
+    progSwitch3_RECT.center = (displayWidth * .6, displayHeight * .955)
+    display.blit(progSwitch3, progSwitch3_RECT)
+    #progSwitch4, progSwitch4_RECT = createTextObject(str(attackList[0]), miniText, BLACK)
+    #progSwitch4_RECT.center = (displayWidth * .2, displayHeight * .955)
+    #display.blit(progSwitch4, progSwitch4_RECT)
 
-    pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
-    AITurn()
-    controlScreen("fightScreen")
+    if isButtonClickDetected(progSwitch1_RECT):
+        curHp = myP1.getCurrentHealth()
+        curBag = myP1.getBag()
+        curStatBoost = myP1.getStatBoost()
+        curDefenseBoost = myP1.getDefenseBoost()
+        myP1 = ElectricCatProgmon()
+        progmonP1 = "ElectricCat"
+        progmonNameP1 = "Electric Cat"
+        myP1.setBag(curBag)
+        myP1.setStatBoost(curStatBoost)
+        myP1.setDefenseBoost(curDefenseBoost)
+        if (curHp < myP1.getHp()): #if player had less health than new progmon's max (before the switch), reduce health
+            myP1.setCurrentHealth(curHp)
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
+    if isButtonClickDetected(progSwitch2_RECT):
+        curHp = myP1.getCurrentHealth()
+        curBag = myP1.getBag()
+        curStatBoost = myP1.getStatBoost()
+        curDefenseBoost = myP1.getDefenseBoost()
+        myP1 = FireDragonProgmon()
+        progmonP1 = "FireDragon"
+        progmonNameP1 = "Fire Dragon"
+        myP1.setBag(curBag)
+        myP1.setStatBoost(curStatBoost)
+        myP1.setDefenseBoost(curDefenseBoost)
+        if (curHp < myP1.getHp()): #if player had less health than new progmon's max (before the switch), reduce health
+            myP1.setCurrentHealth(curHp)
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
+    if isButtonClickDetected(progSwitch3_RECT):
+        curHp = myP1.getCurrentHealth()
+        curBag = myP1.getBag()
+        curStatBoost = myP1.getStatBoost()
+        curDefenseBoost = myP1.getDefenseBoost()
+        myP1 = WaterTurtleProgmon()
+        progmonP1 = "WaterTurtle"
+        progmonNameP1 = "Water Turtle"
+        myP1.setBag(curBag)
+        myP1.setStatBoost(curStatBoost)
+        myP1.setDefenseBoost(curDefenseBoost)
+        if (curHp < myP1.getHp()): #if player had less health than new progmon's max (before the switch), reduce health
+            myP1.setCurrentHealth(curHp)
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
+    #OUT OF ORDER UNTIL FINAL BOSS IS IN if isButtonClickDetected(progSwitch4_RECT):
+        #to do
 
 def endScreen():            # unfinish , still need to add variables and statistic
     global winner
