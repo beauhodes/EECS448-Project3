@@ -713,6 +713,79 @@ def endScreen():
     display.blit(TextSurf, TextRect)
 
 
+    #Score for Player 1
+    text_Player1 = "Player 1"
+    # creates text surface variable and text rectangle variable
+    TextSurf, TextRect = createTextObject(text_Player1, largeText, BLACK)
+    # modifies the center of text rectangle based on pygame GUI window
+    TextRect.center = ((displayWidth/4.2), (displayHeight*.39))
+    display.blit(TextSurf, TextRect)
+
+
+    text_Player1_Attack = "Total Attacked: " 
+    TextSurf, TextRect = createTextObject(text_Player1_Attack, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4), (displayHeight*.55))
+    display.blit(TextSurf, TextRect)
+
+
+    # hit1 = ((totalhitPlayer1 / totalAttackPlayer1)*100)
+    # hit1Percentage = round(hit1, 2)
+    # missed1 = ((totalMissedPlayer1 / totalAttackPlayer1)*100)
+    # missed1Percentage = round(missed1, 2)
+
+    text_Player1_Hit = "Hit in %: "
+    TextSurf, TextRect = createTextObject(text_Player1_Hit, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4), (displayHeight*.65))
+    display.blit(TextSurf, TextRect)
+
+
+    text_Player1_Miss = "Missed in %: " 
+    TextSurf, TextRect = createTextObject(text_Player1_Miss, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4), (displayHeight*.75))
+    display.blit(TextSurf, TextRect)
+
+
+    #Score for AI
+    text_PlayerAI = "Player AI"
+    TextSurf, TextRect = createTextObject(text_PlayerAI, largeText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight * .39))
+    display.blit(TextSurf, TextRect)
+
+    text_PlayerAI_Attack = "Total Attacked: "
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Attack, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight * .55))
+    display.blit(TextSurf, TextRect)
+
+    # hit2 = ((totalhitPlayer2 / totalAttackPlayer2) * 100)
+    # hit2Percentage = round(hit2, 2)
+    # missed2 = ((totalMissedPlayer2 / totalAttackPlayer2) * 100)
+    # missed2Percentage = round(missed2, 2)
+
+    text_PlayerAI_Hit = "Hit in %: "
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Hit, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight * .65))
+    display.blit(TextSurf, TextRect) 
+           
+    text_PlayerAI_Miss = "Missed in %: 
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Miss, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight * .75))
+    display.blit(TextSurf, TextRect)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     #update Display
     pygame.display.update()
