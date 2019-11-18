@@ -103,11 +103,6 @@ def startScreen():
     global progmonAI
     global progmonNameAI
 
-    # (UNFINISHED - NEED START SCREEN BACKGROUND SPRITE)
-    # imgBackground = pygame.image.load('Sprites/startScreen.png')
-    # imgBackground_RECT = imgBackground.get_rect()
-    # imgBackground_RECT.center = (displayWidth * .5, displayHeight * .5)
-    # display.blit(imgBackground, imgBackground_RECT)
     display.fill(WHITE)
 
     # BACKGROUND
@@ -116,23 +111,23 @@ def startScreen():
     imgBackground_RECT.center = (displayWidth * .5, displayHeight * .5)
     display.blit(imgBackground, imgBackground_RECT)
 
-    pygame.draw.rect(display, WHITE, (displayWidth * .07, displayHeight * .083, 320, 270), 0) # FILLED BOX FOR P1
-    pygame.draw.rect(display, WHITE, (displayWidth * .583, displayHeight * .083, 320, 270), 0) # FILLED BOX FOR AI
+    pygame.draw.rect(display, BLACK, (displayWidth * .15, displayHeight * .1, 220, 320), 0) # FILLED BOX FOR P1 PROGMON OPTIONS
+    pygame.draw.rect(display, BLACK, (displayWidth * .67, displayHeight * .1, 220, 320), 0) # FILLED BOX FOR AI PROGMON OPTIONS
 
     # PLAYER 1
     txtP1, txtP1_RECT = createTextObject("Player 1's Progmon", largeText, WHITE)
     txtP1_RECT.center = (displayWidth / 4, displayHeight / 19)
     display.blit(txtP1, txtP1_RECT)
-    txtElectricCatP1, txtElectricCatP1_RECT = createTextObject("Electric Cat", smallText, BLACK)
+    txtElectricCatP1, txtElectricCatP1_RECT = createTextObject("Electric Cat", smallText, WHITE)
     txtElectricCatP1_RECT.center = (displayWidth / 4, displayHeight / 7.5)
     display.blit(txtElectricCatP1, txtElectricCatP1_RECT)
-    txtFireDragonP1, txtFireDragonP1_RECT = createTextObject("Fire Dragon", smallText, BLACK)
+    txtFireDragonP1, txtFireDragonP1_RECT = createTextObject("Fire Dragon", smallText, WHITE)
     txtFireDragonP1_RECT.center = (displayWidth / 4, displayHeight / 4)
     display.blit(txtFireDragonP1, txtFireDragonP1_RECT)
-    txtWaterTurtleP1, txtWaterTurtleP1_RECT = createTextObject("Water Turtle", smallText, BLACK)
+    txtWaterTurtleP1, txtWaterTurtleP1_RECT = createTextObject("Water Turtle", smallText, WHITE)
     txtWaterTurtleP1_RECT.center = (displayWidth / 4, displayHeight / 2.7)
     display.blit(txtWaterTurtleP1, txtWaterTurtleP1_RECT)
-    txtFinalBossP1, txtFinalBossP1_RECT = createTextObject("Final Boss", smallText, BLACK)
+    txtFinalBossP1, txtFinalBossP1_RECT = createTextObject("Final Boss", smallText, WHITE)
     txtFinalBossP1_RECT.center = (displayWidth / 4, displayHeight / 2)
     display.blit(txtFinalBossP1, txtFinalBossP1_RECT)
     imgSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
@@ -172,16 +167,16 @@ def startScreen():
     txtAI, txtAI_RECT = createTextObject("Player AI's Progmon", largeText, WHITE)
     txtAI_RECT.center = (displayWidth / 1.3, displayHeight / 19)
     display.blit(txtAI, txtAI_RECT)
-    txtElectricCatAI, txtElectricCatAI_RECT = createTextObject("Electric Cat", smallText, BLACK)
+    txtElectricCatAI, txtElectricCatAI_RECT = createTextObject("Electric Cat", smallText, WHITE)
     txtElectricCatAI_RECT.center = (displayWidth / 1.3, displayHeight / 7.5)
     display.blit(txtElectricCatAI, txtElectricCatAI_RECT)
-    txtFireDragonAI, txtFireDragonAI_RECT = createTextObject("Fire Dragon", smallText, BLACK)
+    txtFireDragonAI, txtFireDragonAI_RECT = createTextObject("Fire Dragon", smallText, WHITE)
     txtFireDragonAI_RECT.center = (displayWidth / 1.3, displayHeight / 4)
     display.blit(txtFireDragonAI, txtFireDragonAI_RECT)
-    txtWaterTurtleAI, txtWaterTurtleAI_RECT = createTextObject("Water Turtle", smallText, BLACK)
+    txtWaterTurtleAI, txtWaterTurtleAI_RECT = createTextObject("Water Turtle", smallText, WHITE)
     txtWaterTurtleAI_RECT.center = (displayWidth / 1.3, displayHeight / 2.7)
     display.blit(txtWaterTurtleAI, txtWaterTurtleAI_RECT)
-    txtFinalBossAI, txtFinalBossAI_RECT = createTextObject("Final Boss", smallText, BLACK)
+    txtFinalBossAI, txtFinalBossAI_RECT = createTextObject("Final Boss", smallText, WHITE)
     txtFinalBossAI_RECT.center = (displayWidth / 1.3, displayHeight / 2)
     display.blit(txtFinalBossAI, txtFinalBossAI_RECT)
     imgSmallElectricCatAI = pygame.image.load('Sprites/smallElectricCat.png')
