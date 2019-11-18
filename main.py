@@ -13,13 +13,13 @@ BUG LIST:
 import random
 import pygame
 import pygame.gfxdraw
-from progmon import Progmon, FireDragonProgmon, ElectricCatProgmon, WaterTurtleProgmon # DO WE NEED TO IMPORT "PROGMON"?
+from progmon import Progmon, FireDragonProgmon, ElectricCatProgmon, WaterTurtleProgmon
 
 # GLOBAL VARIABLES
-global myP1 # DO WE NEED "GLOBAL" HERE?
+global myP1
 progmonP1 = ""
 progmonNameP1 = ""
-global myAI # DO WE NEED "GLOBAL" HERE?
+global myAI
 progmonAI = ""
 progmonNameAI = ""
 
@@ -143,7 +143,7 @@ def startScreen():
     display.blit(imgSmallWaterTurtleP1, imgSmallWaterTurtleP1_RECT)
     imgSmallFinalBossP1 = pygame.image.load('Sprites/smallFinalBoss.png')
     imgSmallFinalBossP1_RECT = imgSmallFinalBossP1.get_rect()
-    imgSmallFinalBossP1_RECT.center = (displayWidth / 9, displayHeight / 2)
+    imgSmallFinalBossP1_RECT.center = (displayWidth / 8.6, displayHeight / 2.08)
     display.blit(imgSmallFinalBossP1, imgSmallFinalBossP1_RECT)
     if isButtonClickDetected(txtElectricCatP1_RECT):
         myP1 = ElectricCatProgmon()
@@ -193,7 +193,7 @@ def startScreen():
     display.blit(imgSmallWaterTurtleAI, imgSmallWaterTurtleAI_RECT)
     imgSmallFinalBossAI = pygame.image.load('Sprites/smallFinalBoss.png')
     imgSmallFinalBossAI_RECT = imgSmallFinalBossAI.get_rect()
-    imgSmallFinalBossAI_RECT.center = (displayWidth / 1.6, displayHeight / 2)
+    imgSmallFinalBossAI_RECT.center = (displayWidth / 1.577, displayHeight / 2.08)
     display.blit(imgSmallFinalBossAI, imgSmallFinalBossAI_RECT)
     if isButtonClickDetected(txtElectricCatAI_RECT):
         myAI = ElectricCatProgmon()
@@ -214,7 +214,7 @@ def startScreen():
 
     # PLAY BUTTON
     txtPlay, txtPlay_RECT = createTextObject("PLAY", mediumText, WHITE)
-    txtPlay_RECT.center = (displayWidth * .5, displayHeight / 1.2)
+    txtPlay_RECT.center = (displayWidth * .5, displayHeight * .9)
     display.blit(txtPlay, txtPlay_RECT)
     if isButtonClickDetected(txtPlay_RECT):
         if progmonP1 != "" and progmonAI != "":
@@ -320,7 +320,6 @@ def fightScreen():
     display.blit(txtQuit, txtQuit_RECT)
 
     if myP1.getStunStatus() == False:
-        # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
         txtMsgP1, txtMsgP1_RECT = createTextObject("What would you like to do?", miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .75)
         display.blit(txtMsgP1, txtMsgP1_RECT)
@@ -331,7 +330,6 @@ def fightScreen():
             if myP1.bagEmpty() == False:
                 controlScreen("bagMenu")
             else:
-                # (UNFINISHED - LOWER MESSAGE TO PLAYER 1)
                 txtMsgP1, txtMsgP1_RECT = createTextObject("Your Bag is empty!", miniText, BLACK)
                 txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
                 display.blit(txtMsgP1, txtMsgP1_RECT)
@@ -343,7 +341,6 @@ def fightScreen():
             quitGame()
     elif myP1.getStunStatus() == True:
         myP1.stunned = False
-        # (UNFINISHED - UPPER MESSAGE TO PLAYER 1)
         txtMsgP1, txtMsgP1_RECT = createTextObject(("{} has been stunned by {}!".format(progmonNameP1, progmonNameAI)), miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .75)
         display.blit(txtMsgP1, txtMsgP1_RECT)
