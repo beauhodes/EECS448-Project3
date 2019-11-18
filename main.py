@@ -26,6 +26,9 @@ global myAI
 progmonAI = ""
 progmonNameAI = ""
 
+#GLOBAL VARIABLES for endScreen() 
+winner = "null"
+
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
 pygame.init()
 displayWidth = 1080
@@ -418,6 +421,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
     if isButtonClickDetected(txtAttack2_RECT):
@@ -448,6 +452,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
     if isButtonClickDetected(txtAttack3_RECT):
@@ -478,6 +483,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
     if isButtonClickDetected(txtAttack4_RECT):
@@ -508,6 +514,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
 def bagMenu():
@@ -662,7 +669,7 @@ def endScreen():            # unfinish , still need to add variables and statist
 
     #Display winner of the game
     WinnerText = pygame.font.Font('freesansbold.ttf', 50)
-    text = "winner +  wins!"
+    text = winner + " wins!"
     TextSurf, TextRect = createTextObject(text, WinnerText, BLACK)
     TextRect.center = ((displayWidth / 2), (displayHeight * .14))
     display.blit(TextSurf, TextRect)
