@@ -613,7 +613,7 @@ def endScreen():
         imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
         imageSmallFireDragonP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
         display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT)
-    elif progmonP1 == "WalterTurtle":
+    elif progmonP1 == "WaterTurtle":
         imgSmallWaterTurtleP1 = pygame.image.load('Sprites/smallWaterTurtle.png')
         imgSmallWaterTurtleP1_RECT = imgSmallWaterTurtleP1.get_rect()
         imgSmallWaterTurtleP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
@@ -636,7 +636,7 @@ def endScreen():
         imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
         imageSmallFireDragonAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
         display.blit(imageSmallFireDragonAI, imageSmallFireDragonAI_RECT)
-    elif progmonAI == "WalterTurtle":
+    elif progmonAI == "WaterTurtle":
         imgSmallWaterTurtleAI = pygame.image.load('Sprites/smallWaterTurtle.png')
         imgSmallWaterTurtleAI_RECT = imgSmallWaterTurtleAI.get_rect()
         imgSmallWaterTurtleAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
@@ -654,19 +654,18 @@ def endScreen():
     TextRect.center = ((displayWidth / 2), (displayHeight * .14))
     display.blit(TextSurf, TextRect)
 
-
-    #Score for Player 1
-    text_Player1 = "Player 1"
+    #####     Score for Player 1      #####
+    text_PlayerP1 = "Player P1"
     # creates text surface variable and text rectangle variable
-    TextSurf, TextRect = createTextObject(text_Player1, largeText, BLACK)
+    TextSurf, TextRect = createTextObject(text_PlayerP1, largeText, BLACK)
     # modifies the center of text rectangle based on pygame GUI window
-    TextRect.center = ((displayWidth/4.2), (displayHeight*.39))
+    TextRect.center = ((displayWidth/5), (displayHeight*.28))
     display.blit(TextSurf, TextRect)
 
 
-    text_Player1_Attack = "Total Attacked: " 
-    TextSurf, TextRect = createTextObject(text_Player1_Attack, mediumText, BLACK)
-    TextRect.center = ((displayWidth/4), (displayHeight*.55))
+    text_PlayerP1_Attack = "Total Attacked: " 
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Attack, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.38))
     display.blit(TextSurf, TextRect)
 
 
@@ -675,27 +674,38 @@ def endScreen():
     # missed1 = ((totalMissedPlayer1 / totalAttackPlayer1)*100)
     # missed1Percentage = round(missed1, 2)
 
-    text_Player1_Hit = "Hit in %: "
-    TextSurf, TextRect = createTextObject(text_Player1_Hit, mediumText, BLACK)
-    TextRect.center = ((displayWidth/4), (displayHeight*.65))
+    text_PlayerP1_Hit = "Hit in %: "
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Hit, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.47))
     display.blit(TextSurf, TextRect)
 
 
-    text_Player1_Miss = "Missed in %: " 
-    TextSurf, TextRect = createTextObject(text_Player1_Miss, mediumText, BLACK)
-    TextRect.center = ((displayWidth/4), (displayHeight*.75))
+    text_PlayerP1_Miss = "Missed in %: " 
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Miss, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.56))
     display.blit(TextSurf, TextRect)
 
 
-    #Score for AI
+    text_PlayerP1_Bag = "Bag: " 
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Bag, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.65))
+    display.blit(TextSurf, TextRect)
+
+
+    text_PlayerP1_ProgmonChanged = "Bag: " 
+    TextSurf, TextRect = createTextObject(text_PlayerP1_ProgmonChanged, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.74))
+    display.blit(TextSurf, TextRect)
+
+    #####  Score for AI    #####
     text_PlayerAI = "Player AI"
     TextSurf, TextRect = createTextObject(text_PlayerAI, largeText, BLACK)
-    TextRect.center = ((displayWidth / 1.3), (displayHeight * .39))
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.28))
     display.blit(TextSurf, TextRect)
 
     text_PlayerAI_Attack = "Total Attacked: "
     TextSurf, TextRect = createTextObject(text_PlayerAI_Attack, mediumText, BLACK)
-    TextRect.center = ((displayWidth / 1.3), (displayHeight * .55))
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.38))
     display.blit(TextSurf, TextRect)
 
     # hit2 = ((totalhitPlayer2 / totalAttackPlayer2) * 100)
@@ -705,24 +715,37 @@ def endScreen():
 
     text_PlayerAI_Hit = "Hit in %: "
     TextSurf, TextRect = createTextObject(text_PlayerAI_Hit, mediumText, BLACK)
-    TextRect.center = ((displayWidth / 1.3), (displayHeight * .65))
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.47))
     display.blit(TextSurf, TextRect) 
            
     text_PlayerAI_Miss = "Missed in %: " 
     TextSurf, TextRect = createTextObject(text_PlayerAI_Miss, mediumText, BLACK)
-    TextRect.center = ((displayWidth / 1.3), (displayHeight * .75))
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.56))
     display.blit(TextSurf, TextRect)
 
+    text_PlayerAI_Bag = "Bag: "
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Bag, mediumText, BLACK)
+    TextRect.center = ((displayWidth/ 1.3), (displayHeight*.65))
+    display.blit(TextSurf, TextRect)
 
+    text_PlayerAI_ProgmonChanged = "Bag: "
+    TextSurf, TextRect = createTextObject(text_PlayerAI_ProgmonChanged, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.74))
+    display.blit(TextSurf, TextRect)
 
+    # QUIT GAME BUTTON 
+    text_QuitGame, text_QuitGame_RECT = createTextObject("QUIT", smallText, BLACK)
+    text_QuitGame_RECT.center = (displayWidth / 1.5, displayHeight * 0.90)
+    display.blit(text_QuitGame, text_QuitGame_RECT)
+    if isButtonClickDetected(text_QuitGame_RECT):
+        quitGame()
 
-
-
-
-
-
-
-
+    # RESTART GAME BUTTON
+    text_Restart, text_Restart_RECT = createTextObject("Restart GAME", smallText, BLACK)
+    text_Restart_RECT.center = (displayWidth / 2.7, displayHeight * 0.90)
+    display.blit(text_Restart, text_Restart_RECT)
+    if isButtonClickDetected(text_Restart_RECT):
+        controlScreen("startScreen")   
 
 
 
