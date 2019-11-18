@@ -26,6 +26,9 @@ global myAI
 progmonAI = ""
 progmonNameAI = ""
 
+#GLOBAL VARIABLES for endScreen() 
+winner = ""
+
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
 pygame.init()
 displayWidth = 1080
@@ -40,7 +43,7 @@ BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
 LIGHT_GREEN = pygame.Color(0, 200, 0)
-
+GREEN = pygame.Color(160, 219, 154)  # endScreen background color
 def eventHandler():
     """
     Handles Pygame events
@@ -395,6 +398,7 @@ def fightMenu():
     global progmonP1
     global progmonNameP1
     global myAI
+    global winner
 
     pygame.gfxdraw.box(display, (displayWidth * 0.037, displayHeight * 0.92, 1000, 50), WHITE) # FILLED BOX FOR FIGHT MENU BUTTONS
 
@@ -448,6 +452,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
     if isButtonClickDetected(txtAttack2_RECT):
@@ -478,6 +483,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
     if isButtonClickDetected(txtAttack3_RECT):
@@ -508,6 +514,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
     if isButtonClickDetected(txtAttack4_RECT):
@@ -538,6 +545,7 @@ def fightMenu():
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
             display.blit(txtMsgP1, txtMsgP1_RECT)
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            winner = "Player P1"
             controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
 def bagMenu():
@@ -636,8 +644,167 @@ def progmonMenu():
     AITurn()
     controlScreen("fightScreen")
 
-def endScreen():
-    display.fill(WHITE)
+def endScreen():            # unfinish , still need to add variables and statistic 
+    global winner
+    display.fill(GREEN)
+
+    #Display progmon of 2 players
+    PlayerVS_AItext = progmonP1 + "   VS  " + progmonAI
+    TextSurf, TextRect = createTextObject(PlayerVS_AItext, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 2), (displayHeight * .05))
+    display.blit(TextSurf, TextRect)
+
+    #Display Player1's progmon's image
+    if progmonP1 == "ElectricCat":    
+        imageSmallElectricCatP1 = pygame.image.load('Sprites/smallElectricCat.png')
+        imageSmallElectricCatP1_RECT = imageSmallElectricCatP1.get_rect()
+        imageSmallElectricCatP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imageSmallElectricCatP1, imageSmallElectricCatP1_RECT)
+    elif progmonP1 == "FireDragon":
+        imageSmallFireDragonP1 = pygame.image.load('Sprites/smallFireDragon.png')
+        imageSmallFireDragonP1_RECT = imageSmallFireDragonP1.get_rect()
+        imageSmallFireDragonP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imageSmallFireDragonP1, imageSmallFireDragonP1_RECT)
+    elif progmonP1 == "WaterTurtle":
+        imgSmallWaterTurtleP1 = pygame.image.load('Sprites/smallWaterTurtle.png')
+        imgSmallWaterTurtleP1_RECT = imgSmallWaterTurtleP1.get_rect()
+        imgSmallWaterTurtleP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imgSmallWaterTurtleP1, imgSmallWaterTurtleP1_RECT)
+    elif progmonP1 == "FinalBoss":
+        imgSmallFinalBossP1 = pygame.image.load('Sprites/smallFinalBoss.png')
+        imgSmallFinalBossP1_RECT = imgSmallFinalBossP1.get_rect()
+        imgSmallFinalBossP1_RECT.center = (displayWidth / 4.65, displayHeight * .06)
+        display.blit(imgSmallFinalBossP1, imgSmallFinalBossP1_RECT)
+
+
+    #Display AI's progmon's image
+    if progmonAI == "ElectricCat":
+        imageSmallElectricCatAI = pygame.image.load('Sprites/smallElectricCat.png')
+        imageSmallElectricCatAI_RECT = imageSmallElectricCatAI.get_rect()
+        imageSmallElectricCatAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imageSmallElectricCatAI, imageSmallElectricCatAI_RECT)
+    elif progmonAI == "FireDragon":
+        imageSmallFireDragonAI = pygame.image.load('Sprites/smallFireDragon.png')
+        imageSmallFireDragonAI_RECT = imageSmallFireDragonAI.get_rect()
+        imageSmallFireDragonAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imageSmallFireDragonAI, imageSmallFireDragonAI_RECT)
+    elif progmonAI == "WaterTurtle":
+        imgSmallWaterTurtleAI = pygame.image.load('Sprites/smallWaterTurtle.png')
+        imgSmallWaterTurtleAI_RECT = imgSmallWaterTurtleAI.get_rect()
+        imgSmallWaterTurtleAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imgSmallWaterTurtleAI, imgSmallWaterTurtleAI_RECT)
+    elif progmonAI == "FinalBoss":
+        imgSmallFinalBossAI = pygame.image.load('Sprites/smallFinalBoss.png')
+        imgSmallFinalBossAI_RECT = imgSmallFinalBossAI.get_rect()
+        imgSmallFinalBossAI_RECT.center = (displayWidth / 1.26, displayHeight * .06)
+        display.blit(imgSmallFinalBossAI, imgSmallFinalBossAI_RECT)
+
+    #Display winner of the game
+    WinnerText = pygame.font.Font('freesansbold.ttf', 50)
+    text = winner + " wins!"
+    TextSurf, TextRect = createTextObject(text, WinnerText, BLACK)
+    TextRect.center = ((displayWidth / 2), (displayHeight * .14))
+    display.blit(TextSurf, TextRect)
+
+    #####     Score for Player 1      #####
+    text_PlayerP1 = "Player P1"
+    # creates text surface variable and text rectangle variable
+    TextSurf, TextRect = createTextObject(text_PlayerP1, largeText, BLACK)
+    # modifies the center of text rectangle based on pygame GUI window
+    TextRect.center = ((displayWidth/5), (displayHeight*.28))
+    display.blit(TextSurf, TextRect)
+
+
+    text_PlayerP1_Attack = "Total Attacked: "    #still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Attack, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.38))
+    display.blit(TextSurf, TextRect)
+
+
+    # hit1 = ((totalhitPlayer1 / totalAttackPlayer1)*100)
+    # hit1Percentage = round(hit1, 2)
+    # missed1 = ((totalMissedPlayer1 / totalAttackPlayer1)*100)
+    # missed1Percentage = round(missed1, 2)
+
+    text_PlayerP1_Hit = "Hit in %: " #still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Hit, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.47))
+    display.blit(TextSurf, TextRect)
+
+
+    text_PlayerP1_Miss = "Missed in %: "  #still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Miss, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.56))
+    display.blit(TextSurf, TextRect)
+
+    text_PlayerP1_Bag = "Bag: "  # still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerP1_Bag, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.65))
+    display.blit(TextSurf, TextRect)
+
+    text_PlayerP1_ProgmonChanged = "Changed to: "  # dont know what to call this yet?
+    TextSurf, TextRect = createTextObject(text_PlayerP1_ProgmonChanged, mediumText, BLACK)
+    TextRect.center = ((displayWidth/4.7), (displayHeight*.74))
+    display.blit(TextSurf, TextRect)
+
+    #####  Score for AI    #####
+    text_PlayerAI = "Player AI"
+    TextSurf, TextRect = createTextObject(text_PlayerAI, largeText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.28))
+    display.blit(TextSurf, TextRect)
+
+    text_PlayerAI_Attack = "Total Attacked: " #still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Attack, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.38))
+    display.blit(TextSurf, TextRect)
+
+    # hit2 = ((totalhitPlayer2 / totalAttackPlayer2) * 100)
+    # hit2Percentage = round(hit2, 2)
+    # missed2 = ((totalMissedPlayer2 / totalAttackPlayer2) * 100)
+    # missed2Percentage = round(missed2, 2)
+
+    text_PlayerAI_Hit = "Hit in %: " #still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Hit, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.47))
+    display.blit(TextSurf, TextRect) 
+           
+    text_PlayerAI_Miss = "Missed in %: "  #still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Miss, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.56))
+    display.blit(TextSurf, TextRect)
+
+    text_PlayerAI_Bag = "Bag: "  # still working on this
+    TextSurf, TextRect = createTextObject(text_PlayerAI_Bag, mediumText, BLACK)
+    TextRect.center = ((displayWidth/ 1.3), (displayHeight*.65))
+    display.blit(TextSurf, TextRect)
+
+    text_PlayerAI_ProgmonChanged = "Changed to: "  #dont know what to call this yet?
+    TextSurf, TextRect = createTextObject(text_PlayerAI_ProgmonChanged, mediumText, BLACK)
+    TextRect.center = ((displayWidth / 1.3), (displayHeight*.74))
+    display.blit(TextSurf, TextRect)
+
+    # QUIT GAME BUTTON 
+    text_QuitGame, text_QuitGame_RECT = createTextObject("QUIT", smallText, BLACK)
+    text_QuitGame_RECT.center = (displayWidth / 1.5, displayHeight * 0.90)
+    display.blit(text_QuitGame, text_QuitGame_RECT)
+    if isButtonClickDetected(text_QuitGame_RECT):
+        quitGame()
+
+    # RESTART GAME BUTTON
+    text_Restart, text_Restart_RECT = createTextObject("Restart GAME", smallText, BLACK)
+    text_Restart_RECT.center = (displayWidth / 2.7, displayHeight * 0.90)
+    display.blit(text_Restart, text_Restart_RECT)
+    if isButtonClickDetected(text_Restart_RECT):
+        controlScreen("startScreen")   
+
+
+
+
+
+    
+    #update Display
+    pygame.display.update()
+
 
 def controlScreen(gameState):
     """
@@ -682,12 +849,14 @@ def AITurn():
     global myP1
     global myAI
     global progmonNameP1
+    global winner
 
     if(myP1.checkAlive() != True):
         pygame.draw.rect(display, WHITE, (displayWidth * .518, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         txtMsgAI, txtMsgAI_RECT = createTextObject(("Player 1's {} has fainted. You lose!".format(progmonNameP1)), miniText, BLACK)
         txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
         display.blit(txtMsgAI, txtMsgAI_RECT)
+        winner = "Player AI"
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 
