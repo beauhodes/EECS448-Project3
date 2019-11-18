@@ -196,7 +196,7 @@ def startScreen():
         progmonNameAI = "Water Turtle"
 
     # PLAY BUTTON
-    txtPlay, txtPlay_RECT = createTextObject("PLAY", mediumText, BLACK)
+    txtPlay, txtPlay_RECT = createTextObject("PLAY", mediumText, WHITE)
     txtPlay_RECT.center = (displayWidth * .5, displayHeight / 1.2)
     display.blit(txtPlay, txtPlay_RECT)
     if isButtonClickDetected(txtPlay_RECT):
