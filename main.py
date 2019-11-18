@@ -27,12 +27,12 @@ progmonAI = ""
 progmonNameAI = ""
 
 #GLOBAL VARIABLES for endScreen() 
-winner = "null"
+winner = ""
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
 pygame.init()
 displayWidth = 1080
-displayHeight = 680
+displayHeight = 720
 display = pygame.display.set_mode((displayWidth, displayHeight))
 pygame.display.set_caption('EECS448 Project 4: Progmon Battle Simulator')
 miniText = pygame.font.Font('freesansbold.ttf', 24)
@@ -819,12 +819,14 @@ def AITurn():
     global myP1
     global myAI
     global progmonNameP1
+    global winner
 
     if(myP1.checkAlive() != True):
         pygame.draw.rect(display, WHITE, (displayWidth * .518, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         txtMsgAI, txtMsgAI_RECT = createTextObject(("Player 1's {} has fainted. You lose!".format(progmonNameP1)), miniText, BLACK)
         txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
         display.blit(txtMsgAI, txtMsgAI_RECT)
+        winner = "Player AI"
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         controlScreen("endScreen") # (UNFINISHED - NEED END SCREEN TO BE CREATED)
 

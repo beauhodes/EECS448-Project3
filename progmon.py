@@ -426,9 +426,9 @@ class FireDragonProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
-            enemyPlayer.doDamage(90)
-            enemyPlayer.setStunStatus()
-            return True, "Roar did 90 damage and stunned the enemy!"
+            enemyPlayer.doDamage(80)
+            enemyPlayer.setStunStatus(True)
+            return True, "Roar did 80 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             return True, "Roar did 80 damage!"
@@ -464,7 +464,7 @@ class FireDragonProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 30):
             self.statBoost = False
             enemyPlayer.doDamage(150)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             return True, "Fire Breath did 150 damage and stunned the enemy!"
         elif(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
@@ -599,8 +599,8 @@ class ElectricCatProgmon(Progmon):
             None
         """
         self.name = "Electric Cat"
-        self.hp = 150
-        self.currentHealth = 150
+        self.hp = 250
+        self.currentHealth = 250
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
@@ -754,7 +754,7 @@ class ElectricCatProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
             enemyPlayer.doDamage(100)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             return True, "Lightning Bolt did 100 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
@@ -791,7 +791,7 @@ class ElectricCatProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 40):
             self.statBoost = False
             enemyPlayer.doDamage(120)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             return True, "Energy Beam did 120 damage and stunned the enemy!"
         elif(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
@@ -1071,7 +1071,7 @@ class WaterTurtleProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
             enemyPlayer.doDamage(55)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             return True, "Aqua Jet did 55 damage and stunned the enemy!"
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
@@ -1092,7 +1092,7 @@ class WaterTurtleProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
             enemyPlayer.doDamage(80)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             return True, "Water Pulse did 80 damage and stunned the enemy!"
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
