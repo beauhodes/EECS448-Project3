@@ -1,11 +1,14 @@
 """
 BUG LIST:
-    > Attack functions need to return True/False AND a String that tells DAMAGE_DONE or ATTACK missed
-        --> This String will be used to output turn-by-turn messages to both Players
-    > When a Progmon faints, their HealthBar does NOT update to display 0 health
+    > When a Progmon faints, their HealthBar and Health does NOT update to display 0 HP
     > Progmon fainted message not staying on screen after mouse is moved
         --> Need this message to stay on screen as long as we have not switched to the endScreen
-    > stunStatus NEVER updates to be False, putting the game into an infinite loop
+    > Player AI's MessageBox is NOT updating to display turn-by-turn Attack Messages
+    > Need to display the specific details of each item to the Player's in fightScreen
+        --> Health Potion healed ProgmonName for 30 HP.
+        --> +10 outgoing damage and change to stun enemy.
+        --> -10 incoming damage on the next attack.
+    > After using an Item in the Bag, the bagMenu continues to be partially displayed on the screen for a short period
 """
 import random
 import pygame
