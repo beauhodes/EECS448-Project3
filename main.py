@@ -32,7 +32,7 @@ winner = "null"
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
 pygame.init()
 displayWidth = 1080
-displayHeight = 720
+displayHeight = 680
 display = pygame.display.set_mode((displayWidth, displayHeight))
 pygame.display.set_caption('EECS448 Project 4: Progmon Battle Simulator')
 miniText = pygame.font.Font('freesansbold.ttf', 24)
@@ -368,6 +368,7 @@ def fightMenu():
     global progmonP1
     global progmonNameP1
     global myAI
+    global winner
 
     pygame.gfxdraw.box(display, (displayWidth * 0.037, displayHeight * 0.92, 1000, 50), WHITE) # FILLED BOX FOR FIGHT MENU BUTTONS
 
@@ -614,6 +615,7 @@ def progmonMenu():
     controlScreen("fightScreen")
 
 def endScreen():            # unfinish , still need to add variables and statistic 
+    global winner
     display.fill(GREEN)
 
     #Display progmon of 2 players

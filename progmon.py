@@ -272,8 +272,8 @@ class FireDragonProgmon(Progmon):
             None
         """
         self.name = "Fire Dragon"
-        self.hp = 20
-        self.currentHealth = 20
+        self.hp = 300
+        self.currentHealth = 300
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
@@ -426,9 +426,9 @@ class FireDragonProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
-            enemyPlayer.doDamage(80)
+            enemyPlayer.doDamage(90)
             enemyPlayer.setStunStatus()
-            return True, "Roar did 80 damage and stunned the enemy!"
+            return True, "Roar did 90 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             return True, "Roar did 80 damage!"
@@ -599,8 +599,8 @@ class ElectricCatProgmon(Progmon):
             None
         """
         self.name = "Electric Cat"
-        self.hp = 20
-        self.currentHealth = 20
+        self.hp = 150
+        self.currentHealth = 150
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
@@ -924,8 +924,8 @@ class WaterTurtleProgmon(Progmon):
             None
         """
         self.name = "Water Turtle"
-        self.hp = 20
-        self.currentHealth = 20
+        self.hp = 200
+        self.currentHealth = 200
         self.alive = True
         self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Aqua Jet", "Aqua Tail", "Water Pulse", "Bubble"]
