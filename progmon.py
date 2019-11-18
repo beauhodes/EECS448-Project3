@@ -500,27 +500,27 @@ class FireDragonProgmon(Progmon):
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "Roar"
+                return "AI Roar hit!"
             else:
-                return "Roar"
+                return "AI Roar missed!"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "ClawSwipe"
+                return "AI Claw Swipe hit!"
             else:
-                return "ClawSwipe"
+                return "AI Claw Swipe missed!"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "FireBreath"
+                return "AI Fire Breath hit!"
             else:
-                return "FireBreath"
+                return "AI Fire Breath missed!"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "TailWhip"
+                return "AI Tail Whip hit!"
             else:
-                return "TailWhip"
+                return "AI Tail Whip missed!"
 
     def useHealthPotion(self):
         """
@@ -827,27 +827,27 @@ class ElectricCatProgmon(Progmon):
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "LightningBolt"
+                return "AI Lightning Bolt hit!"
             else:
-                return "LightningBolt"
+                return "AI Lightning Bolt missed!"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "ElectricScratch"
+                return "AI Electric Scratch hit!"
             else:
-                return "ElectricScratch"
+                return "AI Electric Scratch missed!"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "EnergyBeam"
+                return "AI Energy Beam hit!"
             else:
-                return "EnergyBeam"
+                return "AI Energy Beam missed!"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "Bite"
+                return "AI Bite hit!"
             else:
-                return "Bite"
+                return "AI Bite missed!"
 
     def useHealthPotion(self):
         """
@@ -1094,7 +1094,6 @@ class WaterTurtleProgmon(Progmon):
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus()
             return True, "Water Pulse did 80 damage and stunned the enemy!"
-            return True
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
             return True, "Water Pulse did 70 damage!"
