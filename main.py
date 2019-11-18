@@ -412,6 +412,7 @@ def fightMenu():
             AITurn()
             controlScreen("fightScreen")
         else:
+            print("Player AI's Progmon has fainted. You win!")
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
             txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
@@ -441,6 +442,7 @@ def fightMenu():
             AITurn()
             controlScreen("fightScreen")
         else:
+            print("Player AI's Progmon has fainted. You win!")
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
             txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
@@ -470,6 +472,7 @@ def fightMenu():
             AITurn()
             controlScreen("fightScreen")
         else:
+            print("Player AI's Progmon has fainted. You win!")
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
             txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
@@ -499,6 +502,7 @@ def fightMenu():
             AITurn()
             controlScreen("fightScreen")
         else:
+            print("Player AI's Progmon has fainted. You win!")
             pygame.draw.rect(display, WHITE, (displayWidth * .037, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
             txtMsgP1, txtMsgP1_RECT = createTextObject(("Player AI's {} has fainted. You win!".format(progmonNameAI)), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
@@ -592,6 +596,15 @@ def progmonMenu():
     """
     # (UNFINISHED - PROGMON SWITCHING)
     print("PROGMON SWITCHING HAS NOT BEEN IMPLEMENTED")
+    txtMsgP1, txtMsgP1_RECT = createTextObject("PROGMON SWITCHING HAS NOT BEEN IMPLEMENTED", miniText, BLACK)
+    txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
+    display.blit(txtMsgP1, txtMsgP1_RECT)
+
+    pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+
+    pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+    AITurn()
+    controlScreen("fightScreen")
 
 def endScreen():
     display.fill(WHITE)
@@ -664,13 +677,16 @@ def AITurn():
         display.blit(txtMsgAI, txtMsgAI_RECT)
     elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #if AI is critical but P1 is not, use healing potion (if AI has it)
         myAI.useHealthPotion()
-        txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI has used a Health Potion!", miniText, BLACK)
+        txtMsgAI, txtMsgAI_RECT = createTextObject("critcal: Player AI has used a Health Potion!", miniText, BLACK)
         txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
         display.blit(txtMsgAI, txtMsgAI_RECT)
     elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 30% chance to run (else attack)
         percentage = random.randint(1, 101)
         if(percentage <= 30):
             print("AI will run")
+            txtMsgAI, txtMsgAI_RECT = createTextObject("critical: Player AI will run", miniText, BLACK)
+            txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
+            display.blit(txtMsgAI, txtMsgAI_RECT)
             #make AI run
         else:
             messageToShow = myAI.AIAttack(myP1)
@@ -709,8 +725,14 @@ def AITurn():
                     display.blit(txtMsgAI, txtMsgAI_RECT)
         elif(percentage <= 97):
             print("This will switch progmon")
+            txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI will switch their Progmon", miniText, BLACK)
+            txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
+            display.blit(txtMsgAI, txtMsgAI_RECT)
         else:
             print("AI will run")
+            txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI will run", miniText, BLACK)
+            txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
+            display.blit(txtMsgAI, txtMsgAI_RECT)
             #make AI run
 
 if __name__ == "__main__":
