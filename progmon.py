@@ -54,6 +54,17 @@ class Progmon(ABC):
         """
         pass
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        pass
+
     def getBag(self):
         """
         Gets the bag list of Progmon
@@ -74,13 +85,24 @@ class Progmon(ABC):
         """
         pass
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        pass
+
     def getHp(self):
         """
-        Gets the currentHealth of Progmon
+        Gets the max health of Progmon
         Args:
             self (object)
         Returns:
-            Progmon's currentHealth
+            Progmon's hp
         """
         pass
 
@@ -292,6 +314,7 @@ class FireDragonProgmon(Progmon):
         """
         if(self.defenseBoost == True):
             self.currentHealth = self.currentHealth - damageDone + 10
+            self.defenseBoost = False
         else:
             self.currentHealth = self.currentHealth - damageDone
 
@@ -321,6 +344,17 @@ class FireDragonProgmon(Progmon):
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
     def getBag(self):
         """
         Gets the bag list of Progmon
@@ -341,13 +375,24 @@ class FireDragonProgmon(Progmon):
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of FireDragon
+        Gets the max health of FireDragon
         Args:
             self (object) - FireDragon
         Returns:
-            FireDragon's currentHealth
+            FireDragon's max health
         """
         return self.hp
 
@@ -619,6 +664,7 @@ class ElectricCatProgmon(Progmon):
         """
         if(self.defenseBoost == True):
             self.currentHealth = self.currentHealth - damageDone + 10
+            self.defenseBoost = False
         else:
             self.currentHealth = self.currentHealth - damageDone
 
@@ -648,6 +694,17 @@ class ElectricCatProgmon(Progmon):
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
     def getBag(self):
         """
         Gets the bag list of Progmon
@@ -668,13 +725,24 @@ class ElectricCatProgmon(Progmon):
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of ElectricCat
+        Gets the max health of ElectricCat
         Args:
             self (object) - ElectricCat
         Returns:
-            ElectricCat's currentHealth
+            ElectricCat's max health
         """
         return self.hp
 
@@ -944,6 +1012,7 @@ class WaterTurtleProgmon(Progmon):
         """
         if(self.defenseBoost == True):
             self.currentHealth = self.currentHealth - damageDone + 10
+            self.defenseBoost = False
         else:
             self.currentHealth = self.currentHealth - damageDone
 
@@ -973,6 +1042,17 @@ class WaterTurtleProgmon(Progmon):
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
     def getBag(self):
         """
         Gets the bag list of Progmon
@@ -993,13 +1073,24 @@ class WaterTurtleProgmon(Progmon):
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of WaterTurtle
+        Gets the max health of WaterTurtle
         Args:
             self (object) - WaterTurtle
         Returns:
-            WaterTurtle's currentHealth
+            WaterTurtle's max health
         """
         return self.hp
 
