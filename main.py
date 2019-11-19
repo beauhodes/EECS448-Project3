@@ -995,6 +995,65 @@ def AITurn():
             txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI will switch their Progmon", miniText, BLACK)
             txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
             display.blit(txtMsgAI, txtMsgAI_RECT)
+            switchControl = random.randint(1,4)
+            if (switchControl == 1): #switch to electric cat (or, if currently electric cat, then final boss)
+                curHp = myAI.getCurrentHealth()
+                curBag = myAI.getBag()
+                curStatBoost = myAI.getStatBoost()
+                curDefenseBoost = myAI.getDefenseBoost()
+                if(progmonAI != "ElectricCat"):
+                    myAI = ElectricCatProgmon()
+                    progmonAI = "ElectricCat"
+                    progmonNameAI = "Electric Cat"
+                else:
+                    myAI = FinalBossProgmon()
+                    progmonAI = "FinalBoss"
+                    progmonNameAI = "Final Boss"
+                myAI.setBag(curBag)
+                myAI.setStatBoost(curStatBoost)
+                myAI.setDefenseBoost(curDefenseBoost)
+                if (curHp < myAI.getHp()): #if AI had less health than new progmon's max (before the switch), reduce health
+                    myAI.setCurrentHealth(curHp)
+                pygame.time.delay(1200) # WAIT
+            if (switchControl == 2): #switch to fire dragon (or, if currently fire dragon, then final boss)
+                curHp = myAI.getCurrentHealth()
+                curBag = myAI.getBag()
+                curStatBoost = myAI.getStatBoost()
+                curDefenseBoost = myAI.getDefenseBoost()
+                if(progmonAI != "FireDragon"):
+                    myAI = FireDragonProgmon()
+                    progmonAI = "FireDragon"
+                    progmonNameAI = "Fire Dragon"
+                else:
+                    myAI = FinalBossProgmon()
+                    progmonAI = "FinalBoss"
+                    progmonNameAI = "Final Boss"
+                myAI.setBag(curBag)
+                myAI.setStatBoost(curStatBoost)
+                myAI.setDefenseBoost(curDefenseBoost)
+                if (curHp < myAI.getHp()): #if AI had less health than new progmon's max (before the switch), reduce health
+                    myAI.setCurrentHealth(curHp)
+                pygame.time.delay(1200) # WAIT
+                controlScreen("fightScreen")
+            if (switchControl == 3): #switch to water turtle (or, if currently water turtle, then final boss)
+                curHp = myAI.getCurrentHealth()
+                curBag = myAI.getBag()
+                curStatBoost = myAI.getStatBoost()
+                curDefenseBoost = myAI.getDefenseBoost()
+                if(progmonAI != "WaterTurtle"):
+                    myAI = WaterTurtleProgmon()
+                    progmonAI = "WaterTurtle"
+                    progmonNameAI = "Water Turtle"
+                else:
+                    myAI = FinalBossProgmon()
+                    progmonAI = "FinalBoss"
+                    progmonNameAI = "Final Boss"
+                myAI.setBag(curBag)
+                myAI.setStatBoost(curStatBoost)
+                myAI.setDefenseBoost(curDefenseBoost)
+                if (curHp < myAI.getHp()): #if AI had less health than new progmon's max (before the switch), reduce health
+                    myAI.setCurrentHealth(curHp)
+                pygame.time.delay(1200) # WAIT
         else:
             print("AI will run")
             txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI will run", miniText, BLACK)
