@@ -1,24 +1,24 @@
 """
 BUG LIST:
-    > When a Progmon faints, their HealthBar and Health does NOT update to SCREEN 0 HP
+    > When a Progmon faints, their HealthBar and Health does NOT update to display 0 HP
     > Progmon fainted message not staying on screen after mouse is moved
         --> Need this message to stay on screen as long as we have not switched to the endScreen
     > Player AI's MessageBox is NOT updating to SCREEN turn-by-turn Attack Messages
-    > Need to SCREEN the specific details of each item to the Player's in fightScreen
+    > Need to display the specific details of each item to the Player's in fightScreen
         --> Health Potion healed ProgmonName for 30 HP.
         --> +10 outgoing damage and change to stun enemy.
         --> -10 incoming damage on the next attack.
     > After using an Item in the Bag, the bagMenu continues to be partially SCREENed on the screen for a short period
     > Player AI's turn-by-turn Messages are not updating properly
-        --> Not SCREENing Player 1's ProgmonName has fainted
-        --> Not SCREENing any of AI's attack messages correctly
+        --> Not displaying Player 1's ProgmonName has fainted
+        --> Not displaying any of AI's attack messages correctly
     > Game is delaying/waiting too long between turns (7200ms total b/w turns)
     > AI is getting to attack after Player 1 clicks on PROGMON button
 """
 import random
 import pygame
 import pygame.gfxdraw
-from progmon import Progmon, FireDragonProgmon, ElectricCatProgmon, WaterTurtleProgmon, FinalBossProgmon
+from progmon import Progmon, FireDragon, ElectricCat, WaterTurtle, FinalBoss
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
 pygame.init()
@@ -190,37 +190,37 @@ def startScreen():
 
     # TRACK PLAYER 1 BUTTONS
     if mouseClick(btnProgmon1_P1):
-        myP1 = ElectricCatProgmon()
+        myP1 = ElectricCat()
         progmonP1 = "ElectricCat"
         progmonNameP1 = "Electric Cat"
     elif mouseClick(btnProgmon2_P1):
-        myP1 = FireDragonProgmon()
+        myP1 = FireDragon()
         progmonP1 = "FireDragon"
         progmonNameP1 = "Fire Dragon"
     elif mouseClick(btnProgmon3_P1):
-        myP1 = WaterTurtleProgmon()
+        myP1 = WaterTurtle()
         progmonP1 = "WaterTurtle"
         progmonNameP1 = "Water Turtle"
     elif mouseClick(btnProgmon4_P1):
-        myP1 = FinalBossProgmon()
+        myP1 = FinalBoss()
         progmonP1 = "FinalBoss"
         progmonNameP1 = "Final Boss"
 
     # TRACK PLAYER AI BUTTONS
     if mouseClick(btnProgmon1_AI):
-        myAI = ElectricCatProgmon()
+        myAI = ElectricCat()
         progmonAI = "ElectricCat"
         progmonNameAI = "Electric Cat"
     elif mouseClick(btnProgmon2_AI):
-        myAI = FireDragonProgmon()
+        myAI = FireDragon()
         progmonAI = "FireDragon"
         progmonNameAI = "Fire Dragon"
     elif mouseClick(btnProgmon3_AI):
-        myAI = WaterTurtleProgmon()
+        myAI = WaterTurtle()
         progmonAI = "WaterTurtle"
         progmonNameAI = "Water Turtle"
     elif mouseClick(btnProgmon4_AI):
-        myAI = FinalBossProgmon()
+        myAI = FinalBoss()
         progmonAI = "FinalBoss"
         progmonNameAI = "Final Boss"
 
@@ -554,7 +554,7 @@ def progmonMenu():
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
         curDefenseBoost = myP1.getDefenseBoost()
-        myP1 = ElectricCatProgmon()
+        myP1 = ElectricCat()
         progmonP1 = "ElectricCat"
         progmonNameP1 = "Electric Cat"
         myP1.setBag(curBag)
@@ -572,7 +572,7 @@ def progmonMenu():
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
         curDefenseBoost = myP1.getDefenseBoost()
-        myP1 = FireDragonProgmon()
+        myP1 = FireDragon()
         progmonP1 = "FireDragon"
         progmonNameP1 = "Fire Dragon"
         myP1.setBag(curBag)
@@ -590,7 +590,7 @@ def progmonMenu():
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
         curDefenseBoost = myP1.getDefenseBoost()
-        myP1 = WaterTurtleProgmon()
+        myP1 = WaterTurtle()
         progmonP1 = "WaterTurtle"
         progmonNameP1 = "Water Turtle"
         myP1.setBag(curBag)
@@ -608,7 +608,7 @@ def progmonMenu():
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
         curDefenseBoost = myP1.getDefenseBoost()
-        myP1 = FinalBossProgmon()
+        myP1 = FinalBoss()
         progmonP1 = "FinalBoss"
         progmonNameP1 = "Final Boss"
         myP1.setBag(curBag)
@@ -803,11 +803,11 @@ def AITurn():
                 curStatBoost = myAI.getStatBoost()
                 curDefenseBoost = myAI.getDefenseBoost()
                 if(progmonAI != "ElectricCat"):
-                    myAI = ElectricCatProgmon()
+                    myAI = ElectricCat()
                     progmonAI = "ElectricCat"
                     progmonNameAI = "Electric Cat"
                 else:
-                    myAI = FinalBossProgmon()
+                    myAI = FinalBoss()
                     progmonAI = "FinalBoss"
                     progmonNameAI = "Final Boss"
                 myAI.setBag(curBag)
@@ -822,11 +822,11 @@ def AITurn():
                 curStatBoost = myAI.getStatBoost()
                 curDefenseBoost = myAI.getDefenseBoost()
                 if(progmonAI != "FireDragon"):
-                    myAI = FireDragonProgmon()
+                    myAI = FireDragon()
                     progmonAI = "FireDragon"
                     progmonNameAI = "Fire Dragon"
                 else:
-                    myAI = FinalBossProgmon()
+                    myAI = FinalBoss()
                     progmonAI = "FinalBoss"
                     progmonNameAI = "Final Boss"
                 myAI.setBag(curBag)
@@ -843,11 +843,11 @@ def AITurn():
                 curStatBoost = myAI.getStatBoost()
                 curDefenseBoost = myAI.getDefenseBoost()
                 if(progmonAI != "WaterTurtle"):
-                    myAI = WaterTurtleProgmon()
+                    myAI = WaterTurtle()
                     progmonAI = "WaterTurtle"
                     progmonNameAI = "Water Turtle"
                 else:
-                    myAI = FinalBossProgmon()
+                    myAI = FinalBoss()
                     progmonAI = "FinalBoss"
                     progmonNameAI = "Final Boss"
                 myAI.setBag(curBag)

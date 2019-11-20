@@ -281,7 +281,7 @@ class Progmon(ABC):
 
 
 
-class FireDragonProgmon(Progmon):
+class FireDragon(Progmon):
     """
     Class for the Fire Dragon Progmon
     """
@@ -471,9 +471,9 @@ class FireDragonProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
-            enemyPlayer.doDamage(80)
+            enemyPlayer.doDamage(90)
             enemyPlayer.setStunStatus(True)
-            return True, "Roar did 80 damage and stunned the enemy!"
+            return True, "Roar did 90 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             return True, "Roar did 80 damage!"
@@ -631,7 +631,7 @@ class FireDragonProgmon(Progmon):
 
 
 
-class ElectricCatProgmon(Progmon):
+class ElectricCat(Progmon):
     """
     Class for the Electric Cat Progmon
     """
@@ -979,7 +979,7 @@ class ElectricCatProgmon(Progmon):
 
 
 
-class WaterTurtleProgmon(Progmon):
+class WaterTurtle(Progmon):
     """
     Class for the new Water Turtle Progmon
     """
@@ -1295,7 +1295,7 @@ class WaterTurtleProgmon(Progmon):
 
 
 
-class FinalBossProgmon(Progmon):
+class FinalBoss(Progmon):
     """
     Class for the Final Boss Progmon
     """
@@ -1485,16 +1485,16 @@ class FinalBossProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 90):
             self.statBoost = False
-            enemyPlayer.doDamage(150)
-            enemyPlayer.setStunStatus()
-            print("Giga Impact does 150 damage and stuns the enemy!\n")
-            return True, "Giga Impact does 150 damage and stuns the enemy!"
+            enemyPlayer.doDamage(160)
+            enemyPlayer.setStunStatus(True)
+            # print("Giga Impact does 160 damage and stuns the enemy!\n")
+            return True, "Giga Impact did 160 damage and stunned the enemy!"
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(150)
-            print("Giga Impact did 150 damage!\n")
+            # print("Giga Impact did 150 damage!\n")
             return True, "Giga Impact did 150 damage!"
         else:
-            print("Giga Impact missed!\n")
+            # print("Giga Impact missed!\n")
             return False, "Giga Impact missed!"
 
     def attack2(self, enemyPlayer):
@@ -1509,10 +1509,10 @@ class FinalBossProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 99):
             enemyPlayer.doDamage(90)
-            print("Psychic did 90 damage!\n")
+            # print("Psychic did 90 damage!\n")
             return True, "Psychic did 90 damage!"
         else:
-            print("Psychic missed!\n")
+            # print("Psychic missed!\n")
             return False, "Psychic missed!"
 
     def attack3(self, enemyPlayer):
@@ -1527,16 +1527,16 @@ class FinalBossProgmon(Progmon):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 75):
             self.statBoost = False
-            enemyPlayer.doDamage(120)
-            enemyPlayer.setStunStatus()
-            print("Mega Kick does 120 damage and stuns the enemy!\n")
-            return True, "Mega Kick does 120 damage and stuns the enemy!"
+            enemyPlayer.doDamage(130)
+            enemyPlayer.setStunStatus(True)
+            # print("Mega Kick did 130 damage and stunned the enemy!\n")
+            return True, "Mega Kick did 130 damage and stunned the enemy!"
         if(chanceToHit <= 75):
             enemyPlayer.doDamage(120)
-            print("Mega Kick did 120 damage!\n")
+            # print("Mega Kick did 120 damage!\n")
             return True, "Mega Kick did 120 damage!"
         else:
-            print("Mega Kick missed!\n")
+            # print("Mega Kick missed!\n")
             return False, "Mega Kick missed!"
 
     def attack4(self, enemyPlayer):
@@ -1549,7 +1549,7 @@ class FinalBossProgmon(Progmon):
             None
         """
         enemyPlayer.doDamage(60)
-        print("Ancient Power did 60 damage!\n")
+        # print("Ancient Power did 60 damage!\n")
         return True, "Ancient Power did 60 damage!"
 
     def AIAttack(self, enemyPlayer):
