@@ -1,6 +1,6 @@
 import random
 
-class FinalBoss:
+class FinalBossProgmon(Progmon):
     """
     Class for the Final Boss Progmon
     """
@@ -63,23 +63,55 @@ class FinalBoss:
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
+
     def getCurrentHealth(self):
         """
-        Gets the currentHealth of FinalBoss
+        Gets the currentHealth of WaterTurtle
         Args:
-            self (object) - FinalBoss
+            self (object) - WaterTurtle
         Returns:
-            FinalBoss's currentHealth
+            WaterTurtle's currentHealth
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of FinalBoss
+        Gets the max health of WaterTurtle
         Args:
-            self (object) - FinalBoss
+            self (object) - WaterTurtle
         Returns:
-            FinalBoss's currentHealth
+            WaterTurtle's max health
         """
         return self.hp
 
@@ -88,6 +120,7 @@ class FinalBoss:
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
@@ -103,7 +136,49 @@ class FinalBoss:
         """
         return self.stunned
 
-    def attack1(self):
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
+
+    def attack1(self, enemyPlayer):
         """
         Attacks enemy Progmon with Giga Impact
         Args:
@@ -117,17 +192,17 @@ class FinalBoss:
             self.statBoost = False
             enemyPlayer.doDamage(150)
             enemyPlayer.setStunStatus()
-            print("Final Boss does 150 damage and stuns the enemy!\n")
-            return True
+            print("Giga Impact does 150 damage and stuns the enemy!\n")
+            return True, "Giga Impact does 150 damage and stuns the enemy!"
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(150)
             print("Giga Impact did 150 damage!\n")
-            return True
+            return True, "Giga Impact did 150 damage!"
         else:
             print("Giga Impact missed!\n")
-            return False
+            return False, "Giga Impact missed!"
 
-    def attack2(self):
+    def attack2(self, enemyPlayer):
         """
         Attacks enemy Progmon with Psychic
         Args:
@@ -140,12 +215,12 @@ class FinalBoss:
         if(chanceToHit <= 99):
             enemyPlayer.doDamage(90)
             print("Psychic did 90 damage!\n")
-            return True
+            return True, "Psychic did 90 damage!"
         else:
             print("Psychic missed!\n")
-            return False
+            return False, "Psychic missed!"
 
-    def attack3(self):
+    def attack3(self, enemyPlayer):
         """
         Attacks enemy Progmon with Mega Kick
         Args:
@@ -159,17 +234,17 @@ class FinalBoss:
             self.statBoost = False
             enemyPlayer.doDamage(120)
             enemyPlayer.setStunStatus()
-            print("Final Boss does 120 damage and stuns the enemy!\n")
-            return True
+            print("Mega Kick does 120 damage and stuns the enemy!\n")
+            return True, "Mega Kick does 120 damage and stuns the enemy!"
         if(chanceToHit <= 75):
             enemyPlayer.doDamage(120)
             print("Mega Kick did 120 damage!\n")
-            return True
+            return True, "Mega Kick did 120 damage!"
         else:
             print("Mega Kick missed!\n")
-            return False
+            return False, "Mega Kick missed!"
 
-    def attack4(self):
+    def attack4(self, enemyPlayer):
         """
         Attacks enemy Progmon with Ancient Power
         Args:
@@ -180,7 +255,7 @@ class FinalBoss:
         """
         enemyPlayer.doDamage(60)
         print("Ancient Power did 60 damage!\n")
-        return True
+        return True, "Ancient Power did 60 damage!"
 
     def AIAttack(self, enemyPlayer):
         """

@@ -760,12 +760,14 @@ def AITurn():
         myAI.useHealthPotion()
         print("Player AI has used a Health Potion!")
         displayText("Player AI has used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-    elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 30% chance to run (else attack)
+    elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 20% chance to run (else attack)
         percentage = random.randint(1, 101)
-        if(percentage <= 30):
-            print("Player AI will run")
-            displayText("Player AI will run", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            #make AI run
+        if(percentage <= 20):
+            print("Player AI ran!")
+            displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+            pygame.time.delay(3000) # WAIT
+            gameState = "endScreen"
+            controlScreen(gameState)
         else:
             messageToShow = myAI.AIAttack(myP1)
             print("{}".format(messageToShow))
