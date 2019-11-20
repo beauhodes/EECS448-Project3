@@ -1,19 +1,14 @@
 """
 BUG LIST:
     > When a Progmon faints, their HealthBar and Health does NOT update to display 0 HP
-    > Progmon fainted message not staying on screen after mouse is moved
-        --> Need this message to stay on screen as long as we have not switched to the endScreen
-    > Player AI's MessageBox is NOT updating to SCREEN turn-by-turn Attack Messages
-    > Need to display the specific details of each item to the Player's in fightScreen
+    > (???) AI is getting to attack after Player 1 clicks on PROGMON button
+    > Are game delays too long?
+    > Format Player 1 Messages
+    > Format Player AI Messages
+    > Fix return statement/print output for Item Usage
         --> Health Potion healed ProgmonName for 30 HP.
         --> +10 outgoing damage and change to stun enemy.
         --> -10 incoming damage on the next attack.
-    > After using an Item in the Bag, the bagMenu continues to be partially SCREENed on the screen for a short period
-    > Player AI's turn-by-turn Messages are not updating properly
-        --> Not displaying Player 1's ProgmonName has fainted
-        --> Not displaying any of AI's attack messages correctly
-    > Game is delaying/waiting too long between turns (7200ms total b/w turns)
-    > AI is getting to attack after Player 1 clicks on PROGMON button
 """
 import random
 import pygame
@@ -45,7 +40,6 @@ progmonNameP1 = ""
 global myAI
 progmonAI = ""
 progmonNameAI = ""
-#GLOBAL VARIABLES for endScreen()
 winner = ""
 totalAttackPlayerP1 = 0
 totalAttackPlayerAI = 0
@@ -53,7 +47,6 @@ totalHitPlayerP1 = 0
 totalHitPlayerAI = 0
 totalMissedPlayerP1 = 0
 totalMissedPlayerAI = 0
-
 
 def eventHandler():
     """
@@ -367,7 +360,6 @@ def fightMenu():
     global totalAttackPlayerP1
     global totalHitPlayerP1
     global totalMissedPlayerP1
-
 
     # DRAW TO SCREEN
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .92, 1000, 50), 0) # FILLED BOX FOR FIGHT MENU BUTTONS
