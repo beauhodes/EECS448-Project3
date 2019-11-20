@@ -182,7 +182,7 @@ class FinalBoss:
         print("Ancient Power did 60 damage!\n")
         return True
 
-    def AIAttack(self, enemy):
+    def AIAttack(self, enemyPlayer):
         """
         Attacks enemy Progmon with a randomly chosen attack
         Args:
