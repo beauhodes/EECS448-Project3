@@ -663,7 +663,7 @@ def endScreen():            # unfinish , still need to add variables and statist
     displayText((winner + " wins!"), HUGE, BLACK, WIDTH / 2, HEIGHT * .14)
 
     displayText("Player 1", LARGE, BLACK, WIDTH / 4.7, HEIGHT * .28)
-    displayText("Player 1", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .28)
+    displayText("Player AI", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .28)
 
     # DISPLAY IMAGES
     if progmonP1 == "ElectricCat":
