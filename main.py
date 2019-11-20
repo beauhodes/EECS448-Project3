@@ -29,6 +29,17 @@ progmonNameAI = ""
 #GLOBAL VARIABLES for endScreen() 
 winner = ""
 
+totalAttackPlayerP1 = 0
+totalAttackPlayerAI = 0
+
+totalHitPlayerP1 = 0
+totalHitPlayerAI = 0
+
+totalMissedPlayerP1 = 0
+totalMissedPlayerAI = 0
+
+
+
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
 pygame.init()
 displayWidth = 1080
@@ -399,6 +410,10 @@ def fightMenu():
     global progmonNameP1
     global myAI
     global winner
+    global totalAttackPlayerP1
+    global totalHitPlayerP1
+    global totalMissedPlayerP1
+
 
     pygame.gfxdraw.box(display, (displayWidth * 0.037, displayHeight * 0.92, 1000, 50), WHITE) # FILLED BOX FOR FIGHT MENU BUTTONS
 
@@ -429,16 +444,22 @@ def fightMenu():
         txtMsgP1, txtMsgP1_RECT = createTextObject(("{} used {}!".format(progmonNameP1, attackList[0])), miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
+        #endScreen() total P1 attacked
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         if myAI.checkAlive():
@@ -460,16 +481,22 @@ def fightMenu():
         txtMsgP1, txtMsgP1_RECT = createTextObject(("{} used {}!".format(progmonNameP1, attackList[1])), miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
+        #endScreen() total P1 attacked
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         if myAI.checkAlive():
@@ -491,16 +518,22 @@ def fightMenu():
         txtMsgP1, txtMsgP1_RECT = createTextObject(("{} used {}!".format(progmonNameP1, attackList[2])), miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
+        #endScreen() total P1 attacked
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         if myAI.checkAlive():
@@ -522,16 +555,22 @@ def fightMenu():
         txtMsgP1, txtMsgP1_RECT = createTextObject(("{} used {}!".format(progmonNameP1, attackList[3])), miniText, BLACK)
         txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .8)
         display.blit(txtMsgP1, txtMsgP1_RECT)
+        #endScreen() total P1 attacked
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1
         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             txtMsgP1, txtMsgP1_RECT = createTextObject("{}".format(attackHit[1]), miniText, BLACK)
             txtMsgP1_RECT.center = (displayWidth * .25, displayHeight * .85)
             display.blit(txtMsgP1, txtMsgP1_RECT)
+            #endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         if myAI.checkAlive():
@@ -646,6 +685,16 @@ def progmonMenu():
 
 def endScreen():            # unfinish , still need to add variables and statistic 
     global winner
+
+    global totalAttackPlayerP1
+    global totalAttackPlayerAI
+
+    global totalHitPlayerP1
+    global totalHitPlayerAI
+
+    global totalMissedPlayerP1
+    global totalMissedPlayerAI
+
     display.fill(GREEN)
 
     #Display progmon of 2 players
@@ -715,29 +764,28 @@ def endScreen():            # unfinish , still need to add variables and statist
     display.blit(TextSurf, TextRect)
 
 
-    text_PlayerP1_Attack = "Total Attacked: "    #still working on this
+    text_PlayerP1_Attack = "Total Attacked: "   + (str(totalAttackPlayerP1))
     TextSurf, TextRect = createTextObject(text_PlayerP1_Attack, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.38))
     display.blit(TextSurf, TextRect)
 
+    Hit_P1 = ((totalHitPlayerP1 / totalAttackPlayerP1)*100)
+    Hit_P1_Percentage = round(Hit_P1, 2)
+    Missed_P1 = ((totalMissedPlayerP1 / totalAttackPlayerP1)*100)
+    Missed_P1_Percentage = round(Missed_P1, 2)
 
-    # hit1 = ((totalhitPlayer1 / totalAttackPlayer1)*100)
-    # hit1Percentage = round(hit1, 2)
-    # missed1 = ((totalMissedPlayer1 / totalAttackPlayer1)*100)
-    # missed1Percentage = round(missed1, 2)
-
-    text_PlayerP1_Hit = "Hit in %: " #still working on this
+    text_PlayerP1_Hit = "Hit in %: " + (str(Hit_P1_Percentage))
     TextSurf, TextRect = createTextObject(text_PlayerP1_Hit, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.47))
     display.blit(TextSurf, TextRect)
 
 
-    text_PlayerP1_Miss = "Missed in %: "  #still working on this
+    text_PlayerP1_Miss = "Missed in %: "  + (str(Missed_P1_Percentage))
     TextSurf, TextRect = createTextObject(text_PlayerP1_Miss, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.56))
     display.blit(TextSurf, TextRect)
 
-    text_PlayerP1_Bag = "Bag: "  # still working on this
+    text_PlayerP1_Bag = "Bag: " # what should i put here, item in bag used or unused? or name of item used, or unused?
     TextSurf, TextRect = createTextObject(text_PlayerP1_Bag, mediumText, BLACK)
     TextRect.center = ((displayWidth/4.7), (displayHeight*.65))
     display.blit(TextSurf, TextRect)
@@ -850,6 +898,9 @@ def AITurn():
     global myAI
     global progmonNameP1
     global winner
+    global totalAttackPlayerAI
+    global totalHitPlayerAI
+    global totalMissedPlayerAI
 
     if(myP1.checkAlive() != True):
         pygame.draw.rect(display, WHITE, (displayWidth * .518, displayHeight * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
