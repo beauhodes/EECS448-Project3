@@ -45,7 +45,15 @@ progmonNameP1 = ""
 global myAI
 progmonAI = ""
 progmonNameAI = ""
+#GLOBAL VARIABLES for endScreen()
 winner = ""
+totalAttackPlayerP1 = 0
+totalAttackPlayerAI = 0
+totalHitPlayerP1 = 0
+totalHitPlayerAI = 0
+totalMissedPlayerP1 = 0
+totalMissedPlayerAI = 0
+
 
 def eventHandler():
     """
@@ -356,6 +364,10 @@ def fightMenu():
     global progmonNameP1
     global myAI
     global winner
+    global totalAttackPlayerP1
+    global totalHitPlayerP1
+    global totalMissedPlayerP1
+
 
     # DRAW TO SCREEN
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .92, 1000, 50), 0) # FILLED BOX FOR FIGHT MENU BUTTONS
@@ -386,14 +398,17 @@ def fightMenu():
             print("Player 1's {} used {}!".format(progmonNameP1, attackList[0]))
             attackHit = myP1.attack1(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[0])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
@@ -405,14 +420,17 @@ def fightMenu():
             print("Player 1's {} used {}!".format(progmonNameP1, attackList[1]))
             attackHit = myP1.attack2(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[1])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
@@ -424,14 +442,17 @@ def fightMenu():
             print("Player 1's {} used {}!".format(progmonNameP1, attackList[2]))
             attackHit = myP1.attack3(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[2])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
@@ -443,14 +464,17 @@ def fightMenu():
             print("Player 1's {} used {}!".format(progmonNameP1, attackList[3]))
             attackHit = myP1.attack4(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[3])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
+                totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
                 pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
@@ -625,6 +649,12 @@ def endScreen():            # unfinish , still need to add variables and statist
     global gameState
     global progmonNameP1
     global progmonNameAI
+    global totalAttackPlayerP1
+    global totalAttackPlayerAI
+    global totalHitPlayerP1
+    global totalHitPlayerAI
+    global totalMissedPlayerP1
+    global totalMissedPlayerAI
 
     SCREEN.fill(GREEN)
 
@@ -633,7 +663,7 @@ def endScreen():            # unfinish , still need to add variables and statist
     displayText((winner + " wins!"), HUGE, BLACK, WIDTH / 2, HEIGHT * .14)
 
     displayText("Player 1", LARGE, BLACK, WIDTH / 4.7, HEIGHT * .28)
-    displayText("Player 1", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .28)
+    displayText("Player AI", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .28)
 
     # DISPLAY IMAGES
     if progmonP1 == "ElectricCat":
@@ -655,13 +685,13 @@ def endScreen():            # unfinish , still need to add variables and statist
         displayImage('Sprites/smallFinalBoss.png', WIDTH / 1.26, HEIGHT * .06) # PLAYER AI
 
     # DISPLAY END SCREEN STATISTICS
-    displayText("Total Attacks:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .38) # still working on this
-    # hit1 = ((totalhitPlayer1 / totalAttackPlayer1)*100)
-    # hit1Percentage = round(hit1, 2)
-    # missed1 = ((totalMissedPlayer1 / totalAttackPlayer1)*100)
-    # missed1Percentage = round(missed1, 2)
-    displayText("Hit %:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .48) # still working on this
-    displayText("Miss %:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .58) # still working on this
+    displayText("Total Attacks:" + (str(totalAttackPlayerP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .38)
+    Hit_P1 = ((totalHitPlayerP1 / totalAttackPlayerP1)*100)
+    Hit_P1_Percentage = round(Hit_P1, 2)
+    Missed_P1 = ((totalMissedPlayerP1 / totalAttackPlayerP1)*100)
+    Missed_P1_Percentage = round(Missed_P1, 2)
+    displayText("Hit %:" + (str(Hit_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .48) 
+    displayText("Miss %:" + (str(Missed_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .58)  
     displayText("Bag:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .68) # still working on this
     displayText("Switches:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .78) # still working on this
 
