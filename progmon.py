@@ -542,30 +542,38 @@ class FireDragon(Progmon):
         #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
+
         if(attackToUse == 1):
-            self.attack1(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Roar hit!"
+            attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Roar missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 2):
-            self.attack2(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Claw Swipe hit!"
+            attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Claw Swipe missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 3):
-            self.attack3(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Fire Breath hit!"
+            attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Fire Breath missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 4):
-            self.attack4(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Tail Whip hit!"
+            attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Tail Whip missed!"
+                return "{}".format(attackHit[1])
 
     def useHealthPotion(self):
         """
@@ -888,34 +896,42 @@ class ElectricCat(Progmon):
         Returns:
             (string) - the attack that was used by the AI
         """
-        #randomly choose one of ElectricCat's attacks and then use it
+        #randomly choose one of FireDragon's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
+
         if(attackToUse == 1):
-            self.attack1(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Lightning Bolt hit!"
+            attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Lightning Bolt missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 2):
-            self.attack2(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Electric Scratch hit!"
+            attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Electric Scratch missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 3):
-            self.attack3(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Energy Beam hit!"
+            attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Energy Beam missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 4):
-            self.attack4(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Bite hit!"
+            attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Bite missed!"
+                return "{}".format(attackHit[1])
 
     def useHealthPotion(self):
         """
@@ -1204,32 +1220,42 @@ class WaterTurtle(Progmon):
         Returns:
             (string) - the attack that was used by the AI
         """
+        #randomly choose one of FireDragon's attacks and then use it
+        #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
+
         if(attackToUse == 1):
-            self.attack1(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Jet hit for 45 damage!"
+            attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Aqua Jet missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 2):
-            self.attack2(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Tail hit!"
+            attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Aqua Tail missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 3):
-            self.attack3(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Water Pulse hit!"
+            attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Water Pulse missed!"
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 4):
-            self.attack4(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Bubble hit!"
+            attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Bubble missed!"
+                return "{}".format(attackHit[1])
 
     def useHealthPotion(self):
         """
@@ -1562,32 +1588,42 @@ class FinalBoss(Progmon):
             (string) - the attack that was used by the AI
             (bool) - True if the attack hit, otherwise False
         """
+        #randomly choose one of FireDragon's attacks and then use it
+        #returns a string of which attack was used so that user can know what AI did/if it was successful
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
+
         if(attackToUse == 1):
-            self.attack1(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Giga Impact hit for 45 damage!", True
+            attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Giga Impact missed!\n", False
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 2):
-            self.attack2(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Psychic hit!\n", True
+            attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Psychic missed!\n", False
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 3):
-            self.attack3(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Mega Kick hit!\n", True
+            attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Mega Kick missed!\n", False
+                return "{}".format(attackHit[1])
+
         if(attackToUse == 4):
-            self.attack4(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Ancient Power hit!\n", True
+            attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return "{}".format(attackHit[1])
             else:
-                return "AI Ancient Power missed!\n", False
+                return "{}".format(attackHit[1])
 
     def useHealthPotion(self):
         """

@@ -6,12 +6,3 @@
 *    Availability: https://pygame.org OR https://github.com/pygame/pygame/
 *
 ***************************************************************************************/
-
-/***************************************************************************************
-*    Title: createTextObject()
-*    Author: SentDex (YouTuber) https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ
-*    Date: October 10, 2014
-*    Code Version: Python3 + Pygame 1.9.6
-*    Availability: https://pythonprogramming.net/pygame-start-menu-tutorial/
-*
-***************************************************************************************/
