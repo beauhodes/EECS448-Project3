@@ -1486,7 +1486,7 @@ class FinalBossProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 90):
             self.statBoost = False
             enemyPlayer.doDamage(150)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             print("Giga Impact does 150 damage and stuns the enemy!\n")
             return True, "Giga Impact does 150 damage and stuns the enemy!"
         if(chanceToHit <= 90):
@@ -1528,7 +1528,7 @@ class FinalBossProgmon(Progmon):
         if(self.statBoost == True and chanceToHit <= 75):
             self.statBoost = False
             enemyPlayer.doDamage(120)
-            enemyPlayer.setStunStatus()
+            enemyPlayer.setStunStatus(True)
             print("Mega Kick does 120 damage and stuns the enemy!\n")
             return True, "Mega Kick does 120 damage and stuns the enemy!"
         if(chanceToHit <= 75):
