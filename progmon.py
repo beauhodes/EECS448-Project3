@@ -1358,23 +1358,55 @@ class FinalBossProgmon(Progmon):
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
+
     def getCurrentHealth(self):
         """
-        Gets the currentHealth of FinalBoss
+        Gets the currentHealth of WaterTurtle
         Args:
-            self (object) - FinalBoss
+            self (object) - WaterTurtle
         Returns:
-            FinalBoss's currentHealth
+            WaterTurtle's currentHealth
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of FinalBoss
+        Gets the max health of WaterTurtle
         Args:
-            self (object) - FinalBoss
+            self (object) - WaterTurtle
         Returns:
-            FinalBoss's currentHealth
+            WaterTurtle's max health
         """
         return self.hp
 
@@ -1383,6 +1415,7 @@ class FinalBossProgmon(Progmon):
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
@@ -1397,6 +1430,48 @@ class FinalBossProgmon(Progmon):
             Progmon's stunned
         """
         return self.stunned
+
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
 
     def attack1(self, enemyPlayer):
         """

@@ -724,8 +724,23 @@ def progmonMenu():
         pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
         AITurn()
         controlScreen("fightScreen")
-    #OUT OF ORDER UNTIL FINAL BOSS IS IN if isButtonClickDetected(progSwitch4_RECT):
-        #to do
+    if isButtonClickDetected(progSwitch4_RECT):
+        print("P1 switching to Final Boss")
+        curHp = myP1.getCurrentHealth()
+        curBag = myP1.getBag()
+        curStatBoost = myP1.getStatBoost()
+        curDefenseBoost = myP1.getDefenseBoost()
+        myP1 = FinalBossProgmon()
+        progmonP1 = "FinalBoss"
+        progmonNameP1 = "Final Boss"
+        myP1.setBag(curBag)
+        myP1.setStatBoost(curStatBoost)
+        myP1.setDefenseBoost(curDefenseBoost)
+        if (curHp < myP1.getHp()): #if player had less health than new progmon's max (before the switch), reduce health
+            myP1.setCurrentHealth(curHp)
+        pygame.time.delay(1200) # WAIT BEFORE THE AI GETS TO GO
+        AITurn()
+        controlScreen("fightScreen")
 
 def endScreen():            # unfinish , still need to add variables and statistic
     global winner
@@ -928,10 +943,9 @@ def AITurn():
     Returns:
         None
     """
-    global myP1
     global myAI
-    global progmonNameP1
-    global winner
+    global progmonAI
+    global progmonNameAI
 
     if(myP1.checkAlive() != True):
         print("AI: P1 Progmon fainted")
@@ -1080,10 +1094,11 @@ def AITurn():
                 pygame.time.delay(1200) # WAIT
         else:
             print("AI: will run")
-            txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI will run", miniText, BLACK)
+            txtMsgAI, txtMsgAI_RECT = createTextObject("Player AI ran!", miniText, BLACK)
             txtMsgAI_RECT.center = (displayWidth * .75, displayHeight * .8)
             display.blit(txtMsgAI, txtMsgAI_RECT)
-            #make AI run
+            pygame.time.delay(3000) # WAIT
+            controlScreen("endScreen")
 
 if __name__ == "__main__":
     controlScreen("startScreen")
