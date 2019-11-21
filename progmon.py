@@ -297,7 +297,7 @@ class FireDragonProgmon(Progmon):
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost", "restorePotion"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
         self.stunned = False
         self.statBoost = False
@@ -584,7 +584,18 @@ class FireDragonProgmon(Progmon):
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
             self.bag.remove("healthPotion")
-
+    def useRestorePotion(self):
+        """
+        Uses a restorePotion that heals to max hp
+        Args:
+            self (object) - FireDragon
+        Returns:
+            None
+        """
+        self.current = self.hp
+        self.bag.remove("restorePotion")
+        self.statBoost = False
+        self.defenseBoost = False
     def useStatBoost(self):
         """
         Allows this Progmon to use a statBoost Potion
@@ -647,7 +658,7 @@ class ElectricCatProgmon(Progmon):
         self.hp = 250
         self.currentHealth = 250
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost", "restorePotion"]
         self.attackList = ["Lightning Bolt", "Electric Scratch", "Energy Beam", "Bite"]
         self.stunned = False
         self.statBoost = False
@@ -936,11 +947,24 @@ class ElectricCatProgmon(Progmon):
             print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
 
+    def useRestorePotion(self):
+        """
+        Uses a restorePotion that heals to max hp
+        Args:
+            self (object) - Electric Cat
+        Returns:
+            None
+        """
+        self.current = self.hp
+        self.bag.remove("restorePotion")
+        self.statBoost = False
+        self.defenseBoost = False
+
     def useStatBoost(self):
         """
         Allows this Progmon to use a statBoost Potion
         Args:
-            self (object) - WaterTurtle
+            self (object) - Electric Cat
         Returns:
             None
         """
@@ -995,7 +1019,7 @@ class WaterTurtleProgmon(Progmon):
         self.hp = 200
         self.currentHealth = 200
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost", "restorePotion"]
         self.attackList = ["Aqua Jet", "Aqua Tail", "Water Pulse", "Bubble"]
         self.stunned = False
         self.statBoost = False
@@ -1250,6 +1274,19 @@ class WaterTurtleProgmon(Progmon):
             print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
 
+    def useRestorePotion(self):
+        """
+        Uses a restorePotion that heals to max hp
+        Args:
+            self (object) - WaterTurtle
+        Returns:
+            None
+        """
+        self.current = self.hp
+        self.bag.remove("restorePotion")
+        self.statBoost = False
+        self.defenseBoost = False
+
     def useStatBoost(self):
         """
         Allows this Progmon to use a statBoost Potion
@@ -1311,7 +1348,7 @@ class FinalBossProgmon(Progmon):
         self.hp = 120
         self.currentHealth = 120
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost", "restorePotion"]
         self.attackList = ["Giga Impact", "Psychic", "Mega Kick", "Ancient Power"]
         self.stunned = False
         self.statBoost = False
@@ -1607,6 +1644,19 @@ class FinalBossProgmon(Progmon):
             self.currentHealth + 30
             print("Health Potion healed you for: 30\n")
             self.bag.remove("healthPotion")
+
+    def useRestorePotion(self):
+        """
+        Uses a restorePotion that heals to max hp
+        Args:
+            self (object) - FinalBoss
+        Returns:
+            None
+        """
+        self.current = self.hp
+        self.bag.remove("restorePotion")
+        self.statBoost = False
+        self.defenseBoost = False
 
     def useStatBoost(self):
         """
