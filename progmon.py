@@ -245,6 +245,16 @@ class Progmon(ABC):
         """
         pass
 
+    def useRestorePotion(self):
+        """
+        Uses a restorePotion that heals to max hp
+        Args:
+            self (object)
+        Returns:
+            None
+        """
+        pass
+
     def useStatBoost(self):
         """
         Allows this Progmon to use a statBoost Potion
@@ -600,7 +610,6 @@ class FireDragon(Progmon):
         Returns:
             None
         """
-        self.current = self.hp
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
@@ -971,7 +980,6 @@ class ElectricCat(Progmon):
         Returns:
             None
         """
-        self.current = self.hp
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
@@ -1308,7 +1316,6 @@ class WaterTurtle(Progmon):
         Returns:
             None
         """
-        self.current = self.hp
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
@@ -1680,7 +1687,6 @@ class FinalBoss(Progmon):
         Returns:
             None
         """
-        self.current = self.hp
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False

@@ -525,16 +525,17 @@ def bagMenu():
             gameState = "fightScreen"
             controlScreen(gameState)
 
-    # if "UNKNOWN_ITEM" in myP1.getBag():
-    #     btnItem4 = displayButton("UNKNOWN_ITEM", MINI, BLACK, WIDTH * .6, HEIGHT * .955)
-    #     if mouseClick(btnItem4):
-    #         myP1.useUNKNOWN_ITEM()
-    #         print("Player 1 used a UNKNOWN_ITEM")
-    #         displayText("Player 1 used a UNKNOWN_ITEM!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-    #         pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-    #         AITurn()
-    #         gameState = "fightScreen"
-    #         controlScreen(gameState)
+    if "restorePotion" in myP1.getBag():
+        btnItem4 = displayButton("Restore Potion", MINI, BLACK, WIDTH * .8, HEIGHT * .955)
+        if mouseClick(btnItem4):
+            myP1.useRestorePotion()
+            myP1.setCurrentHealth(myP1.hp)
+            print("Player 1 used a restorePotion")
+            displayText("Player 1 used a Restore Potion!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            AITurn()
+            gameState = "fightScreen"
+            controlScreen(gameState)
 
 def progmonMenu():
     """
