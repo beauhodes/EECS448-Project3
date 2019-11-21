@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
 import random
+from abc import ABC, abstractmethod
 
 class Progmon(ABC):
     """
@@ -56,10 +56,10 @@ class Progmon(ABC):
 
     def setBag(self, newBag):
         """
-        Sets the bag of Progmon
+        Sets the Bag of Progmon
         Args:
             self (object)
-            newBag (array) - what to set bag to
+            newBag (array) - what to fill the Bag with
         Returns:
             None
         """
@@ -67,11 +67,11 @@ class Progmon(ABC):
 
     def getBag(self):
         """
-        Gets the bag list of Progmon
+        Gets the Bag of Progmon
         Args:
             self (object)
         Returns:
-            Progmon's bag
+            Progmon's Bag
         """
         pass
 
@@ -87,10 +87,10 @@ class Progmon(ABC):
 
     def setCurrentHealth(self, newHealth):
         """
-        Sets the current health of Progmon
+        Sets the currentHealth of Progmon
         Args:
             self (object)
-            newHealth (int) - what to set current health to
+            newHealth (int) - what to set currentHealth to
         Returns:
             None
         """
@@ -102,7 +102,7 @@ class Progmon(ABC):
         Args:
             self (object)
         Returns:
-            Progmon's hp
+            Progmon's HP
         """
         pass
 
@@ -123,7 +123,7 @@ class Progmon(ABC):
         Args:
             self (object)
         Returns:
-            Progmon's stunned
+            (bool) - True if Progmon is stunned, otherwise False
         """
         pass
 
@@ -483,7 +483,7 @@ class FireDragon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(90)
             enemyPlayer.setStunStatus(True)
-            return True, "Roar did 90 damage and stunned enemy!"
+            return True, "It did 90 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
             return True, "Roar did 80 damage!"
@@ -520,7 +520,7 @@ class FireDragon(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(150)
             enemyPlayer.setStunStatus(True)
-            return True, "Fire Breath did 150 damage and stunned enemy!"
+            return True, "It did 150 damage and stunned the enemy!"
         elif(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
             return True, "Fire Breath did 140 damage!"
@@ -596,12 +596,13 @@ class FireDragon(Progmon):
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healing Fire Dragon for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
         else:
             self.currentHealth + 30
-            print("Health potion healed you for: 30\n")
+            print("Health Potion healing Fire Dragon for: 30HP")
             self.bag.remove("healthPotion")
+
     def useRestorePotion(self):
         """
         Uses a restorePotion that heals to max hp
@@ -610,9 +611,11 @@ class FireDragon(Progmon):
         Returns:
             None
         """
+        print("Restore Potion has healed Fire Dragon to full health! All Boosts deactivated!")
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
+
     def useStatBoost(self):
         """
         Allows this Progmon to use a statBoost Potion
@@ -622,7 +625,7 @@ class FireDragon(Progmon):
             None
         """
         self.statBoost = True
-        print("Stat Boost for Fire Dragon is activated!\n You will do +10 damage and have a chance to stun!\n")
+        print("Stat Boost for Fire Dragon activated! +10 damage and chance to stun on the next attack!")
         self.bag.remove("statBoost")
 
     def useDefenseBoost(self):
@@ -634,7 +637,7 @@ class FireDragon(Progmon):
             None
         """
         self.defenseBoost = True
-        print("Defense boost for Fire Dragon is now activated!\n You will take 10 less damage on the next attack.\n")
+        print("Defense Boost for Fire Dragon activated! Fire Dragon will take 10 less damage on the next attack!")
         self.bag.remove("defenseBoost")
 
     def getDefenseBoost(self):
@@ -851,7 +854,7 @@ class ElectricCat(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(100)
             enemyPlayer.setStunStatus(True)
-            return True, "Lightning Bolt did 100 damage and stunned enemy!"
+            return True, "It did 100 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(90)
             return True, "Lightning Bolt did 90 damage!"
@@ -888,7 +891,7 @@ class ElectricCat(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(120)
             enemyPlayer.setStunStatus(True)
-            return True, "Energy Beam did 120 damage and stunned enemy!"
+            return True, "It did 120 damage and stunned the enemy!"
         elif(chanceToHit <= 40):
             enemyPlayer.doDamage(110)
             return True, "Energy Beam did 110 damage!"
@@ -964,12 +967,11 @@ class ElectricCat(Progmon):
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health Potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healing Electric Cat for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
-
         else:
             self.currentHealth + 30
-            print("Health Potion healed you for: 30\n")
+            print("Health Potion healing Electric Cat for: 30HP")
             self.bag.remove("healthPotion")
 
     def useRestorePotion(self):
@@ -980,6 +982,7 @@ class ElectricCat(Progmon):
         Returns:
             None
         """
+        print("Restore Potion has healed Electric Cat to full health! All Boosts deactivated!")
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
@@ -993,7 +996,7 @@ class ElectricCat(Progmon):
             None
         """
         self.statBoost = True
-        print("Stat Boost for Electric Cat is activated!\n You will do +10 damage and have a chance to stun!\n")
+        print("Stat Boost for Electric Cat activated! +10 damage and chance to stun on the next attack!")
         self.bag.remove("statBoost")
 
     def useDefenseBoost(self):
@@ -1005,7 +1008,7 @@ class ElectricCat(Progmon):
             None
         """
         self.defenseBoost = True
-        print("Defense boost for Electric Cat is now activated!\n You will take 10 less damage on the next attack.\n")
+        print("Defense Boost for Electric Cat activated! Electric Cat will take 10 less damage on the next attack!")
         self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
@@ -1211,7 +1214,7 @@ class WaterTurtle(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(55)
             enemyPlayer.setStunStatus(True)
-            return True, "Aqua Jet did 55 damage and stunned enemy!"
+            return True, "It did 55 damage and stunned the enemy!"
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
             return True, "Aqua Jet did 45 damage!"
@@ -1232,7 +1235,7 @@ class WaterTurtle(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(80)
             enemyPlayer.setStunStatus(True)
-            return True, "Water Pulse did 80 damage and stunned enemy!"
+            return True, "It did 80 damage and stunned the enemy!"
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
             return True, "Water Pulse did 70 damage!"
@@ -1300,12 +1303,11 @@ class WaterTurtle(Progmon):
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health Potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healing Water Turtle for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
-
         else:
             self.currentHealth + 30
-            print("Health Potion healed you for: 30\n")
+            print("Health Potion healing Water Turtle for: 30HP")
             self.bag.remove("healthPotion")
 
     def useRestorePotion(self):
@@ -1316,6 +1318,7 @@ class WaterTurtle(Progmon):
         Returns:
             None
         """
+        print("Restore Potion has healed Water Turtle to full health! All Boosts deactivated!")
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
@@ -1329,7 +1332,7 @@ class WaterTurtle(Progmon):
             None
         """
         self.statBoost = True
-        print("Stat Boost for Water Turtle is activated!\n You will do +10 damage and have a chance to stun!\n")
+        print("Stat Boost for Water Turtle activated! +10 damage and chance to stun on the next attack!")
         self.bag.remove("statBoost")
 
     def useDefenseBoost(self):
@@ -1341,7 +1344,7 @@ class WaterTurtle(Progmon):
             None
         """
         self.defenseBoost = True
-        print("Defense boost for Water Turtle is now activated!\n You will take 10 less damage on the next attack.\n")
+        print("Defense Boost for Water Turtle activated! Water Turtle will take 10 less damage on the next attack!")
         self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
@@ -1557,7 +1560,7 @@ class FinalBoss(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(160)
             enemyPlayer.setStunStatus(True)
-            return True, "Giga Impact did 160 damage and stunned enemy!"
+            return True, "It did 160 damage and stunned the enemy!"
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(150)
             return True, "Giga Impact did 150 damage!"
@@ -1594,7 +1597,7 @@ class FinalBoss(Progmon):
             self.statBoost = False
             enemyPlayer.doDamage(130)
             enemyPlayer.setStunStatus(True)
-            return True, "Mega Kick did 130 damage and stunned enemy!"
+            return True, "It did 130 damage and stunned the enemy!"
         if(chanceToHit <= 75):
             enemyPlayer.doDamage(120)
             return True, "Mega Kick did 120 damage!"
@@ -1671,12 +1674,11 @@ class FinalBoss(Progmon):
         if(self.currentHealth+30 > self.hp):
             hpToAdd = self.hp - self.currentHealth
             self.currentHealth + hpToAdd
-            print("Health Potion healed you for:", hpToAdd, "\n")
+            print("Health Potion healing Final Boss for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
-
         else:
             self.currentHealth + 30
-            print("Health Potion healed you for: 30\n")
+            print("Health Potion healing Final Boss for: 30HP")
             self.bag.remove("healthPotion")
 
     def useRestorePotion(self):
@@ -1687,6 +1689,7 @@ class FinalBoss(Progmon):
         Returns:
             None
         """
+        print("Restore Potion has healed Final Boss to full health! All Boosts deactivated!")
         self.bag.remove("restorePotion")
         self.statBoost = False
         self.defenseBoost = False
@@ -1700,7 +1703,7 @@ class FinalBoss(Progmon):
             None
         """
         self.statBoost = True
-        print("Stat Boost for Final Boss is activated!\n You will do +10 damage and have a chance to stun!\n")
+        print("Stat Boost for Final Boss activated! +10 damage and chance to stun on the next attack!")
         self.bag.remove("statBoost")
 
     def useDefenseBoost(self):
@@ -1712,7 +1715,7 @@ class FinalBoss(Progmon):
             None
         """
         self.defenseBoost = True
-        print("Defense boost for Final Boss is now activated!\n You will take 10 less damage on the next attack.\n")
+        print("Defense Boost for Final Boss activated! Final Boss will take 10 less damage on the next attack!")
         self.bag.remove("defenseBoost")
 
     def bagEmpty(self):

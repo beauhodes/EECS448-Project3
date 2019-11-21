@@ -1,14 +1,19 @@
 """
 BUG LIST:
-    > When a Progmon faints, their HealthBar and Health does NOT update to display 0 HP
-    > (???) AI is getting to attack after Player 1 clicks on PROGMON button
-    > Are game delays too long?
-    > Format Player 1 Messages
-    > Format Player AI Messages
-    > Fix return statement/print output for Item Usage
-        --> Health Potion healed ProgmonName for 30 HP.
-        --> +10 outgoing damage and change to stun enemy.
-        --> -10 incoming damage on the next attack.
+    > When a Progmon faints, their Health and Health Bar does not update to display 0 HP
+    > "Player 1's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
+    > "Player AI's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
+
+TODO LIST:
+    > Create End Screen
+        --> Sprites on End Screen should be the large versions
+    > Add hit markers
+    > Add sound effects
+    > Create a Test Suite
+        --> Update the Bug List
+    > Clean up code in main.py and progmon.py
+    > Document code in main.py and progmon.py
+        --> Copy & Paste Progmon classes into their own files
 """
 import random
 import pygame
@@ -326,9 +331,9 @@ def fightScreen():
                 gameState = "bagMenu"
                 controlScreen(gameState)
             else:
-                print("Player 1's Bag is empty!")
+                print("Your Bag is empty!")
                 displayText("Your Bag is empty!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(1600) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
                 gameState = "fightScreen"
                 controlScreen(gameState)
         elif mouseClick(btnProgmon):
@@ -337,10 +342,10 @@ def fightScreen():
         elif mouseClick(btnQuit):
             quitGame()
     elif myP1.getStunStatus() == True:
-        displayText(("{} has been stunned by {}!".format(progmonNameP1, progmonNameAI)), MINI, BLACK, WIDTH * .25, HEIGHT * .75)
+        displayText(("{} has stunned {}!".format(progmonNameAI, progmonNameP1)), MINI, BLACK, WIDTH * .25, HEIGHT * .75)
         myP1.stunned = False
-        print("{} has been stunned by {}!".format(progmonNameP1, progmonNameAI))
-        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        print("{} has stunned {}!".format(progmonNameAI, progmonNameP1))
+        pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         AITurn()
 
 def fightMenu():
@@ -373,7 +378,7 @@ def fightMenu():
         winner = "Player 1"
         print("Player AI's {} has fainted. You win!".format(progmonNameAI))
         displayText(("Player AI's {} has fainted. You win!".format(progmonNameAI)), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
         controlScreen(gameState)
     else:
@@ -391,17 +396,17 @@ def fightMenu():
             attackHit = myP1.attack1(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[0])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
                 AITurn()
@@ -413,17 +418,17 @@ def fightMenu():
             attackHit = myP1.attack2(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[1])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
                 AITurn()
@@ -435,17 +440,17 @@ def fightMenu():
             attackHit = myP1.attack3(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[2])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
                 AITurn()
@@ -457,17 +462,17 @@ def fightMenu():
             attackHit = myP1.attack4(myAI) # ATTACK HIT / MISS TRACKER
             displayText(("{} used {}!".format(progmonNameP1, attackList[3])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             else:
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
-                pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+                pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
             if myAI.checkAlive():
                 AITurn()
@@ -489,16 +494,16 @@ def bagMenu():
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1 MESSAGES
 
     # DISPLAY TEXT OBJECTS
-    displayText("What item would you like to use?", MINI, BLACK, WIDTH * .25, HEIGHT * .75)
+    displayText("Which item would you like to use?", MINI, BLACK, WIDTH * .25, HEIGHT * .75)
 
     # DISPLAY BAG MENU BUTTONS
     if "healthPotion" in myP1.getBag():
         btnItem1 = displayButton("Health Potion", MINI, BLACK, WIDTH * .2, HEIGHT * .955)
         if mouseClick(btnItem1):
-            myP1.useHealthPotion()
             print("Player 1 used a Health Potion!")
+            myP1.useHealthPotion()
             displayText("Player 1 used a Health Potion!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
             controlScreen(gameState)
@@ -506,10 +511,10 @@ def bagMenu():
     if "statBoost" in myP1.getBag():
         btnItem2 = displayButton("Stat Boost", MINI, BLACK, WIDTH * .4, HEIGHT * .955)
         if mouseClick(btnItem2):
-            myP1.useStatBoost()
             print("Player 1 used a Stat Boost!")
+            myP1.useStatBoost()
             displayText("Player 1 used a Stat Boost!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
             controlScreen(gameState)
@@ -517,10 +522,10 @@ def bagMenu():
     if "defenseBoost" in myP1.getBag():
         btnItem3 = displayButton("Defense Boost", MINI, BLACK, WIDTH * .6, HEIGHT * .955)
         if mouseClick(btnItem3):
-            myP1.useDefenseBoost()
             print("Player 1 used a Defense Boost")
+            myP1.useDefenseBoost()
             displayText("Player 1 used a Defense Boost!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
             controlScreen(gameState)
@@ -528,11 +533,11 @@ def bagMenu():
     if "restorePotion" in myP1.getBag():
         btnItem4 = displayButton("Restore Potion", MINI, BLACK, WIDTH * .8, HEIGHT * .955)
         if mouseClick(btnItem4):
+            print("Player 1 used a Restore Potion!")
             myP1.useRestorePotion()
             myP1.setCurrentHealth(myP1.hp)
-            print("Player 1 used a restorePotion")
             displayText("Player 1 used a Restore Potion!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-            pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
             controlScreen(gameState)
@@ -763,7 +768,7 @@ def AITurn():
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         displayText(("Player 1's {} has fainted. You lose!".format(progmonNameP1)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         print("Player 1's {} has fainted. Player AI wins!".format(progmonNameP1))
-        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
         controlScreen(gameState)
 
@@ -775,11 +780,13 @@ def AITurn():
         myAI.stunned = False
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         displayText(("{} has been stunned by {}!".format(progmonNameAI, progmonNameP1)), MINI, BLACK, WIDTH * .75, HEIGHT * .75)
-        pygame.time.delay(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+        pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
     elif(P1critical <= .2): #if P1 is critical, always attack
         messageToShow = myAI.AIAttack(myP1)
+        print("{} attacking...".format(progmonNameAI))
+        displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         print("{}".format(messageToShow))
-        displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+        displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
     elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #if AI is critical but P1 is not, use healing potion (if AI has it)
         myAI.useHealthPotion()
         print("Player AI used a Health Potion!")
@@ -789,23 +796,29 @@ def AITurn():
         if(percentage <= 20):
             print("Player AI ran!")
             displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            pygame.time.delay(3000) # WAIT
+            pygame.time.wait(3000) # WAIT
             gameState = "endScreen"
             controlScreen(gameState)
         else:
-            messageToShow = myAI.AIAttack(myP1)
+            print("{} attacking...".format(progmonNameAI))
+            displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             print("{}".format(messageToShow))
-            displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+            displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
     else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
-        print("AI... WORK IN PROGRESS")
+        print("\n[WORK IN PROGRESS]\n")
         percentage = random.randint(1, 101)
         if(percentage <= 70):
             messageToShow = myAI.AIAttack(myP1)
+            print("{} attacking...".format(progmonNameAI))
+            displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             print("{}".format(messageToShow))
-            displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+            displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
         elif(percentage <= 90):
             if(myAI.bagEmpty() == True): #attack
+                print("Player AI's Bag is empty!")
                 messageToShow = myAI.AIAttack(myP1)
+                print("{} attacking!".format(progmonNameAI))
+                displayText(("{} attacking!".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 print("{}".format(messageToShow))
                 displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             else:
@@ -889,9 +902,9 @@ def AITurn():
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
                 pygame.time.delay(1200) # WAIT
         else:
-            print("Player AI ran!")
-            displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            pygame.time.delay(3000) # WAIT
+            print("Player AI ran away!")
+            displayText("Player AI ran away!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+            pygame.time.wait(3000) # WAIT
             gameState = "endScreen"
             controlScreen(gameState)
 
