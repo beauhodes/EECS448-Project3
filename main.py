@@ -7,8 +7,8 @@ BUG LIST:
 TODO LIST:
     > Create End Screen
         --> Sprites on End Screen should be the large versions
-    > Add hit markers
     > Add sound effects
+    > Adjust positioning of Hit Marker sprite for both Players
     > Create a Test Suite
         --> Update the Bug List
     > Clean up code in main.py and progmon.py
@@ -74,7 +74,7 @@ def quitGame():
     Returns:
         None
     """
-    print("Quitting...")
+    print("Quitting...\n")
     pygame.quit()
     quit()
 
@@ -398,6 +398,7 @@ def fightMenu():
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
+                displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
@@ -420,6 +421,7 @@ def fightMenu():
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
+                displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
@@ -442,6 +444,7 @@ def fightMenu():
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
+                displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
@@ -464,6 +467,7 @@ def fightMenu():
             totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             if attackHit[0] == True:
+                displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
                 print("{}".format(attackHit[1]))
                 displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
                 totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
@@ -709,6 +713,7 @@ def endScreen():            # unfinish , still need to add variables and statist
 
     # TRACK BUTTONS
     if mouseClick(btnRestart):
+        print("\n[RETURNING TO START SCREEN]\n")
         gameState = "startScreen"
         controlScreen(gameState)
 
@@ -802,8 +807,10 @@ def AITurn():
         else:
             print("{} attacking...".format(progmonNameAI))
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            print("{}".format(messageToShow))
-            displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
+            if messageToShow[0] == True:
+                displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+            print("{}".format(messageToShow[1]))
+            displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
         print("\n[WORK IN PROGRESS]\n")
         percentage = random.randint(1, 101)
@@ -811,16 +818,20 @@ def AITurn():
             messageToShow = myAI.AIAttack(myP1)
             print("{} attacking...".format(progmonNameAI))
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            print("{}".format(messageToShow))
-            displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
+            if messageToShow[0] == True:
+                displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+            print("{}".format(messageToShow[1]))
+            displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
         elif(percentage <= 90):
             if(myAI.bagEmpty() == True): #attack
                 print("Player AI's Bag is empty!")
                 messageToShow = myAI.AIAttack(myP1)
                 print("{} attacking!".format(progmonNameAI))
                 displayText(("{} attacking!".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-                print("{}".format(messageToShow))
-                displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+                if messageToShow[0] == True:
+                    displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+                print("{}".format(messageToShow[1]))
+                displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
             else:
                 if("statBoost" in myAI.getBag()):
                     print("Player AI used a Stat Boost!")
