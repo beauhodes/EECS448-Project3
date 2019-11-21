@@ -1,6 +1,6 @@
 import random
 
-class FireDragon:
+class FireDragon(self):
     """
     Class for the Fire Dragon Progmon
     """
@@ -16,7 +16,7 @@ class FireDragon:
         self.hp = 300
         self.currentHealth = 300
         self.alive = True
-        self.bag = ["healthPotion"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
         self.attackList = ["Roar", "Claw Swipe", "Fire Breath", "Tail Whip"]
         self.stunned = False
         self.statBoost = False
@@ -63,6 +63,27 @@ class FireDragon:
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of FireDragon
@@ -73,25 +94,37 @@ class FireDragon:
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of FireDragon
+        Gets the max health of FireDragon
         Args:
             self (object) - FireDragon
         Returns:
-            FireDragon's currentHealth
+            FireDragon's max health
         """
         return self.hp
 
-    def setStunStatus(self):
+    def setStunStatus(self, setter):
         """
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
-        self.stunned = True
+        self.stunned = setter
 
     def getStunStatus(self):
         """
@@ -102,6 +135,48 @@ class FireDragon:
             Progmon's stunned
         """
         return self.stunned
+
+    def setDefenseBoost(self, setter):
+        """
+        Sets the defense boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set defense boost to
+        Returns:
+            None
+        """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
 
     def attack1(self, enemyPlayer): # 80 damage, 45 accuracy
         """
@@ -116,16 +191,13 @@ class FireDragon:
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
             enemyPlayer.doDamage(80)
-            enemyPlayer.setStunStatus()
-            print("Fire Dragon does 80 damage and stuns the enemy!\n")
-            return True
+            enemyPlayer.setStunStatus(True)
+            return True, "Roar did 80 damage and stunned the enemy!"
         elif(chanceToHit <= 45):
             enemyPlayer.doDamage(80)
-            print("Roar did 80 damage!\n")
-            return True
+            return True, "Roar did 80 damage!"
         else:
-            print("Roar missed!\n")
-            return False
+            return False, "Roar missed!"
 
     def attack2(self, enemyPlayer): # 35 damage, 90 accuracy
         """
@@ -139,11 +211,9 @@ class FireDragon:
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(35)
-            print("Claw Swipe did 35 damage!\n")
-            return True
+            return True, "Claw Swipe did 35 damage!"
         else:
-            print("Claw Swipe missed!\n")
-            return False
+            return False, "Claw Swipe missed!"
 
     def attack3(self, enemyPlayer): # 140 damage, 30 accuracy
         """
@@ -157,17 +227,14 @@ class FireDragon:
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 30):
             self.statBoost = False
-            enemyPlayer.doDamage(140)
-            enemyPlayer.setStunStatus()
-            print("Fire Dragon does 140 damage and stuns the enemy!\n")
-            return True
+            enemyPlayer.doDamage(150)
+            enemyPlayer.setStunStatus(True)
+            return True, "Fire Breath did 150 damage and stunned the enemy!"
         elif(chanceToHit <= 30):
             enemyPlayer.doDamage(140)
-            print("Fire Breath did 140 damage!\n")
-            return True
+            return True, "Fire Breath did 140 damage!"
         else:
-            print("Fire Breath missed!\n")
-            return False
+            return False, "Fire Breath missed!"
 
     def attack4(self, enemyPlayer): # 20 damage, 100 accuracy
         """
@@ -179,8 +246,7 @@ class FireDragon:
             None
         """
         enemyPlayer.doDamage(20)
-        print("Tail Whip did 20 damage!\n")
-        return True
+        return True, "Tail Whip did 20 damage!"
 
     def AIAttack(self, enemyPlayer):
         """
@@ -190,7 +256,6 @@ class FireDragon:
             enemyPlayer (object) - enemy Progmon
         Returns:
             (string) - the attack that was used by the AI
-            (bool) - True if the attack hit, otherwise False
         """
         #randomly choose one of FireDragon's attacks and then use it
         #returns a string of which attack was used so that user can know what AI did/if it was successful
@@ -199,27 +264,27 @@ class FireDragon:
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "Roar", True
+                return "AI Roar hit!"
             else:
-                return "Roar", False
+                return "AI Roar missed!"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "ClawSwipe", True
+                return "AI Claw Swipe hit!"
             else:
-                return "ClawSwipe", False
+                return "AI Claw Swipe missed!"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "FireBreath", True
+                return "AI Fire Breath hit!"
             else:
-                return "FireBreath", False
+                return "AI Fire Breath missed!"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "TailWhip", True
+                return "AI Tail Whip hit!"
             else:
-                return "TailWhip", False
+                return "AI Tail Whip missed!"
 
     def useHealthPotion(self):
         """
@@ -234,7 +299,6 @@ class FireDragon:
             self.currentHealth + hpToAdd
             print("Health potion healed you for:", hpToAdd, "\n")
             self.bag.remove("healthPotion")
-
         else:
             self.currentHealth + 30
             print("Health potion healed you for: 30\n")
@@ -263,6 +327,9 @@ class FireDragon:
         self.defenseBoost = True
         print("Defense boost for Fire Dragon is now activated!\n You will take 10 less damage on the next attack.\n")
         self.bag.remove("defenseBoost")
+
+    def getDefenseBoost(self):
+        return self.defenseBoost
 
     def bagEmpty(self):
         """

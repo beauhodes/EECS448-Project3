@@ -1,8 +1,8 @@
 import random
 
-class WaterTurtle:
+class WaterTurtle():
     """
-    Class for the Water Turtle Progmon
+    Class for the new Water Turtle Progmon
     """
     def __init__(self):
         """
@@ -63,6 +63,27 @@ class WaterTurtle:
         """
         return self.attackList
 
+    def setBag(self, newBag):
+        """
+        Sets the bag of Progmon
+        Args:
+            self (object)
+            newBag (array) - what to set bag to
+        Returns:
+            None
+        """
+        self.bag = newBag
+
+    def getBag(self):
+        """
+        Gets the bag list of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's bag
+        """
+        return self.bag
+
     def getCurrentHealth(self):
         """
         Gets the currentHealth of WaterTurtle
@@ -73,25 +94,37 @@ class WaterTurtle:
         """
         return self.currentHealth
 
+    def setCurrentHealth(self, newHealth):
+        """
+        Sets the current health of Progmon
+        Args:
+            self (object)
+            newHealth (int) - what to set current health to
+        Returns:
+            None
+        """
+        self.currentHealth = newHealth
+
     def getHp(self):
         """
-        Gets the currentHealth of WaterTurtle
+        Gets the max health of WaterTurtle
         Args:
             self (object) - WaterTurtle
         Returns:
-            WaterTurtle's currentHealth
+            WaterTurtle's max health
         """
         return self.hp
 
-    def setStunStatus(self):
+    def setStunStatus(self, setter):
         """
         Sets the stun status of Progmon
         Args:
             self (object)
+            setter (boolean) - what to set stunned to
         Returns:
             None
         """
-        self.stunned = True
+        self.stunned = setter
 
     def getStunStatus(self):
         """
@@ -103,86 +136,87 @@ class WaterTurtle:
         """
         return self.stunned
 
-    def attack1(self):
+    def setDefenseBoost(self, setter):
         """
-        Attacks enemy Progmon with Aqua Jet
+        Sets the defense boost of Progmon
         Args:
-            self (object) - WaterTurtle
-            enemyPlayer (object) - enemy Progmon
+            self (object)
+            setter (boolean) - what to set defense boost to
         Returns:
             None
         """
+        self.defenseBoost = setter
+
+    def getDefenseBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.defenseBoost
+
+    def setStatBoost(self, setter):
+        """
+        Sets the stat boost of Progmon
+        Args:
+            self (object)
+            setter (boolean) - what to set stat boost to
+        Returns:
+            None
+        """
+        self.statBoost = setter
+
+    def getStatBoost(self):
+        """
+        Gets the defense boost of Progmon
+        Args:
+            self (object)
+        Returns:
+            Progmon's defense boost
+        """
+        return self.statBoost
+
+    def attack1(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
             enemyPlayer.doDamage(55)
-            enemyPlayer.setStunStatus()
-            print("Water Turtle does 55 damage and stuns the enemy!\n")
-            return True
+            enemyPlayer.setStunStatus(True)
+            return True, "Aqua Jet did 55 damage and stunned the enemy!"
         if(chanceToHit <= 70):
             enemyPlayer.doDamage(45)
-            print("Aqua Jet did 45 damage!\n")
-            return True
+            return True, "Aqua Jet did 45 damage!"
         else:
-            print("Aqua Jet missed!\n")
-            return False
+            return False, "Aqua Jet missed!"
 
-    def attack2(self):
-        """
-        Attacks enemy Progmon with Aqua Tail
-        Args:
-            self (object) - WaterTurtle
-            enemyPlayer (object) - enemy Progmon
-        Returns:
-            None
-        """
+    def attack2(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
-            print("Aqua Tail did 50 damage!\n")
-            return True
+            return True, "Aqua Tail did 50 damage!"
         else:
-            print("Aqua Tail missed!\n")
-            return False
+            return False, "Aqua Tail missed!"
 
-    def attack3(self):
-        """
-        Attacks enemy Progmon with Water Pulse
-        Args:
-            self (object) - WaterTurtle
-            enemyPlayer (object) - enemy Progmon
-        Returns:
-            None
-        """
+    def attack3(self, enemyPlayer):
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
             enemyPlayer.doDamage(80)
-            enemyPlayer.setStunStatus()
-            print("Water Turtle does 80 damage and stuns the enemy!\n")
-            return True
+            enemyPlayer.setStunStatus(True)
+            return True, "Water Pulse did 80 damage and stunned the enemy!"
         if(chanceToHit <= 48):
             enemyPlayer.doDamage(70)
-            print("Water Pulse did 70 damage!\n")
-            return True
+            return True, "Water Pulse did 70 damage!"
         else:
-            print("Water Pulse missed!\n")
-            return False
+            return False, "Water Pulse missed!"
 
-    def attack4(self):
-        """
-        Attacks enemy Progmon with Bubble
-        Args:
-            self (object) - WaterTurtle
-            enemyPlayer (object) - enemy Progmon
-        Returns:
-            None
-        """
+    def attack4(self, enemyPlayer):
         enemyPlayer.doDamage(12)
-        print("Bubble did 12 damage!\n")
-        return True
+        return True, "Bubble did 12 damage!"
 
-    def AIAttack(self, enemy):
+    def AIAttack(self, enemyPlayer):
         """
         Attacks enemy Progmon with a randomly chosen attack
         Args:
@@ -190,34 +224,33 @@ class WaterTurtle:
             enemyPlayer (object) - enemy Progmon
         Returns:
             (string) - the attack that was used by the AI
-            (bool) - True if the attack hit, otherwise False
         """
         attackToUse = random.randint(1, 5)
         tempHealth = enemyPlayer.getCurrentHealth()
         if(attackToUse == 1):
             self.attack1(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Jet hit for 45 damage!", True
+                return "AI Aqua Jet hit for 45 damage!"
             else:
-                return "AI Aqua Jet missed!\n", False
+                return "AI Aqua Jet missed!"
         if(attackToUse == 2):
             self.attack2(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Aqua Tail hit!\n", True
+                return "AI Aqua Tail hit!"
             else:
-                return "AI Aqua Tail missed!\n", False
+                return "AI Aqua Tail missed!"
         if(attackToUse == 3):
             self.attack3(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Water Pulse hit!\n", True
+                return "AI Water Pulse hit!"
             else:
-                return "AI Water Pulse missed!\n", False
+                return "AI Water Pulse missed!"
         if(attackToUse == 4):
             self.attack4(enemyPlayer)
             if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Bubble hit!\n", True
+                return "AI Bubble hit!"
             else:
-                return "AI Bubble missed!\n", False
+                return "AI Bubble missed!"
 
     def useHealthPotion(self):
         """
