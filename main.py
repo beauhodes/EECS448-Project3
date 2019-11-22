@@ -3,6 +3,7 @@ BUG LIST:
     > (BEAU) When a Progmon faints, their Health and Health Bar does not update to display 0 HP
     > "Player 1's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
     > "Player AI's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
+    > When Defense Boost is active for either Player, the amount of damage that is printed to Terminal is not taking into account the -10 damage from the Defense Boost
 
 TODO LIST:
     > (QUI) Create End Screen
