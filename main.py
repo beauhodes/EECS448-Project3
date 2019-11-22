@@ -1,19 +1,31 @@
 """
 BUG LIST:
-    > When a Progmon faints, their Health and Health Bar does not update to display 0 HP
+    > (BEAU) When a Progmon faints, their Health and Health Bar does not update to display 0 HP
     > "Player 1's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
     > "Player AI's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
 
 TODO LIST:
-    > Create End Screen
+    > (QUI) Create End Screen
         --> Sprites on End Screen should be the large versions
-    > Add sound effects
-    > Adjust positioning of Hit Marker sprite for both Players
-    > Create a Test Suite
+    > (CAMERON) Add sound effects
+    > (ROB) Adjust positioning of Hit Marker sprite for both Players
+    > (ROB/BEAU) Create a Test Suite
+        --> create testSuite.py (should be similar to EECS448 LAB06 - TESTING LAB)
+            --> from main import *
+                --> TO RUN: python3 testSuite.py
+                    --> Output our tests to Terminal
         --> Update the Bug List
-    > Clean up code in main.py and progmon.py
-    > Document code in main.py and progmon.py
+    > (ROB) Clean up code in main.py and progmon.py
+    > (ROB) Document code in main.py and progmon.py
         --> Copy & Paste Progmon classes into their own files
+    > (BEAU) Use Sphinx documentation generator to create HTML files
+    > (COLE) User Manual
+    > (COLE) Gantt Chart
+    > (ROB) Meeting Logs
+    > (QUI) UML Diagrams
+    > (CAMERON) Product Backlog + Sprint Backlog
+    > Deployment Plan
+    > Maintenance Plan
 """
 import random
 import pygame
