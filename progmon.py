@@ -558,33 +558,33 @@ class FireDragon(Progmon):
             attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 2):
             attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 3):
             attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 4):
             attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
     def useHealthPotion(self):
         """
@@ -929,33 +929,33 @@ class ElectricCat(Progmon):
             attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 2):
             attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 3):
             attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 4):
             attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
     def useHealthPotion(self):
         """
@@ -1265,33 +1265,33 @@ class WaterTurtle(Progmon):
             attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 2):
             attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 3):
             attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 4):
             attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
     def useHealthPotion(self):
         """
@@ -1636,33 +1636,33 @@ class FinalBoss(Progmon):
             attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 2):
             attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 3):
             attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
         if(attackToUse == 4):
             attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
             if attackHit[0] == True:
                 if(tempHealth != enemyPlayer.getCurrentHealth()):
-                    return True, "{}".format(attackHit[1])
+                    return True, ("{}".format(attackHit[1]))
             else:
-                return False, "{}".format(attackHit[1])
+                return False, ("{}".format(attackHit[1]))
 
     def useHealthPotion(self):
         """
