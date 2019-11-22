@@ -810,7 +810,7 @@ def AITurn():
         print("Player AI used a Health Potion!")
         displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 20% chance to run (else attack)
-        percentage = random.randint(1, 101)
+        percentage = random.randint(1, 100)
         if(percentage <= 20):
             print("Player AI ran!")
             displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
@@ -826,7 +826,7 @@ def AITurn():
             displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
         print("\n[WORK IN PROGRESS]\n")
-        percentage = random.randint(1, 101)
+        percentage = random.randint(1, 100)
         if(percentage <= 70):
             messageToShow = myAI.AIAttack(myP1)
             print("{} attacking...".format(progmonNameAI))
@@ -861,7 +861,7 @@ def AITurn():
         elif(percentage <= 97):
             print("Player AI is switching their Progmon")
             displayText("Player AI is switching their Progmon", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            switchControl = random.randint(1,4)
+            switchControl = random.randint(1, 4)
             if(switchControl == 1): #switch to electric cat (or, if currently electric cat, then final boss)
                 curHp = myAI.getCurrentHealth()
                 curBag = myAI.getBag()
