@@ -478,7 +478,7 @@ class FireDragon(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
             enemyPlayer.doDamage(90)
@@ -499,7 +499,7 @@ class FireDragon(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(35)
             return True, "Claw Swipe did 35 damage!"
@@ -515,7 +515,7 @@ class FireDragon(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 30):
             self.statBoost = False
             enemyPlayer.doDamage(150)
@@ -850,7 +850,7 @@ class ElectricCat(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 45):
             self.statBoost = False
             enemyPlayer.doDamage(100)
@@ -871,7 +871,7 @@ class ElectricCat(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(40)
             return True, "Electric Scratch did 40 damage!"
@@ -887,7 +887,7 @@ class ElectricCat(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 40):
             self.statBoost = False
             enemyPlayer.doDamage(120)
@@ -1210,7 +1210,7 @@ class WaterTurtle(Progmon):
         return self.statBoost
 
     def attack1(self, enemyPlayer):
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
             enemyPlayer.doDamage(55)
@@ -1223,7 +1223,7 @@ class WaterTurtle(Progmon):
             return False, "Aqua Jet missed!"
 
     def attack2(self, enemyPlayer):
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
             return True, "Aqua Tail did 50 damage!"
@@ -1231,7 +1231,7 @@ class WaterTurtle(Progmon):
             return False, "Aqua Tail missed!"
 
     def attack3(self, enemyPlayer):
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
             enemyPlayer.doDamage(80)
@@ -1556,7 +1556,7 @@ class FinalBoss(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 90):
             self.statBoost = False
             enemyPlayer.doDamage(160)
@@ -1577,7 +1577,7 @@ class FinalBoss(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(chanceToHit <= 99):
             enemyPlayer.doDamage(90)
             return True, "Psychic did 90 damage!"
@@ -1593,7 +1593,7 @@ class FinalBoss(Progmon):
         Returns:
             None
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 75):
             self.statBoost = False
             enemyPlayer.doDamage(130)
