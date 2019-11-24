@@ -329,6 +329,7 @@ class FireDragon(Progmon):
             self.currentHealth = self.currentHealth - damageDone
 
         if(self.currentHealth <= 0):
+            self.currentHealth = 0
             self.alive = False
 
     def checkAlive(self):
@@ -703,6 +704,7 @@ class ElectricCat(Progmon):
             self.currentHealth = self.currentHealth - damageDone
 
         if(self.currentHealth <= 0):
+            self.currentHealth = 0
             self.alive = False
 
     def checkAlive(self):
@@ -1073,6 +1075,7 @@ class WaterTurtle(Progmon):
             self.currentHealth = self.currentHealth - damageDone
 
         if(self.currentHealth <= 0):
+            self.currentHealth = 0
             self.alive = False
 
     def checkAlive(self):
@@ -1413,6 +1416,7 @@ class FinalBoss(Progmon):
             self.currentHealth = self.currentHealth - damageDone
 
         if(self.currentHealth <= 0):
+            self.currentHealth = 0
             self.alive = False
 
     def checkAlive(self):
