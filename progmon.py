@@ -96,7 +96,7 @@ class Progmon(ABC):
         """
         pass
 
-    def getHp(self):
+    def getHP(self):
         """
         Gets the max health of Progmon
         Args:
@@ -396,7 +396,7 @@ class FireDragon(Progmon):
         """
         self.currentHealth = newHealth
 
-    def getHp(self):
+    def getHP(self):
         """
         Gets the max health of FireDragon
         Args:
@@ -768,7 +768,7 @@ class ElectricCat(Progmon):
         """
         self.currentHealth = newHealth
 
-    def getHp(self):
+    def getHP(self):
         """
         Gets the max health of ElectricCat
         Args:
@@ -1136,7 +1136,7 @@ class WaterTurtle(Progmon):
         """
         self.currentHealth = newHealth
 
-    def getHp(self):
+    def getHP(self):
         """
         Gets the max health of WaterTurtle
         Args:
@@ -1474,7 +1474,7 @@ class FinalBoss(Progmon):
         """
         self.currentHealth = newHealth
 
-    def getHp(self):
+    def getHP(self):
         """
         Gets the max health of WaterTurtle
         Args:
