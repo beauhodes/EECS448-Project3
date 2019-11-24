@@ -179,6 +179,14 @@ class WaterTurtle():
         return self.statBoost
 
     def attack1(self, enemyPlayer):
+        """
+        Attacks enemy Progmon with Aqua Jet and has a chance to potentially stun
+        Args:
+            self (object) - WaterTurtle
+            enemyPlayer (object) - enemy Progmon
+        Returns:
+            Bool of if hit, String of what was done
+        """
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 70):
             self.statBoost = False
@@ -192,6 +200,14 @@ class WaterTurtle():
             return False, "Aqua Jet missed!"
 
     def attack2(self, enemyPlayer):
+        """
+        Attacks enemy Progmon with Aqua Tail
+        Args:
+            self (object) - WaterTurtle
+            enemyPlayer (object) - enemy Progmon
+        Returns:
+            Bool of if hit, String of what was done
+        """
         chanceToHit = random.randint(1, 101)
         if(chanceToHit <= 55):
             enemyPlayer.doDamage(50)
@@ -200,6 +216,14 @@ class WaterTurtle():
             return False, "Aqua Tail missed!"
 
     def attack3(self, enemyPlayer):
+        """
+        Attacks enemy Progmon with Water Pulse and has a chance to potentially stun
+        Args:
+            self (object) - WaterTurtle
+            enemyPlayer (object) - enemy Progmon
+        Returns:
+            Bool of if hit, String of what was done
+        """
         chanceToHit = random.randint(1, 101)
         if(self.statBoost == True and chanceToHit <= 48):
             self.statBoost = False
@@ -213,6 +237,14 @@ class WaterTurtle():
             return False, "Water Pulse missed!"
 
     def attack4(self, enemyPlayer):
+        """
+        Attacks enemy Progmon with Bubble
+        Args:
+            self (object) - WaterTurtle
+            enemyPlayer (object) - enemy Progmon
+        Returns:
+            Bool of if hit, String of what was done
+        """
         enemyPlayer.doDamage(12)
         return True, "Bubble did 12 damage!"
 
