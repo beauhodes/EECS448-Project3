@@ -12,8 +12,8 @@ def runTestSuite():
     testBag() # DONE
     testStunEffect() # DONE
     testProgmonSwitching() # DONE
-    # testHealthPotion() # NOT DONE
-    # testRestorePotion() # NOT DONE
+    testHealthPotion() # DONE
+    testRestorePotion() # DONE
 
 def testProgmonSelection():
     global myP1
@@ -117,9 +117,8 @@ def testProgmonSwitching():
     global myP1
     global progmonNameP1
 
-    myP1.bag = ["healthPotion", "restorePotion"] # UPDATE PLAYER 1'S BAG FOR TESTS #7 - #10
-
-    print("\nTEST #7 (PRE-PROGMON-SWITCHING): Player 1's Progmon and Bag")
+    myP1.bag = ["healthPotion", "restorePotion"] # UPDATE PLAYER 1'S BAG
+    print("\nTEST #7 (PRE-PROGMON-SWITCHING): Player 1's Progmon and Bag... UNKNOWN")
     print("\tPlayer 1's Progmon =", progmonNameP1)
     print("\tPlayer 1's Health =", myP1.getCurrentHealth())
     print("\tPlayer 1's Bag =", myP1.getBag())
@@ -175,11 +174,11 @@ def testProgmonSwitching():
         myP1.setBag(currentBag)
         myP1.setStatBoost(currentStatBoost)
         myP1.setDefenseBoost(currentDefenseBoost)
-        if currentHP < myP1.getHP(): #if P1 had less health than new progmon's max (before the switch), reduce health
+        if currentHP < myP1.getHP(): # IF P1 HAD LESS HEALTH THAN NEW PROGMON'S MAX (BEFORE THE SWITCH), THEN REDUCE HEALTH
             myP1.setCurrentHealth(currentHP)
         print("\tPlayer 1 switched to {}".format(progmonNameP1))
 
-    print("\nTEST #7 (POST-PROGMON-SWITCHING): Player 1's Progmon and Bag")
+    print("\nTEST #7 (POST-PROGMON-SWITCHING): Player 1's Progmon and Bag... PASSED")
     print("\tPlayer 1's Progmon =", progmonNameP1)
     print("\tPlayer 1's Health =", myP1.getCurrentHealth())
     print("\tPlayer 1's Bag =", myP1.getBag())
@@ -188,38 +187,54 @@ def testProgmonSwitching():
 
 def testHealthPotion():
     global myP1
-    global myAI
 
-    # PLAYER 1
-    myP1.setCurrentHealth(50)
-    print("\nPlayer 1's Progmon Health BEFORE Health Potion =", myP1.getCurrentHealth())
-    myP1.bag = ["healthPotion"]
-    myP1.useHealthPotion()
-    if myP1.getCurrentHealth() == 80:
-        print("TEST #8: Player 1's Progmon was healed for 30 HP... PASSED")
-        print("Player 1's Progmon Health AFTER Health Potion =", myP1.getCurrentHealth())
+    myP1.setCurrentHealth(myP1.hp)
+    print("\n")
+    if myP1.useHealthPotion() == 0:
+        print("\nTEST #8: Progmon is healed 0 HP by Health Potion... PASSED")
     else:
-        print("TEST #8: Player 1's Progmon was healed for 30 HP... FAILED")
-        print("Player 1's Progmon Health AFTER Health Potion =", myP1.getCurrentHealth())
+        print("\nTEST #8: Progmon is healed 0 HP by Health Potion... FAILED")
 
-    # PLAYER AI
-    myAI.setCurrentHealth(myAI.hp)
-    print("\nPlayer AI's Progmon Health BEFORE Health Potion =", myAI.getCurrentHealth())
-    myAI.bag = ["healthPotion"]
-    myAI.useHealthPotion()
-    if myAI.getCurrentHealth() == myAI.hp:
-        print("TEST #9: Player AI's Progmon was healed for 0 HP... PASSED")
-        print("Player AI's Progmon Health AFTER Health Potion =", myAI.getCurrentHealth())
+    myP1.bag = ["healthPotion"] # UPDATE PLAYER 1'S BAG
+    myP1.setCurrentHealth(myP1.hp - 15)
+    print("\n")
+    if myP1.useHealthPotion() == 15:
+        print("\nTEST #9: Progmon is healed 15 HP by Health Potion... PASSED")
     else:
-        print("TEST #9: Player AI's Progmon was healed for 0 HP... FAILED")
-        print("Player AI's Progmon Health AFTER Health Potion =", myAI.getCurrentHealth())
+        print("\nTEST #9: Progmon is healed 15 HP by Health Potion... FAILED")
+
+    myP1.bag = ["healthPotion"] # UPDATE PLAYER 1'S BAG
+    myP1.setCurrentHealth(myP1.hp - 30)
+    print("\n")
+    if myP1.useHealthPotion() == 30:
+        print("\nTEST #10: Progmon is healed 30 HP by Health Potion... PASSED")
+    else:
+        print("\nTEST #10: Progmon is healed 30 HP by Health Potion... FAILED")
 
 def testRestorePotion():
     global myP1
-    global myAI
 
+    myP1.bag = ["restorePotion"] # UPDATE PLAYER 1'S BAG
     myP1.setCurrentHealth(10)
-    print("Player 1's current Health BEFORE Restore Potion =", myP1.getCurrentHealth())
-    myP1.bag = ["restorePotion"]
+    myP1.statBoost = True
+    myP1.defenseBoost = True
+    print("\nTEST #11 (PRE-RESTORE-POTION): Player 1's Progmon... UNKNOWN")
+    print("\tPlayer 1's Progmon =", progmonNameP1)
+    print("\tPlayer 1's Health =", myP1.getCurrentHealth())
+    print("\tPlayer 1's Stat Boost =", myP1.getStatBoost())
+    print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
+
     myP1.useRestorePotion()
-    print("Player 1's current Health AFTER Restore Potion =", myP1.getCurrentHealth())
+    myP1.setCurrentHealth(myP1.hp)
+    if myP1.getCurrentHealth() == myP1.hp and myP1.statBoost == False and myP1.defenseBoost == False:
+        print("\nTEST #11 (POST-RESTORE-POTION): Player 1's Progmon... PASSED")
+        print("\tPlayer 1's Progmon =", progmonNameP1)
+        print("\tPlayer 1's Health =", myP1.getCurrentHealth())
+        print("\tPlayer 1's Stat Boost =", myP1.getStatBoost())
+        print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
+    else:
+        print("\nTEST #11 (POST-RESTORE-POTION): Player 1's Progmon... FAILED")
+        print("\tPlayer 1's Progmon =", progmonNameP1)
+        print("\tPlayer 1's Health =", myP1.getCurrentHealth())
+        print("\tPlayer 1's Stat Boost =", myP1.getStatBoost())
+        print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())

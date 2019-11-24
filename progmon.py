@@ -599,10 +599,12 @@ class FireDragon(Progmon):
             self.currentHealth + hpToAdd
             print("Health Potion healing Fire Dragon for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
+            return hpToAdd
         else:
             self.currentHealth + 30
             print("Health Potion healing Fire Dragon for: 30HP")
             self.bag.remove("healthPotion")
+            return 30
 
     def useRestorePotion(self):
         """
@@ -970,10 +972,12 @@ class ElectricCat(Progmon):
             self.currentHealth + hpToAdd
             print("Health Potion healing Electric Cat for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
+            return hpToAdd
         else:
             self.currentHealth + 30
             print("Health Potion healing Electric Cat for: 30HP")
             self.bag.remove("healthPotion")
+            return 30
 
     def useRestorePotion(self):
         """
@@ -1306,10 +1310,12 @@ class WaterTurtle(Progmon):
             self.currentHealth + hpToAdd
             print("Health Potion healing Water Turtle for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
+            return hpToAdd
         else:
             self.currentHealth + 30
             print("Health Potion healing Water Turtle for: 30HP")
             self.bag.remove("healthPotion")
+            return 30
 
     def useRestorePotion(self):
         """
@@ -1677,10 +1683,12 @@ class FinalBoss(Progmon):
             self.currentHealth + hpToAdd
             print("Health Potion healing Final Boss for:", hpToAdd, "HP")
             self.bag.remove("healthPotion")
+            return hpToAdd
         else:
             self.currentHealth + 30
             print("Health Potion healing Final Boss for: 30HP")
             self.bag.remove("healthPotion")
+            return 30
 
     def useRestorePotion(self):
         """
