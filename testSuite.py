@@ -14,6 +14,8 @@ def runTestSuite():
     testProgmonSwitching() # DONE
     testHealthPotion() # DONE
     testRestorePotion() # DONE
+    testAllAttacks() #DONE
+    testStatAttacks() #DONE
 
 def testProgmonSelection():
     global myP1
@@ -238,3 +240,261 @@ def testRestorePotion():
         print("\tPlayer 1's Health =", myP1.getCurrentHealth())
         print("\tPlayer 1's Stat Boost =", myP1.getStatBoost())
         print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
+
+def testAllAttacks():
+    print("\nTEST #12 (ALL ATTACKS DO CORRECT AMOUNT OF DAMAGE):")
+    testProgmon1 = ElectricCat()
+    testProgmon2 = FireDragon()
+    testProgmon3 = WaterTurtle()
+    testProgmon4 = FinalBoss()
+
+    #electric cat:
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon1.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 90:
+                print("Lighting bolt (90): PASSED")
+            else:
+                print("Lighting bolt (90): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon1.attack2(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 40:
+                print("Electric Scratch (40): PASSED")
+            else:
+                print("Electric Scratch (40): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon1.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 110:
+                print("Enegy Beam (110): PASSED")
+            else:
+                print("Energy Beam (110): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon1.attack4(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 20:
+                print("Bite (20): PASSED")
+            else:
+                print("Bite (20): FAILED")
+            break
+
+    #fire dragon:
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon2.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 80:
+                print("Roar (80): PASSED")
+            else:
+                print("Roar (80): FAILED\n")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon2.attack2(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 35:
+                print("Claw Swipe (35): PASSED")
+            else:
+                print("Claw Swipe (35): FAILED\n")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon2.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 140:
+                print("Fire Breath (140): PASSED")
+            else:
+                print("Fire Breath (140): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon2.attack4(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 20:
+                print("Tail Whip (20): PASSED")
+            else:
+                print("Tail Whip (20): FAILED")
+            break
+
+    #water turtle:
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon3.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 45:
+                print("Aqua Jet (45): PASSED")
+            else:
+                print("Aqua Jet (45): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon3.attack2(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 50:
+                print("Aqua Tail (50): PASSED")
+            else:
+                print("Aqua Tail (50): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon3.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 70:
+                print("Water Pulse (70): PASSED")
+            else:
+                print("Water Pulse (70): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon3.attack4(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 12:
+                print("Bubble (12): PASSED")
+            else:
+                print("Bubble (12): FAILED")
+            break
+
+    #final boss:
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon4.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 150:
+                print("Giga Impact (150): PASSED")
+            else:
+                print("Giga Impact (150): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon4.attack2(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 90:
+                print("Psychic (90): PASSED")
+            else:
+                print("Psychic (90): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon4.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 120:
+                print("Mega Kick (120): PASSED")
+            else:
+                print("Mega Kick (120): FAILED")
+            break
+    while(1):
+        enemyPlayer = FireDragon()
+        att = testProgmon4.attack4(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 60:
+                print("Ancient Power (60): PASSED")
+            else:
+                print("Ancient Power (60): FAILED")
+            break
+
+def testStatAttacks():
+    print("\nTEST #13 (ALL STAT-BOOSTABLE ATTACKS DO CORRECT AMOUNT OF DAMAGE):")
+    testProgmon1 = ElectricCat()
+    testProgmon1.setStatBoost(True)
+    testProgmon2 = FireDragon()
+    testProgmon2.setStatBoost(True)
+    testProgmon3 = WaterTurtle()
+    testProgmon3.setStatBoost(True)
+    testProgmon4 = FinalBoss()
+    testProgmon4.setStatBoost(True)
+
+    #electric cat:
+    while(1):
+        testProgmon1.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon1.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 100:
+                print("Lighting bolt (90+10): PASSED")
+            else:
+                print("Lighting bolt (90+10): FAILED")
+            break
+    while(1):
+        testProgmon1.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon1.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 120:
+                print("Enegy Beam (110+10): PASSED")
+            else:
+                print("Energy Beam (110+10): FAILED")
+            break
+
+    #fire dragon:
+    while(1):
+        testProgmon2.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon2.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 90:
+                print("Roar (80+10): PASSED")
+            else:
+                print("Roar (80+10): FAILED\n")
+            break
+    while(1):
+        testProgmon2.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon2.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 150:
+                print("Fire Breath (140+10): PASSED")
+            else:
+                print("Fire Breath (140+10): FAILED")
+            break
+
+    #water turtle:
+    while(1):
+        testProgmon3.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon3.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 55:
+                print("Aqua Jet (45+10): PASSED")
+            else:
+                print("Aqua Jet (45+10): FAILED")
+            break
+    while(1):
+        testProgmon3.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon3.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 80:
+                print("Water Pulse (70+10): PASSED")
+            else:
+                print("Water Pulse (70+10): FAILED")
+            break
+
+    #final boss:
+    while(1):
+        testProgmon4.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon4.attack1(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 160:
+                print("Giga Impact (150+10): PASSED")
+            else:
+                print("Giga Impact (150+10): FAILED")
+            break
+    while(1):
+        testProgmon4.setStatBoost(True)
+        enemyPlayer = FireDragon()
+        att = testProgmon4.attack3(enemyPlayer)
+        if (att[0] == True):
+            if enemyPlayer.getCurrentHealth() == enemyPlayer.getHP() - 130:
+                print("Mega Kick (120+10): PASSED")
+            else:
+                print("Mega Kick (120+10): FAILED")
+            break
