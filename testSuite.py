@@ -17,6 +17,8 @@ def runTestSuite():
     testAllAttacks() #DONE
     testStatAttacks() #DONE
     testDefense() #DONE
+    testZeroHealth() #DONE
+    testAlive()
 
 def testProgmonSelection():
     global myP1
@@ -546,3 +548,104 @@ def testDefense():
             else:
                 print("Final Boss: FAILED")
             break
+
+def testZeroHealth():
+    print("\nTEST #15 (EACH PROGMON'S HEALTH CANNOT GO LOWER THAN 0, EX: IF IT TAKES 70 DAMAGE WITH 10 HEALTH, HEALTH GOES TO 0):")
+    testProgmon1 = ElectricCat()
+    testProgmon2 = FireDragon()
+    testProgmon3 = WaterTurtle()
+    testProgmon4 = FinalBoss()
+    while(1):
+        testProgmon1.setCurrentHealth(10)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon1)
+        if (att[0] == True):
+            if (testProgmon1.getCurrentHealth() == 0):
+                print("Electric Cat: PASSED")
+            else:
+                print("Electric Cat: FAILED")
+            break
+    while(1):
+        testProgmon2.setCurrentHealth(10)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon2)
+        if (att[0] == True):
+            if (testProgmon2.getCurrentHealth() == 0):
+                print("Fire Dragon: PASSED")
+            else:
+                print("Fire Dragon: FAILED")
+            break
+    while(1):
+        testProgmon3.setCurrentHealth(10)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon3)
+        if (att[0] == True):
+            if (testProgmon3.getCurrentHealth() == 0):
+                print("Water Turtle: PASSED")
+            else:
+                print("Water Turtle: FAILED")
+            break
+    while(1):
+        testProgmon4.setCurrentHealth(10)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon4)
+        if (att[0] == True):
+            if (testProgmon4.getCurrentHealth() == 0):
+                print("Final Boss: PASSED")
+            else:
+                print("Final Boss: FAILED")
+            break
+
+def testAlive():
+    print("\nTEST #16 (EACH PROGMON FAINTS IMMEDIATELY (alive = False) WHEN HEALTH <= 0):")
+    testProgmon1 = ElectricCat()
+    testProgmon2 = FireDragon()
+    testProgmon3 = WaterTurtle()
+    testProgmon4 = FinalBoss()
+    while(1):
+        testProgmon1.setCurrentHealth(70)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon1)
+        if (att[0] == True):
+            if (testProgmon1.checkAlive() == False):
+                print("Electric Cat: PASSED")
+            else:
+                print("Electric Cat: FAILED")
+            break
+    while(1):
+        testProgmon2.setCurrentHealth(70)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon2)
+        if (att[0] == True):
+            if (testProgmon2.checkAlive() == False):
+                print("Fire Dragon: PASSED")
+            else:
+                print("Fire Dragon: FAILED")
+            break
+    while(1):
+        testProgmon3.setCurrentHealth(70)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon3)
+        if (att[0] == True):
+            if (testProgmon3.checkAlive() == False):
+                print("Water Turtle: PASSED")
+            else:
+                print("Water Turtle: FAILED")
+            break
+    while(1):
+        testProgmon4.setCurrentHealth(70)
+        enemyPlayer = FireDragon()
+        att = enemyPlayer.attack1(testProgmon4)
+        if (att[0] == True):
+            if (testProgmon4.checkAlive() == False):
+                print("Final Boss: PASSED")
+            else:
+                print("Final Boss: FAILED")
+            break
+
+def testZeroHealth():
+    print("\nTEST #16 (RESULT OF ATTACK (HIT OR MISS) IS CORRECT):")
+    testProgmon1 = ElectricCat()
+    testProgmon2 = FireDragon()
+    testProgmon3 = WaterTurtle()
+    testProgmon4 = FinalBoss()
