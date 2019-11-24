@@ -347,6 +347,7 @@ def fightScreen():
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
         controlScreen(gameState)
+
     if myP1.getStunStatus() == False:
         displayText("What will you do?", MINI, BLACK, WIDTH * .25, HEIGHT * .75)
 
@@ -401,7 +402,6 @@ def fightMenu():
     # DISPLAY TEXT OBJECTS
     displayText("Which attack would you like to use?", MINI, BLACK, WIDTH * .25, HEIGHT * .75)
 
-    # HANDLE TURN FOR PLAYER 1
     # DISPLAY FIGHT MENU BUTTONS
     attackList = myP1.getAttackList()
     if len(attackList) == 4:
@@ -786,6 +786,7 @@ def AITurn():
 
     if myAI.checkAlive() == False:
         winner = "Player 1"
+        pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
         print("Player AI's {} has fainted. You win!".format(progmonNameAI))
         displayText(("Player AI's {} has fainted. You win!".format(progmonNameAI)), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
