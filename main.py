@@ -308,12 +308,12 @@ def fightScreen():
 
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .05, HEIGHT * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
     pygame.draw.rect(SCREEN, RED, (WIDTH * .052, HEIGHT * .141, 196, 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
-    pygame.draw.rect(SCREEN, LIGHT_GREEN, (WIDTH * .052, HEIGHT * .141, 196 * (myP1.getCurrentHealth() / myP1.getHp()), 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
+    pygame.draw.rect(SCREEN, LIGHT_GREEN, (WIDTH * .052, HEIGHT * .141, 196 * (myP1.getCurrentHealth() / myP1.getHP()), 37), 0) # FILLED BOX FOR PLAYER 1'S PROGMON HEALTH BAR
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
 
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .699, HEIGHT * .14, 200, 40), 5) # UNFILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
     pygame.draw.rect(SCREEN, RED, (WIDTH * .701, HEIGHT * .141, 196, 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
-    pygame.draw.rect(SCREEN, LIGHT_GREEN, (WIDTH * .701, HEIGHT * .141, 196 * (myAI.getCurrentHealth() / myAI.getHp()), 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
+    pygame.draw.rect(SCREEN, LIGHT_GREEN, (WIDTH * .701, HEIGHT * .141, 196 * (myAI.getCurrentHealth() / myAI.getHP()), 37), 0) # FILLED BOX FOR PLAYER AI'S PROGMON HEALTH BAR
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
 
     # DISPLAY TEXT OBJECTS
@@ -599,7 +599,7 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        if curHp < myP1.getHp(): # if player had less health than new progmon's max (before the switch), reduce health
+        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -617,7 +617,7 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        if curHp < myP1.getHp(): # if player had less health than new progmon's max (before the switch), reduce health
+        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -635,7 +635,7 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        if curHp < myP1.getHp(): # if player had less health than new progmon's max (before the switch), reduce health
+        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -653,7 +653,7 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        if curHp < myP1.getHp(): # if player had less health than new progmon's max (before the switch), reduce health
+        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -790,8 +790,8 @@ def AITurn():
         gameState = "endScreen"
         controlScreen(gameState)
 
-    P1critical = (myP1.getCurrentHealth() / myP1.getHp()) #check if P1 is at critical health (<= 20% of max health)
-    AIcritical = (myP1.getCurrentHealth() / myP1.getHp()) #check if AI is at critical health (<= 20% of max health)
+    P1critical = (myP1.getCurrentHealth() / myP1.getHP()) #check if P1 is at critical health (<= 20% of max health)
+    AIcritical = (myP1.getCurrentHealth() / myP1.getHP()) #check if AI is at critical health (<= 20% of max health)
 
     if(myAI.getStunStatus() == True): #if stunned, skip turn
         print("{} has been stunned by {}!".format(progmonNameAI, progmonNameP1))
@@ -861,7 +861,7 @@ def AITurn():
         elif(percentage <= 97):
             print("Player AI is switching their Progmon")
             displayText("Player AI is switching their Progmon", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-            switchControl = random.randint(1, 4)
+            switchControl = random.randint(1, 3)
             if(switchControl == 1): #switch to electric cat (or, if currently electric cat, then final boss)
                 curHp = myAI.getCurrentHealth()
                 curBag = myAI.getBag()
@@ -878,7 +878,7 @@ def AITurn():
                 myAI.setBag(curBag)
                 myAI.setStatBoost(curStatBoost)
                 myAI.setDefenseBoost(curDefenseBoost)
-                if(curHp < myAI.getHp()): #if AI had less health than new progmon's max (before the switch), reduce health
+                if(curHp < myAI.getHP()): #if AI had less health than new progmon's max (before the switch), reduce health
                     myAI.setCurrentHealth(curHp)
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
@@ -899,7 +899,7 @@ def AITurn():
                 myAI.setBag(curBag)
                 myAI.setStatBoost(curStatBoost)
                 myAI.setDefenseBoost(curDefenseBoost)
-                if(curHp < myAI.getHp()): #if AI had less health than new progmon's max (before the switch), reduce health
+                if(curHp < myAI.getHP()): #if AI had less health than new progmon's max (before the switch), reduce health
                     myAI.setCurrentHealth(curHp)
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
@@ -920,7 +920,7 @@ def AITurn():
                 myAI.setBag(curBag)
                 myAI.setStatBoost(curStatBoost)
                 myAI.setDefenseBoost(curDefenseBoost)
-                if(curHp < myAI.getHp()): #if AI had less health than new progmon's max (before the switch), reduce health
+                if(curHp < myAI.getHP()): #if AI had less health than new progmon's max (before the switch), reduce health
                     myAI.setCurrentHealth(curHp)
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
