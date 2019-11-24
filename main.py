@@ -1,20 +1,13 @@
 """
 BUG LIST:
     > (BEAU) When a Progmon faints, their Health and Health Bar does not update to display 0 HP
-    > "Player 1's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
-    > "Player AI's PROGMON has fainted. You win!" is not displaying before controlScreen("endScreen")
     > When Defense Boost is active for either Player, the amount of damage that is printed to Terminal is not taking into account the -10 damage from the Defense Boost
 
 TODO LIST:
     > (QUI) Create End Screen
-        --> Sprites on End Screen should be the large versions
     > (CAMERON) Add sound effects
     > (ROB) Adjust positioning of Hit Marker sprite for both Players
     > (ROB/BEAU) Create a Test Suite
-        --> create testSuite.py (should be similar to EECS448 LAB06 - TESTING LAB)
-            --> from main import *
-                --> TO RUN: python3 testSuite.py
-                    --> Output our tests to Terminal
         --> Update the Bug List
     > (ROB) Clean up code in main.py and progmon.py
     > (ROB) Document code in main.py and progmon.py
@@ -160,7 +153,7 @@ def mouseClick(surfaceRect):
 
 def startScreen():
     """
-    displays and tracks all objects on the Start Screen
+    Displays and tracks all objects on the Start Screen
     Args:
         None
     Returns:
@@ -379,7 +372,7 @@ def fightScreen():
 
 def fightMenu():
     """
-    Displays and tracks the Fight Menu for Player 1 after "FIGHT" has been clicked
+    Displays and tracks all objects on the Fight Menu for Player 1 after "FIGHT" has been clicked
     Args:
         None
     Returns:
@@ -501,7 +494,7 @@ def fightMenu():
 
 def bagMenu():
     """
-    Displays and tracks the Bag Menu for Player 1 after "BAG" has been clicked
+    Displays and tracks all objects on the Bag Menu for Player 1 after "BAG" has been clicked
     Args:
         None
     Returns:
@@ -564,7 +557,7 @@ def bagMenu():
 
 def progmonMenu():
     """
-    Displays and tracks the Progmon Menu for Player 1 after "PROGMON" has been clicked
+    Displays and tracks all objects on the Progmon Menu for Player 1 after "PROGMON" has been clicked
     Args:
         None
     Returns:
@@ -663,6 +656,13 @@ def progmonMenu():
         controlScreen(gameState)
 
 def endScreen():            # unfinish , still need to add variables and statistic
+    """
+    Displays and tracks all objects on the End Screen
+    Args:
+        None
+    Returns:
+        None
+    """
     global winner
     global gameState
     global progmonNameP1
@@ -674,7 +674,7 @@ def endScreen():            # unfinish , still need to add variables and statist
     global totalMissedPlayerP1
     global totalMissedPlayerAI
 
-    SCREEN.fill(GREEN)
+    SCREEN.fill(GREEN) # UPDATE END SCREEN BACKGROUND COLOR
 
     # DISPLAY TEXT OBJECTS
     displayText("{} VS {}".format(progmonNameP1, progmonNameAI), MEDIUM, BLACK, WIDTH / 2, HEIGHT * .05)
@@ -727,12 +727,13 @@ def endScreen():            # unfinish , still need to add variables and statist
     btnRestart = displayButton("RESTART GAME", SMALL, BLACK, WIDTH / 2.7, HEIGHT * .90)
     btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH / 1.5, HEIGHT * .90)
 
-    # TRACK BUTTONS
+    # TRACK RESTART GAME BUTTON
     if mouseClick(btnRestart):
         print("\n[RETURNING TO START SCREEN]\n")
         gameState = "startScreen"
         controlScreen(gameState)
 
+    # TRACK QUIT BUTTON
     if mouseClick(btnQuit):
         quitGame()
 
