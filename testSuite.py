@@ -18,7 +18,7 @@ def runTestSuite():
     testStatAttacks() #DONE
     testDefense() #DONE
     testZeroHealth() #DONE
-    testAlive()
+    testAlive() #DONE 
 
 def testProgmonSelection():
     global myP1
@@ -245,6 +245,9 @@ def testRestorePotion():
         print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
 
 def testAllAttacks():
+    """
+    Test that all attacks do the correct amount of damage by calling them and then checking the enemy's health
+    """
     print("\nTEST #12 (ALL ATTACKS DO CORRECT AMOUNT OF DAMAGE):")
     testProgmon1 = ElectricCat()
     testProgmon2 = FireDragon()
@@ -404,6 +407,9 @@ def testAllAttacks():
             break
 
 def testStatAttacks():
+    """
+    Test that all attacks that can be stat boosted do the correct amount of damage by calling them (with attacker's stat boost active) and then checking the enemy's health
+    """
     print("\nTEST #13 (ALL STAT-BOOSTABLE ATTACKS DO CORRECT AMOUNT OF DAMAGE):")
     testProgmon1 = ElectricCat()
     testProgmon1.setStatBoost(True)
@@ -503,6 +509,9 @@ def testStatAttacks():
             break
 
 def testDefense():
+    """
+    Test that defense boost works for each progmon by having it get attacked (with its defense boost active) then checking its health
+    """
     print("\nTEST #14 (TEST DEFENSE BOOST ON EACH PROGMON):")
     testProgmon1 = ElectricCat()
     testProgmon2 = FireDragon()
@@ -550,6 +559,9 @@ def testDefense():
             break
 
 def testZeroHealth():
+    """
+    Test that each progmon's health can never go below 0 by setting its health to 10, having it take 70 damage, then checking to see that health = 0
+    """
     print("\nTEST #15 (EACH PROGMON'S HEALTH CANNOT GO LOWER THAN 0, EX: IF IT TAKES 70 DAMAGE WITH 10 HEALTH, HEALTH GOES TO 0):")
     testProgmon1 = ElectricCat()
     testProgmon2 = FireDragon()
@@ -597,6 +609,9 @@ def testZeroHealth():
             break
 
 def testAlive():
+    """
+    Test that each progmon's self.alive = False when it faints by having it take enough damage to get health to 0 then checking its alive attribute
+    """
     print("\nTEST #16 (EACH PROGMON FAINTS IMMEDIATELY (alive = False) WHEN HEALTH <= 0):")
     testProgmon1 = ElectricCat()
     testProgmon2 = FireDragon()
@@ -642,10 +657,3 @@ def testAlive():
             else:
                 print("Final Boss: FAILED")
             break
-
-def testZeroHealth():
-    print("\nTEST #16 (RESULT OF ATTACK (HIT OR MISS) IS CORRECT):")
-    testProgmon1 = ElectricCat()
-    testProgmon2 = FireDragon()
-    testProgmon3 = WaterTurtle()
-    testProgmon4 = FinalBoss()
