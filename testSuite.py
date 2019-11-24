@@ -11,6 +11,7 @@ def runTestSuite():
     print("\n[RUNNING TEST SUITE]\n")
     testProgmonSelection()
     testProgmonBag()
+    # testProgmonStatusEffects()
 
 def testProgmonSelection():
     global myP1
@@ -20,7 +21,7 @@ def testProgmonSelection():
     global progmonAI
     global progmonNameAI
 
-    # PLAYER 1
+    # PLAYER 1 PROGMON RANDOM SELECTION
     randomProgmonP1 = random.randint(1, 4)
     if randomProgmonP1 == 1:
         myP1 = ElectricCat()
@@ -39,7 +40,7 @@ def testProgmonSelection():
         progmonP1 = "FinalBoss"
         progmonNameP1 = "Final Boss"
 
-    # PLAYER AI
+    # PLAYER AI PROGMON RANDOM SELECTION
     randomProgmonAI = random.randint(1, 4)
     if randomProgmonAI == 1:
         myAI = ElectricCat()
@@ -73,7 +74,7 @@ def testProgmonBag():
     global myP1
     global myAI
 
-    # PLAYER 1
+    # 0 TOTAL REMOVALS FOR BOTH PLAYERS
     if myP1.bagEmpty() == False:
         print("TEST #2: Player 1's Bag is NOT empty... PASSED")
     else:
@@ -84,37 +85,40 @@ def testProgmonBag():
     else:
         print("TEST #2: Player AI's Bag is NOT empty... FAILED")
 
+    # 2 TOTAL REMOVALS FOR BOTH PLAYERS
     myP1.bag.remove("healthPotion")
     myP1.bag.remove("statBoost")
+    myAI.bag.remove("healthPotion")
+    myAI.bag.remove("statBoost")
 
-    if myP1.bagEmpty() == True:
+    if myP1.bagEmpty() == False:
         print("TEST #3: Player 1's Bag is NOT empty after 2 removals... PASSED")
     else:
         print("TEST #3: Player 1's Bag is NOT empty after 2 removals... FAILED")
 
-    myAI.bag.remove("healthPotion")
-    myAI.bag.remove("statBoost")
-
-    if myAI.bagEmpty() == True:
+    if myAI.bagEmpty() == False:
         print("TEST #3: Player AI's Bag is NOT empty after 2 removals... PASSED")
     else:
         print("TEST #3: Player AI's Bag is NOT empty after 2 removals... FAILED")
 
-    myP1.bag.remove("healthPotion")
-    myP1.bag.remove("statBoost")
+    # 4 TOTAL REMOVALS FOR BOTH PLAYERS
+    myP1.bag.remove("defenseBoost")
+    myP1.bag.remove("restorePotion")
+    myAI.bag.remove("defenseBoost")
+    myAI.bag.remove("restorePotion")
 
     if myP1.bagEmpty() == True:
-        print("TEST #3: Player 1's Bag is NOT empty after 2 removals... PASSED")
+        print("TEST #4: Player 1's Bag is empty after 4 removals... PASSED")
     else:
-        print("TEST #3: Player 1's Bag is NOT empty after 2 removals... FAILED")
-
-    myAI.bag.remove("healthPotion")
-    myAI.bag.remove("statBoost")
+        print("TEST #4: Player 1's Bag is empty after 4 removals... FAILED")
 
     if myAI.bagEmpty() == True:
-        print("TEST #3: Player AI's Bag is NOT empty after 2 removals... PASSED")
+        print("TEST #4: Player AI's Bag is empty after 4 removals... PASSED")
     else:
-        print("TEST #3: Player AI's Bag is NOT empty after 2 removals... FAILED")
+        print("TEST #4: Player AI's Bag is empty after 4 removals... FAILED")
+
+# def testProgmonStatusEffects():
+
 
 if __name__ == "__main__":
     runTestSuite()
