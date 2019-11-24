@@ -1,17 +1,13 @@
 """
 BUG LIST:
-    > (BEAU) When a Progmon faints, their Health and Health Bar does not update to display 0 HP
+    > When a Progmon faints, their Health and Health Bar does not update to display 0 HP
     > When Defense Boost is active for either Player, the amount of damage that is printed to Terminal is not taking into account the -10 damage from the Defense Boost
+    > Player's Progmon has fainted message does not always display properly
 
 TODO LIST:
     > (QUI) Create End Screen
     > (CAMERON) Add sound effects
-    > (ROB) Adjust positioning of Hit Marker sprite for both Players
-    > (ROB/BEAU) Create a Test Suite
-        --> Update the Bug List
-    > (ROB) Clean up code in main.py and progmon.py
-    > (ROB) Document code in main.py and progmon.py
-        --> Copy & Paste Progmon classes into their own files
+    > DOCUMENTATION FOR END SCREEN
     > (BEAU) Use Sphinx documentation generator to create HTML files
     > (COLE) User Manual
     > (COLE) Gantt Chart

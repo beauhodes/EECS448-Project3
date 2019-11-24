@@ -7,6 +7,9 @@ global myAI
 progmonNameAI = ""
 
 def runTestSuite():
+    """
+    Runs all Test functions in the Test Suite
+    """
     print("\n[RUNNING TEST SUITE]\n")
     testProgmonSelection() # DONE
     testBag() # DONE
@@ -18,9 +21,12 @@ def runTestSuite():
     testStatAttacks() #DONE
     testDefense() #DONE
     testZeroHealth() #DONE
-    testAlive() #DONE 
+    testAlive() #DONE
 
 def testProgmonSelection():
+    """
+    Tests that all Progmon are usable by both Player 1 and the AI
+    """
     global myP1
     global progmonNameP1
     global myAI
@@ -68,6 +74,9 @@ def testProgmonSelection():
             print("\tERROR: Player AI needs a Progmon")
 
 def testBag():
+    """
+    Tests that a Player's Bag updates properly with different removals
+    """
     global myP1
 
     # 0 TOTAL ITEM REMOVALS FOR PLAYER 1
@@ -99,6 +108,9 @@ def testBag():
         print("\tPlayer 1's Bag =", myP1.getBag())
 
 def testStunEffect():
+    """
+    Tests that Stat Boost's Stun Effect is actually stunning the enemy Progmon
+    """
     global myP1
 
     # NO ACTIVE STUN EFFECT
@@ -119,6 +131,9 @@ def testStunEffect():
         print("\tPlayer 1's Progmon Stunned Status =", myP1.stunned)
 
 def testProgmonSwitching():
+    """
+    Tests that all of Progmon A's stats/effects carry over to Progmon B after Progmon Switching
+    """
     global myP1
     global progmonNameP1
 
@@ -191,6 +206,9 @@ def testProgmonSwitching():
     print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
 
 def testHealthPotion():
+    """
+    Tests that Progmon is healed the correct amount by Health Potion
+    """
     global myP1
 
     myP1.setCurrentHealth(myP1.hp)
@@ -217,6 +235,9 @@ def testHealthPotion():
         print("\nTEST #10: Progmon is healed 30 HP by Health Potion... FAILED")
 
 def testRestorePotion():
+    """
+    Tests that Progmon is healed to max health and all status effects are removed after using a Restore Potion
+    """
     global myP1
 
     myP1.bag = ["restorePotion"] # UPDATE PLAYER 1'S BAG
