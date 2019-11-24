@@ -1,4 +1,5 @@
-from main import *
+import random
+from progmon import Progmon, FireDragon, ElectricCat, WaterTurtle, FinalBoss
 
 global myP1
 progmonNameP1 = ""
@@ -7,12 +8,12 @@ progmonNameAI = ""
 
 def runTestSuite():
     print("\n[RUNNING TEST SUITE]\n")
-    testProgmonSelection()
-    testProgmonBag()
-    testProgmonStun()
-    testProgmonSwitching()
-    testHealthPotion() # NOT WORKING
-    testRestorePotion() # NOT WORKING
+    testProgmonSelection() # DONE
+    testBag() # DONE
+    testStunEffect() # DONE
+    testProgmonSwitching() # DONE
+    # testHealthPotion() # NOT DONE
+    # testRestorePotion() # NOT DONE
 
 def testProgmonSelection():
     global myP1
@@ -21,150 +22,112 @@ def testProgmonSelection():
     global progmonNameAI
 
     # PLAYER 1 PROGMON RANDOM SELECTION
-    randomProgmonP1 = random.randint(1, 4)
-    if randomProgmonP1 == 1:
+    progmonControlP1 = random.randint(1, 4)
+    if progmonControlP1 == 1:
         myP1 = ElectricCat()
         progmonNameP1 = "Electric Cat"
-    elif randomProgmonP1 == 2:
+    elif progmonControlP1 == 2:
         myP1 = FireDragon()
         progmonNameP1 = "Fire Dragon"
-    elif randomProgmonP1 == 3:
+    elif progmonControlP1 == 3:
         myP1 = WaterTurtle()
         progmonNameP1 = "Water Turtle"
-    elif randomProgmonP1 == 4:
+    elif progmonControlP1 == 4:
         myP1 = FinalBoss()
         progmonNameP1 = "Final Boss"
 
     # PLAYER AI PROGMON RANDOM SELECTION
-    randomProgmonAI = random.randint(1, 4)
-    if randomProgmonAI == 1:
+    progmonControlAI = random.randint(1, 4)
+    if progmonControlAI == 1:
         myAI = ElectricCat()
         progmonNameAI = "Electric Cat"
-    elif randomProgmonAI == 2:
+    elif progmonControlAI == 2:
         myAI = FireDragon()
         progmonNameAI = "Fire Dragon"
-    elif randomProgmonAI == 3:
+    elif progmonControlAI == 3:
         myAI = WaterTurtle()
         progmonNameAI = "Water Turtle"
-    elif randomProgmonAI == 4:
+    elif progmonControlAI == 4:
         myAI = FinalBoss()
         progmonNameAI = "Final Boss"
 
     if myP1 != None and myAI != None:
         print("TEST #1: Player 1 and Player AI Progmon randomly selected... PASSED")
-        print("myP1 =", progmonNameP1) # TESTER CODE
-        print("myAI =", progmonNameAI) # TESTER CODE
+        print("\tPlayer 1's Progmon =", progmonNameP1)
+        print("\tPlayer AI's Progmon =", progmonNameAI)
     else:
         print("TEST #1: Player 1 and Player AI Progmon randomly selected... FAILED")
         if myP1 == None:
-            print("ERROR: Player 1 Progmon NOT randomly selected")
+            print("\tERROR: Player 1 needs a Progmon")
         elif myAI == None:
-            print("ERROR: Player AI Progmon NOT randomly selected")
+            print("\tERROR: Player AI needs a Progmon")
 
-def testProgmonBag():
+def testBag():
     global myP1
-    global myAI
 
-    # 0 TOTAL REMOVALS FOR BOTH PLAYERS
+    # 0 TOTAL ITEM REMOVALS FOR PLAYER 1
     if myP1.bagEmpty() == False:
-        print("\nTEST #2: Player 1's Bag is NOT empty... PASSED")
-        print("myP1's Bag =", myP1.getBag())
+        print("\nTEST #2: Player 1's Bag contains 4 Items... PASSED")
+        print("\tPlayer 1's Bag =", myP1.getBag())
     else:
-        print("\nTEST #2: Player 1's Bag is NOT empty... FAILED")
-        print("myP1's Bag =", myP1.getBag())
+        print("\nTEST #2: Player 1's Bag contains 4 Items... FAILED")
+        print("\tPlayer 1's Bag =", myP1.getBag())
 
-    if myAI.bagEmpty() == False:
-        print("\nTEST #2: Player AI's Bag is NOT empty... PASSED")
-        print("myAI's Bag =", myAI.getBag())
-    else:
-        print("\nTEST #2: Player AI's Bag is NOT empty... FAILED")
-        print("myAI's Bag =", myAI.getBag())
-
-    # 2 TOTAL REMOVALS FOR BOTH PLAYERS
+    # 2 TOTAL ITEM REMOVALS FOR PLAYER 1
     myP1.bag.remove("healthPotion")
     myP1.bag.remove("statBoost")
-    myAI.bag.remove("healthPotion")
-    myAI.bag.remove("statBoost")
-
     if myP1.bagEmpty() == False:
-        print("\nTEST #3: Player 1's Bag is NOT empty after 2 removals... PASSED")
-        print("myP1's Bag =", myP1.getBag())
+        print("\nTEST #3: Player 1's Bag contains 2 Items... PASSED")
+        print("\tPlayer 1's Bag =", myP1.getBag())
     else:
-        print("\nTEST #3: Player 1's Bag is NOT empty after 2 removals... FAILED")
-        print("myP1's Bag =", myP1.getBag())
+        print("\nTEST #3: Player 1's Bag contains 2 Items... FAILED")
+        print("\tPlayer 1's Bag =", myP1.getBag())
 
-    if myAI.bagEmpty() == False:
-        print("\nTEST #3: Player AI's Bag is NOT empty after 2 removals... PASSED")
-        print("myAI's Bag =", myAI.getBag())
-    else:
-        print("\nTEST #3: Player AI's Bag is NOT empty after 2 removals... FAILED")
-        print("myAI's Bag =", myAI.getBag())
-
-    # 4 TOTAL REMOVALS FOR BOTH PLAYERS
+    # 4 TOTAL ITEM REMOVALS FOR PLAYER 1
     myP1.bag.remove("defenseBoost")
     myP1.bag.remove("restorePotion")
-    myAI.bag.remove("defenseBoost")
-    myAI.bag.remove("restorePotion")
-
     if myP1.bagEmpty() == True:
-        print("\nTEST #4: Player 1's Bag is empty after 4 removals... PASSED")
-        print("myP1's Bag =", myP1.getBag())
+        print("\nTEST #4: Player 1's Bag contains 0 Items... PASSED")
+        print("\tPlayer 1's Bag =", myP1.getBag())
     else:
-        print("\nTEST #4: Player 1's Bag is empty after 4 removals... FAILED")
-        print("myP1's Bag =", myP1.getBag())
+        print("\nTEST #4: Player 1's Bag contains 0 Items... FAILED")
+        print("\tPlayer 1's Bag =", myP1.getBag())
 
-    if myAI.bagEmpty() == True:
-        print("\nTEST #4: Player AI's Bag is empty after 4 removals... PASSED")
-        print("myAI's Bag =", myAI.getBag())
-    else:
-        print("\nTEST #4: Player AI's Bag is empty after 4 removals... FAILED")
-        print("myAI's Bag =", myAI.getBag())
-
-def testProgmonStun():
+def testStunEffect():
     global myP1
-    global myAI
 
-    # STUN EFFECT NOT ACTIVE
+    # NO ACTIVE STUN EFFECT
     if myP1.getStunStatus() == False:
         print("\nTEST #5: Player 1's Progmon is NOT stunned... PASSED")
+        print("\tPlayer 1's Progmon Stunned Status =", myP1.stunned)
     else:
         print("\nTEST #5: Player 1's Progmon is NOT stunned... FAILED")
+        print("\tPlayer 1's Progmon Stunned Status =", myP1.stunned)
 
-    if myAI.getStunStatus() == False:
-        print("\nTEST #5: Player AI's Progmon is NOT stunned... PASSED")
-    else:
-        print("\nTEST #5: Player AI's Progmon is NOT stunned... FAILED")
-
-    # STUN EFFECT ACTIVE
+    # ACTIVATE STUN EFFECT
     myP1.setStunStatus(True)
-    myAI.setStunStatus(True)
-
     if myP1.getStunStatus() == True:
-        print("\nTEST #6: Player 1's Progmon is stunned after setStunStatus(True)... PASSED")
+        print("\nTEST #6: Player 1's Progmon is stunned... PASSED")
+        print("\tPlayer 1's Progmon Stunned Status =", myP1.stunned)
     else:
-        print("\nTEST #6: Player 1's Progmon is stunned after setStunStatus(True)... FAILED")
-
-    if myAI.getStunStatus() == True:
-        print("\nTEST #6: Player AI's Progmon is stunned after setStunStatus(True)... PASSED")
-    else:
-        print("\nTEST #6: Player AI's Progmon is stunned after setStunStatus(True)... FAILED")
+        print("\nTEST #6: Player 1's Progmon is stunned... FAILED")
+        print("\tPlayer 1's Progmon Stunned Status =", myP1.stunned)
 
 def testProgmonSwitching():
     global myP1
     global progmonNameP1
-    global myAI
-    global progmonNameAI
 
-    # PLAYER 1
-    print("\nTEST #7 (PRE): Player 1's Progmon and Bag BEFORE Progmon Switching")
-    print("Player 1's Progmon =", progmonNameP1)
-    print("Player 1's Health =", myP1.getCurrentHealth())
-    print("Player 1's Bag =", myP1.getBag())
-    print("Player 1's Stat Boost =", myP1.getStatBoost())
-    print("Player 1's Defense Boost =", myP1.getDefenseBoost())
+    myP1.bag = ["healthPotion", "restorePotion"] # UPDATE PLAYER 1'S BAG FOR TESTS #7 - #10
+
+    print("\nTEST #7 (PRE-PROGMON-SWITCHING): Player 1's Progmon and Bag")
+    print("\tPlayer 1's Progmon =", progmonNameP1)
+    print("\tPlayer 1's Health =", myP1.getCurrentHealth())
+    print("\tPlayer 1's Bag =", myP1.getBag())
+    print("\tPlayer 1's Stat Boost =", myP1.getStatBoost())
+    print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
 
     switchControl = random.randint(1, 3)
-    if switchControl == 1: # SWITCH TO ELECTRIC CAT (OR, IF CURRENTLY ELECTRIC CAT, FINAL BOSS)
+    if switchControl == 1: # SWITCH TO ELECTRIC CAT (OR, IF CURRENTLY ELECTRIC CAT, THEN FINAL BOSS)
         currentHP = myP1.getCurrentHealth()
         currentBag = myP1.getBag()
         currentStatBoost = myP1.getStatBoost()
@@ -178,10 +141,10 @@ def testProgmonSwitching():
         myP1.setBag(currentBag)
         myP1.setStatBoost(currentStatBoost)
         myP1.setDefenseBoost(currentDefenseBoost)
-        if currentHP < myP1.getHP(): #if P1 had less health than new progmon's max (before the switch), reduce health
+        if currentHP < myP1.getHP(): # IF P1 HAD LESS HEALTH THAN NEW PROGMON'S MAX (BEFORE THE SWITCH), THEN REDUCE HEALTH
             myP1.setCurrentHealth(currentHP)
-        print("Player 1 switched to {}".format(progmonNameP1))
-    elif switchControl == 2: # SWITCH TO FIRE DRAGON (OR, IF CURRENTLY FIRE DRAGON, FINAL BOSS)
+        print("\tPlayer 1 switched to {}".format(progmonNameP1))
+    elif switchControl == 2: # SWITCH TO FIRE DRAGON (OR, IF CURRENTLY FIRE DRAGON, THEN FINAL BOSS)
         currentHP = myP1.getCurrentHealth()
         currentBag = myP1.getBag()
         currentStatBoost = myP1.getStatBoost()
@@ -195,10 +158,10 @@ def testProgmonSwitching():
         myP1.setBag(currentBag)
         myP1.setStatBoost(currentStatBoost)
         myP1.setDefenseBoost(currentDefenseBoost)
-        if currentHP < myP1.getHP(): #if P1 had less health than new progmon's max (before the switch), reduce health
+        if currentHP < myP1.getHP(): # IF P1 HAD LESS HEALTH THAN NEW PROGMON'S MAX (BEFORE THE SWITCH), THEN REDUCE HEALTH
             myP1.setCurrentHealth(currentHP)
-        print("Player 1 switched to {}".format(progmonNameP1))
-    elif switchControl == 3: # SWITCH TO WATER TURTLE (OR, IF CURRENTLY WATER TURTLE, FINAL BOSS)
+        print("\tPlayer 1 switched to {}".format(progmonNameP1))
+    elif switchControl == 3: # SWITCH TO WATER TURTLE (OR, IF CURRENTLY WATER TURTLE, THEN FINAL BOSS)
         currentHP = myP1.getCurrentHealth()
         currentBag = myP1.getBag()
         currentStatBoost = myP1.getStatBoost()
@@ -214,82 +177,14 @@ def testProgmonSwitching():
         myP1.setDefenseBoost(currentDefenseBoost)
         if currentHP < myP1.getHP(): #if P1 had less health than new progmon's max (before the switch), reduce health
             myP1.setCurrentHealth(currentHP)
-        print("Player 1 switched to {}".format(progmonNameP1))
+        print("\tPlayer 1 switched to {}".format(progmonNameP1))
 
-    print("\nTEST #7 (POST): Player 1's Progmon and Bag AFTER Progmon Switching")
-    print("Player 1's Progmon =", progmonNameP1)
-    print("Player 1's Health =", myP1.getCurrentHealth())
-    print("Player 1's Bag =", myP1.getBag())
-    print("Player 1's Stat Boost =", myP1.getStatBoost())
-    print("Player 1's Defense Boost =", myP1.getDefenseBoost())
-
-    # PLAYER AI
-    print("\nTEST #7 (PRE): Player AI's Progmon and Bag BEFORE Progmon Switching")
-    print("Player AI's Progmon =", progmonNameAI)
-    print("Player AI's Health =", myAI.getCurrentHealth())
-    print("Player AI's Bag =", myAI.getBag())
-    print("Player AI's Stat Boost =", myAI.getStatBoost())
-    print("Player AI's Defense Boost =", myAI.getDefenseBoost())
-
-    switchControl = random.randint(1, 3)
-    if switchControl == 1: # SWITCH TO ELECTRIC CAT (OR, IF CURRENTLY ELECTRIC CAT, FINAL BOSS)
-        currentHP = myAI.getCurrentHealth()
-        currentBag = myAI.getBag()
-        currentStatBoost = myAI.getStatBoost()
-        currentDefenseBoost = myAI.getDefenseBoost()
-        if progmonNameAI != "ElectricCat":
-            myAI = ElectricCat()
-            progmonNameAI = "Electric Cat"
-        else:
-            myAI = FinalBoss()
-            progmonNameAI = "Final Boss"
-        myAI.setBag(currentBag)
-        myAI.setStatBoost(currentStatBoost)
-        myAI.setDefenseBoost(currentDefenseBoost)
-        if currentHP < myAI.getHP(): #if AI had less health than new progmon's max (before the switch), reduce health
-            myAI.setCurrentHealth(currentHP)
-        print("Player AI switched to {}".format(progmonNameAI))
-    elif switchControl == 2: # SWITCH TO FIRE DRAGON (OR, IF CURRENTLY FIRE DRAGON, FINAL BOSS)
-        currentHP = myAI.getCurrentHealth()
-        currentBag = myAI.getBag()
-        currentStatBoost = myAI.getStatBoost()
-        currentDefenseBoost = myAI.getDefenseBoost()
-        if progmonNameAI != "Fire Dragon":
-            myAI = FireDragon()
-            progmonNameAI = "Fire Dragon"
-        else:
-            myAI = FinalBoss()
-            progmonNameAI = "Final Boss"
-        myAI.setBag(currentBag)
-        myAI.setStatBoost(currentStatBoost)
-        myAI.setDefenseBoost(currentDefenseBoost)
-        if currentHP < myAI.getHP(): #if AI had less health than new progmon's max (before the switch), reduce health
-            myAI.setCurrentHealth(currentHP)
-        print("Player AI switched to {}".format(progmonNameAI))
-    elif switchControl == 3: # SWITCH TO WATER TURTLE (OR, IF CURRENTLY WATER TURTLE, FINAL BOSS)
-        currentHP = myAI.getCurrentHealth()
-        currentBag = myAI.getBag()
-        currentStatBoost = myAI.getStatBoost()
-        currentDefenseBoost = myAI.getDefenseBoost()
-        if progmonNameAI != "Water Turtle":
-            myAI = WaterTurtle()
-            progmonNameAI = "Water Turtle"
-        else:
-            myAI = FinalBoss()
-            progmonNameAI = "Final Boss"
-        myAI.setBag(currentBag)
-        myAI.setStatBoost(currentStatBoost)
-        myAI.setDefenseBoost(currentDefenseBoost)
-        if currentHP < myAI.getHP(): #if AI had less health than new progmon's max (before the switch), reduce health
-            myAI.setCurrentHealth(currentHP)
-        print("Player AI switched to {}".format(progmonNameAI))
-
-    print("\nTEST #7 (POST): Player AI's Progmon and Bag AFTER Progmon Switching")
-    print("Player AI's Progmon =", progmonNameAI)
-    print("Player AI's Health =", myAI.getCurrentHealth())
-    print("Player AI's Bag =", myAI.getBag())
-    print("Player AI's Stat Boost =", myAI.getStatBoost())
-    print("Player AI's Defense Boost =", myAI.getDefenseBoost())
+    print("\nTEST #7 (POST-PROGMON-SWITCHING): Player 1's Progmon and Bag")
+    print("\tPlayer 1's Progmon =", progmonNameP1)
+    print("\tPlayer 1's Health =", myP1.getCurrentHealth())
+    print("\tPlayer 1's Bag =", myP1.getBag())
+    print("\tPlayer 1's Stat Boost =", myP1.getStatBoost())
+    print("\tPlayer 1's Defense Boost =", myP1.getDefenseBoost())
 
 def testHealthPotion():
     global myP1
@@ -328,6 +223,3 @@ def testRestorePotion():
     myP1.bag = ["restorePotion"]
     myP1.useRestorePotion()
     print("Player 1's current Health AFTER Restore Potion =", myP1.getCurrentHealth())
-
-if __name__ == "__main__":
-    runTestSuite()

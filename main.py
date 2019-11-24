@@ -31,6 +31,7 @@ TODO LIST:
 import random
 import pygame
 import pygame.gfxdraw
+from testSuite import runTestSuite
 from progmon import Progmon, FireDragon, ElectricCat, WaterTurtle, FinalBoss
 
 # INITIALIZE PYGAME AND GLOBAL DISPLAY/TEXT OBJECT VARIABLES
@@ -87,7 +88,7 @@ def quitGame():
     Returns:
         None
     """
-    print("Quitting...\n")
+    print("\nQuitting...\n")
     pygame.quit()
     quit()
 
@@ -207,6 +208,8 @@ def startScreen():
     btnProgmon3_AI = displayButton("Water Turtle", SMALL, WHITE, WIDTH / 1.3, HEIGHT / 2.7) # PLAYER AI
     btnProgmon4_AI = displayButton("Final Boss", SMALL, WHITE, WIDTH / 1.3, HEIGHT / 2) # PLAYER AI
 
+    btnTestSuite = displayButton("TEST SUITE", MEDIUM, WHITE, WIDTH * .5, HEIGHT * .96)
+
     # TRACK PLAYER 1 BUTTONS
     if mouseClick(btnProgmon1_P1):
         myP1 = ElectricCat()
@@ -253,6 +256,10 @@ def startScreen():
                 print("ERROR: Player 1 needs to select a Progmon")
             elif progmonAI == "":
                 print("ERROR: Player AI needs to select a Progmon")
+
+    # TRACK TEST SUITE BUTTON
+    if mouseClick(btnTestSuite):
+        runTestSuite()
 
 def fightScreen():
     """
