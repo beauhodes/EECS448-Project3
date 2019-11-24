@@ -1,6 +1,6 @@
 import random
 
-class FinalBossProgmon(Progmon):
+class FinalBoss(Progmon):
     """
     Class for the Final Boss Progmon
     """
@@ -16,7 +16,7 @@ class FinalBossProgmon(Progmon):
         self.hp = 120
         self.currentHealth = 120
         self.alive = True
-        self.bag = ["healthPotion", "statBoost", "defenseBoost"]
+        self.bag = ["healthPotion", "statBoost", "defenseBoost", "restorePotion"]
         self.attackList = ["Giga Impact", "Psychic", "Mega Kick", "Ancient Power"]
         self.stunned = False
         self.statBoost = False
@@ -38,6 +38,7 @@ class FinalBossProgmon(Progmon):
             self.currentHealth = self.currentHealth - damageDone
 
         if(self.currentHealth <= 0):
+            self.currentHealth = 0
             self.alive = False
 
     def checkAlive(self):
@@ -55,19 +56,19 @@ class FinalBossProgmon(Progmon):
 
     def getAttackList(self):
         """
-        Gets the attack list of Progmon
+        Gets the attack list of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
         Returns:
-            Progmon's attackList
+            FinalBoss's attackList
         """
         return self.attackList
 
     def setBag(self, newBag):
         """
-        Sets the bag of Progmon
+        Sets the bag of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
             newBag (array) - what to set bag to
         Returns:
             None
@@ -76,50 +77,50 @@ class FinalBossProgmon(Progmon):
 
     def getBag(self):
         """
-        Gets the bag list of Progmon
+        Gets the bag list of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
         Returns:
-            Progmon's bag
+            FinalBoss's bag
         """
         return self.bag
 
     def getCurrentHealth(self):
         """
-        Gets the currentHealth of WaterTurtle
+        Gets the currentHealth of FinalBoss
         Args:
-            self (object) - WaterTurtle
+            self (object) - FinalBoss
         Returns:
-            WaterTurtle's currentHealth
+            FinalBoss's currentHealth
         """
         return self.currentHealth
 
     def setCurrentHealth(self, newHealth):
         """
-        Sets the current health of Progmon
+        Sets the current health of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
             newHealth (int) - what to set current health to
         Returns:
             None
         """
         self.currentHealth = newHealth
 
-    def getHp(self):
+    def getHP(self):
         """
-        Gets the max health of WaterTurtle
+        Gets the max health of FinalBoss
         Args:
-            self (object) - WaterTurtle
+            self (object) - FinalBoss
         Returns:
-            WaterTurtle's max health
+            FinalBoss's max health
         """
         return self.hp
 
     def setStunStatus(self, setter):
         """
-        Sets the stun status of Progmon
+        Sets the stun status of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
             setter (boolean) - what to set stunned to
         Returns:
             None
@@ -128,19 +129,19 @@ class FinalBossProgmon(Progmon):
 
     def getStunStatus(self):
         """
-        Gets the stun status of Progmon
+        Gets the stun status of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
         Returns:
-            Progmon's stunned
+            FinalBoss's stunned status
         """
         return self.stunned
 
     def setDefenseBoost(self, setter):
         """
-        Sets the defense boost of Progmon
+        Sets the defense boost of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
             setter (boolean) - what to set defense boost to
         Returns:
             None
@@ -149,19 +150,19 @@ class FinalBossProgmon(Progmon):
 
     def getDefenseBoost(self):
         """
-        Gets the defense boost of Progmon
+        Gets the defense boost of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
         Returns:
-            Progmon's defense boost
+            FinalBoss's defense boost
         """
         return self.defenseBoost
 
     def setStatBoost(self, setter):
         """
-        Sets the stat boost of Progmon
+        Sets the stat boost of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
             setter (boolean) - what to set stat boost to
         Returns:
             None
@@ -170,11 +171,11 @@ class FinalBossProgmon(Progmon):
 
     def getStatBoost(self):
         """
-        Gets the defense boost of Progmon
+        Gets the defense boost of FinalBoss
         Args:
-            self (object)
+            self (object) - FinalBoss
         Returns:
-            Progmon's defense boost
+            FinalBoss's defense boost
         """
         return self.statBoost
 
@@ -185,21 +186,19 @@ class FinalBossProgmon(Progmon):
             self (object) - FinalBoss
             enemyPlayer (object) - enemy Progmon
         Returns:
-            None
+            (bool) - True if attack hit, otherwise False
+            (string) - attack message
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 90):
             self.statBoost = False
-            enemyPlayer.doDamage(150)
-            enemyPlayer.setStunStatus()
-            print("Giga Impact does 150 damage and stuns the enemy!\n")
-            return True, "Giga Impact does 150 damage and stuns the enemy!"
+            enemyPlayer.doDamage(160)
+            enemyPlayer.setStunStatus(True)
+            return True, "It did 160 damage and stunned the enemy!"
         if(chanceToHit <= 90):
             enemyPlayer.doDamage(150)
-            print("Giga Impact did 150 damage!\n")
             return True, "Giga Impact did 150 damage!"
         else:
-            print("Giga Impact missed!\n")
             return False, "Giga Impact missed!"
 
     def attack2(self, enemyPlayer):
@@ -209,15 +208,14 @@ class FinalBossProgmon(Progmon):
             self (object) - FinalBoss
             enemyPlayer (object) - enemy Progmon
         Returns:
-            None
+            (bool) - True if attack hit, otherwise False
+            (string) - attack message
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(chanceToHit <= 99):
             enemyPlayer.doDamage(90)
-            print("Psychic did 90 damage!\n")
             return True, "Psychic did 90 damage!"
         else:
-            print("Psychic missed!\n")
             return False, "Psychic missed!"
 
     def attack3(self, enemyPlayer):
@@ -227,21 +225,19 @@ class FinalBossProgmon(Progmon):
             self (object) - FinalBoss
             enemyPlayer (object) - enemy Progmon
         Returns:
-            None
+            (bool) - True if attack hit, otherwise False
+            (string) - attack message
         """
-        chanceToHit = random.randint(1, 101)
+        chanceToHit = random.randint(1, 100)
         if(self.statBoost == True and chanceToHit <= 75):
             self.statBoost = False
-            enemyPlayer.doDamage(120)
-            enemyPlayer.setStunStatus()
-            print("Mega Kick does 120 damage and stuns the enemy!\n")
-            return True, "Mega Kick does 120 damage and stuns the enemy!"
+            enemyPlayer.doDamage(130)
+            enemyPlayer.setStunStatus(True)
+            return True, "It did 130 damage and stunned the enemy!"
         if(chanceToHit <= 75):
             enemyPlayer.doDamage(120)
-            print("Mega Kick did 120 damage!\n")
             return True, "Mega Kick did 120 damage!"
         else:
-            print("Mega Kick missed!\n")
             return False, "Mega Kick missed!"
 
     def attack4(self, enemyPlayer):
@@ -251,10 +247,10 @@ class FinalBossProgmon(Progmon):
             self (object) - FinalBoss
             enemyPlayer (object) - enemy Progmon
         Returns:
-            None
+            (bool) - True
+            (string) - attack message
         """
         enemyPlayer.doDamage(60)
-        print("Ancient Power did 60 damage!\n")
         return True, "Ancient Power did 60 damage!"
 
     def AIAttack(self, enemyPlayer):
@@ -264,77 +260,101 @@ class FinalBossProgmon(Progmon):
             self (object) - FinalBoss
             enemyPlayer (object) - enemy Progmon
         Returns:
+            (bool) - True if attack hit, otherwise False
             (string) - the attack that was used by the AI
-            (bool) - True if the attack hit, otherwise False
         """
-        attackToUse = random.randint(1, 5)
+        #randomly choose one of FireDragon's attacks and then use it
+        #returns a string of which attack was used so that user can know what AI did/if it was successful
+        attackToUse = random.randint(1, 4)
         tempHealth = enemyPlayer.getCurrentHealth()
+
         if(attackToUse == 1):
-            self.attack1(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Giga Impact hit for 45 damage!", True
+            attackHit = self.attack1(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return True, str("{}".format(attackHit[1]))
             else:
-                return "AI Giga Impact missed!\n", False
+                return False, str("{}".format(attackHit[1]))
+
         if(attackToUse == 2):
-            self.attack2(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Psychic hit!\n", True
+            attackHit = self.attack2(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return True, str("{}".format(attackHit[1]))
             else:
-                return "AI Psychic missed!\n", False
+                return False, str("{}".format(attackHit[1]))
+
         if(attackToUse == 3):
-            self.attack3(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Mega Kick hit!\n", True
+            attackHit = self.attack3(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return True, str("{}".format(attackHit[1]))
             else:
-                return "AI Mega Kick missed!\n", False
+                return False, str("{}".format(attackHit[1]))
+
         if(attackToUse == 4):
-            self.attack4(enemyPlayer)
-            if(tempHealth != enemyPlayer.getCurrentHealth()):
-                return "AI Ancient Power hit!\n", True
+            attackHit = self.attack4(enemyPlayer) # ATTACK HIT / MISS TRACKER
+            if attackHit[0] == True:
+                if(tempHealth != enemyPlayer.getCurrentHealth()):
+                    return True, str("{}".format(attackHit[1]))
             else:
-                return "AI Ancient Power missed!\n", False
+                return False, str("{}".format(attackHit[1]))
 
     def useHealthPotion(self):
         """
-        Uses a healthPotion to heal 30 points of health
+        Uses a healthPotion to heal up to 30 points of health
+        Args:
+            self (object) - FinalBoss
+        Returns:
+            (int) - amount of health that was healed for
+        """
+        if(self.currentHealth+30 > self.hp):
+            hpToAdd = self.hp - self.currentHealth
+            self.currentHealth + hpToAdd
+            print("Health Potion healing Final Boss for:", hpToAdd, "HP")
+            self.bag.remove("healthPotion")
+            return hpToAdd
+        else:
+            self.currentHealth + 30
+            print("Health Potion healing Final Boss for: 30HP")
+            self.bag.remove("healthPotion")
+            return 30
+
+    def useRestorePotion(self):
+        """
+        Uses a restorePotion that heals FinalBoss to max hp
         Args:
             self (object) - FinalBoss
         Returns:
             None
         """
-        if(self.currentHealth+30 > self.hp):
-            hpToAdd = self.hp - self.currentHealth
-            self.currentHealth + hpToAdd
-            print("Health Potion healed you for:", hpToAdd, "\n")
-            self.bag.remove("healthPotion")
-
-        else:
-            self.currentHealth + 30
-            print("Health Potion healed you for: 30\n")
-            self.bag.remove("healthPotion")
+        print("Restore Potion has healed Final Boss to full health! All Boosts deactivated!")
+        self.bag.remove("restorePotion")
+        self.statBoost = False
+        self.defenseBoost = False
 
     def useStatBoost(self):
         """
-        Allows this Progmon to use a statBoost Potion
+        Allows FinalBoss to use a statBoost Potion
         Args:
             self (object) - FinalBoss
         Returns:
             None
         """
         self.statBoost = True
-        print("Stat Boost for Final Boss is activated!\n You will do +10 damage and have a chance to stun!\n")
+        print("Stat Boost for Final Boss activated! +10 damage and chance to stun on the next attack!")
         self.bag.remove("statBoost")
 
     def useDefenseBoost(self):
         """
-        Allows this progmon to use a defense Potion
+        Allows FinalBoss to use a defense Potion
         Args:
             self (object) - FinalBoss
         Returns:
             None
         """
         self.defenseBoost = True
-        print("Defense boost for Final Boss is now activated!\n You will take 10 less damage on the next attack.\n")
+        print("Defense Boost for Final Boss activated! Final Boss will take 10 less damage on the next attack!")
         self.bag.remove("defenseBoost")
 
     def bagEmpty(self):
