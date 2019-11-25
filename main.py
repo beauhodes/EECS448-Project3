@@ -676,52 +676,63 @@ def endScreen():            # unfinish , still need to add variables and statist
     displayText("{} VS {}".format(progmonNameP1, progmonNameAI), MEDIUM, BLACK, WIDTH / 2, HEIGHT * .05)
     displayText((winner + " wins!"), HUGE, BLACK, WIDTH / 2, HEIGHT * .14)
 
-    displayText("Player 1", LARGE, BLACK, WIDTH / 4.7, HEIGHT * .28) # PLAYER 1
-    displayText("Player AI", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .28) # PLAYER AI
+    displayText("Player 1", LARGE, BLACK, WIDTH / 4.7, HEIGHT * .31)  # PLAYER 1
+    displayText("Player AI", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .31)  # PLAYER AI
 
     # DISPLAY IMAGES
     if progmonP1 == "ElectricCat":
-        displayImage('Sprites/smallElectricCat.png', WIDTH / 4.65, HEIGHT * .06) # PLAYER 1
+        displayImage('Sprites/largeElectricCat.png',
+                     WIDTH / 4.73, HEIGHT * .12)  # PLAYER 1
     elif progmonP1 == "FireDragon":
-        displayImage('Sprites/smallFireDragon.png', WIDTH / 4.65, HEIGHT * .06) # PLAYER 1
+        displayImage('Sprites/largeFireDragon.png',
+                     WIDTH / 5.18, HEIGHT * .17)  # PLAYER 1
     elif progmonP1 == "WaterTurtle":
-        displayImage('Sprites/smallWaterTurtle.png', WIDTH / 4.65, HEIGHT * .06) # PLAYER 1
+        displayImage('Sprites/largeWaterTurtle.png',
+                     WIDTH / 6.1, HEIGHT * .15)  # PLAYER 1
     elif progmonP1 == "FinalBoss":
-        displayImage('Sprites/smallFinalBoss.png', WIDTH / 4.65, HEIGHT * .06) # PLAYER 1
+        displayImage('Sprites/largeFinalBoss.png', WIDTH /
+                     4.73, HEIGHT * .12)  # PLAYER 1
 
     if progmonAI == "ElectricCat":
-        displayImage('Sprites/smallElectricCat.png', WIDTH / 1.26, HEIGHT * .06) # PLAYER AI
+        displayImage('Sprites/largeElectricCat.png',
+                     WIDTH / 1.21, HEIGHT * .12)  # PLAYER AI
     elif progmonAI == "FireDragon":
-        displayImage('Sprites/smallFireDragon.png', WIDTH / 1.26, HEIGHT * .06) # PLAYER AI
+        displayImage('Sprites/largeFireDragon.png', WIDTH /
+                     1.21, HEIGHT * .17)  # PLAYER AI
     elif progmonAI == "WaterTurtle":
-        displayImage('Sprites/smallWaterTurtle.png', WIDTH / 1.26, HEIGHT * .06) # PLAYER AI
+        displayImage('Sprites/largeWaterTurtle.png',
+                     WIDTH / 1.22, HEIGHT * .15)  # PLAYER AI
     elif progmonAI == "FinalBoss":
-        displayImage('Sprites/smallFinalBoss.png', WIDTH / 1.26, HEIGHT * .06) # PLAYER AI
+        displayImage('Sprites/largeFinalBoss.png', WIDTH /
+                     1.21, HEIGHT * .12)  # PLAYER AI
 
     # DISPLAY END SCREEN STATISTICS
-    displayText("Total Attacks:" + (str(totalAttackPlayerP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .38)
+    displayText("Total Attacks:" + (str(totalAttackPlayerP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .41)
     Hit_P1 = ((totalHitPlayerP1 / totalAttackPlayerP1)*100)
     Hit_P1_Percentage = round(Hit_P1, 2)
     Missed_P1 = ((totalMissedPlayerP1 / totalAttackPlayerP1)*100)
     Missed_P1_Percentage = round(Missed_P1, 2)
-    displayText("Hit %:" + (str(Hit_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .48)
-    displayText("Miss %:" + (str(Missed_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .58)
-    displayText("Bag:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .68) # still working on this
-    displayText("Switches:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .78) # still working on this
+    displayText("Hit %:" + (str(Hit_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .51)
+    displayText("Miss %:" + (str(Missed_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .61)
+    displayText("Bag:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71) # still working on this
+    displayText("Switches:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81) # still working on this
 
-    displayText("Total Attacks:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .38) # still working on this
+    displayText("Total Attacks:", MEDIUM, BLACK, WIDTH /
+                1.3, HEIGHT * .41)  # still working on this
     # hit2 = ((totalhitPlayer2 / totalAttackPlayer2) * 100)
     # hit2Percentage = round(hit2, 2)
     # missed2 = ((totalMissedPlayer2 / totalAttackPlayer2) * 100)
     # missed2Percentage = round(missed2, 2)
-    displayText("Hit %:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .48) # still working on this
-    displayText("Miss %:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .58) # still working on this
-    displayText("Bag:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .68) # still working on this
-    displayText("Switches:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .78) # still working on this
+    displayText("Hit %:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .51)  # still working on this
+    displayText("Miss %:", MEDIUM, BLACK, WIDTH / 1.3 HEIGHT * .61)  # still working on this
+    displayText("Bag:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71)  # still working on this
+    displayText("Switches:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .81)  # still working on this
 
     # DISPLAY BUTTONS
-    btnRestart = displayButton("RESTART GAME", SMALL, BLACK, WIDTH / 2.7, HEIGHT * .90)
-    btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH / 1.5, HEIGHT * .90)
+    btnRestart = displayButton(
+        "RESTART GAME", SMALL, BLACK, WIDTH / 2.7, HEIGHT * .93)
+    btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH / 1.5, HEIGHT * .93)
+
 
     # TRACK RESTART GAME BUTTON
     if mouseClick(btnRestart):
