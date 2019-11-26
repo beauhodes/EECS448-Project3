@@ -727,12 +727,12 @@ def endScreen():
         Missed_P1_Percentage = round(Missed_P1, 2)
         displayText("Hit %: " + (str(Hit_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .51)
         displayText("Miss %: " + (str(Missed_P1_Percentage)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .61)
-        displayText("Bag: " + (str(totalBagUsedP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71)
+        displayText("# Items Used: " + (str(totalBagUsedP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71)
         displayText("Switches: " + (str(totalProgmonSwitchesP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81)
     else:
         displayText("Hit %: " + "0%", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .51)
         displayText("Miss %: " + "0%", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .61)
-        displayText("Bag: " + (str(totalBagUsedP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71)
+        displayText("# Items Used: " + (str(totalBagUsedP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71)
         displayText("Switches: " + (str(totalProgmonSwitchesP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81)     
 
     #PlayerAI's scoreboard
@@ -744,12 +744,12 @@ def endScreen():
         Missed_AI_Percentage = round(Missed_AI, 2)
         displayText("Hit %: " + (str(Hit_AI_Percentage)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .51)
         displayText("Miss %: " + (str(Missed_AI_Percentage)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61) 
-        displayText("Bag: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71) 
+        displayText("# Items Used: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71) 
         displayText("Switches: " + (str(totalProgmonSwitchesAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .81)
     else:
         displayText("Hit %: " + "0%", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .51)
         displayText("Miss %: " + "0%", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61) 
-        displayText("Bag: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71) 
+        displayText("# Items Used: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71) 
         displayText("Switches: " + (str(totalProgmonSwitchesAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .81)
 
     # DISPLAY BUTTONS
