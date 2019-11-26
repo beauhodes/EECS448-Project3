@@ -60,7 +60,6 @@ totalBagUsedAI = 0
 totalProgmonSwitchesP1 = 0
 totalProgmonSwitchesAI = 0
 
-
 def eventHandler():
     """
     Handles Pygame events
@@ -336,7 +335,7 @@ def fightScreen():
     btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH * 0.8, HEIGHT * 0.955)
 
     # HANDLE TURN FOR PLAYER 1
-    if(myP1.checkAlive() != True):        
+    if(myP1.checkAlive() != True):
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         displayText(("Player 1's {} has fainted. You lose!".format(progmonNameP1)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         print("Player 1's {} has fainted. Player AI wins!".format(progmonNameP1))
@@ -347,7 +346,6 @@ def fightScreen():
 
     if myP1.getStunStatus() == False:
         displayText("What will you do?", MINI, BLACK, WIDTH * .25, HEIGHT * .75)
-
         # TRACK BATTLE MENU BUTTONS
         if mouseClick(btnFight):
             gameState = "fightMenu"
@@ -665,7 +663,7 @@ def progmonMenu():
         gameState = "fightScreen"
         controlScreen(gameState)
 
-def endScreen():           
+def endScreen():
     """
     Displays and tracks all objects on the End Screen
     Args:
@@ -733,29 +731,28 @@ def endScreen():
         displayText("Hit %: " + "0%", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .51)
         displayText("Miss %: " + "0%", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .61)
         displayText("# Items Used: " + (str(totalBagUsedP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71)
-        displayText("Switches: " + (str(totalProgmonSwitchesP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81)     
+        displayText("Switches: " + (str(totalProgmonSwitchesP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81)
 
     #PlayerAI's scoreboard
     displayText("Total Attacks: " + (str(totalAttackPlayerAI)) , MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .41)
-    if(totalAttackPlayerAI > 0): 
+    if(totalAttackPlayerAI > 0):
         Hit_AI = ((totalHitPlayerAI / totalAttackPlayerAI) * 100)
         Hit_AI_Percentage = round(Hit_AI, 2)
         Missed_AI = ((totalMissedPlayerAI / totalAttackPlayerAI) * 100)
         Missed_AI_Percentage = round(Missed_AI, 2)
         displayText("Hit %: " + (str(Hit_AI_Percentage)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .51)
-        displayText("Miss %: " + (str(Missed_AI_Percentage)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61) 
-        displayText("# Items Used: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71) 
+        displayText("Miss %: " + (str(Missed_AI_Percentage)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61)
+        displayText("# Items Used: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71)
         displayText("Switches: " + (str(totalProgmonSwitchesAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .81)
     else:
         displayText("Hit %: " + "0%", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .51)
-        displayText("Miss %: " + "0%", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61) 
-        displayText("# Items Used: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71) 
+        displayText("Miss %: " + "0%", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61)
+        displayText("# Items Used: " + (str(totalBagUsedAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71)
         displayText("Switches: " + (str(totalProgmonSwitchesAI)), MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .81)
 
     # DISPLAY BUTTONS
     btnRestart = displayButton("RESTART GAME", SMALL, BLACK, WIDTH / 2.7, HEIGHT * .93)
     btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH / 1.5, HEIGHT * .93)
-
 
     # TRACK RESTART GAME BUTTON
     if mouseClick(btnRestart):
@@ -820,7 +817,7 @@ def AITurn():
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
     displayText("Player AI is thinking...", MINI, BLACK, WIDTH * .75, HEIGHT * .75)
 
-    if myAI.checkAlive() == False:        
+    if myAI.checkAlive() == False:
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
         print("Player AI's {} has fainted. You win!".format(progmonNameAI))
         displayText(("Player AI's {} has fainted. You win!".format(progmonNameAI)), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
@@ -840,7 +837,7 @@ def AITurn():
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
     elif(P1critical <= .2): #if P1 is critical, always attack
         messageToShow = myAI.AIAttack(myP1)
-        totalAttackPlayerAI = totalAttackPlayerAI + 1 #AI total attack counter  ############### need check right here???? 
+        totalAttackPlayerAI = totalAttackPlayerAI + 1 #AI total attack counter  ############### need check right here????
         print("{} attacking...".format(progmonNameAI))
         displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         print("{}".format(messageToShow))
@@ -852,7 +849,7 @@ def AITurn():
         displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 20% chance to run (else attack)
         percentage = random.randint(1, 100)
-        if(percentage <= 20): #run            
+        if(percentage <= 20): #run
             print("Player AI ran!")
             displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             winner = "Player 1"
@@ -872,7 +869,6 @@ def AITurn():
             print("{}".format(messageToShow[1]))
             displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
-        print("\n[WORK IN PROGRESS]\n")
         percentage = random.randint(1, 100)
         if(percentage <= 70):
             messageToShow = myAI.AIAttack(myP1)
@@ -899,7 +895,7 @@ def AITurn():
                     totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
                 else:
                     totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
-                    totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter  
+                    totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
                 print("{}".format(messageToShow[1]))
                 displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
             else:
@@ -988,7 +984,7 @@ def AITurn():
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
                 pygame.time.delay(1200) # WAIT
-        else:            
+        else:
             print("Player AI ran away!")
             displayText("Player AI ran away!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             winner = "Player 1"
