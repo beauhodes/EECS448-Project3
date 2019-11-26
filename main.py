@@ -55,6 +55,11 @@ totalHitPlayerP1 = 0
 totalHitPlayerAI = 0
 totalMissedPlayerP1 = 0
 totalMissedPlayerAI = 0
+totalBagUsedP1 = 0
+totalBagUsedAI = 0
+totalProgmonSwitchesP1 = 0
+totalProgmonSwitchesAI = 0
+
 
 def eventHandler():
     """
@@ -259,10 +264,13 @@ def fightScreen():
         None
     """
     global gameState
+    global winner
     global myP1
     global progmonNameP1
     global myAI
     global progmonNameAI
+    global totalBagUsedP1
+    global totalProgmonSwitchesP1
 
     # DISPLAY IMAGES
     displayImage('Sprites/fightScreen.png', WIDTH * .5, HEIGHT * .5) # BACKGROUND
@@ -328,11 +336,11 @@ def fightScreen():
     btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH * 0.8, HEIGHT * 0.955)
 
     # HANDLE TURN FOR PLAYER 1
-    if(myP1.checkAlive() != True):
-        winner = "Player AI"
+    if(myP1.checkAlive() != True):        
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         displayText(("Player 1's {} has fainted. You lose!".format(progmonNameP1)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         print("Player 1's {} has fainted. Player AI wins!".format(progmonNameP1))
+        winner = "Player AI"
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
         controlScreen(gameState)
@@ -676,35 +684,27 @@ def endScreen():            # unfinish , still need to add variables and statist
     displayText("{} VS {}".format(progmonNameP1, progmonNameAI), MEDIUM, BLACK, WIDTH / 2, HEIGHT * .05)
     displayText((winner + " wins!"), HUGE, BLACK, WIDTH / 2, HEIGHT * .14)
 
-    displayText("Player 1", LARGE, BLACK, WIDTH / 4.7, HEIGHT * .31)  # PLAYER 1
-    displayText("Player AI", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .31)  # PLAYER AI
+    displayText("Player 1", LARGE, BLACK, WIDTH / 4.7, HEIGHT * .33)  # PLAYER 1
+    displayText("Player AI", LARGE, BLACK, WIDTH / 1.3, HEIGHT * .33)  # PLAYER AI
 
     # DISPLAY IMAGES
     if progmonP1 == "ElectricCat":
-        displayImage('Sprites/largeElectricCat.png',
-                     WIDTH / 4.73, HEIGHT * .12)  # PLAYER 1
+        displayImage('Sprites/largeElectricCat.png', WIDTH / 5.25, HEIGHT * .15)  # PLAYER 1
     elif progmonP1 == "FireDragon":
-        displayImage('Sprites/largeFireDragon.png',
-                     WIDTH / 5.18, HEIGHT * .17)  # PLAYER 1
+        displayImage('Sprites/largeFireDragon.png', WIDTH / 5.40, HEIGHT * .17)  # PLAYER 1
     elif progmonP1 == "WaterTurtle":
-        displayImage('Sprites/largeWaterTurtle.png',
-                     WIDTH / 6.1, HEIGHT * .15)  # PLAYER 1
+        displayImage('Sprites/largeWaterTurtle.png', WIDTH / 6.1, HEIGHT * .15)  # PLAYER 1
     elif progmonP1 == "FinalBoss":
-        displayImage('Sprites/largeFinalBoss.png', WIDTH /
-                     4.73, HEIGHT * .12)  # PLAYER 1
+        displayImage('Sprites/largeFinalBoss.png', WIDTH / 4.73, HEIGHT * .12)  # PLAYER 1
 
     if progmonAI == "ElectricCat":
-        displayImage('Sprites/largeElectricCat.png',
-                     WIDTH / 1.21, HEIGHT * .12)  # PLAYER AI
+        displayImage('Sprites/largeElectricCat.png', WIDTH / 1.19, HEIGHT * .15)  # PLAYER AI
     elif progmonAI == "FireDragon":
-        displayImage('Sprites/largeFireDragon.png', WIDTH /
-                     1.21, HEIGHT * .17)  # PLAYER AI
+        displayImage('Sprites/largeFireDragon.png', WIDTH / 1.21, HEIGHT * .17)  # PLAYER AI
     elif progmonAI == "WaterTurtle":
-        displayImage('Sprites/largeWaterTurtle.png',
-                     WIDTH / 1.22, HEIGHT * .15)  # PLAYER AI
+        displayImage('Sprites/largeWaterTurtle.png', WIDTH / 1.22, HEIGHT * .15)  # PLAYER AI
     elif progmonAI == "FinalBoss":
-        displayImage('Sprites/largeFinalBoss.png', WIDTH /
-                     1.21, HEIGHT * .12)  # PLAYER AI
+        displayImage('Sprites/largeFinalBoss.png', WIDTH / 1.21, HEIGHT * .12)  # PLAYER AI
 
     # DISPLAY END SCREEN STATISTICS
     displayText("Total Attacks:" + (str(totalAttackPlayerP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .41)
@@ -717,20 +717,18 @@ def endScreen():            # unfinish , still need to add variables and statist
     displayText("Bag:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71) # still working on this
     displayText("Switches:", MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81) # still working on this
 
-    displayText("Total Attacks:", MEDIUM, BLACK, WIDTH /
-                1.3, HEIGHT * .41)  # still working on this
+    displayText("Total Attacks:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .41)  # still working on this
     # hit2 = ((totalhitPlayer2 / totalAttackPlayer2) * 100)
     # hit2Percentage = round(hit2, 2)
     # missed2 = ((totalMissedPlayer2 / totalAttackPlayer2) * 100)
     # missed2Percentage = round(missed2, 2)
     displayText("Hit %:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .51)  # still working on this
-    displayText("Miss %:", MEDIUM, BLACK, WIDTH / 1.3 HEIGHT * .61)  # still working on this
+    displayText("Miss %:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .61)  # still working on this
     displayText("Bag:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .71)  # still working on this
     displayText("Switches:", MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .81)  # still working on this
 
     # DISPLAY BUTTONS
-    btnRestart = displayButton(
-        "RESTART GAME", SMALL, BLACK, WIDTH / 2.7, HEIGHT * .93)
+    btnRestart = displayButton("RESTART GAME", SMALL, BLACK, WIDTH / 2.7, HEIGHT * .93)
     btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH / 1.5, HEIGHT * .93)
 
 
@@ -792,11 +790,11 @@ def AITurn():
     pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
     displayText("Player AI is thinking...", MINI, BLACK, WIDTH * .75, HEIGHT * .75)
 
-    if myAI.checkAlive() == False:
-        winner = "Player 1"
+    if myAI.checkAlive() == False:        
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .037, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER 1'S MESSAGES
         print("Player AI's {} has fainted. You win!".format(progmonNameAI))
         displayText(("Player AI's {} has fainted. You win!".format(progmonNameAI)), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+        winner = "Player 1"
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
         controlScreen(gameState)
@@ -822,10 +820,10 @@ def AITurn():
         displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 20% chance to run (else attack)
         percentage = random.randint(1, 100)
-        if(percentage <= 20): #run
-            winner = "Player 1"
+        if(percentage <= 20): #run            
             print("Player AI ran!")
             displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+            winner = "Player 1"
             pygame.time.wait(3000) # WAIT
             gameState = "endScreen"
             controlScreen(gameState)
@@ -937,10 +935,10 @@ def AITurn():
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
                 pygame.time.delay(1200) # WAIT
-        else:
-            winner = "Player 1"
+        else:            
             print("Player AI ran away!")
             displayText("Player AI ran away!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+            winner = "Player 1"
             pygame.time.wait(3000) # WAIT
             gameState = "endScreen"
             controlScreen(gameState)
