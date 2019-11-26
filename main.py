@@ -242,6 +242,7 @@ def startScreen():
     # TRACK PLAY BUTTON
     if mouseClick(btnPlay):
         if progmonP1 != "" and progmonAI != "":
+            print("\n[BEGINNING BATTLE]\n")
             gameState = "fightScreen"
             controlScreen(gameState)
         else:
