@@ -1,10 +1,4 @@
 """
-BUG LIST:
-    > When a Progmon faints, their Health and Health Bar does not update to display 0 HP
-    > When Defense Boost is active for either Player, the amount of damage that is printed to Terminal is not taking into account the -10 damage from the Defense Boost
-    > Player's Progmon has fainted message does not always display properly
-    > Some messages are too long and run off the Message display area... message formatting
-
 TODO LIST:
     > (CAMERON) Add sound effects
     > (BEAU) Use Sphinx documentation generator to create HTML files
