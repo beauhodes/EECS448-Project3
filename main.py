@@ -831,9 +831,15 @@ def AITurn():
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
     elif(P1critical <= .2): #if P1 is critical, always attack
         messageToShow = myAI.AIAttack(myP1)
-        totalAttackPlayerAI = totalAttackPlayerAI + 1 #AI total attack counter  ############### need check right here????
         print("{} attacking...".format(progmonNameAI))
         displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+        if messageToShow[0] == True:
+            displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+            totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
+        else:
+            totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+
+        totalAttackPlayerAI = totalAttackPlayerAI + 1 #AI total attack counter
         print("{}".format(messageToShow))
         displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
     elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #if AI is critical but P1 is not, use healing potion (if AI has it)
@@ -855,11 +861,11 @@ def AITurn():
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             if messageToShow[0] == True:
                 displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                 totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
             else:
-                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                 totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+
+            totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
             print("{}".format(messageToShow[1]))
             displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
     else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
@@ -870,11 +876,11 @@ def AITurn():
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             if messageToShow[0] == True:
                 displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                 totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
             else:
-                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                 totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+
+            totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
             print("{}".format(messageToShow[1]))
             displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
         elif(percentage <= 90):
@@ -885,11 +891,11 @@ def AITurn():
                 displayText(("{} attacking!".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 if messageToShow[0] == True:
                     displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-                    totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                     totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
                 else:
-                    totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                     totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+
+                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
                 print("{}".format(messageToShow[1]))
                 displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
             else:
