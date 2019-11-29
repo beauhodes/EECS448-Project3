@@ -194,7 +194,7 @@ def startScreen():
     btnProgmon3_AI = displayButton("Water Turtle", SMALL, WHITE, WIDTH / 1.3, HEIGHT / 2.7) # PLAYER AI
     btnProgmon4_AI = displayButton("Final Boss", SMALL, WHITE, WIDTH / 1.3, HEIGHT / 2) # PLAYER AI
 
-    btnTestSuite = displayButton("TEST SUITE", MEDIUM, WHITE, WIDTH * .5, HEIGHT * .96)
+    btnTestSuite = displayButton("TEST SUITE", MEDIUM, WHITE, WIDTH * .5, HEIGHT * .96) # TEST SUITE
 
     # TRACK PLAYER 1 BUTTONS
     if mouseClick(btnProgmon1_P1):
@@ -329,7 +329,7 @@ def fightScreen():
     btnQuit = displayButton("QUIT", SMALL, BLACK, WIDTH * 0.8, HEIGHT * 0.955)
 
     # HANDLE TURN FOR PLAYER 1
-    if(myP1.checkAlive() != True):
+    if myP1.checkAlive() != True:
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         displayText(("Player 1's {} has fainted. You lose!".format(progmonNameP1)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         print("Player 1's {} has fainted. Player AI wins!".format(progmonNameP1))
@@ -347,7 +347,7 @@ def fightScreen():
         elif mouseClick(btnBag):
             if myP1.bagEmpty() == False:
                 gameState = "bagMenu"
-                totalBagUsedP1 = totalBagUsedP1 + 1
+                totalBagUsedP1 = totalBagUsedP1 + 1 # P1 BAG COUNTER
                 controlScreen(gameState)
             else:
                 print("Your Bag is empty!")
@@ -364,6 +364,7 @@ def fightScreen():
         displayText(("{} has stunned {}!".format(progmonNameAI, progmonNameP1)), MINI, BLACK, WIDTH * .25, HEIGHT * .75)
         myP1.stunned = False
         print("{} has stunned {}!".format(progmonNameAI, progmonNameP1))
+        print("\nSkipping Player 1's turn...\n")
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         AITurn()
 
@@ -405,20 +406,20 @@ def fightMenu():
         print("Player 1's {} used {}!".format(progmonNameP1, attackList[0]))
         attackHit = myP1.attack1(myAI) # ATTACK HIT / MISS TRACKER
         displayText(("{} used {}!".format(progmonNameP1, attackList[0])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-        totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
         AITurn()
         gameState = "fightScreen"
         controlScreen(gameState)
@@ -427,20 +428,20 @@ def fightMenu():
         print("Player 1's {} used {}!".format(progmonNameP1, attackList[1]))
         attackHit = myP1.attack2(myAI) # ATTACK HIT / MISS TRACKER
         displayText(("{} used {}!".format(progmonNameP1, attackList[1])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-        totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
         AITurn()
         gameState = "fightScreen"
         controlScreen(gameState)
@@ -449,20 +450,20 @@ def fightMenu():
         print("Player 1's {} used {}!".format(progmonNameP1, attackList[2]))
         attackHit = myP1.attack3(myAI) # ATTACK HIT / MISS TRACKER
         displayText(("{} used {}!".format(progmonNameP1, attackList[2])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-        totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
         AITurn()
         gameState = "fightScreen"
         controlScreen(gameState)
@@ -471,20 +472,20 @@ def fightMenu():
         print("Player 1's {} used {}!".format(progmonNameP1, attackList[3]))
         attackHit = myP1.attack4(myAI) # ATTACK HIT / MISS TRACKER
         displayText(("{} used {}!".format(progmonNameP1, attackList[3])), MINI, BLACK, WIDTH * .25, HEIGHT * .8)
-        totalAttackPlayerP1 = totalAttackPlayerP1 + 1  # endScreen() total P1 attacked
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         if attackHit[0] == True:
             displayImage('Sprites/hitMarker.png', WIDTH * .8, HEIGHT * .45) # HIT MARKER ON PLAYER AI PROGMON
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalHitPlayerP1 = totalHitPlayerP1 + 1  # endScreen() total P1 hit
+            totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
-            totalMissedPlayerP1 = totalMissedPlayerP1 + 1  # endScreen() total P1 missed
+            totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
+        totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
         AITurn()
         gameState = "fightScreen"
         controlScreen(gameState)
@@ -593,8 +594,8 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1
-        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
+        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1 # P1 SWITCH COUNTER
+        if curHp < myP1.getHP(): # IF AI HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -612,8 +613,8 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1
-        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
+        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1 # P1 SWITCH COUNTER
+        if curHp < myP1.getHP(): # IF P1 HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -631,8 +632,8 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1
-        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
+        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1 # P1 SWITCH COUNTER
+        if curHp < myP1.getHP(): # IF P1 HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -650,8 +651,8 @@ def progmonMenu():
         myP1.setBag(curBag)
         myP1.setStatBoost(curStatBoost)
         myP1.setDefenseBoost(curDefenseBoost)
-        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1
-        if curHp < myP1.getHP(): # if player had less health than new progmon's max (before the switch), reduce health
+        totalProgmonSwitchesP1 = totalProgmonSwitchesP1 + 1 # P1 SWITCH COUNTER
+        if curHp < myP1.getHP(): # IF P1 HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
             myP1.setCurrentHealth(curHp)
         AITurn()
         gameState = "fightScreen"
@@ -709,8 +710,7 @@ def endScreen():
         displayImage('Sprites/largeFinalBoss.png', WIDTH / 1.21, HEIGHT * .12)  # PLAYER AI
 
     # DISPLAY END SCREEN STATISTICS
-
-    #PlayerP1's scoreboard
+    # P1 SCOREBOARD
     displayText("Total Attacks: " + (str(totalAttackPlayerP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .41)
     if(totalAttackPlayerP1 > 0):
         Hit_P1 = ((totalHitPlayerP1 / totalAttackPlayerP1)*100)
@@ -727,7 +727,7 @@ def endScreen():
         displayText("# Items Used: " + (str(totalBagUsedP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .71)
         displayText("Switches: " + (str(totalProgmonSwitchesP1)), MEDIUM, BLACK, WIDTH / 4.7, HEIGHT * .81)
 
-    #PlayerAI's scoreboard
+    # AI SCOREBOARD
     displayText("Total Attacks: " + (str(totalAttackPlayerAI)) , MEDIUM, BLACK, WIDTH / 1.3, HEIGHT * .41)
     if(totalAttackPlayerAI > 0):
         Hit_AI = ((totalHitPlayerAI / totalAttackPlayerAI) * 100)
@@ -820,40 +820,41 @@ def AITurn():
         gameState = "endScreen"
         controlScreen(gameState)
 
-    P1critical = (myP1.getCurrentHealth() / myP1.getHP()) #check if P1 is at critical health (<= 20% of max health)
-    AIcritical = (myP1.getCurrentHealth() / myP1.getHP()) #check if AI is at critical health (<= 20% of max health)
+    P1critical = (myP1.getCurrentHealth() / myP1.getHP()) # CHECK IF P1 IS AT CRITICAL HEALTH (<= 20% OF MAX HEALTH)
+    AIcritical = (myP1.getCurrentHealth() / myP1.getHP()) # CHECK IF AI IS AT CRITICAL HEALTH (<= 20% OF MAX HEALTH)
 
-    if(myAI.getStunStatus() == True): #if stunned, skip turn
+    if(myAI.getStunStatus() == True): # IF AI IS STUNNED, SKIP TURN
         print("{} has been stunned by {}!".format(progmonNameAI, progmonNameP1))
+        print("\nSkipping Player AI's turn...\n")
         myAI.stunned = False
         pygame.draw.rect(SCREEN, WHITE, (WIDTH * .518, HEIGHT * .71, 480, 140), 0) # FILLED BOX FOR PLAYER AI'S MESSAGES
         displayText(("{} has been stunned by {}!".format(progmonNameAI, progmonNameP1)), MINI, BLACK, WIDTH * .75, HEIGHT * .75)
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
-    elif(P1critical <= .2): #if P1 is critical, always attack
+    elif(P1critical <= .2): # IF P1 IS CRITICAL, ALWAYS ATTACK
         messageToShow = myAI.AIAttack(myP1)
         print("{} attacking...".format(progmonNameAI))
         displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         if messageToShow[0] == True:
             displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-            totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
+            totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
         else:
-            totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+            totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
 
-        totalAttackPlayerAI = totalAttackPlayerAI + 1 #AI total attack counter
-        print("{}".format(messageToShow))
-        displayText(("{}".format(messageToShow)), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
-    elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #if AI is critical but P1 is not, use healing potion (if AI has it)
+        totalAttackPlayerAI = totalAttackPlayerAI + 1 # AI ATTACK COUNTER
+        print("{}".format(messageToShow[1]))
+        displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
+    elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #IF AI IS CRITICAL AND P1 IS NOT, USE HEALTH IF POSSIBLE
         myAI.useHealthPotion()
-        totalBagUsedAI = totalBagUsedAI + 1 #AI total bag counter
+        totalBagUsedAI = totalBagUsedAI + 1 # AI BAG COUNTER
         print("Player AI used a Health Potion!")
         displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-    elif(AIcritical <= .2): #if AI is critical but P1 is not and there is no healing potion, 20% chance to run (else attack)
+    elif(AIcritical <= .2): # IF AI IS CRITICAL, BUT P1 IS NOT AND THERE IS NO HEALTH POTION, 20% CHANCE TO RUN; ELSE ATTACK
         percentage = random.randint(1, 100)
-        if(percentage <= 20): #run
+        if(percentage <= 20): # RUN
             print("Player AI ran!")
             displayText("Player AI ran!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             winner = "Player 1"
-            pygame.time.wait(3000) # WAIT
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             gameState = "endScreen"
             controlScreen(gameState)
         else:
@@ -861,14 +862,14 @@ def AITurn():
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             if messageToShow[0] == True:
                 displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-                totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
+                totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
             else:
-                totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+                totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI MISS COUNTER
 
-            totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
+                totalAttackPlayerAI = totalAttackPlayerAI + 1 # AI ATTACK COUNTER
             print("{}".format(messageToShow[1]))
             displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
-    else: #give 70% chance to attack, 20% to use bag item (if bag empty, attack), 7% chance to switch progmon (currently disabled) 3% chance to run
+    else: # 70% CHANCE TO ATTACK, 20% CHANCE TO USE BAG (IF BAG IS EMPTY, ATTACK), 7% CHANCE TO SWITCH PROGMON, 3% CHANCE TO RUN
         percentage = random.randint(1, 100)
         if(percentage <= 70):
             messageToShow = myAI.AIAttack(myP1)
@@ -876,49 +877,48 @@ def AITurn():
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             if messageToShow[0] == True:
                 displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-                totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
+                totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
             else:
-                totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+                totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
 
-            totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
+            totalAttackPlayerAI = totalAttackPlayerAI + 1 # AI ATTACK COUNTER
             print("{}".format(messageToShow[1]))
             displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
         elif(percentage <= 90):
-            if(myAI.bagEmpty() == True): #attack
+            if(myAI.bagEmpty() == True): # ATTACK
                 print("Player AI's Bag is empty!")
                 messageToShow = myAI.AIAttack(myP1)
                 print("{} attacking!".format(progmonNameAI))
                 displayText(("{} attacking!".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 if messageToShow[0] == True:
                     displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
-                    totalHitPlayerAI = totalHitPlayerAI + 1        # AI total hit counter
+                    totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
                 else:
-                    totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI totao miss counter
+                    totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
 
-                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI total attack counter
+                totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI ATTACK COUNTER
                 print("{}".format(messageToShow[1]))
                 displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
             else:
                 if("statBoost" in myAI.getBag()):
                     print("Player AI used a Stat Boost!")
                     myAI.useStatBoost()
-                    totalBagUsedAI = totalBagUsedAI + 1 #AI total bag counter
                     displayText("Player AI used a Stat Boost!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 elif("defenseBoost" in myAI.getBag()):
                     print("Player AI used a Defense Boost!")
                     myAI.useDefenseBoost()
-                    totalBagUsedAI = totalBagUsedAI + 1  # AI total bag counter
                     displayText("Player AI used a Defense Boost!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 elif("healthPotion" in myAI.getBag()):
                     print("Player AI used a Health Potion!")
                     myAI.useHealthPotion()
-                    totalBagUsedAI = totalBagUsedAI + 1  # AI total bag counter
                     displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
+
+                totalBagUsedAI = totalBagUsedAI + 1 # AI BAG COUNTER
         elif(percentage <= 97):
             print("Player AI is switching their Progmon")
             displayText("Player AI is switching their Progmon", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             switchControl = random.randint(1, 3)
-            if(switchControl == 1): #switch to electric cat (or, if currently electric cat, then final boss)
+            if(switchControl == 1): # IF NOT ELECTRIC CAT, SWITCH TO ELECTRIC CAT; ELSE SWITCH TO FINAL BOSS
                 curHp = myAI.getCurrentHealth()
                 curBag = myAI.getBag()
                 curStatBoost = myAI.getStatBoost()
@@ -934,13 +934,13 @@ def AITurn():
                 myAI.setBag(curBag)
                 myAI.setStatBoost(curStatBoost)
                 myAI.setDefenseBoost(curDefenseBoost)
-                totalProgmonSwitchesAI = totalProgmonSwitchesAI + 1 # AI progmon switches counter
-                if(curHp < myAI.getHP()): #if AI had less health than new progmon's max (before the switch), reduce health
+                totalProgmonSwitchesAI = totalProgmonSwitchesAI + 1 # AI SWITCH COUNTER
+                if(curHp < myAI.getHP()): # IF AI HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
                     myAI.setCurrentHealth(curHp)
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
-                pygame.time.delay(1200) # WAIT
-            elif(switchControl == 2): #switch to fire dragon (or, if currently fire dragon, then final boss)
+                pygame.time.delay(1200) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            elif(switchControl == 2): # IF NOT FIRE DRAGON, SWITCH TO FIRE DRAGON; ELSE SWITCH TO FINAL BOSS
                 curHp = myAI.getCurrentHealth()
                 curBag = myAI.getBag()
                 curStatBoost = myAI.getStatBoost()
@@ -956,13 +956,13 @@ def AITurn():
                 myAI.setBag(curBag)
                 myAI.setStatBoost(curStatBoost)
                 myAI.setDefenseBoost(curDefenseBoost)
-                totalProgmonSwitchesAI = totalProgmonSwitchesAI + 1  # AI progmon switches counter
-                if(curHp < myAI.getHP()): #if AI had less health than new progmon's max (before the switch), reduce health
+                totalProgmonSwitchesAI = totalProgmonSwitchesAI + 1 # AI SWITCH COUNTER
+                if(curHp < myAI.getHP()): # IF AI HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
                     myAI.setCurrentHealth(curHp)
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
-                pygame.time.delay(1200) # WAIT
-            elif(switchControl == 3): #switch to water turtle (or, if currently water turtle, then final boss)
+                pygame.time.delay(1200) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            elif(switchControl == 3): # IF NOT WATER TURTLE, SWITCH TO WATER TURTLE; ELSE SWITCH TO FINAL BOSS
                 curHp = myAI.getCurrentHealth()
                 curBag = myAI.getBag()
                 curStatBoost = myAI.getStatBoost()
@@ -978,17 +978,17 @@ def AITurn():
                 myAI.setBag(curBag)
                 myAI.setStatBoost(curStatBoost)
                 myAI.setDefenseBoost(curDefenseBoost)
-                totalProgmonSwitchesAI = totalProgmonSwitchesAI + 1  # AI progmon switches counter
-                if(curHp < myAI.getHP()): #if AI had less health than new progmon's max (before the switch), reduce health
+                totalProgmonSwitchesAI = totalProgmonSwitchesAI + 1 # AI SWITCH COUNTER
+                if(curHp < myAI.getHP()): # IF AI HAD LESS HEALTH THAN NEW PROGMON'S MAX HEALTH (BEFORE THE SWTICH), REDUCE HEALTH
                     myAI.setCurrentHealth(curHp)
                 print("Player AI switched to {}".format(progmonNameAI))
                 displayText("Player AI switched to {}".format(progmonNameAI), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
-                pygame.time.delay(1200) # WAIT
+                pygame.time.delay(1200) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("Player AI ran away!")
             displayText("Player AI ran away!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             winner = "Player 1"
-            pygame.time.wait(3000) # WAIT
+            pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             gameState = "endScreen"
             controlScreen(gameState)
 
