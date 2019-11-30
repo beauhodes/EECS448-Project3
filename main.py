@@ -1,15 +1,3 @@
-"""
-TODO LIST:
-    > (CAMERON) Add sound effects
-    > (BEAU) Use Sphinx documentation generator to create HTML files
-    > (COLE) User Manual
-    > (COLE) Gantt Chart
-    > (ROB) Meeting Logs
-    > (QUI) UML Diagrams
-    > (CAMERON) Product Backlog + Sprint Backlog
-    > Deployment Plan
-    > Maintenance Plan
-"""
 import random
 import pygame
 import pygame.gfxdraw
