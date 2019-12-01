@@ -1021,7 +1021,7 @@ def AITurn():
                 elif("defenseBoost" in myAI.getBag()):
                     print("Player AI used a Defense Boost!")
                     myAI.useDefenseBoost()
-                    defenseboost_sound.play()
+                    defenseBoost_sound.play()
                     displayText("Player AI used a Defense Boost!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 elif("healthPotion" in myAI.getBag()):
                     print("Player AI used a Health Potion!")
