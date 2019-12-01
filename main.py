@@ -21,6 +21,32 @@ RED = pygame.Color(255, 0, 0)
 GREEN = pygame.Color(160, 219, 154)
 LIGHT_GREEN = pygame.Color(0, 200, 0)
 
+# INITIALIZE SOUND OBJECTS
+healthPotion_sound = pygame.mixer.Sound('Sounds/healthPotion.wav')
+defenseBoost_sound = pygame.mixer.Sound('Sounds/defenseBoost.wav')
+statBoost_sound = pygame.mixer.Sound('Sounds/statBoost.wav')
+restorePotion_sound = pygame.mixer.Sound('Sounds/restorePotion.wav')
+electricCatEntrance_sound = pygame.mixer.Sound('Sounds/electricCatEntrance.wav')
+fireDragonEntrance_sound = pygame.mixer.Sound('Sounds/fireDragonEntrance.wav')
+waterTurtleEntrance_sound = pygame.mixer.Sound('Sounds/waterTurtleEntrance.wav')
+finalBossEntrance_sound = pygame.mixer.Sound('Sounds/finalBossEntrance.wav')
+lightningBolt_sound = pygame.mixer.Sound('Sounds/lightningBolt.wav')
+electricScratch_sound = pygame.mixer.Sound('Sounds/electricScratch.wav')
+energyBeam_sound = pygame.mixer.Sound('Sounds/energyBeam.wav')
+bite_sound = pygame.mixer.Sound('Sounds/bite.wav')
+roar_sound = pygame.mixer.Sound('Sounds/roar.wav')
+clawSwipe_sound = pygame.mixer.Sound('Sounds/clawSwipe.wav')
+fireBreath_sound = pygame.mixer.Sound('Sounds/fireBreath.wav')
+tailWhip_sound = pygame.mixer.Sound('Sounds/tailWhip.wav')
+aquaJet_sound = pygame.mixer.Sound('Sounds/aquaJet.wav')
+aquaTail_sound = pygame.mixer.Sound('Sounds/aquaTail.wav')
+waterPulse_sound = pygame.mixer.Sound('Sounds/waterPulse.wav')
+bubble_sound = pygame.mixer.Sound('Sounds/bubble.wav')
+gigaImpact_sound = pygame.mixer.Sound('Sounds/gigaImpact.wav')
+psychic_sound = pygame.mixer.Sound('Sounds/psychic.wav')
+megaKick_sound = pygame.mixer.Sound('Sounds/megaKick.wav')
+ancientPower_sound = pygame.mixer.Sound('Sounds/ancientPower.wav')
+
 # GLOBAL VARIABLES
 gameState = ""
 global myP1
@@ -187,36 +213,44 @@ def startScreen():
     # TRACK PLAYER 1 BUTTONS
     if mouseClick(btnProgmon1_P1):
         myP1 = ElectricCat()
+        electricCatEntrance_sound.play()
         progmonP1 = "ElectricCat"
         progmonNameP1 = "Electric Cat"
     elif mouseClick(btnProgmon2_P1):
         myP1 = FireDragon()
+        fireDragonEntrance_sound.play()
         progmonP1 = "FireDragon"
         progmonNameP1 = "Fire Dragon"
     elif mouseClick(btnProgmon3_P1):
         myP1 = WaterTurtle()
+        waterTurtleEntrance_sound.play()
         progmonP1 = "WaterTurtle"
         progmonNameP1 = "Water Turtle"
     elif mouseClick(btnProgmon4_P1):
         myP1 = FinalBoss()
+        finalBossEntrance_sound.play()
         progmonP1 = "FinalBoss"
         progmonNameP1 = "Final Boss"
 
     # TRACK PLAYER AI BUTTONS
     if mouseClick(btnProgmon1_AI):
         myAI = ElectricCat()
+        electricCatEntrance_sound.play()
         progmonAI = "ElectricCat"
         progmonNameAI = "Electric Cat"
     elif mouseClick(btnProgmon2_AI):
         myAI = FireDragon()
+        fireDragonEntrance_sound.play()
         progmonAI = "FireDragon"
         progmonNameAI = "Fire Dragon"
     elif mouseClick(btnProgmon3_AI):
         myAI = WaterTurtle()
+        waterTurtleEntrance_sound.play()
         progmonAI = "WaterTurtle"
         progmonNameAI = "Water Turtle"
     elif mouseClick(btnProgmon4_AI):
         myAI = FinalBoss()
+        finalBossEntrance_sound.play()
         progmonAI = "FinalBoss"
         progmonNameAI = "Final Boss"
 
@@ -401,6 +435,14 @@ def fightMenu():
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
+            if progmonP1 == "ElectricCat":
+                lightningBolt_sound.play()
+            elif progmonP1 == "FireDragon":
+                roar_sound.play()
+            elif progmonP1 == "WaterTurtle":
+                aquaJet_sound.play()
+            elif progmonP1 == "FinalBoss":
+                gigaImpact_sound.play()
         else:
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
@@ -422,6 +464,14 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
+            if progmonP1 == "ElectricCat":
+                electricScratch_sound.play()
+            elif progmonP1 == "FireDragon":
+                clawSwipe_sound.play()
+            elif progmonP1 == "WaterTurtle":
+                aquaTail_sound.play()
+            elif progmonP1 == "FinalBoss":
+                psychic_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
@@ -444,6 +494,14 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
+            if progmonP1 == "ElectricCat":
+                energyBeam_sound.play()
+            elif progmonP1 == "FireDragon":
+                fireBreath_sound.play()
+            elif progmonP1 == "WaterTurtle":
+                waterPulse_sound.play()
+            elif progmonP1 == "FinalBoss":
+                megaKick_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
@@ -466,6 +524,14 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalHitPlayerP1 = totalHitPlayerP1 + 1 # P1 HIT COUNTER
+            if progmonP1 == "ElectricCat":
+                bite_sound.play()
+            elif progmonP1 == "FireDragon":
+                tailWhip_sound.play()
+            elif progmonP1 == "WaterTurtle":
+                bubble_sound.play()
+            elif progmonP1 == "FinalBoss":
+                ancientPower_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         else:
             print("{}".format(attackHit[1]))
@@ -502,6 +568,7 @@ def bagMenu():
             print("Player 1 used a Health Potion!")
             myP1.useHealthPotion()
             displayText("Player 1 used a Health Potion!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            healthPotion_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
@@ -513,6 +580,7 @@ def bagMenu():
             print("Player 1 used a Stat Boost!")
             myP1.useStatBoost()
             displayText("Player 1 used a Stat Boost!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            statBoost_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
@@ -524,6 +592,7 @@ def bagMenu():
             print("Player 1 used a Defense Boost")
             myP1.useDefenseBoost()
             displayText("Player 1 used a Defense Boost!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            defenseBoost_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
@@ -536,6 +605,7 @@ def bagMenu():
             myP1.useRestorePotion()
             myP1.setCurrentHealth(myP1.hp)
             displayText("Player 1 used a Restore Potion!", MINI, BLACK, WIDTH * .25, HEIGHT * .8)
+            restorePotion_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             AITurn()
             gameState = "fightScreen"
@@ -572,6 +642,7 @@ def progmonMenu():
     # TRACK PROGMON MENU BUTTONS
     if mouseClick(btnProgmon1):
         print("Player 1 is switching to Electric Cat!")
+        electricCatEntrance_sound.play()
         curHp = myP1.getCurrentHealth()
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
@@ -591,6 +662,7 @@ def progmonMenu():
 
     if mouseClick(btnProgmon2):
         print("Player 1 is switching to Fire Dragon!")
+        fireDragonEntrance_sound.play()
         curHp = myP1.getCurrentHealth()
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
@@ -610,6 +682,7 @@ def progmonMenu():
 
     if mouseClick(btnProgmon3):
         print("Player 1 is switching to Water Turtle!")
+        waterTurtleEntrance_sound.play()
         curHp = myP1.getCurrentHealth()
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
@@ -629,6 +702,7 @@ def progmonMenu():
 
     if mouseClick(btnProgmon4):
         print("Player 1 is switching to Final Boss!")
+        finalBossEntrance_sound.play()
         curHp = myP1.getCurrentHealth()
         curBag = myP1.getBag()
         curStatBoost = myP1.getStatBoost()
@@ -777,6 +851,52 @@ def controlScreen(gameState):
         print("ERROR: Invalid gameState")
         quitGame()
 
+def AIAttackSound(progmonAI, attackMessage):
+    """
+    Handles choice of sound effect for AI attacks
+    Args:
+        progmonAI (string) - the AI's progmon selection
+        attackMessage (string) - the message returned by the AI's attack
+    Returns:
+        None
+    """
+    if progmonAI == "ElectricCat":
+        if attackMessage == "Lightning Bolt did 90 damage!" or attackMessage == "It did 100 damage and stunned the enemy!":
+            lightningBolt_sound.play()
+        elif attackMessage == "Electric Scratch did 40 damage!":
+            electricScratch_sound.play()
+        elif attackMessage == "Energy Beam did 110 damage!" or attackMessage == "It did 120 damage and stunned the enemy!":
+            energyBeam_sound.play()
+        elif attackMessage == "Bite did 20 damage!":
+            bite_sound.play()
+    elif progmonAI == "FireDragon":
+        if attackMessage == "Roar did 80 damage!" or attackMessage == "It did 90 damage and stunned the enemy!":
+            roar_sound.play()
+        elif attackMessage == "Claw Swipe did 35 damage!":
+            clawSwipe_sound.play()
+        elif attackMessage == "Fire Breath did 140 damage!" or attackMesssage == "It did 150 damage and stunned the enemy!":
+            fireBreath_sound.play()
+        elif attackMessage == "Tail Whip did 20 damage!":
+            tailWhip_sound.play()
+    elif progmonAI == "WaterTurtle":
+        if attackMessage == "Aqua Jet did 45 damage!" or attackMessage == "It did 55 damage and stunned the enemy!":
+            aquaJet_sound.play()
+        elif attackMessage == "Aqua Tail did 50 damage!":
+            aquaTail_sound.play()
+        elif attackMessage == "Water Pulse did 70 damage!" or attackMessage == "It did 80 damage and stunned the enemy!":
+            waterPulse_sound.play()
+        elif attackMessage == "Bubble did 12 damage!":
+            bubble_sound.play()
+    elif progmonAI == "FinalBoss":
+        if attackMessage == "Giga Impact did 150 damage!" or attackMessage == "It did 160 damage and stunned the enemy!":
+            gigaImpact_sound.play()
+        elif attackMessage == "Psychic did 90 damage!":
+            psychic_sound.play()
+        elif attackMessage == "Mega Kick did 120 damage!" or attackMessage == "It did 130 damage and stunned the enemy!":
+            megaKick_sound.play()
+        elif attackMessage == "Ancient Power did 60 damage!":
+            ancientPower_sound.play()
+
 def AITurn():
     """
     Handles the decisions (FIGHT, BAG, PROGMON, QUIT) the AI has to make during their turn depending on their health and the enemy's health
@@ -824,6 +944,7 @@ def AITurn():
         displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
         if messageToShow[0] == True:
             displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+            AIAttackSound(progmonAI, messageToShow[1])
             totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
         else:
             totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
@@ -833,6 +954,7 @@ def AITurn():
         displayText(("{}".format(messageToShow[1])), MINI, BLACK, WIDTH * .75, HEIGHT * .85)
     elif((AIcritical <= .2) and ("healthPotion" in myAI.getBag())): #IF AI IS CRITICAL AND P1 IS NOT, USE HEALTH IF POSSIBLE
         myAI.useHealthPotion()
+        healthPotion_sound.play()
         totalBagUsedAI = totalBagUsedAI + 1 # AI BAG COUNTER
         print("Player AI used a Health Potion!")
         displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
@@ -850,6 +972,7 @@ def AITurn():
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             if messageToShow[0] == True:
                 displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+                AIAttackSound(progmonAI, messageToShow[1])
                 totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
             else:
                 totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI MISS COUNTER
@@ -865,6 +988,7 @@ def AITurn():
             displayText(("{} attacking...".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
             if messageToShow[0] == True:
                 displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+                AIAttackSound(progmonAI, messageToShow[1])
                 totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
             else:
                 totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
@@ -880,6 +1004,7 @@ def AITurn():
                 displayText(("{} attacking!".format(progmonNameAI)), MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 if messageToShow[0] == True:
                     displayImage('Sprites/hitMarker.png', WIDTH * .2, HEIGHT * .45) # HIT MARKER ON PLAYER 1 PROGMON
+                    AIAttackSound(progmonAI, messageToShow[1])
                     totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
                 else:
                     totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
@@ -891,14 +1016,17 @@ def AITurn():
                 if("statBoost" in myAI.getBag()):
                     print("Player AI used a Stat Boost!")
                     myAI.useStatBoost()
+                    statBoost_sound.play()
                     displayText("Player AI used a Stat Boost!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 elif("defenseBoost" in myAI.getBag()):
                     print("Player AI used a Defense Boost!")
                     myAI.useDefenseBoost()
+                    defenseboost_sound.play()
                     displayText("Player AI used a Defense Boost!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
                 elif("healthPotion" in myAI.getBag()):
                     print("Player AI used a Health Potion!")
                     myAI.useHealthPotion()
+                    healthPotion_sound.play()
                     displayText("Player AI used a Health Potion!", MINI, BLACK, WIDTH * .75, HEIGHT * .8)
 
                 totalBagUsedAI = totalBagUsedAI + 1 # AI BAG COUNTER
@@ -913,10 +1041,12 @@ def AITurn():
                 curDefenseBoost = myAI.getDefenseBoost()
                 if(progmonAI != "ElectricCat"):
                     myAI = ElectricCat()
+                    electricCatEntrance_sound.play()
                     progmonAI = "ElectricCat"
                     progmonNameAI = "Electric Cat"
                 else:
                     myAI = FinalBoss()
+                    finalBossEntrance_sound.play()
                     progmonAI = "FinalBoss"
                     progmonNameAI = "Final Boss"
                 myAI.setBag(curBag)
@@ -935,10 +1065,12 @@ def AITurn():
                 curDefenseBoost = myAI.getDefenseBoost()
                 if(progmonAI != "FireDragon"):
                     myAI = FireDragon()
+                    fireDragonEntrance_sound.play()
                     progmonAI = "FireDragon"
                     progmonNameAI = "Fire Dragon"
                 else:
                     myAI = FinalBoss()
+                    finalBossEntrance_sound.play()
                     progmonAI = "FinalBoss"
                     progmonNameAI = "Final Boss"
                 myAI.setBag(curBag)
@@ -957,10 +1089,12 @@ def AITurn():
                 curDefenseBoost = myAI.getDefenseBoost()
                 if(progmonAI != "WaterTurtle"):
                     myAI = WaterTurtle()
+                    waterTurtleEntrance_sound.play()
                     progmonAI = "WaterTurtle"
                     progmonNameAI = "Water Turtle"
                 else:
                     myAI = FinalBoss()
+                    finalBossEntrance_sound.play()
                     progmonAI = "FinalBoss"
                     progmonNameAI = "Final Boss"
                 myAI.setBag(curBag)
