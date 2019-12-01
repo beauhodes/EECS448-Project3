@@ -1,0 +1,1897 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>progmon.py &#8212; Project3 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="main.py" href="MainClass.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-progmon">
+<span id="progmon-py"></span><h1>progmon.py<a class="headerlink" href="#module-progmon" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="progmon.ElectricCat">
+<em class="property">class </em><code class="sig-prename descclassname">progmon.</code><code class="sig-name descname">ElectricCat</code><a class="headerlink" href="#progmon.ElectricCat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for the Electric Cat Progmon</p>
+<dl class="method">
+<dt id="progmon.ElectricCat.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(string) - the attack that was used by the AI
+(bool) - True if attack hit, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Lightning Bolt
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Electric Scratch
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Energy Beam
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Bite
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if ElectricCat is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if ElectricCat is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of Electric Cat
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Electric Cat’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of Electric Cat
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Electric Cat’s bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of Electric Cat
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows Electric Cat to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals ElectricCat to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.ElectricCat.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.ElectricCat.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows ElectricCat to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="progmon.FinalBoss">
+<em class="property">class </em><code class="sig-prename descclassname">progmon.</code><code class="sig-name descname">FinalBoss</code><a class="headerlink" href="#progmon.FinalBoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for the Final Boss Progmon</p>
+<dl class="method">
+<dt id="progmon.FinalBoss.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - the attack that was used by the AI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Giga Impact
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Psychic
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Mega Kick
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Ancient Power
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if FinalBoss is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if FinalBoss is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows FinalBoss to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals FinalBoss to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FinalBoss.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FinalBoss.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows FinalBoss to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="progmon.FireDragon">
+<em class="property">class </em><code class="sig-prename descclassname">progmon.</code><code class="sig-name descname">FireDragon</code><a class="headerlink" href="#progmon.FireDragon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for the Fire Dragon Progmon</p>
+<dl class="method">
+<dt id="progmon.FireDragon.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - the attack that was used by the AI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Roar
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Claw Swipe
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Fire Breath
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Tail Whip
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if FireDragon is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if FireDragon is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of Fire Dragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows Fire Dragon to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals FireDragon to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.FireDragon.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.FireDragon.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows FireDragon to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="progmon.Progmon">
+<em class="property">class </em><code class="sig-prename descclassname">progmon.</code><code class="sig-name descname">Progmon</code><a class="headerlink" href="#progmon.Progmon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class for all Progmon</p>
+<dl class="method">
+<dt id="progmon.Progmon.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(string) - the attack that was used by the AI
+(bool) - True if the attack hit, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if Progmon is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Progmon is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attackList of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Progmon’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the Bag of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Progmon’s Bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Progmon’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Progmon’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Progmon’s HP</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Progmon’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Progmon is stunned, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Bag of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+newBag (array) - what to fill the Bag with</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the currentHealth of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+newHealth (int) - what to set currentHealth to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows this progmon to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.Progmon.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.Progmon.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows this Progmon to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="progmon.WaterTurtle">
+<em class="property">class </em><code class="sig-prename descclassname">progmon.</code><code class="sig-name descname">WaterTurtle</code><a class="headerlink" href="#progmon.WaterTurtle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Water Turtle Progmon</p>
+<dl class="method">
+<dt id="progmon.WaterTurtle.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - the attack that was used by the AI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Aqua Jet and has a chance to stun
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Aqua Tail
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Water Pulse and has a chance to potentially stun
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Bubble
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if WaterTurtle is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if WaterTurtle is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of Water Turtle
+Args:</p>
+<blockquote>
+<div><p>self (object) - Water Turtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Water Turtle’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object)
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows WaterTurtle to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="progmon.WaterTurtle.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#progmon.WaterTurtle.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows WaterTurtle to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FireDragonClass.html">fireDragon.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WaterTurtleClass.html">waterTurtle.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FinalBossClass.html">finalBoss.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MainClass.html">main.py</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">progmon.py</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="MainClass.html" title="previous chapter">main.py</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Beauhodes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/ProgmonClass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

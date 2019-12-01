@@ -14,7 +14,8 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="electricCat.py" href="ElectricCatClass.html" />
+    <link rel="next" title="progmon.py" href="ProgmonClass.html" />
+    <link rel="prev" title="finalBoss.py" href="FinalBossClass.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -36,98 +37,207 @@
 <dl class="function">
 <dt id="main.AITurn">
 <code class="sig-prename descclassname">main.</code><code class="sig-name descname">AITurn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.AITurn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Our AI decides which is the best thing to do, fight, bad, or run, depending on its health and the enemy’s health.</p>
-<p>Args: None</p>
-<p>Returns: None</p>
+<dd><p>Handles the decisions (FIGHT, BAG, PROGMON, QUIT) the AI has to make during their turn depending on their health and the enemy’s health
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="main.createTextObject">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">createTextObject</code><span class="sig-paren">(</span><em class="sig-param">textToDisplay</em>, <em class="sig-param">fontToUse</em><span class="sig-paren">)</span><a class="headerlink" href="#main.createTextObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a text object
-Args:
-textToDisplay: the string to display
-fontToUse: the style of the text
-Returns:
-the textSurface and textSurface_RECT</p>
+<dt id="main.bagMenu">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">bagMenu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.bagMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays and tracks all objects on the Bag Menu for Player 1 after “BAG” has been clicked
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.controlScreen">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">controlScreen</code><span class="sig-paren">(</span><em class="sig-param">gameState</em><span class="sig-paren">)</span><a class="headerlink" href="#main.controlScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles control of the screen via game state
+Args:</p>
+<blockquote>
+<div><p>gameState (string) - the current game state</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.displayButton">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">displayButton</code><span class="sig-paren">(</span><em class="sig-param">textToDisplay</em>, <em class="sig-param">fontToUse</em>, <em class="sig-param">colorToUse</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#main.displayButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a button and displays it on the screen
+Args:</p>
+<blockquote>
+<div><p>textToDisplay (string) - text to be displayed
+fontToUse (string) - font of the text
+colorToUse (string) - color of the text
+x (int) - center x-coordinate
+y (int) - center y-coordinate</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>buttonRectangle (pygame.Rect) - the created buttons rectangle</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.displayImage">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">displayImage</code><span class="sig-paren">(</span><em class="sig-param">imageToDisplay</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#main.displayImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads an image and displays it on the screen
+Args:</p>
+<blockquote>
+<div><p>imageToDisplay (string) - image to be displayed
+x (int) - center x-coordinate
+y (int) - center y-coordinate</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.displayText">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">displayText</code><span class="sig-paren">(</span><em class="sig-param">textToDisplay</em>, <em class="sig-param">fontToUse</em>, <em class="sig-param">colorToUse</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#main.displayText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a text object and displays it on the screen
+Args:</p>
+<blockquote>
+<div><p>textToDisplay (string) - text to be displayed
+fontToUse (string) - font of the text
+colorToUse (string) - color of the text
+x (int) - center x-coordinate
+y (int) - center y-coordinate</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.endScreen">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">endScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.endScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays and tracks all objects on the End Screen
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="main.eventHandler">
 <code class="sig-prename descclassname">main.</code><code class="sig-name descname">eventHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.eventHandler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks for different pygame events
-Args:
-None
-Returns:
-None</p>
+<dd><p>Handles Pygame events
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="main.handleScreen">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">handleScreen</code><span class="sig-paren">(</span><em class="sig-param">gameState</em><span class="sig-paren">)</span><a class="headerlink" href="#main.handleScreen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles the control of the gameStates
-Args:
-gameState (string) - the current game state
-Returns:
-None</p>
+<dt id="main.fightMenu">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">fightMenu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.fightMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays and tracks all objects on the Fight Menu for Player 1 after “FIGHT” has been clicked
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="main.isPointInRect">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">isPointInRect</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">rect</em><span class="sig-paren">)</span><a class="headerlink" href="#main.isPointInRect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if a coordinate is within the bounds of a pygame.rect object
-Args:
-x (float): x coordinate to check
-y (float): y coordinate to check
-rect (pygame.Rect): object to see if x any y are in
-Returns:
-bool: True if x and y are in rect, False otherwise</p>
+<dt id="main.fightScreen">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">fightScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.fightScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays and tracks all objects on the Fight Screen
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.mouseClick">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">mouseClick</code><span class="sig-paren">(</span><em class="sig-param">surfaceRect</em><span class="sig-paren">)</span><a class="headerlink" href="#main.mouseClick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if mouse-click is within the bounds of a surfaceRect
+Args:</p>
+<blockquote>
+<div><p>surfaceRect (Pygame.Rect) - surface object that is being checked</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if mouse-click is in surfaceRect, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.progmonMenu">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">progmonMenu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.progmonMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays and tracks all objects on the Progmon Menu for Player 1 after “PROGMON” has been clicked
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="main.quitGame">
 <code class="sig-prename descclassname">main.</code><code class="sig-name descname">quitGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.quitGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes the game window
-Args:
-None
-Returns:
-None</p>
+<dd><p>Quits Pygame
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="main.trackBattleMenuButtons">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackBattleMenuButtons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackBattleMenuButtons" title="Permalink to this definition">¶</a></dt>
-<dd><p>Keeps track of which buttons are being pressed and acts according to the users input</p>
-<p>Args: None</p>
-<p>Returns: None</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="main.trackPlayButton">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackPlayButton</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackPlayButton" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tracks when there is a click on the play button
-Args:
-None
-Returns:
-None OR gameState is changed to fightScreen and window updates</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="main.trackProgmonButtons_AI">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackProgmonButtons_AI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackProgmonButtons_AI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tracks when there is a click on Player AI’s Progmon buttons
-Args: None
-Returns: None</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="main.trackProgmonButtons_P1">
-<code class="sig-prename descclassname">main.</code><code class="sig-name descname">trackProgmonButtons_P1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.trackProgmonButtons_P1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tracks when there is a click on Player 1’s Progmon buttons
-Args:
-None
-Returns:
-None</p>
+<dt id="main.startScreen">
+<code class="sig-prename descclassname">main.</code><code class="sig-name descname">startScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.startScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays and tracks all objects on the Start Screen
+Args:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -153,14 +263,18 @@ None</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="FireDragonClass.html">fireDragon.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WaterTurtleClass.html">waterTurtle.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FinalBossClass.html">finalBoss.py</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">main.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgmonClass.html">progmon.py</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="ElectricCatClass.html" title="previous chapter">electricCat.py</a></li>
+      <li>Previous: <a href="FinalBossClass.html" title="previous chapter">finalBoss.py</a></li>
+      <li>Next: <a href="ProgmonClass.html" title="next chapter">progmon.py</a></li>
   </ul></li>
 </ul>
 </div>

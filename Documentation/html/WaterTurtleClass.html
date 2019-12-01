@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>waterTurtle.py &#8212; Project3 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="finalBoss.py" href="FinalBossClass.html" />
+    <link rel="prev" title="electricCat.py" href="ElectricCatClass.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-waterTurtle">
+<span id="waterturtle-py"></span><h1>waterTurtle.py<a class="headerlink" href="#module-waterTurtle" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="waterTurtle.WaterTurtle">
+<em class="property">class </em><code class="sig-prename descclassname">waterTurtle.</code><code class="sig-name descname">WaterTurtle</code><a class="headerlink" href="#waterTurtle.WaterTurtle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Water Turtle Progmon</p>
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - the attack that was used by the AI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Aqua Jet and has a chance to stun
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Aqua Tail
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Water Pulse and has a chance to potentially stun
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Bubble
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if WaterTurtle is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if WaterTurtle is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of Water Turtle
+Args:</p>
+<blockquote>
+<div><p>self (object) - Water Turtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Water Turtle’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>WaterTurtle’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of Progmon
+Args:</p>
+<blockquote>
+<div><p>self (object)
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of WaterTurtle
+Args:</p>
+<blockquote>
+<div><p>self (object)
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows WaterTurtle to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="waterTurtle.WaterTurtle.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#waterTurtle.WaterTurtle.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows WaterTurtle to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - WaterTurtle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FireDragonClass.html">fireDragon.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">waterTurtle.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FinalBossClass.html">finalBoss.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MainClass.html">main.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgmonClass.html">progmon.py</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ElectricCatClass.html" title="previous chapter">electricCat.py</a></li>
+      <li>Next: <a href="FinalBossClass.html" title="next chapter">finalBoss.py</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Beauhodes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/WaterTurtleClass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

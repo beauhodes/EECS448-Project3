@@ -37,95 +37,357 @@
 <dl class="class">
 <dt id="fireDragon.FireDragon">
 <em class="property">class </em><code class="sig-prename descclassname">fireDragon.</code><code class="sig-name descname">FireDragon</code><a class="headerlink" href="#fireDragon.FireDragon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class for fire dragon fighter</p>
+<dd><p>Class for the Fire Dragon Progmon</p>
 <dl class="method">
 <dt id="fireDragon.FireDragon.AIAttack">
 <code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.AIAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with a randomly chosen attack</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns:
-String of which attack was used
-Boolean of whether it succeeded or not</p>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - the attack that was used by the AI</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="fireDragon.FireDragon.ClawSwipeAttack">
-<code class="sig-name descname">ClawSwipeAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.ClawSwipeAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with claw swipe</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="fireDragon.FireDragon.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Roar
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="fireDragon.FireDragon.FireBreathAttack">
-<code class="sig-name descname">FireBreathAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.FireBreathAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with fire breath</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="fireDragon.FireDragon.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Claw Swipe
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="fireDragon.FireDragon.RoarAttack">
-<code class="sig-name descname">RoarAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.RoarAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with roar</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="fireDragon.FireDragon.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Fire Breath
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="fireDragon.FireDragon.TailWhipAttack">
-<code class="sig-name descname">TailWhipAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.TailWhipAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with tail whip</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="fireDragon.FireDragon.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Tail Whip
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="fireDragon.FireDragon.bagEmpty">
 <code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.bagEmpty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if bag is empty</p>
-<p>Args: None</p>
-<p>Returns:
-Boolean telling whether or not the bag is empty</p>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="fireDragon.FireDragon.checkAlive">
 <code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.checkAlive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if the dragon is alive</p>
-<p>Args: None
-Returns:
-Boolean telling whether the dragon is alive</p>
+<dd><p>Checks if FireDragon is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if FireDragon is alive, otherwise False</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="fireDragon.FireDragon.doDamage">
 <code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.doDamage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deals damage to the dragon’s health, set alive to false if health gets below 1</p>
-<p>Args:
-damageDone: Amount of damage to do</p>
-<p>Returns: None</p>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s bag</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="fireDragon.FireDragon.getCurrentHealth">
 <code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets current health</p>
-<p>Args: None</p>
-<p>Returns: Current health</p>
+<dd><p>Gets the currentHealth of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FireDragon’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of FireDragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of Fire Dragon
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows Fire Dragon to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="fireDragon.FireDragon.useHealthPotion">
 <code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.useHealthPotion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Uses health potion to heal 30 points of health</p>
-<p>Args: None</p>
-<p>Returns: None</p>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals FireDragon to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fireDragon.FireDragon.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fireDragon.FireDragon.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows FireDragon to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FireDragon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -153,7 +415,10 @@ damageDone: Amount of damage to do</p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">fireDragon.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WaterTurtleClass.html">waterTurtle.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FinalBossClass.html">finalBoss.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MainClass.html">main.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgmonClass.html">progmon.py</a></li>
 </ul>
 
 <div class="relations">

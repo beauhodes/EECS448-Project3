@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="main.py" href="MainClass.html" />
+    <link rel="next" title="waterTurtle.py" href="WaterTurtleClass.html" />
     <link rel="prev" title="fireDragon.py" href="FireDragonClass.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -37,95 +37,357 @@
 <dl class="class">
 <dt id="electricCat.ElectricCat">
 <em class="property">class </em><code class="sig-prename descclassname">electricCat.</code><code class="sig-name descname">ElectricCat</code><a class="headerlink" href="#electricCat.ElectricCat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class for fire dragon fighter</p>
+<dd><p>Class for the Electric Cat Progmon</p>
 <dl class="method">
 <dt id="electricCat.ElectricCat.AIAttack">
 <code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.AIAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with a randomly chosen attack</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns:
-String of which attack was used
-Boolean of whether it succeeded or not</p>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(string) - the attack that was used by the AI
+(bool) - True if attack hit, otherwise False</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="electricCat.ElectricCat.BiteAttack">
-<code class="sig-name descname">BiteAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.BiteAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with bite</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="electricCat.ElectricCat.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Lightning Bolt
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="electricCat.ElectricCat.ElectricScratchAttack">
-<code class="sig-name descname">ElectricScratchAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.ElectricScratchAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with electric scratch</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="electricCat.ElectricCat.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Electric Scratch
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="electricCat.ElectricCat.EnergyBeamAttack">
-<code class="sig-name descname">EnergyBeamAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.EnergyBeamAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with energy beam</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="electricCat.ElectricCat.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Energy Beam
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="electricCat.ElectricCat.LightningBoltAttack">
-<code class="sig-name descname">LightningBoltAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.LightningBoltAttack" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attacks enemy fighter object with lightning bolt</p>
-<p>Args:
-enemyPlayer: The enemy fighter object</p>
-<p>Returns: None</p>
+<dt id="electricCat.ElectricCat.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Bite
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="electricCat.ElectricCat.bagEmpty">
 <code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.bagEmpty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if bag is empty</p>
-<p>Args: None</p>
-<p>Returns:
-Boolean telling whether or not the badg is empty</p>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="electricCat.ElectricCat.checkAlive">
 <code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.checkAlive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if the dragon is alive</p>
-<p>Args: None
-Returns:
-Boolean telling whether the cat is alive</p>
+<dd><p>Checks if ElectricCat is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if ElectricCat is alive, otherwise False</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="electricCat.ElectricCat.doDamage">
 <code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.doDamage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deals damage to the dragon’s health, set alive to false if health gets below 1</p>
-<p>Args:
-damageDone: Amount of damage to do</p>
-<p>Returns: None</p>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of Electric Cat
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Electric Cat’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of Electric Cat
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Electric Cat’s bag</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="electricCat.ElectricCat.getCurrentHealth">
 <code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets current health</p>
-<p>Args: None</p>
-<p>Returns: Current health</p>
+<dd><p>Gets the currentHealth of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ElectricCat’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of Electric Cat
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of ElectricCat
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows Electric Cat to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="electricCat.ElectricCat.useHealthPotion">
 <code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.useHealthPotion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Uses health potion to heal 30 points of health</p>
-<p>Args: None</p>
-<p>Returns: None</p>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - ElectricCat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals ElectricCat to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="electricCat.ElectricCat.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#electricCat.ElectricCat.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows ElectricCat to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - Electric Cat</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -153,7 +415,10 @@ damageDone: Amount of damage to do</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="FireDragonClass.html">fireDragon.py</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">electricCat.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WaterTurtleClass.html">waterTurtle.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FinalBossClass.html">finalBoss.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MainClass.html">main.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgmonClass.html">progmon.py</a></li>
 </ul>
 
 <div class="relations">
@@ -161,7 +426,7 @@ damageDone: Amount of damage to do</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="FireDragonClass.html" title="previous chapter">fireDragon.py</a></li>
-      <li>Next: <a href="MainClass.html" title="next chapter">main.py</a></li>
+      <li>Next: <a href="WaterTurtleClass.html" title="next chapter">waterTurtle.py</a></li>
   </ul></li>
 </ul>
 </div>

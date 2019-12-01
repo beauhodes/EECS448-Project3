@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>finalBoss.py &#8212; Project3 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main.py" href="MainClass.html" />
+    <link rel="prev" title="waterTurtle.py" href="WaterTurtleClass.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-finalBoss">
+<span id="finalboss-py"></span><h1>finalBoss.py<a class="headerlink" href="#module-finalBoss" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="finalBoss.FinalBoss">
+<em class="property">class </em><code class="sig-prename descclassname">finalBoss.</code><code class="sig-name descname">FinalBoss</code><a class="headerlink" href="#finalBoss.FinalBoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for the Final Boss Progmon</p>
+<dl class="method">
+<dt id="finalBoss.FinalBoss.AIAttack">
+<code class="sig-name descname">AIAttack</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.AIAttack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with a randomly chosen attack
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - the attack that was used by the AI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.attack1">
+<code class="sig-name descname">attack1</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.attack1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Giga Impact
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.attack2">
+<code class="sig-name descname">attack2</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.attack2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Psychic
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.attack3">
+<code class="sig-name descname">attack3</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.attack3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Mega Kick
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if attack hit, otherwise False
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.attack4">
+<code class="sig-name descname">attack4</code><span class="sig-paren">(</span><em class="sig-param">enemyPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.attack4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attacks enemy Progmon with Ancient Power
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+enemyPlayer (object) - enemy Progmon</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True
+(string) - attack message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.bagEmpty">
+<code class="sig-name descname">bagEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.bagEmpty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the Bag is empty
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if Bag is empty, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.checkAlive">
+<code class="sig-name descname">checkAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.checkAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if FinalBoss is alive
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(bool) - True if FinalBoss is alive, otherwise False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.doDamage">
+<code class="sig-name descname">doDamage</code><span class="sig-paren">(</span><em class="sig-param">damageDone</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.doDamage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals damage to the enemy’s health; set alive to False if health goes below 1
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+damageDone (int) - amount of damage to do</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getAttackList">
+<code class="sig-name descname">getAttackList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getAttackList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the attack list of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s attackList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getBag">
+<code class="sig-name descname">getBag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bag list of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getCurrentHealth">
+<code class="sig-name descname">getCurrentHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the currentHealth of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s currentHealth</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getDefenseBoost">
+<code class="sig-name descname">getDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getHP">
+<code class="sig-name descname">getHP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getHP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the max health of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s max health</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getStatBoost">
+<code class="sig-name descname">getStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the defense boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s defense boost</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.getStunStatus">
+<code class="sig-name descname">getStunStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.getStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stun status of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>FinalBoss’s stunned status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.setBag">
+<code class="sig-name descname">setBag</code><span class="sig-paren">(</span><em class="sig-param">newBag</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.setBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the bag of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+newBag (array) - what to set bag to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.setCurrentHealth">
+<code class="sig-name descname">setCurrentHealth</code><span class="sig-paren">(</span><em class="sig-param">newHealth</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.setCurrentHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current health of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+newHealth (int) - what to set current health to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.setDefenseBoost">
+<code class="sig-name descname">setDefenseBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.setDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the defense boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+setter (boolean) - what to set defense boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.setStatBoost">
+<code class="sig-name descname">setStatBoost</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.setStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stat boost of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+setter (boolean) - what to set stat boost to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.setStunStatus">
+<code class="sig-name descname">setStunStatus</code><span class="sig-paren">(</span><em class="sig-param">setter</em><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.setStunStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the stun status of FinalBoss
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss
+setter (boolean) - what to set stunned to</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.useDefenseBoost">
+<code class="sig-name descname">useDefenseBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.useDefenseBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows FinalBoss to use a defense Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.useHealthPotion">
+<code class="sig-name descname">useHealthPotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.useHealthPotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a healthPotion to heal up to 30 points of health
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(int) - amount of health that was healed for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.useRestorePotion">
+<code class="sig-name descname">useRestorePotion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.useRestorePotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses a restorePotion that heals FinalBoss to max hp
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finalBoss.FinalBoss.useStatBoost">
+<code class="sig-name descname">useStatBoost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finalBoss.FinalBoss.useStatBoost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows FinalBoss to use a statBoost Potion
+Args:</p>
+<blockquote>
+<div><p>self (object) - FinalBoss</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Project3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FireDragonClass.html">fireDragon.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ElectricCatClass.html">electricCat.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WaterTurtleClass.html">waterTurtle.py</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">finalBoss.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MainClass.html">main.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgmonClass.html">progmon.py</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="WaterTurtleClass.html" title="previous chapter">waterTurtle.py</a></li>
+      <li>Next: <a href="MainClass.html" title="next chapter">main.py</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Beauhodes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/FinalBossClass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

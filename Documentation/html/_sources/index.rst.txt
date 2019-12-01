@@ -12,8 +12,11 @@ Welcome to Project3's documentation!
 
    FireDragonClass
    ElectricCatClass
+   WaterTurtleClass
+   FinalBossClass
    MainClass
-
+   ProgmonClass
+   
 
 Indices and tables
 ==================
