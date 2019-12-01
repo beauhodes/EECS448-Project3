@@ -874,7 +874,7 @@ def AIAttackSound(progmonAI, attackMessage):
             roar_sound.play()
         elif attackMessage == "Claw Swipe did 35 damage!":
             clawSwipe_sound.play()
-        elif attackMessage == "Fire Breath did 140 damage!" or attackMesssage == "It did 150 damage and stunned the enemy!":
+        elif attackMessage == "Fire Breath did 140 damage!" or attackMessage == "It did 150 damage and stunned the enemy!":
             fireBreath_sound.play()
         elif attackMessage == "Tail Whip did 20 damage!":
             tailWhip_sound.play()
