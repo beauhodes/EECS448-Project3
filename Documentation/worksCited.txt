@@ -6,3 +6,212 @@
 *    Availability: https://pygame.org OR https://github.com/pygame/pygame/
 *
 ***************************************************************************************/
+
+/***************************************************************************************
+*    Title: healthPotion.wav
+*    Author: qubodup
+*    Date: December 28th, 2012
+*    Availability: https://freesound.org/people/qubodup/sounds/172589/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: defenseBoost.wav
+*    Author: Bychop
+*    Date: December 8th, 2011
+*    Availability: https://freesound.org/people/Bychop/sounds/136881/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: statBoost.wav
+*    Author: Eponn
+*    Date: March 7th, 2018
+*    Availability: https://freesound.org/people/Eponn/sounds/420998/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: restorePotion.wav
+*    Author: TuneHntr_2Day
+*    Date: September 22nd, 2008
+*    Availability: https://freesound.org/people/TuneHntr_2Day/sounds/60600/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: electricCatEntrance.wav (meow)
+*    Author: tuberatanka
+*    Date: December 6th, 2010
+*    Availability: https://freesound.org/people/tuberatanka/sounds/110011/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: electricCatEntrance.wav (thunder)
+*    Author: InspectorJ
+*    Date: September 19th, 2016
+*    Availability: https://freesound.org/people/InspectorJ/sounds/360328/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: fireDragonEntrance.wav
+*    Author: benjaminharveydesign
+*    Date: July 13th, 2015
+*    Availability: https://freesound.org/people/benjaminharveydesign/sounds/315790/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: waterTurtleEntrance.wav
+*    Author: InspectorJ
+*    Date: March 10th, 2018
+*    Availability: https://freesound.org/people/InspectorJ/sounds/421184/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: finalBossEntrance.wav
+*    Author: noirenex
+*    Date: August 28th, 2014
+*    Availability: https://freesound.org/people/noirenex/sounds/245731/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: lightningBolt.wav
+*    Author: LG
+*    Date: November 9th, 2008
+*    Availability: https://freesound.org/people/LG/sounds/62856/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: electricScratch.wav
+*    Author: benjaminharveydesign
+*    Date: July 14th, 2015
+*    Availability: https://freesound.org/people/benjaminharveydesign/sounds/315918/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: energyBeam.wav
+*    Author: Kinoton
+*    Date: November 30th, 2016
+*    Availability: https://freesound.org/people/Kinoton/sounds/369516/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: bite.wav
+*    Author: AndreAngelo
+*    Date: September 3rd, 2014
+*    Availability: https://freesound.org/people/AndreAngelo/sounds/246184/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: roar.wav
+*    Author: qubodup
+*    Date: October 13th, 2018
+*    Availability: https://freesound.org/people/qubodup/sounds/442964/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: clawSwipe.wav
+*    Author: Electroviolence
+*    Date: April 23rd, 2014
+*    Availability: https://freesound.org/people/Electroviolence/sounds/234553/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: fireBreath.wav
+*    Author: CGEffex
+*    Date: April 4th, 2010
+*    Availability: https://freesound.org/people/CGEffex/sounds/94102/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: tailWhip.wav
+*    Author: CGEffex
+*    Date: March 26th, 2010
+*    Availability: https://freesound.org/people/CGEffex/sounds/93100/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: aquaJet.wav
+*    Author: Sheyvan
+*    Date: May 11th, 2019
+*    Availability: https://freesound.org/people/Sheyvan/sounds/469608/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: aquaTail.wav
+*    Author: InspectorJ
+*    Date: March 10th, 2018
+*    Availability: https://freesound.org/people/InspectorJ/sounds/421184/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: waterPulse.wav
+*    Author: Mafon2
+*    Date: March 10th, 2018
+*    Availability: https://freesound.org/people/Mafon2/sounds/371274/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: bubble.wav
+*    Author: MattJ99
+*    Date: February 2nd, 2009
+*    Availability: https://freesound.org/people/MattJ99/sounds/66786/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: gigaImpact.wav
+*    Author: ryansnook
+*    Date: December 6th, 2010
+*    Availability: https://freesound.org/people/ryansnook/sounds/110114/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: psychic.wav
+*    Author: peepholecircus
+*    Date: November 19th, 2012
+*    Availability: https://freesound.org/people/peepholecircus/sounds/169991/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: megaKick.wav (whoosh)
+*    Author: Robinhood76
+*    Date: September 27th, 2015
+*    Availability: https://freesound.org/people/bnewton103/sounds/474474/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: megaKick.wav (impact)
+*    Author: EFlexMusic
+*    Date: May 17th, 2017
+*    Availability: https://freesound.org/people/EFlexMusic/sounds/393374/
+*
+***************************************************************************************/
+
+/***************************************************************************************
+*    Title: ancientPower.wav
+*    Author: SamsterBirdies
+*    Date: May 19th, 2019
+*    Availability: https://freesound.org/people/SamsterBirdies/sounds/470903/
+*
+***************************************************************************************/
+
