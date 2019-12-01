@@ -30,6 +30,7 @@ electricCatEntrance_sound = pygame.mixer.Sound('Sounds/electricCatEntrance.wav')
 fireDragonEntrance_sound = pygame.mixer.Sound('Sounds/fireDragonEntrance.wav')
 waterTurtleEntrance_sound = pygame.mixer.Sound('Sounds/waterTurtleEntrance.wav')
 finalBossEntrance_sound = pygame.mixer.Sound('Sounds/finalBossEntrance.wav')
+miss_sound = pygame.mixer.Sound('Sounds/miss.wav')
 lightningBolt_sound = pygame.mixer.Sound('Sounds/lightningBolt.wav')
 electricScratch_sound = pygame.mixer.Sound('Sounds/electricScratch.wav')
 energyBeam_sound = pygame.mixer.Sound('Sounds/energyBeam.wav')
@@ -447,6 +448,7 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
+            miss_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
@@ -477,6 +479,7 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
+            miss_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
@@ -507,6 +510,7 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
+            miss_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
@@ -537,6 +541,7 @@ def fightMenu():
             print("{}".format(attackHit[1]))
             displayText("{}".format(attackHit[1]), MINI, BLACK, WIDTH * .25, HEIGHT * .85)
             totalMissedPlayerP1 = totalMissedPlayerP1 + 1 # P1 MISS COUNTER
+            miss_sound.play()
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
 
         totalAttackPlayerP1 = totalAttackPlayerP1 + 1 # P1 ATTACK COUNTER
@@ -947,6 +952,7 @@ def AITurn():
             AIAttackSound(progmonAI, messageToShow[1])
             totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
         else:
+            miss_sound.play()
             totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
 
         totalAttackPlayerAI = totalAttackPlayerAI + 1 # AI ATTACK COUNTER
@@ -975,6 +981,7 @@ def AITurn():
                 AIAttackSound(progmonAI, messageToShow[1])
                 totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
             else:
+                miss_sound.play()
                 totalMissedPlayerAI = totalMissedPlayerAI + 1  # AI MISS COUNTER
 
                 totalAttackPlayerAI = totalAttackPlayerAI + 1 # AI ATTACK COUNTER
@@ -991,6 +998,7 @@ def AITurn():
                 AIAttackSound(progmonAI, messageToShow[1])
                 totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
             else:
+                miss_sound.play()
                 totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
 
             totalAttackPlayerAI = totalAttackPlayerAI + 1 # AI ATTACK COUNTER
@@ -1007,6 +1015,7 @@ def AITurn():
                     AIAttackSound(progmonAI, messageToShow[1])
                     totalHitPlayerAI = totalHitPlayerAI + 1 # AI HIT COUNTER
                 else:
+                    miss_sound.play()
                     totalMissedPlayerAI = totalMissedPlayerAI + 1 # AI MISS COUNTER
 
                 totalAttackPlayerAI = totalAttackPlayerAI + 1  # AI ATTACK COUNTER
