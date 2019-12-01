@@ -22,6 +22,8 @@ GREEN = pygame.Color(160, 219, 154)
 LIGHT_GREEN = pygame.Color(0, 200, 0)
 
 # INITIALIZE SOUND OBJECTS
+playGame_sound = pygame.mixer.Sound('Sounds/playGame.wav')
+endGame_sound = pygame.mixer.Sound('Sounds/endGame.wav')
 healthPotion_sound = pygame.mixer.Sound('Sounds/healthPotion.wav')
 defenseBoost_sound = pygame.mixer.Sound('Sounds/defenseBoost.wav')
 statBoost_sound = pygame.mixer.Sound('Sounds/statBoost.wav')
@@ -259,6 +261,7 @@ def startScreen():
     if mouseClick(btnPlay):
         if progmonP1 != "" and progmonAI != "":
             print("\n[BEGINNING BATTLE]\n")
+            playGame_sound.play()
             gameState = "fightScreen"
             controlScreen(gameState)
         else:
@@ -359,6 +362,7 @@ def fightScreen():
         winner = "Player AI"
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
+        endGame_sound.play()
         controlScreen(gameState)
 
     if myP1.getStunStatus() == False:
@@ -931,6 +935,7 @@ def AITurn():
         winner = "Player 1"
         pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
         gameState = "endScreen"
+        endGame_sound.play()
         controlScreen(gameState)
 
     P1critical = (myP1.getCurrentHealth() / myP1.getHP()) # CHECK IF P1 IS AT CRITICAL HEALTH (<= 20% OF MAX HEALTH)
@@ -972,6 +977,7 @@ def AITurn():
             winner = "Player 1"
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             gameState = "endScreen"
+            endGame_sound.play()
             controlScreen(gameState)
         else:
             print("{} attacking...".format(progmonNameAI))
@@ -1121,6 +1127,7 @@ def AITurn():
             winner = "Player 1"
             pygame.time.wait(3000) # WAIT FOR PLAYER 1 TO READ THE MESSAGE
             gameState = "endScreen"
+            endGame_sound.play()
             controlScreen(gameState)
 
 if __name__ == "__main__":
