@@ -739,6 +739,8 @@ def endScreen():
     """
     global winner
     global gameState
+    global progmonP1
+    global progmonAI
     global progmonNameP1
     global progmonNameAI
     global totalAttackPlayerP1
@@ -822,6 +824,23 @@ def endScreen():
     # TRACK RESTART GAME BUTTON
     if mouseClick(btnRestart):
         print("\n[RETURNING TO START SCREEN]\n")
+
+        #DISABLES NEW GAME BEFORE PROGMON SELECTION
+        progmonAI = ""
+        progmonP1 = ""
+
+        #RESETS GAME STATISTICS
+        totalAttackPlayerP1 = 0 
+        totalAttackPlayerAI = 0
+        totalHitPlayerP1 = 0
+        totalHitPlayerAI = 0
+        totalMissedPlayerP1 = 0
+        totalMissedPlayerAI = 0
+        totalBagUsedP1 = 0
+        totalBagUsedAI = 0
+        totalProgmonSwitchesP1 = 0
+        totalProgmonSwitchesAI = 0
+
         gameState = "startScreen"
         controlScreen(gameState)
 
