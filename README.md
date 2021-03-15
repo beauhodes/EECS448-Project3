@@ -7,4 +7,4 @@ Progmon is a player vs computer fighting game, inspired by Pokemon, created by B
 Run 'python3 main.py'
 Warning: Does not run on most Mac laptops
 
-![alt text](https://github.com/beauhodes/EECS448-Project3/blob/main/gameplay.png?raw=true)
+![alt text](https://github.com/beauhodes/EECS448-Project3/blob/master/gameplay.png?raw=true)
